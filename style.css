@@ -1,5 +1,5 @@
 body {
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
 }
 
 p {
@@ -17,4 +17,39 @@ p {
     text-decoration: none;
     display: inline-block;
     font-size: 40px;   
+    cursor: pointer;
+}
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        'left left middle middle right right';
+    grid-column-gap: 10px;
+}
+
+.left, .middle, .right {
+    padding: 10px;
+    height: 100px;
+    background-color:#aaa;
+    border: dotted;
+}
+
+.left {
+    grid-area: left;
+}
+
+.middle {
+    grid-area: middle;
+}
+
+.right {
+    grid-area: right;
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-areas: 
+         'left left left'
+         'middle middle middle'
+         'right right right';
+    }
 }
