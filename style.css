@@ -7,14 +7,14 @@ p {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.button {
-    background-color: crimson;
+.button1 {
+    background-color: seagreen;
     border: none;
     border-radius: 15px;
     color: white;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: underline;
+    text-decoration: none;
     display: inline-block;
-    font-size: 16px;   
+    font-size: 40px;   
 }
