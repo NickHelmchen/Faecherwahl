@@ -25,10 +25,68 @@ p {
     font-size: 40px;   
     cursor: pointer;
 }
+    .button1:hover,
+    .button1:focus {
+        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+.buttonstart {
+    background-color: seagreen;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;   
+    cursor: pointer;
+    align-self: center;
+}
+    .buttonstart:hover,
+    .buttonstart:focus {
+        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+    .buttonstart /*button centrieren*/ {
+        margin: 0px;
+        position: absolute;
+        left: 45.5%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 53%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+.inputname {
+    background-color: seagreen;
+    border: none;
+    margin: 0px;
+    position: absolute;
+    left: 44.5%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 40%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.inputlastname {
+    background-color: seagreen;
+    border: none;
+    margin: 0px;
+    position: absolute;
+    left: 44.5%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 43%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
 .grid-container {
     display: grid;
     grid-template-areas: 
-        'left left middle middle right right';
+        'left middle right';
     grid-column-gap: 1px;
 }
 
@@ -62,5 +120,25 @@ p {
 .header {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
-    text-align: center;   
+    text-align: center; 
+    text-decoration: underline;  
+    cursor: default;
+}
+
+.toggle-buttons input[type="radio"] {
+    visibility: hidden;
+}
+
+
+.toggle-buttons label {
+    border: 1px solid #333;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.toggle-buttons input:checked + label {
+    background: #e4ffae;
+    color: #5a9900;
+    box-shadow: none;
 }
