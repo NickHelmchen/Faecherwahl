@@ -1,6 +1,12 @@
-body {
-    background-color: rgb(255, 255, 255);
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('https://chrono.com.pk/wp-content/uploads/2018/07/forestbridge.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
 }
+
 
 p {
     font-size: 20px;
@@ -47,9 +53,9 @@ p {
 @media (max-width: 600px) {
     .grid-container  {
       grid-template-areas: 
-        'left left left left left left' 
-        'middle middle middle middle middle middle' 
-        'right right right right right right';
+        'left' 
+        'middle' 
+        'right';
     }
 }
 
