@@ -154,10 +154,13 @@ p {
     border-radius: 0.5em;
     padding: 0.5em;
     cursor: pointer;
+    position: absolute;
+    align-items: center;
 }
 
 .toggle-buttons input:checked + label {
     background: #e4ffae;
     color: #5a9900;
     box-shadow: none;
+
 }
