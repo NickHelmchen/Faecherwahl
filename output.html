@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_output.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title> Fächerwahl </title>
   </head>
@@ -26,11 +27,19 @@
 
   <body onload="url()">
     <div class="bgimg">
-       <input type="text" name="name" id="name" readonly>
-       <input type="text" name="lastname" id="lastname" readonly>
-       <input type="text" name="pfach1" id="pfach1" readonly>
-       <input type="text" name="pfach2" id="pfach2" readonly>
-       <input type="text" name="pfach3" id="pfach3" readonly>
+      <form action="auswahl.html" method="get">
+        <input class="buttonbearbeiten w3-animate-top" type="submit" value="bearbeiten">
+        <input class="name" type="text" name="name" id="name" readonly>
+        <label class="namelabel" for="name"> Name: </label>
+        <input class="lastname" type="text" name="lastname" id="lastname" readonly>
+        <label class="lastnamelabel" for="lastname">Nachname: </label>
+        <input class="pfach1" type="text" name="pfach1" id="pfach1" readonly>
+        <label class="pfach1label" for="pfach1">Prüfungsfach 1: </label>
+        <input class="pfach2" type="text" name="pfach2" id="pfach2" readonly>
+        <label class="pfach2label" for="pfach2">Prüfungsfach 2:</label>
+        <input class="pfach3" type="text" name="pfach3" id="pfach3" readonly>
+        <label class="pfach3label" for="pfach3">Prüfungsfach 3:</label>
+      </form>
     </div>
   </body>
 </html>
