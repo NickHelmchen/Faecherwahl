@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html>
-<title>COMMING SOON</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-body,h1 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
-  background-image: url('https://chrono.com.pk/wp-content/uploads/2018/07/forestbridge.jpg');
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
-</style>
-<body>
+<html lang="de">
 
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Kleiner Test 1234
-  </div>
-  <div class="w3-display-middle">
-    <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:60%">
-    <p class="w3-large w3-center">Hier steht auch etwas</p>
-  </div>
-  <input type="text">
-</div>
 
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+  </head>
+
+
+  <script>
+    function url() {
+      let url = window.location.href
+      let params = (new URL(url).searchParams)
+      document.getElementById('name') = params.get('name')
+      document.getElementById('lastname') = params.get('pfach2')
+      document.getElementById('pfach2') = params.get('pfach2')
+      document.getElementById('pfach3') = params.get('pfach3')
+
+    }
+  </script>
+
+
+  <body onload="url()">
+    <div class="bgimg">
+       <input type="text" name="name" id="name" readonly>
+       <input type="text" name="lastname" id="lastname" readonly>
+       <input type="text" name="pfach1" id="pfach1" readonly>
+       <input type="text" name="pfach2" id="pfach2" readonly>
+       <input type="text" name="pfach3" id="pfach3" readonly>
+    </div>
+  </body>
 </html>
+
