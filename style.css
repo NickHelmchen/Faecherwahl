@@ -30,31 +30,6 @@ p {
         box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 
-.buttonfertig {
-    background-color: seagreen;
-    border: none;
-    border-radius: 15px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;   
-    cursor: pointer;
-}
-    .buttonfertig:hover,
-    .buttonfertig:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    }
-
-    .buttonfertig /*button centrieren*/ {
-        margin: 0px;
-        position: absolute;
-        left: 50%;
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-
 .buttonstart {
     background-color: seagreen;
     border: none;
@@ -81,6 +56,31 @@ p {
         top: 53%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+    }
+
+.buttonfertig {
+    background-color: seagreen;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+}
+    .buttonfertig:hover,
+    .buttonfertig:focus {
+        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+    .buttonfertig /*button centrieren*/ {
+        margin: 0px;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
 
 .inputname {
