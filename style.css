@@ -13,6 +13,8 @@ p {
     font-family: 'Times New Roman', Times, serif;
 }
 
+/*----------------------------------------------------------------------------------------------------*/
+
 .button1 {
     background-color: seagreen;
     border: none;
@@ -82,6 +84,8 @@ p {
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
     }
+
+/*----------------------------------------------------------------------------------------------------*/
 
 .inputname {
     background-color: seagreen;
@@ -158,6 +162,7 @@ p {
     cursor: default;
 }
 
+/*----------------------------------------------------------------------------------------------------*/
 
 .grid-container {
     display: grid;
@@ -193,6 +198,39 @@ p {
     }
 }
 
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container2 {
+    display: grid;
+    grid-template-areas: 
+        'midleft midright';
+    grid-column-gap: 1px;
+}
+
+.midleft, .midright {
+    padding: 10px;
+    height: 300px;
+    background-color: #aaa;
+}
+
+.midleft {
+    grid-area: left middle;
+}
+
+.midright {
+    grid-area: right middle;
+}
+
+@media (max-width: 600px) {
+    .grid-container2  {
+      grid-template-areas: 
+        'midleft' 
+        'midright';
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
 .header {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -200,6 +238,8 @@ p {
     text-decoration: underline;  
     cursor: default;
 }
+
+/*----------------------------------------------------------------------------------------------------*/
 
 .toggle-buttons input[type="radio"] {
     visibility: hidden;
@@ -221,3 +261,5 @@ p {
     box-shadow: none;
 
 }
+
+/*----------------------------------------------------------------------------------------------------*/
