@@ -22,7 +22,7 @@ p {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 40px;   
+    font-size: 20px;   
     cursor: pointer;
 }
     .button1:hover,
@@ -50,12 +50,9 @@ p {
     .buttonfertig /*button centrieren*/ {
         margin: 0px;
         position: absolute;
-        left: 45.5%;
+        left: 50%;
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
-        top: 53%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
     }
 
 .buttonstart {
@@ -107,6 +104,22 @@ p {
     text-align: center;
 }
 
+.showname {
+    background-color: seagreen;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 12%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 3%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: default;
+}
+
 
 .inputlastname {
     background-color: seagreen;
@@ -127,6 +140,22 @@ p {
     color: white;
     opacity: 1; /* Firefox */
     text-align: center;
+}
+
+.showlastname {
+    background-color: seagreen;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 30.2%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 3%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: default;
 }
 
 
