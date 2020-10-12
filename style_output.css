@@ -23,6 +23,8 @@
         transform: translateX(-50%);
     }
 
+/*----------------------------------------------------------------------------------------------------*/
+
 .name {
     background-color: seagreen;
     border: none;
@@ -93,30 +95,60 @@
     cursor: default;
 }
 
+.pfach4 {
+    background-color: seagreen;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 30%;
+    cursor: default;
+}
+
+.pfach5 {
+    background-color: seagreen;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 34%;
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
 .namelabel {
     color: white;
     position: absolute;
-    left: 38%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
     top: 10%;
 }
 
 .lastnamelabel {
     color: white;
     position: absolute;
-    left: 36.3%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
     top: 14%;
 }
 
 .pfach1label {
     color: white;
     position: absolute;
-    left: 35%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
     top: 18%;
     cursor: default;
 }
@@ -124,9 +156,9 @@
 .pfach2label {
     color: white;
     position: absolute;
-    left: 35%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
     top: 22%;
     cursor: default;
 }
@@ -134,9 +166,31 @@
 .pfach3label {
     color: white;
     position: absolute;
-    left: 35%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
     top: 26%;
     cursor: default;
 }
+
+.pfach4label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 30%;
+    cursor: default;
+}
+
+.pfach5label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 34%;
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
