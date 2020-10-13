@@ -12,33 +12,33 @@
     <script src="script.js"></script>
   </head>
 
-  <body onload="url()">
+  <body>
     <div class="bgimg">
         <a class="button1 w3-animate-top" href="main.html" role="button" >zurück</a>
         <br>
         <br>
-        <form action="" method="">
-          <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
-          <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>  
-          <button class="gesell w3-animate-top" onclick="gesellschaftlich()">Gesellschaftlich</button>
-        </form>
-        <br>
-        <form action="manu.html" method="get">
+        <form action="gesell.html" method="get" onload="url()">  
           <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
           <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
-          <button class="manu w3-animate-top" >Mathematisch Naturwissenschaftlich</button>
+          <input class="gesell w3-animate-top" onclick="gesellschaftlic()" type="submit" value="Gesellschaftlich">
         </form>
         <br>
-        <form action="" method="get">
+        <form action="manu.html" method="get" onload="url()">
           <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
           <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
-          <button class="muku w3-animate-top">Musisch Künstlerrisch</button>
+          <input class="manu w3-animate-top" type="submit" onclick="natur()" value="Mathematisch Naturwissenschaftlich">
         </form>
         <br>
-        <form action="" method="get">
+        <form action="muku.html" method="get" onload="url()">
+          <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
+        <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
+          <input class="muku w3-animate-top" type="submit" onclick="muku()" value="Musisch Künstlerrisch">
+        </form>
+        <br>
+        <form action="sprach.html" method="get" onload="url()">
           <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
           <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
-          <button class="spra w3-animate-top">Sprachlich</button>
+          <input class="sprach w3-animate-top" type="submit" onclick="sprach()" value="Sprachlich">
         </form>
         <br>
         <br>
