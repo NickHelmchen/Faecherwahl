@@ -21,3 +21,15 @@ function gesellschaftlich() {
   document.getElementById("pfach3.4").checked = true
   }
 }
+
+function natur() {
+
+}
+
+function muku() {
+
+}
+
+function sprac() {
+
+}
