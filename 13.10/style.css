@@ -81,6 +81,7 @@ p {
     .buttonfertig /*button centrieren*/ {
         margin: 0px;
         position: absolute;
+        top: 92%;
         left: 50%;
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
@@ -206,7 +207,7 @@ p {
 .grid-container2 {
     display: grid;
     grid-template-areas: 
-        'midleft midright';
+        'left2 midleft midright right2';
     grid-column-gap: 10px;
 }
 
@@ -216,6 +217,19 @@ p {
     background-color: rgb(236, 236, 236);
     border-radius: 20px;
     opacity: 0.9;
+}
+
+.left2, .right2 {
+    padding: 10px;
+    height: 300px;
+}
+
+.left2 {
+    grid-area:  left;
+    
+ }
+.right2 {
+    grid-area: right;
 }
 
 .midleft {
@@ -229,8 +243,10 @@ p {
 @media (max-width: 600px) {
     .grid-container2  {
       grid-template-areas: 
+        'left2'
         'midleft' 
-        'midright';
+        'midright'
+        'right2';
     }
 }
 
@@ -241,13 +257,6 @@ p {
     font-family: 'Times New Roman', Times, serif;
     text-align: center; 
     text-decoration: underline;  
-    cursor: default;
-}
-
-.headermuendlich {
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;  
     cursor: default;
 }
 
@@ -272,6 +281,10 @@ p {
     color: #5a9900;
     box-shadow: none;
 
+}
+
+.toggle-buttons-invisible {
+    display: none;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
