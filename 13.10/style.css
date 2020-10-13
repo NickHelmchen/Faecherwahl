@@ -207,7 +207,7 @@ p {
 .grid-container2 {
     display: grid;
     grid-template-areas: 
-        'left2 midleft midright right2';
+        'left2 midleft midright';
     grid-column-gap: 10px;
 }
 
@@ -222,11 +222,14 @@ p {
 .left2, .right2 {
     padding: 10px;
     height: 300px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 .left2 {
-    grid-area:  left;
-    
+    grid-area:  left left;
+
  }
 .right2 {
     grid-area: right;
@@ -243,10 +246,8 @@ p {
 @media (max-width: 600px) {
     .grid-container2  {
       grid-template-areas: 
-        'left2'
         'midleft' 
-        'midright'
-        'right2';
+        'midright';
     }
 }
 
