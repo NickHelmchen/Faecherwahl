@@ -1,7 +1,8 @@
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-  background-image: url('https://chrono.com.pk/wp-content/uploads/2018/07/forestbridge.jpg');
+  /* background-image: url('https://chrono.com.pk/wp-content/uploads/2018/07/forestbridge.jpg'); */
+  background-image: url('https://schulen.s3.amazonaws.com/media/CACHE/images/schulprofile/profilfotos/s14/963f0f3b510fd2c38dc39ba142db3e1a.jpg');
   min-height: 100%;
   background-position: center;
   background-size: cover;
@@ -16,7 +17,7 @@ p {
 /*----------------------------------------------------------------------------------------------------*/
 
 .button1 {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     border-radius: 15px;
     color: white;
@@ -29,11 +30,11 @@ p {
 }
     .button1:hover,
     .button1:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 
 .buttonstart {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     border-radius: 15px;
     color: white;
@@ -47,7 +48,7 @@ p {
 }
     .buttonstart:hover,
     .buttonstart:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
     .buttonstart /*button centrieren*/ {
         margin: 0px;
@@ -61,7 +62,7 @@ p {
     }
 
 .buttonfertig {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     border-radius: 15px;
     color: white;
@@ -74,7 +75,7 @@ p {
 }
     .buttonfertig:hover,
     .buttonfertig:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 
     .buttonfertig /*button centrieren*/ {
@@ -88,7 +89,7 @@ p {
 /*----------------------------------------------------------------------------------------------------*/
 
 .inputname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
@@ -109,7 +110,7 @@ p {
 }
 
 .showname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
@@ -126,7 +127,7 @@ p {
 
 
 .inputlastname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
@@ -147,7 +148,7 @@ p {
 }
 
 .showlastname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
@@ -168,13 +169,15 @@ p {
     display: grid;
     grid-template-areas: 
         'left middle right';
-    grid-column-gap: 1px;
+    grid-column-gap: 10px;
 }
 
 .left, .middle, .right {
     padding: 10px;
     height: 300px;
-    background-color:#aaa;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 .left {
@@ -204,13 +207,15 @@ p {
     display: grid;
     grid-template-areas: 
         'midleft midright';
-    grid-column-gap: 1px;
+    grid-column-gap: 10px;
 }
 
 .midleft, .midright {
     padding: 10px;
     height: 300px;
-    background-color: #aaa;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 .midleft {
@@ -236,6 +241,13 @@ p {
     font-family: 'Times New Roman', Times, serif;
     text-align: center; 
     text-decoration: underline;  
+    cursor: default;
+}
+
+.headermuendlich {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;  
     cursor: default;
 }
 
