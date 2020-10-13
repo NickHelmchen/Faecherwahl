@@ -1,10 +1,13 @@
+let url = window.location.href
+let params = (new URL(url).searchParams)
+
 function url() { 
-
-  let url = window.location.href
-  let params = (new URL(url).searchParams)
-
   document.getElementById("name").value = params.get('name')
   document.getElementById("lastname").value = params.get('lastname')
+
+  if(params.get("Profiel") == "MaNa") {
+    
+  }
 }
 
 function gesellschaftlich() {
