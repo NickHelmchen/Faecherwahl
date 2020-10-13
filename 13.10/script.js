@@ -1,7 +1,5 @@
-anzeigen = toggle-buttons
-nichtanzeigen = toggle-buttons-invisible
+function url() { 
 
-function url() {
   let url = window.location.href
   let params = (new URL(url).searchParams)
 
