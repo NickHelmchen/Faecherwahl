@@ -1,13 +1,25 @@
+var startname
+var startlastname
+
+
 function url() { 
   let url = window.location.href
   let params = (new URL(url).searchParams)
 
-  document.getElementById("name").value = params.get('name')
-  document.getElementById("lastname").value = params.get('lastname')
+  startname = params.get('name')
+  startlastname = params.get('lastname')
+
+  document.getElementById("name").value = startname
+  document.getElementById("lastname").value = startlastname
 
   if(params.get("Profiel") == "MaNa") {
     
   }
+}
+
+function startset() {
+  window.sessionStorage.setItem(name, startname)
+  window.sessionStorage.setItem(lastname, startlastname)
 }
 
 function gesellschaftlich() {
@@ -26,7 +38,11 @@ function gesellschaftlich() {
 }
 
 function natur() {
+  var Name = sessionStorage.getItem(name)
+  var Lastname = sessionStorage.getItem(lastname)
 
+  document.getElementById("name").value = Name
+  document.getElementById("lastname").value = Lastname
 }
 
 function muku() {
