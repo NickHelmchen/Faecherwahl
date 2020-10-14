@@ -1,25 +1,37 @@
-var startname
-var startlastname
-
+var moveback = false
 
 function url() { 
-  let url = window.location.href
-  let params = (new URL(url).searchParams)
-
-  startname = params.get('name')
-  startlastname = params.get('lastname')
-
-  document.getElementById("name").value = startname
-  document.getElementById("lastname").value = startlastname
-
-  if(params.get("Profiel") == "MaNa") {
-    
+  if(moveback == true ) {
+    document.getElementById("name").value = localStorage.getItem('savename')
+    document.getElementById("lastname").value = localStorage.getItem('savelastname')
   }
+  else{
+    let url = window.location.href
+    let params = (new URL(url).searchParams)
+
+    document.getElementById("name").value = params.get('name')
+    document.getElementById("lastname").value = params.get('lastname')
+
+    localStorage.setItem('savename', document.getElementById("name").value)
+    localStorage.setItem('savelastname', document.getElementById("lastname").value)
+
+    console.log(localStorage.getItem('savename'))
+    console.log(localStorage.getItem('savelastname'))
+  }
+  moveback = false
 }
 
 function startset() {
-  window.sessionStorage.setItem(name, startname)
-  window.sessionStorage.setItem(lastname, startlastname)
+  window.localStorage.setItem('savename', document.getElementById("name").value)
+  window.localStorage.setItem('savelastname', document.getElementById("lastname").value)
+
+  console.log(localStorage.getItem('savename'))
+  console.log(localStorage.getItem('savelastname'))
+}
+
+function selection() {
+  console.log(localStorage.getItem('savename'))
+  console.log(localtorage.getItem('savelastname'))
 }
 
 function gesellschaftlich() {
@@ -38,11 +50,11 @@ function gesellschaftlich() {
 }
 
 function natur() {
-  var Name = sessionStorage.getItem(name)
-  var Lastname = sessionStorage.getItem(lastname)
-
-  document.getElementById("name").value = Name
-  document.getElementById("lastname").value = Lastname
+  document.getElementById("name").value = localStorage.getItem('savename')
+  document.getElementById("lastname").value = localStorage.getItem('savelastname')
+  console.log("Name: " + localStorage.getItem('savename'))
+  console.log("Nachname: " + localStorage.getItem('savelastname'))
+  moveback = true
 }
 
 function muku() {
@@ -51,4 +63,9 @@ function muku() {
 
 function sprach() {
 
+}
+
+function clear() {
+  localStorage.removeItem('savename')
+  localStorage.removeItem('savelastname')
 }
