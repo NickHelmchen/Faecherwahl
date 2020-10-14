@@ -1,0 +1,196 @@
+.buttonbearbeiten {
+    background-color: seagreen;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+}
+    .buttonbearbeiten:hover,
+    .buttonbearbeiten:focus {
+        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+    .buttonbearbeiten /*button centrieren*/ {
+        margin: 0px;
+        position: absolute;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.name {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 10%;
+    cursor: default;
+}
+
+.lastname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 14%;
+    cursor: default;
+}
+
+.pfach1 {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 18%;
+    cursor: default;
+}
+
+.pfach2 {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 22%;
+    cursor: default;
+}
+
+.pfach3 {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 26%;
+    cursor: default;
+}
+
+.pfach4 {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 30%;
+    cursor: default;
+}
+
+.pfach5 {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 34%;
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.namelabel {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 10%;
+}
+
+.lastnamelabel {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 14%;
+}
+
+.pfach1label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 18%;
+    cursor: default;
+}
+
+.pfach2label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 22%;
+    cursor: default;
+}
+
+.pfach3label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 26%;
+    cursor: default;
+}
+
+.pfach4label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 30%;
+    cursor: default;
+}
+
+.pfach5label {
+    color: white;
+    position: absolute;
+    left: 40%;
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    top: 34%;
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
