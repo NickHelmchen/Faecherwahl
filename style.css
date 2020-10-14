@@ -7,6 +7,13 @@ body, html {height: 100%}
   background-size: cover;
 }
 
+.bgimg2 {
+    background-image: url('https://schulen.s3.amazonaws.com/media/CACHE/images/schulprofile/profilfotos/s14/963f0f3b510fd2c38dc39ba142db3e1a.jpg');
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+  }
+
 
 p {
     font-size: 20px;
