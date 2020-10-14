@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_output.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+  </head>
+
+
+  <script>
+    function url() {
+      let url = window.location.href
+      let params = (new URL(url).searchParams)
+      document.getElementById('name').value = params.get('name')
+      console.log('Name: ' + document.getElementById('name').value)
+      document.getElementById('lastname').value = params.get('lastname')
+      console.log('Nachname: ' + document.getElementById('lastname').value)
+      document.getElementById('pfach2').value = params.get('pfach2')
+      console.log('Prüfungsfach 2: ' + document.getElementById('pfach2').value)
+      document.getElementById('pfach3').value = params.get('pfach3')
+      console.log('Prüfungsfach 3: ' + document.getElementById('pfach3').value)
+    }
+  </script>
+
+
+  <body onload="url()">
+    <div class="bgimg">
+      <form action="auswahl.html" method="get">
+        <!-- <input class="buttonbearbeiten w3-animate-top" type="submit" value="bearbeiten"> -->
+        <input class="name" type="text" name="name" id="name" readonly>
+        <label class="namelabel" for="name"> Name: </label>
+        <input class="lastname" type="text" name="lastname" id="lastname" readonly>
+        <label class="lastnamelabel" for="lastname">Nachname: </label>
+        <input class="pfach1" type="text" name="pfach1" id="pfach1" readonly>
+        <label class="pfach1label" for="pfach1">Prüfungsfach 1: </label>
+        <input class="pfach2" type="text" name="pfach2" id="pfach2" readonly>
+        <label class="pfach2label" for="pfach2">Prüfungsfach 2:</label>
+        <input class="pfach3" type="text" name="pfach3" id="pfach3" readonly>
+        <label class="pfach3label" for="pfach3">Prüfungsfach 3:</label>
+        <input class="pfach4" type="text" name="pfach4" id="pfach4" readonly>
+        <label class="pfach4label" for="pfach4">Prüfungsfach 4:</label>
+        <input class="pfach5" type="text" name="pfach5" id="pfach5" readonly>
+        <label class="pfach5label" for="pfach5">Prüfungsfach 5:</label>
+
+      </form>
+    </div>
+  </body>
+</html>
+
