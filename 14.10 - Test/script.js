@@ -2,8 +2,8 @@ var moveback = false
 
 function url() { 
   if(moveback == true ) {
-    document.getElementById("name").value = localStorage.getItem('savename')
-    document.getElementById("lastname").value = localStorage.getItem('savelastname')
+    document.getElementById("name").value = sessionStorage.getItem('savename')
+    document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
   }
   else{
     let url = window.location.href
@@ -12,26 +12,28 @@ function url() {
     document.getElementById("name").value = params.get('name')
     document.getElementById("lastname").value = params.get('lastname')
 
-    localStorage.setItem('savename', document.getElementById("name").value)
-    localStorage.setItem('savelastname', document.getElementById("lastname").value)
+    params.set('hallo', 'byby')
 
-    console.log(localStorage.getItem('savename'))
-    console.log(localStorage.getItem('savelastname'))
+    sessionStorage.setItem('savename', document.getElementById("name").value)
+    sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
+
+    console.log("Name: " + sessionStorage.getItem('savename'))
+    console.log("Nachname: " + sessionStorage.getItem('savelastname'))
   }
   moveback = false
 }
 
 function startset() {
-  window.localStorage.setItem('savename', document.getElementById("name").value)
-  window.localStorage.setItem('savelastname', document.getElementById("lastname").value)
+  window.sessionStorage.setItem('savename', document.getElementById("name").value)
+  window.sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
 
-  console.log(localStorage.getItem('savename'))
-  console.log(localStorage.getItem('savelastname'))
+  console.log(sessionStorage.getItem('savename'))
+  console.log(sessionStorage.getItem('savelastname'))
 }
 
 function selection() {
-  console.log(localStorage.getItem('savename'))
-  console.log(localtorage.getItem('savelastname'))
+  console.log(sessionStorage.getItem('savename'))
+  console.log(sessiontorage.getItem('savelastname'))
 }
 
 function gesellschaftlich() {
@@ -50,10 +52,10 @@ function gesellschaftlich() {
 }
 
 function natur() {
-  document.getElementById("name").value = localStorage.getItem('savename')
-  document.getElementById("lastname").value = localStorage.getItem('savelastname')
-  console.log("Name: " + localStorage.getItem('savename'))
-  console.log("Nachname: " + localStorage.getItem('savelastname'))
+  document.getElementById("name").value = sessionStorage.getItem('savename')
+  document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
+  console.log("Name: " + sessionStorage.getItem('savename'))
+  console.log("Nachname: " + sessionStorage.getItem('savelastname'))
   moveback = true
 }
 
@@ -66,6 +68,11 @@ function sprach() {
 }
 
 function clear() {
-  localStorage.removeItem('savename')
-  localStorage.removeItem('savelastname')
+  sessionStorage.removeItem('savename')
+  sessionStorage.removeItem('savelastname')
+}
+
+function giveoutput() {
+  document.getElementById('name').value = sessionStorage.getItem('savename')
+  document.getElementById('lastname').value = sessionStorage.getItem('savelastname')
 }
