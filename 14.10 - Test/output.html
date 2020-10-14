@@ -9,26 +9,11 @@
     <link rel="stylesheet" href="style_output.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title> Fächerwahl </title>
+    <script src="script.js"></script>
   </head>
 
 
-  <script>
-    function url() {
-      let url = window.location.href
-      let params = (new URL(url).searchParams)
-      document.getElementById('name').value = params.get('name')
-      console.log('Name: ' + document.getElementById('name').value)
-      document.getElementById('lastname').value = params.get('lastname')
-      console.log('Nachname: ' + document.getElementById('lastname').value)
-      document.getElementById('pfach2').value = params.get('pfach2')
-      console.log('Prüfungsfach 2: ' + document.getElementById('pfach2').value)
-      document.getElementById('pfach3').value = params.get('pfach3')
-      console.log('Prüfungsfach 3: ' + document.getElementById('pfach3').value)
-    }
-  </script>
-
-
-  <body onload="url()">
+  <body onload="giveoutput()">
     <div class="bgimg">
       <form action="auswahl.html" method="get">
         <!-- <input class="buttonbearbeiten w3-animate-top" type="submit" value="bearbeiten"> -->
