@@ -1,0 +1,4 @@
+[1011/125432.103:ERROR:process_info.cc(329)] VirtualQueryEx: Zugriff verweigert (0x5)
+[1011/125432.105:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1011/125432.105:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Es wurde versucht, auf einen Prozess zuzugreifen, der gerade beendet wurde. (0xc000010a)
+[1013/135207.049:ERROR:settings.cc(430)] Settings version is not 5

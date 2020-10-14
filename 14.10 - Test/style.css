@@ -1,0 +1,357 @@
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  /* background-image: url('https://chrono.com.pk/wp-content/uploads/2018/07/forestbridge.jpg'); */
+  background-image: url('https://schulen.s3.amazonaws.com/media/CACHE/images/schulprofile/profilfotos/s14/963f0f3b510fd2c38dc39ba142db3e1a.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+
+p {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.button1 {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;   
+    cursor: pointer;
+}
+    .button1:hover,
+    .button1:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+.buttonstart {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;   
+    cursor: pointer;
+    align-self: center;
+}
+    .buttonstart:hover,
+    .buttonstart:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+    .buttonstart /*button centrieren*/ {
+        margin: 0px;
+        position: absolute;
+        left: 45.5%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 53%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+.buttonfertig {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+}
+    .buttonfertig:hover,
+    .buttonfertig:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+    .buttonfertig /*button centrieren*/ {
+        margin: 0px;
+        position: absolute;
+        top: 92%;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.inputname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 44.5%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 40%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.inputname::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+    text-align: center;
+}
+
+.showname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 12%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 3%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: default;
+}
+
+
+.inputlastname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 44.5%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 43%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.inputlastname::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+    text-align: center;
+}
+
+.showlastname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 23.2%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 3%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+        'left middle right';
+    grid-column-gap: 10px;
+}
+
+.left, .middle, .right {
+    padding: 10px;
+    height: 300px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.left {
+    grid-area: left;
+}
+
+.middle {
+    grid-area: middle;
+}
+
+.right {
+    grid-area: right;
+}
+
+@media (max-width: 600px) {
+    .grid-container  {
+      grid-template-areas: 
+        'left' 
+        'middle' 
+        'right';
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container2 {
+    display: grid;
+    grid-template-areas: 
+        'left2 midleft midright';
+    grid-column-gap: 10px;
+}
+
+.midleft, .midright {
+    padding: 10px;
+    height: 300px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.left2, .right2 {
+    padding: 10px;
+    height: 300px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.left2 {
+    grid-area:  left left;
+
+ }
+.right2 {
+    grid-area: right;
+}
+
+.midleft {
+    grid-area: left middle;
+}
+
+.midright {
+    grid-area: right middle;
+}
+
+@media (max-width: 600px) {
+    .grid-container2  {
+      grid-template-areas: 
+        'midleft' 
+        'midright';
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.header {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center; 
+    text-decoration: underline;  
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.toggle-buttons input[type="radio"] {
+    visibility: hidden;
+}
+
+
+.toggle-buttons label {
+    border: 1px solid #333;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+}
+
+.toggle-buttons input:checked + label {
+    background: #e4ffae;
+    color: #5a9900;
+    box-shadow: none;
+
+}
+
+.toggle-buttons-invisible {
+    display: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.manu {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.gesell {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.muku {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.sprach {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/*----------------------------------------------------------------------------------------------------*/
