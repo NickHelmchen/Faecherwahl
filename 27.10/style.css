@@ -1,11 +1,15 @@
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-  background-image: url('/pictures/background.jpg');
-  background-color: black;
+  background-image: url("https://i.pinimg.com/originals/87/15/c6/8715c6f2b36ea2306b9b32dcf7e4cffe.png");
+  /*background-position: 800px 20%;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  overflow-x: hidden;*/
   min-height: 100%;
   background-position: center;
-  background-size: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
 }
 
 
@@ -53,10 +57,10 @@ p {
     .buttonstart /*button centrieren*/ {
         margin: 0px;
         position: absolute;
-        left: 45.5%;
+        left: 1400px;
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
-        top: 53%;
+        top: 200px;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
@@ -96,10 +100,10 @@ p {
     color: white;
     margin: 0px;
     position: absolute;
-    left: 44.5%;
+    left: 900px;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 40%;
+    top: 200px;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -134,10 +138,10 @@ p {
     color: white;
     margin: 0px;
     position: absolute;
-    left: 44.5%;
+    left: 1120px;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 43%;
+    top: 200px;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -278,8 +282,8 @@ p {
 }
 
 .toggle-buttons input:checked + label {
-    background: #e4ffae;
-    color: #5a9900;
+    background: #aefcff;
+    color: #0099b4;
     box-shadow: none;
 
 }
@@ -301,6 +305,9 @@ p {
     display: inline-block;
     font-size: 15px;   
     cursor: pointer;
+    top: 280px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -317,6 +324,9 @@ p {
     display: inline-block;
     font-size: 15px;   
     cursor: pointer;
+    top: 250px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -333,6 +343,9 @@ p {
     display: inline-block;
     font-size: 15px;   
     cursor: pointer;
+    top: 310px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -349,6 +362,9 @@ p {
     display: inline-block;
     font-size: 15px;   
     cursor: pointer;
+    top: 340px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     left: 50%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
