@@ -172,8 +172,6 @@ p {
 
 .grid-container {
     display: grid;
-    grid-template-areas: 
-        'gp1 gp2 gp3 gp4 gp5';
     grid-column-gap: 5px;
     grid-template-areas: 
         'lef lefmid mid rigmid rig';
