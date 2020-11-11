@@ -1,9 +1,12 @@
 var moveback = false
+var restartmove = true
 
 function url() { 
   if(moveback == true ) {
     document.getElementById("name").value = sessionStorage.getItem('savename')
     document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
+    moveback = false
+    restartmove = true
   }
   else{
     let url = window.location.href
@@ -19,8 +22,8 @@ function url() {
 
     console.log("Name: " + sessionStorage.getItem('savename'))
     console.log("Nachname: " + sessionStorage.getItem('savelastname'))
+    restartmove = false
   }
-  moveback = false
 }
 
 function startset() {
@@ -60,7 +63,11 @@ function natur() {
 }
 
 function muku() {
-
+  document.getElementById("name").value = sessionStorage.getItem('savename')
+  document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
+  console.log("Name: " + sessionStorage.getItem('savename'))
+  console.log("nachname: " + sessionStorage.getItem('savelastname'))
+  moveback = true
 }
 
 function sprach() {
