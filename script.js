@@ -79,6 +79,22 @@ function clear() {
   sessionStorage.removeItem('savelastname')
 }
 
+function chemieselected(pfach){
+	if(pfach === "pfach1.2"){
+		document.getElementById("pfach2.2").checked = false
+		document.getElementById("pfach3.2").checked = false
+	}
+	if(pfach === "pfach2.2"){
+		document.getElementById("pfach1.2").checked = false
+		document.getElementById("pfach3.2").checked = false
+	}
+	if(pfach === "pfach3.2"){
+		document.getElementById("pfach1.2").checked = false
+		document.getElementById("pfach2.2").checked = false
+	}
+	
+}
+
 function giveoutput() {
   document.getElementById('name').value = sessionStorage.getItem('savename')
   document.getElementById('lastname').value = sessionStorage.getItem('savelastname')
