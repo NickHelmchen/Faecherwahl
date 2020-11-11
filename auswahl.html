@@ -5,82 +5,37 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title> Fächerwahl </title>
+    <script src="script.js"></script>
   </head>
-
-
-  <script>
-    function url() {
-      let url = window.location.href
-      let params = (new URL(url).searchParams)
-
-      document.getElementById("name").value = params.get('name')
-      document.getElementById("lastname").value = params.get('lastname')
-    }
-  </script>
-
 
   <body onload="url()">
     <div class="bgimg">
-        <a class="button1 w3-animate-top" href="main.html" role="button" >zurück</a>
-        <br>
-        <br>
-      <form action="output.html" method="get">
+        <a class="button1 w3-animate-top" href="index.html" role="button" >zurück</a>  
         <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
         <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
-        <div class="grid-container">
-            <div class="left w3-animate-left">
-                <p class="header">Prüfungsfach 1</p>
-                <input type="checkbox" name="Mathe" id="pfach1.1">
-                <label for="Pruefungsfaach1">Mathe</label>
-                <br>
-                <input type="checkbox" name="Chemie" id="pfach1.2">
-                <label for="Pruefungsfaach1">Chemie</label>
-            </div>
-            <div class="middle w3-animate-top toggle-buttons">
-                <p class="header">Prüfungsfach 2</p>
-                <input type="radio" id="pfach2.1" name="pfach2" value="Mathe">
-                <label for="pfach2.1">Mathe</label>
-                <br>
-                <br>
-                <input type="radio" id="pfach2.2" name="pfach2" value="Chemie">
-                <label for="pfach2.2">Chemie</label>
-                <br>
-                <br>
-                <input type="radio" id="pfach2.3" name="pfach2" value="Englisch">
-                <label for="pfach2.3">Englisch</label>
-            </div>
-            <div class="right w3-animate-right toggle-buttons">
-                <p class="header">Prüfungsfach 3</p>
-                <input type="radio" id="pfach3.1" name="pfach3" value="Mathe">
-                <label for="pfach3.1">Mathe</label>
-                <br>
-                <br>
-                <input type="radio" id="pfach3.2" name="pfach3" value="Chemie">
-                <label for="pfach3.2">Chemie</label>
-                <br>
-                <br>
-                <input type="radio" id="pfach3.3" name="pfach3" value="Englisch">
-                <label for="pfach3.3">Englisch</label>
-            </div>
-          </div>
-          <br>
-          <div class="grid-container2">
-            <div class="midleft w3-animate-left">
-              <p class="header">Prüfungsfach 4</p>
-              <input type="radio" name="pfach4" id="pfach4.1" value="Informatik">
-              <label for="pfach4.1">Informatik</label>
-            </div>
-            <div class="midright w3-animate-right">
-              <p class="header">Prüfungsfach 5 (mündlich)</p>
-
-            </div>
-          </div>
-          <br>
-        <input class="buttonfertig" type="submit" value="Fertig">
-      </form>
+        <br>
+        <br>
+        <form action="gesell.html" method="get">
+          <input class="gesell w3-animate-top" onclick="gesellschaftlic()" type="submit" value="Gesellschaftlich">
+        </form>
+        <br>
+        <form action="manu.html" method="get">
+          <input class="manu w3-animate-top" type="submit" onclick="natur()" value="Mathematisch Naturwissenschaftlich">
+        </form>
+        <br>
+        <form action="muku.html" method="get">
+          <input class="muku w3-animate-top" type="submit" onclick="muku()" value="Musisch Künstlerrisch">
+        </form>
+        <br>
+        <form action="sprach.html" method="get">
+          <input class="sprach w3-animate-top" type="submit" onclick="sprach()" value="Sprachlich">
+        </form>
+        <br>
+        <br>
     </div>
   </body>
 </html>

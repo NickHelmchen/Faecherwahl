@@ -57,10 +57,10 @@ p {
     .buttonstart /*button centrieren*/ {
         margin: 0px;
         position: absolute;
-        left: 1400px;
+        left: 85%;
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
-        top: 200px;
+        top: 15%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
@@ -100,10 +100,10 @@ p {
     color: white;
     margin: 0px;
     position: absolute;
-    left: 900px;
+    left: 45%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 200px;
+    top: 15%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -138,10 +138,10 @@ p {
     color: white;
     margin: 0px;
     position: absolute;
-    left: 1120px;
+    left: 62%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 200px;
+    top: 15%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -371,3 +371,51 @@ p {
 }
 
 /*----------------------------------------------------------------------------------------------------*/
+
+.startauswahlbutton {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;   
+    cursor: pointer;
+    position: absolute;
+    left: 35%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+    .startauswahlbutton:hover,
+    .startauswahlbutton:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+    .startauswahlbutton2 {
+        background-color: skyblue;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;   
+        cursor: pointer;
+        position: absolute;
+        left: 35%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 55%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+        .startauswahlbutton2:hover,
+        .startauswahlbutton2:focus {
+            box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        }

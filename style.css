@@ -1,11 +1,17 @@
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
 .bgimg {
-  background-image: url('https://chrono.com.pk/wp-content/uploads/2018/07/forestbridge.jpg');
+  background-image: url("https://i.pinimg.com/originals/87/15/c6/8715c6f2b36ea2306b9b32dcf7e4cffe.png");
+  /*background-position: 800px 20%;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  overflow-x: hidden;*/
   min-height: 100%;
   background-position: center;
-  background-size: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
 }
+
 
 p {
     font-size: 20px;
@@ -15,7 +21,7 @@ p {
 /*----------------------------------------------------------------------------------------------------*/
 
 .button1 {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     border-radius: 15px;
     color: white;
@@ -28,11 +34,11 @@ p {
 }
     .button1:hover,
     .button1:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 
 .buttonstart {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     border-radius: 15px;
     color: white;
@@ -46,21 +52,21 @@ p {
 }
     .buttonstart:hover,
     .buttonstart:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
     .buttonstart /*button centrieren*/ {
         margin: 0px;
         position: absolute;
-        left: 45.5%;
+        left: 85%;
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
-        top: 53%;
+        top: 15%;
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
     }
 
 .buttonfertig {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     border-radius: 15px;
     color: white;
@@ -73,12 +79,13 @@ p {
 }
     .buttonfertig:hover,
     .buttonfertig:focus {
-        box-shadow: rgba(179, 35, 35, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
 
     .buttonfertig /*button centrieren*/ {
         margin: 0px;
         position: absolute;
+        top: 92%;
         left: 50%;
         -ms-transform: translateX(-50%);
         transform: translateX(-50%);
@@ -87,16 +94,16 @@ p {
 /*----------------------------------------------------------------------------------------------------*/
 
 .inputname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
     margin: 0px;
     position: absolute;
-    left: 44.5%;
+    left: 45%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 40%;
+    top: 15%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -108,7 +115,7 @@ p {
 }
 
 .showname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
@@ -125,16 +132,16 @@ p {
 
 
 .inputlastname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
     margin: 0px;
     position: absolute;
-    left: 44.5%;
+    left: 62%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    top: 43%;
+    top: 15%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
@@ -146,13 +153,13 @@ p {
 }
 
 .showlastname {
-    background-color: seagreen;
+    background-color: skyblue;
     border: none;
     text-align: center;
     color: white;
     margin: 0px;
     position: absolute;
-    left: 23.2%;
+    left: 30.5%;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     top: 3%;
@@ -167,13 +174,15 @@ p {
     display: grid;
     grid-template-areas: 
         'left middle right';
-    grid-column-gap: 1px;
+    grid-column-gap: 10px;
 }
 
 .left, .middle, .right {
     padding: 10px;
     height: 300px;
-    background-color:#aaa;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 .left {
@@ -202,14 +211,32 @@ p {
 .grid-container2 {
     display: grid;
     grid-template-areas: 
-        'midleft midright';
-    grid-column-gap: 1px;
+        'left2 midleft midright';
+    grid-column-gap: 10px;
 }
 
 .midleft, .midright {
     padding: 10px;
     height: 300px;
-    background-color: #aaa;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.left2, .right2 {
+    padding: 10px;
+    height: 300px;
+    background-color: rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.left2 {
+    grid-area:  left left;
+
+ }
+.right2 {
+    grid-area: right;
 }
 
 .midleft {
@@ -255,10 +282,140 @@ p {
 }
 
 .toggle-buttons input:checked + label {
-    background: #e4ffae;
-    color: #5a9900;
+    background: #aefcff;
+    color: #0099b4;
     box-shadow: none;
 
 }
 
+.toggle-buttons-invisible {
+    display: none;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
+
+.manu {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 280px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.gesell {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 250px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.muku {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 310px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.sprach {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 340px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.startauswahlbutton {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;   
+    cursor: pointer;
+    position: absolute;
+    left: 35%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+    .startauswahlbutton:hover,
+    .startauswahlbutton:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+    .startauswahlbutton2 {
+        background-color: skyblue;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;   
+        cursor: pointer;
+        position: absolute;
+        left: 35%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 55%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+        .startauswahlbutton2:hover,
+        .startauswahlbutton2:focus {
+            box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        }
