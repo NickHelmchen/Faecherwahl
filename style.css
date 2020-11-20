@@ -218,7 +218,7 @@ p {
 
 /*----------------------------------------------------------------------------------------------------*/
 
-.toggle-buttons input[type="radio"] {
+.toggle-buttons input[type="radio"]{
     visibility: hidden;
 }
 
@@ -232,11 +232,10 @@ p {
     align-items: center;
 }
 
-.toggle-buttons input:checked + label {
+.toggle-buttons input:checked + label{
     background: #aefcff;
     color: #0099b4;
     box-shadow: none;
-
 }
 
 .toggle-buttons-invisible {
