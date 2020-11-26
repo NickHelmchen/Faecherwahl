@@ -68,7 +68,7 @@ function muku() {
   document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
   console.log("Name: " + sessionStorage.getItem('savename'))
   console.log("nachname: " + sessionStorage.getItem('savelastname'))
-  moveback = true
+  moveback = false
 }
 
 function sprach() {
