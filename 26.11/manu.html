@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="natur()">
+    <div class="bgimg">
+        <a class="button1 w3-animate-top" href="auswahl.html" role="button">zurück</a>
+        <input class="showname" type="text" name="name" id="name" autocomplete="off" readonly>
+        <input class="showlastname" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
+        <br>
+        <br>
+        <button class="button1 w3-animate-top" onclick="gesellschaftlich()">Gesellschaftlich</button>
+        <button class="button1 w3-animate-top">Mathematisch Naturwissenschaftlich</button>
+        <button class="button1 w3-animate-top">Musisch Künstlerrisch</button>
+        <button class="button1 w3-animate-top">Sprachlich</button>
+        <br>
+        <br>
+      <form action="output.html" method="get">
+        <div class="grid-container">
+            <div class="gp1 w3-animate-left toggle-buttons">
+                <p class="header">Prüfungsfach 1</p>
+                <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="invisible('pfach1.', '1')">
+                <label for="pfach1.1" id="pfach1.1.label">Mathe</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.2" value="Chemie" onclick="chemieselected('pfach1.2'), invisible('pfach1.', '2')">
+                <label for="pfach1.2" id="pfach1.2.label">Chemie</label>
+				        <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.3" value="Englisch" onclick="invisible('pfach1.', '3')">
+                <label for="pfach1.3" id="pfach1.3.label">Englisch</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.4" value="Physik" onclick="invisible('pfach1.', '4')">
+                <label for="pfach1.4" id="pfach1.4.label">Physik</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.5" value="Biologie" onclick="invisible('pfach1.', '5')">
+                <label for="pfach1.5" id="pfach1.5.label">Biologie</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.6" value="Geschichte" onclick="invisible('pfach1.', '6')">
+                <label for="pfach1.6" id="pfach1.6.label">Geschichte</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.7" value="Französisch" onclick="invisible('pfach1.', '7')">
+                <label for="pfach1.7" id="pfach1.7.label">Französisch</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.8" value="Latein" onclick="invisible('pfach1.', '8')">
+                <label for="pfach1.8" id="pfach1.8.label">Latein</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.9" value="Musik" onclick="invisible('pfach1.', '9')">
+                <label for="pfach1.9" id="pfach1.9.label">Musik</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.10" value="Informatik" onclick="invisible('pfach1.', '10')">
+                <label for="pfach1.10" id="pfach1.10.label">Informatik</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.11" value="Kunst" onclick="invisible('pfach1.', '11')">
+                <label for="pfach1.11" id="pfach1.11.label">Kunst</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.12" value="Politik Wirtschaft" onclick="invisible('pfach1.', '12')">
+                <label for="pfach1.12" id="pfach1.12.label">Politik Wirtschaft</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.13" value="Spanisch" onclick="invisible('pfach1.', '13')">
+                <label for="pfach1.13" id="pfach1.13.label">Spanisch</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.14" value="Deutsch" onclick="invisible('pfach1.', '14')">
+                <label for="pfach1.14" id="pfach1.14.label">Deutsch</label>
+                <br>
+                <br>
+                <br>
+                <input type="button" value="neu wählen" onclick="uncheck('pfach1.')">
+            </div>
+            <div class="gp2 w3-animate-top toggle-buttons">
+                <p class="header">Prüfungsfach 2</p>
+                <input type="radio" id="pfach2.1" name="pfach2" value="Mathe">
+                <label for="pfach2.1" id="pfach2.1.label">Mathe</label>
+                <br>
+                <br>
+                <input type="radio" id="pfach2.2" name="pfach2" value="Chemie" onclick="chemieselected('pfach2.2')">
+                <label for="pfach2.2" id="pfach2.2.label">Chemie</label>
+                <br>
+                <br>
+                <input type="radio" id="pfach2.3" name="pfach2" value="Englisch">
+                <label for="pfach2.3" id="pfach2.3.label">Englisch</label>
+            </div>
+            <div class="gp3 w3-animate-right toggle-buttons">
+                <p class="header">Prüfungsfach 3</p>
+                <input type="radio" id="pfach3.1" name="pfach3" value="Mathe">
+                <label for="pfach3.1" id="pfach3.1.label">Mathe</label>
+                <br>
+                <br>
+                <input type="radio" id="pfach3.2" name="pfach3" value="Chemie" onclick="chemieselected('pfach3.2')">
+                <label for="pfach3.2" id="pfach3.2.label">Chemie</label>
+                <br>
+                <br>
+                <input type="radio" id="pfach3.3" name="pfach3" value="Englisch">
+                <label for="pfach3.3" id="pfach3.3.label">Englisch</label>
+                <br>
+                <br>
+                <input type="radio" id="pfach3.4" name="pfach3" value="Politik Wirtschaft">
+                <label for="pfach3.4" id="pfach3.4.label">Politik Wirtschaft</label>
+            </div>
+            <div class="gp4 w3-animate-left toggle-buttons">
+              <p class="header">Prüfungsfach 4</p>
+              <input type="radio" name="pfach4" id="pfach4.1" value="Informatik">
+              <label for="pfach4.1" id="pfach4.1.label">Informatik</label>
+              <br>
+              <br>
+              <input type="radio" name="pfach4" id="pfach4.2" Value="Englisch">
+              <label for="pfach4.2" id="pfach4.1.label">Englisch</label>
+            </div>
+            <div class="gp5 w3-animate-right toggle-buttons">
+              <p class="header">Prüfungsfach 5</p>
+              
+
+            </div>
+          </div>
+          <br>
+
+        <input class="buttonfertig" type="submit" value="Fertig">
+      </form>
+    </div>
+  </body>
+</html>
