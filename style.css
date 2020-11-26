@@ -234,7 +234,7 @@ p {
 
 .toggle-buttons input:checked + label{
     background: #aefcff;
-    color: #0099b4;
+    color: #013e49;
     box-shadow: none;
 }
 
