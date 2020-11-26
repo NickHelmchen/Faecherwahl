@@ -213,15 +213,40 @@ function uncheck(pfach) {
   fadeout("pfach5.")
 }
 
-function fadeout(pfach) {
-  for(i = 1; i <= 14; i++) {
-    if(document.getElementById(pfach + i).checked == true) {
-      for() {
-        document.getElementById().style.opacity = '0.5'
+function fadeout(pfach, pnummer) {
+    if(document.getElementById(pfach + pnummer).checked == true) {
+      if(pfach == "pfach1.") {
+        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
+      }
+      if(pfach == "pfach2.") {
+        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
+      }
+      if(pfach == "pfach3.") {
+        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
+      }
+      if(pfach == "pfach4.") {
+        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
+      }
+      if(pfach == "pfach5.") {
+        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
+        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
       }
     }
-  }
-}
+ }
 
 
 /*-----------------------------------------------------------------------------------------------------------------*/
