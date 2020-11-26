@@ -32,8 +32,8 @@ function cookies() {
 
 
 function startset() {
-  window.sessionStorage.setItem('savename', document.getElementById("name").value)
-  window.sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
+  sessionStorage.setItem('savename', document.getElementById("name").value)
+  sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
 
   console.log(sessionStorage.getItem('savename'))
   console.log(sessionStorage.getItem('savelastname'))
@@ -110,13 +110,6 @@ function selected(pfach, pnummer){
       }
     }
   }
-  
-
-
-function giveoutput() {
-  document.getElementById('name').value = sessionStorage.getItem('savename')
-  document.getElementById('lastname').value = sessionStorage.getItem('savelastname')
-}
 
 
 function invisible(pfach, pnummer) {
