@@ -84,54 +84,34 @@ function clear() {
   sessionStorage.removeItem('savelastname')
 }
 
-function chemieselected(pfach){
-	if(pfach === "pfach1.2"){
-    if(document.getElementById("pfach2.2").checked == true){
-      document.getElementById("pfach2.2").checked = false
-        for(i = 1; i <= 3; i++) {
-          document.getElementById("pfach2." + i + ".label").style.visibility = "visible"
+function selected(pfach, pnummer){
+  for(i = 1; i <= 20; i++) {
+    if(pnummer == i) {
+        if(pfach != "pfach1." && document.getElementById("pfach1." + pnummer).checked == true) {
+          document.getElementById("pfach1." + pnummer).checked = false
+          visible("pfach1.")
         }
-        visible("pfach2.")
-    }
-    if(document.getElementById("pfach3.2").checked == true) {
-      document.getElementById("pfach3.2").checked = false
-        for(i = 1; i <= 4; i++) {
-          document.getElementById("pfach3." + i + ".label").style.visibility = "visible"
+        if(pfach != "pfach2." && document.getElementById("pfach2." + pnummer).checked == true) {
+          document.getElementById("pfach2." + pnummer).checked = false
+          visible("pfach2.")
         }
-        visible("pfach3.")
-    }
-	}
-	if(pfach === "pfach2.2"){
-    if(document.getElementById("pfach1.2").checked == true) {
-      document.getElementById("pfach1.2").checked = false
-        for(i = 1; i <= 14; i++) {
-          document.getElementById("pfach1." + i + ".label").style.visibility = "visible"
+        if(pfach != "pfach3." && document.getElementById("pfach3." + pnummer).checked == true) {
+          document.getElementById("pfach3." + pnummer).checked = false
+          visible("pfach3.")
         }
-        visible("pfach3.")
-    }
-    if(document.getElementById("pfach3.2").checked == true) {
-      document.getElementById("pfach3.2").checked = false
-        for(i = 1; i <= 4; i++) {
-          document.getElementById("pfach3." + i + ".label").style.visibility = "visible"
+        if(pfach != "pfach4." && document.getElementById("pfach4." + pnummer).checked == true) {
+          document.getElementById("pfach4." + pnummer).checked = false
+          visible("pfach4.")
         }
-        visible("pfach3.")
-    }
-    
-	}
-	if(pfach === "pfach3.2"){
-    document.getElementById("pfach1.2").checked = false
-      for(i = 1; i <= 14; i++) {
-        document.getElementById("pfach1." + i + ".label").style.visibility = "visible"
+        if(pfach != "pfach5." && document.getElementById("pfach5." + pnummer).checked == true) {
+          document.getElementById("pfach5." + pnummer).checked = false
+          visible("pfach5.")
+        }
       }
-      visible("pfach3.")
-    document.getElementById("pfach2.2").checked = false
-      for(i = 1; i <= 3; i++) {
-        document.getElementById("pfach2." + i + ".label").style.visibility = "visible"
-      }
-      visible("pfach3.")
-	}
-	
-}
+    }
+  }
+  
+
 
 function giveoutput() {
   document.getElementById('name').value = sessionStorage.getItem('savename')
@@ -150,28 +130,28 @@ function invisible(pfach, pnummer) {
       }
     }
     if(pfach === "pfach2."){
-      for(i = 1; i <= 3; i++) {
+      for(i = 1; i <= 14; i++) {
         if (i != pnummer) {
           document.getElementById(pfach + i + ".label").style.visibility = "hidden"
         }
       }
     }
     if(pfach === "pfach3."){
-      for(i = 1; i <= 4; i++) {
+      for(i = 1; i <= 14; i++) {
         if (i != pnummer) {
           document.getElementById(pfach + i + ".label").style.visibility = "hidden"
         }
       }
     }
     if(pfach === "pfach4."){
-      for(i = 1; i <= 2; i++) {
+      for(i = 1; i <= 14; i++) {
         if (i != pnummer) {
           document.getElementById(pfach + i + ".label").style.visibility = "hidden"
         }
       }
     }
     if(pfach === "pfach5."){
-      for(i = 1; i <= 0; i++) {
+      for(i = 1; i <= 14; i++) {
         if (i != pnummer) {
           document.getElementById(pfach + i + ".label").style.visibility = "hidden"
         }
@@ -187,22 +167,22 @@ function visible(pfach) {
     }
   }
   if(pfach === "pfach2."){
-    for(i = 1; i <= 3; i++) {
+    for(i = 1; i <= 14; i++) {
       document.getElementById(pfach + i + ".label").style.visibility = "visible"
     }
   }
   if(pfach === "pfach3."){
-    for(i = 1; i <= 4; i++) {
+    for(i = 1; i <= 14; i++) {
       document.getElementById(pfach + i + ".label").style.visibility = "visible"
     }
   }
   if(pfach === "pfach4."){
-    for(i = 1; i <= 2; i++) {
+    for(i = 1; i <= 14; i++) {
       document.getElementById(pfach + i + ".label").style.visibility = "visible"
     }
   }
   if(pfach === "pfach5."){
-    for(i = 1; i <= 0; i++) {
+    for(i = 1; i <= 14; i++) {
       document.getElementById(pfach + i + ".label").style.visibility = "visible"
     }
   }
