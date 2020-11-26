@@ -206,47 +206,8 @@ function uncheck(pfach) {
     }
     document.getElementById(pfach + i + ".label").style.opacity = '1'
   }
-  fadeout("pfach1.")
-  fadeout("pfach2.")
-  fadeout("pfach3.")
-  fadeout("pfach4.")
-  fadeout("pfach5.")
 }
 
-function fadeout(pfach, pnummer) {
-    if(document.getElementById(pfach + pnummer).checked == true) {
-      if(pfach == "pfach1.") {
-        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
-      }
-      if(pfach == "pfach2.") {
-        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
-      }
-      if(pfach == "pfach3.") {
-        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
-      }
-      if(pfach == "pfach4.") {
-        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach5." + pnummer).style.opacity = '0.5'
-      }
-      if(pfach == "pfach5.") {
-        document.getElementById("pfach1." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach2." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach3." + pnummer).style.opacity = '0.5'
-        document.getElementById("pfach4." + pnummer).style.opacity = '0.5'
-      }
-    }
- }
 
 
 /*-----------------------------------------------------------------------------------------------------------------*/
