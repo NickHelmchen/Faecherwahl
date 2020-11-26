@@ -203,7 +203,6 @@ function uncheck(pfach) {
 // --- Config --- //
 var purecookieTitle = "Ich mag Cookies."; // Title
 var purecookieDesc = "Wir nutzen Cookies, um unsere Dienste zu erbringen. Mit Nutzung dieser Seite akzeptieren Sie Cookies."; // Description
-var purecookieLink = '<a href="" target="_blank">Noch Fragen?</a>'; // Cookiepolicy link
 var purecookieButton = "Verstanden"; // Button text
 // ---        --- //
 
@@ -259,7 +258,7 @@ function eraseCookie(name) {
 
 function cookieConsent() {
   if (!getCookie('purecookieDismiss')) {
-    document.body.innerHTML += '<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieTitle"><a>' + purecookieTitle + '</a></div><div class="cookieDesc"><p>' + purecookieDesc + ' ' + purecookieLink + '</p></div><div class="cookieButton"><a onClick="purecookieDismiss();">' + purecookieButton + '</a></div></div>';
+    document.body.innerHTML += '<div class="cookieConsentContainer" id="cookieConsentContainer"><div class="cookieTitle"><a>' + purecookieTitle + '</a></div><div class="cookieDesc"><p>' + purecookieDesc + ' ' + '</p></div><div class="cookieButton"><a onClick="purecookieDismiss();">' + purecookieButton + '</a></div></div>';
 	pureFadeIn("cookieConsentContainer");
   }
 }
