@@ -1,12 +1,8 @@
-var moveback = false
-var restartmove = true
-
 function url() { 
-  if(moveback == true ) {
-    document.getElementById("name").value = sessionStorage.getItem('savename')
-    document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
-    moveback = false
-    restartmove = true
+  if(localStorage.getItem('back') == true ) {
+    document.getElementById("name").value = localStorage.getItem('savename')
+    document.getElementById("lastname").value = localStorage.getItem('savelastname')
+    localStorage.setItem('back', 'false')
   }
   else{
     let url = window.location.href
@@ -17,12 +13,11 @@ function url() {
 
     params.set('hallo', 'byby')
 
-    sessionStorage.setItem('savename', document.getElementById("name").value)
-    sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
+    localStorage.setItem('savename', document.getElementById("name").value)
+    localStorage.setItem('savelastname', document.getElementById("lastname").value)
 
     console.log("Name: " + sessionStorage.getItem('savename'))
     console.log("Nachname: " + sessionStorage.getItem('savelastname'))
-    restartmove = false
   }
 }
 
@@ -56,11 +51,13 @@ function gesellschaftlich() {
 }
 
 function natur() {
-  document.getElementById("name").value = sessionStorage.getItem('savename')
-  document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
-  console.log("Name: " + sessionStorage.getItem('savename'))
-  console.log("Nachname: " + sessionStorage.getItem('savelastname'))
-  moveback = true
+  document.getElementById("name").value = localStorage.getItem('savename')
+  document.getElementById("lastname").value = localStorage.getItem('savelastname')
+  console.log("Name: " + localStorage.getItem('savename'))
+  console.log("Nachname: " + localStorage.getItem('savelastname'))
+  sessionStorage.setItem('savename', document.getElementById("name").value)
+  sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
+  localStorage.setItem('back', 'true')
 }
 
 function muku() {
@@ -68,7 +65,7 @@ function muku() {
   document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
   console.log("Name: " + sessionStorage.getItem('savename'))
   console.log("nachname: " + sessionStorage.getItem('savelastname'))
-  moveback = false
+  moveback = true
 }
 
 function sprach() {
