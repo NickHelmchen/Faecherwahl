@@ -26,10 +26,6 @@ function url() {
   }
 }
 
-function cookies() {
-
-}
-
 
 function startset() {
   sessionStorage.setItem('savename', document.getElementById("name").value)
