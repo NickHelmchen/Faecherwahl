@@ -9,14 +9,17 @@
     <link rel="stylesheet" href="style_output.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title> Fächerwahl </title>
+    <script src="script.js"></script>
     <script src="output.js"></script>
   </head>
 
 
   <body onload="output()">
+    <button class="button1" onclick="Divprint()">Drucken</button>
     <div class="bgimg">
-      <form action="auswahl.html" method="get">
+      <form id="printArea" action="auswahl.html" method="get">
         <!-- <input class="buttonbearbeiten w3-animate-top" type="submit" value="bearbeiten"> -->
+        <div id="printArea">
         <input class="name" type="text" name="name" id="name" readonly>
         <label class="namelabel" for="name"> Name: </label>
         <input class="lastname" type="text" name="lastname" id="lastname" readonly>
@@ -31,7 +34,7 @@
         <label class="pfach4label" for="pfach4">Prüfungsfach 4:</label>
         <input class="pfach5" type="text" name="pfach5" id="pfach5" readonly>
         <label class="pfach5label" for="pfach5">Prüfungsfach 5:</label>
-
+        </div>
       </form>
     </div>
   </body>
