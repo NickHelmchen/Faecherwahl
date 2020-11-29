@@ -35,6 +35,20 @@ function selection() {
   console.log(sessiontorage.getItem('savelastname'))
 }
 
+function gesellschaftlich() {
+  if(document.getElementById("pfach1.3").checked == true) {
+    document.getElementById("pfach1.3").checked = false
+  }
+  else{
+    document.getElementById("pfach1.3").checked = true
+  }
+  if(document.getElementById("pfach3.4").checked == true) {
+    document.getElementById("pfach3.4").checked = false
+  }
+  else{
+  document.getElementById("pfach3.4").checked = true
+  }
+}
 
 function natur() {
   document.getElementById("name").value = localStorage.getItem('savename')
@@ -44,6 +58,18 @@ function natur() {
   sessionStorage.setItem('savename', document.getElementById("name").value)
   sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
   localStorage.setItem('back', 'true')
+}
+
+function muku() {
+  document.getElementById("name").value = sessionStorage.getItem('savename')
+  document.getElementById("lastname").value = sessionStorage.getItem('savelastname')
+  console.log("Name: " + sessionStorage.getItem('savename'))
+  console.log("nachname: " + sessionStorage.getItem('savelastname'))
+  moveback = true
+}
+
+function sprach() {
+
 }
 
 function clear() {

@@ -174,9 +174,7 @@ p {
     display: grid;
     grid-column-gap: 5px;
     grid-template-areas: 
-        'top-button input input ... ...'
-        'lef lefmid mid rigmid rig'
-        '... ... bottom-button ... ...';
+        'lef lefmid mid rigmid rig';
 }
 
 .gp1, .gp2, .gp3, .gp4, .gp5{
@@ -207,17 +205,6 @@ p {
     grid-area: rig;
 }
 
-.head-input {
-    grid-area: input;
-}
-
-.head-button {
-    grid-area: top-button;
-}
-
-.bottom-button {
-    grid-area: bottom-button;
-}
 
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -269,6 +256,63 @@ p {
     font-size: 15px;   
     cursor: pointer;
     top: 280px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.gesell {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 250px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.muku {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 310px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.sprach {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 340px;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     left: 50%;
