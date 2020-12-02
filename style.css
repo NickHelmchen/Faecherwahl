@@ -161,6 +161,50 @@ p {
 
 /*----------------------------------------------------------------------------------------------------*/
 
+.grid-container2 {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-areas: 
+        '... ... ... ... ... ... ... ... ...'
+        ' reli powi sport ... ... ... ... ... ...';
+
+}
+
+.reli, .powi, .sport, .erdkunde, .mathe {
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli { 
+    height: 120px;
+    grid-area: reli;  
+    margin-top: -300px;
+}
+
+.powi {  
+    height: 120px;
+    grid-area: powi;  
+}
+
+.sport {  
+    height: 120px;
+    grid-area: sport;  
+}
+
+.erdkunde { 
+    height: 120px;
+    grid-area: erdkunde;  
+}
+
+.mathe {
+    height: 120px;
+    grid-area: mathe;    
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
 .grid-container {
     display: grid;
     grid-column-gap: 5px;
