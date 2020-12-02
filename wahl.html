@@ -1,27 +1,21 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>Fächerwahl</title>
+        <script src="script.js"></script>
+        <script src="output.js"></script>
+    </head>
 
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title> Fächerwahl </title>
-    <script src="script.js"></script>
-    <script src="output.js"></script>
-  </head>
-
-  <body onload="natur()">
-    <div class="bgimg grid-container">
-        <a class="button1 w3-animate-top head-button" href="auswahl.html" role="button">zurück</a>
-        <input class="showname head-input" type="text" name="name" id="name" autocomplete="off" readonly>
-        <input class="showlastname head-input" type="text" name="lastname" id="lastname" autocomplete="off" readonly>
-        <br>
-        <br>
-      <form action="wahl2.html" method="get">
-        <div>
+    <body onload="natur()">
+        <div class="bgimg grid-container">
+            <textarea name="name" id="name" cols="20" rows="1" class="head-input1" readonly></textarea>
+            <textarea name="lastname" id="lastname" cols="20" rows="1" class="head-input2" readonly="readonly"></textarea>
+            <button onclick="wahl2()" id="nextpage1" class="next-button buttonfertig">weiter</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header">Prüfungsfach 1</p>
                 <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="selected('pfach1.', '1'), visible('pfach1.', '1'), save(), fadeout('pfach1.', '1')">
@@ -30,7 +24,7 @@
                 <br>
                 <input type="radio" name="pfach1" id="pfach1.2" value="Chemie" onclick="selected('pfach1.', '2'), visible('pfach1.', '2'), save()">
                 <label for="pfach1.2" id="pfach1.2.label">Chemie</label>
-				        <br>
+                        <br>
                 <br>
                 <input type="radio" name="pfach1" id="pfach1.3" value="Englisch" onclick="selected('pfach1.', '3'), visible('pfach1.', '3'), save()">
                 <label for="pfach1.3" id="pfach1.3.label">Englisch</label>
@@ -90,7 +84,7 @@
                 <br>
                 <input type="radio" name="pfach2" id="pfach2.2" value="Chemie" onclick="selected('pfach2.', '2'), visible('pfach2.', '2'), save()">
                 <label for="pfach2.2" id="pfach2.2.label">Chemie</label>
-				        <br>
+                        <br>
                 <br>
                 <input type="radio" name="pfach2" id="pfach2.3" value="Englisch" onclick="selected('pfach2.', '3'), visible('pfach2.', '3'), save()">
                 <label for="pfach2.3" id="pfach2.3.label">Englisch</label>
@@ -150,7 +144,7 @@
                 <br>
                 <input type="radio" name="pfach3" id="pfach3.2" value="Chemie" onclick="selected('pfach3.', '2'), visible('pfach3.', '2'), save()">
                 <label for="pfach3.2" id="pfach3.2.label">Chemie</label>
-				        <br>
+                        <br>
                 <br>
                 <input type="radio" name="pfach3" id="pfach3.3" value="Englisch" onclick="selected('pfach3.', '3'), visible('pfach3.', '3'), save()">
                 <label for="pfach3.3" id="pfach3.3.label">Englisch</label>
@@ -203,14 +197,14 @@
                 <br>
             </div>
             <div class="gp4 w3-animate-left toggle-buttons">
-              <p class="header">Prüfungsfach 4</p>
-              <input type="radio" name="pfach4" id="pfach4.1" value="Mathe" onclick="selected('pfach4.', '1'), visible('pfach4.', '1'), save()">
+                <p class="header">Prüfungsfach 4</p>
+                <input type="radio" name="pfach4" id="pfach4.1" value="Mathe" onclick="selected('pfach4.', '1'), visible('pfach4.', '1'), save()">
                 <label for="pfach4.1" id="pfach4.1.label">Mathe</label>
                 <br>
                 <br>
                 <input type="radio" name="pfach4" id="pfach4.2" value="Chemie" onclick="selected('pfach4.', '2'), visible('pfach4.', '2'), save()">
                 <label for="pfach4.2" id="pfach4.2.label">Chemie</label>
-				        <br>
+                        <br>
                 <br>
                 <input type="radio" name="pfach4" id="pfach4.3" value="Englisch" onclick="selected('pfach4.', '3'), visible('pfach4.', '3'), save()">
                 <label for="pfach4.3" id="pfach4.3.label">Englisch</label>
@@ -263,14 +257,14 @@
                 <br>
             </div>
             <div class="gp5 w3-animate-right toggle-buttons">
-              <p class="header">Prüfungsfach 5</p>
-              <input type="radio" name="pfach5" id="pfach5.1" value="Mathe" onclick="selected('pfach5.', '1'), visible('pfach5.', '1'), save()">
+                <p class="header">Prüfungsfach 5</p>
+                <input type="radio" name="pfach5" id="pfach5.1" value="Mathe" onclick="selected('pfach5.', '1'), visible('pfach5.', '1'), save()">
                 <label for="pfach5.1" id="pfach5.1.label">Mathe</label>
                 <br>
                 <br>
                 <input type="radio" name="pfach5" id="pfach5.2" value="Chemie" onclick="selected('pfach5.', '2'), visible('pfach5.', '2'), save()">
                 <label for="pfach5.2" id="pfach5.2.label">Chemie</label>
-				        <br>
+                        <br>
                 <br>
                 <input type="radio" name="pfach5" id="pfach5.3" value="Englisch" onclick="selected('pfach5.', '3'), visible('pfach5.', '3'), save()">
                 <label for="pfach5.3" id="pfach5.3.label">Englisch</label>
@@ -319,8 +313,6 @@
                 <input type="radio" name="pfach5" id="pfach5.14" value="Deutsch" onclick="selected('pfach5.', '14'), visible('pfach5.', '14'), save()">
                 <label for="pfach5.14" id="pfach5.14.label">Deutsch</label>
             </div>
-          </div>
-      </form>
-    </div>
-  </body>
+        </div>
+    </body>
 </html>
