@@ -15,11 +15,9 @@
 
 
   <body onload="output()">
-    <button class="button1" onclick="Divprint()">Drucken</button>
     <div class="bgimg">
-      <form id="printArea" action="auswahl.html" method="get">
-        <!-- <input class="buttonbearbeiten w3-animate-top" type="submit" value="bearbeiten"> -->
-        <div id="printArea">
+      <div class="grid-container3">
+        <button class="button1 printbutton" onclick="buttonprint()" id="printbutton">Drucken</button>
         <input class="name" type="text" name="name" id="name" readonly>
         <label class="namelabel" for="name"> Name: </label>
         <input class="lastname" type="text" name="lastname" id="lastname" readonly>
@@ -33,9 +31,8 @@
         <input class="pfach4" type="text" name="pfach4" id="pfach4" readonly>
         <label class="pfach4label" for="pfach4">Prüfungsfach 4:</label>
         <input class="pfach5" type="text" name="pfach5" id="pfach5" readonly>
-        <label class="pfach5label" for="pfach5">Prüfungsfach 5:</label>
-        </div>
-      </form>
+        <label class="pfach5label" for="pfach5">Prüfungsfach 5:</label> 
+      </div>
     </div>
   </body>
 </html>

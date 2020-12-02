@@ -11,14 +11,13 @@
         <script src="output.js"></script>
     </head>
 
-    <body onload="natur()">
+    <body onload="url()">
         <div class="bgimg grid-container">
             <textarea name="name" id="name" cols="20" rows="1" class="head-input1" readonly></textarea>
-            <textarea name="lastname" id="lastname" cols="20" rows="1" class="head-input2" readonly="readonly"></textarea>
             <button onclick="wahl2()" id="nextpage1" class="next-button buttonfertig">weiter</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header">Prüfungsfach 1</p>
-                <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="selected('pfach1.', '1'), visible('pfach1.', '1'), save(), fadeout('pfach1.', '1')">
+                <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="selected('pfach1.', '1'), visible('pfach1.', '1'), save()">
                 <label for="pfach1.1" id="pfach1.1.label">Mathe</label>
                 <br>
                 <br>
@@ -136,7 +135,7 @@
                 <br>
                 <br>
             </div>
-            <div class="gp3 w3-animate-right toggle-buttons">
+            <div class="gp3 w3-animate-top toggle-buttons">
                 <p class="header">Prüfungsfach 3</p>
                 <input type="radio" name="pfach3" id="pfach3.1" value="Mathe" onclick="selected('pfach3.', '1'), visible('pfach3.', '1'), save()">
                 <label for="pfach3.1" id="pfach3.1.label">Mathe</label>
@@ -196,7 +195,7 @@
                 <br>
                 <br>
             </div>
-            <div class="gp4 w3-animate-left toggle-buttons">
+            <div class="gp4 w3-animate-top toggle-buttons">
                 <p class="header">Prüfungsfach 4</p>
                 <input type="radio" name="pfach4" id="pfach4.1" value="Mathe" onclick="selected('pfach4.', '1'), visible('pfach4.', '1'), save()">
                 <label for="pfach4.1" id="pfach4.1.label">Mathe</label>

@@ -1,24 +1,16 @@
 function url() { 
-  if(localStorage.getItem('back') == true ) {
-    document.getElementById("name").value = localStorage.getItem('savename')
-    document.getElementById("lastname").value = localStorage.getItem('savelastname')
-    localStorage.setItem('back', 'false')
-  }
-  else{
     let url = window.location.href
     let params = (new URL(url).searchParams)
 
-    document.getElementById("name").value = params.get('name')
-    document.getElementById("lastname").value = params.get('lastname')
+    document.getElementById("name").value = params.get('name') + " " + params.get('lastname')
 
     params.set('hallo', 'byby')
 
-    localStorage.setItem('savename', document.getElementById("name").value)
-    localStorage.setItem('savelastname', document.getElementById("lastname").value)
+    sessionStorage.setItem('savename', params.get('name'))
+    sessionStorage.setItem('savelastname', params.get('lastname'))
 
     console.log("Name: " + sessionStorage.getItem('savename'))
     console.log("Nachname: " + sessionStorage.getItem('savelastname'))
-  }
 }
 
 
@@ -39,20 +31,19 @@ function wahl2() {
   location.href = "wahl2.html"
 }
 
-
-function natur() {
-  document.getElementById("name").value = localStorage.getItem('savename')
-  document.getElementById("lastname").value = localStorage.getItem('savelastname')
-  console.log("Name: " + localStorage.getItem('savename'))
-  console.log("Nachname: " + localStorage.getItem('savelastname'))
-  sessionStorage.setItem('savename', document.getElementById("name").value)
-  sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
-  localStorage.setItem('back', 'true')
+function page2() {
+  document.getElementById("name").value = sessionStorage.getItem('savename') + " " + sessionStorage.getItem('savelastname')
+  console.log("Name: " + sessionStorage.getItem('savename'))
+  console.log("Nachname: " + sessionStorage.getItem('savelastname'))
 }
 
+function wahl3() {
+  location.href = "output.html"
+}
+
+
 function clear() {
-  sessionStorage.removeItem('savename')
-  sessionStorage.removeItem('savelastname')
+  sessionStorage.clear()
 }
 
 function selected(pfach, pnummer){

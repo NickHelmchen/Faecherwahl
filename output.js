@@ -8,6 +8,20 @@ function save() {
     }
 }
 
+function saveextra(name) {
+    sessionStorage.setItem(name, "gewählt")
+}
+
+function look_for_extra() {
+    for(i = 1; i <= 10; i++) {
+        if(sessionStorage.getItem("extra" + i) != null) {
+            document.getElementById("extra" + i).value = "gewählt"
+        }else {
+            document.getElementById("extra" + i).value = "---/---"
+        }
+    }
+}
+
 function output() {
     document.getElementById('name').value = sessionStorage.getItem('savename')
     document.getElementById('lastname').value = sessionStorage.getItem('savelastname')
@@ -16,13 +30,10 @@ function output() {
     }
   }
 
-function Divprint() {
-    var printContents = document.getElementById("printArea").innerHTML
-    var originalContents = document.body.innerHTML
+function buttonprint() {
+    document.getElementById("printbutton").style.visibility = "hidden"
 
-    document.body.innerHTML = printContents
+    print()
 
-    window.print()
-
-    document.body.innerHTML = originalContents
+    document.getElementById("printbutton").style.visibility = "visible"
 }
