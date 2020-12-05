@@ -27,6 +27,10 @@ function selection() {
   console.log(sessiontorage.getItem('savelastname'))
 }
 
+function wahl1() {
+    location.href = "wahl.html"
+}
+
 function wahl2() {
   location.href = "wahl2.html"
 }

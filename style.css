@@ -1,5 +1,12 @@
-body,h1 {font-family: "Raleway", sans-serif}
+body {font-family: 'Indie Flower', cursive}
 body, html {height: 100%}
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.font {
+    font-family: 'Indie Flower', cursive;
+}
+
 .bgimg {
     background-image: url(pictures/background2.jpg);
     /*background-position: 800px 20%;*/
@@ -10,12 +17,6 @@ body, html {height: 100%}
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
-}
-
-
-p {
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -54,16 +55,6 @@ p {
     .buttonstart:focus {
         box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
     }
-    .buttonstart /*button centrieren*/ {
-        margin: 0px;
-        position: absolute;
-        left: 85%;
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-        top: 15%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-    }
 
 .buttonfertig {
     background-color: skyblue;
@@ -89,14 +80,6 @@ p {
     border: none;
     text-align: center;
     color: white;
-    margin: 0px;
-    position: absolute;
-    left: 45%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    top: 15%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 .inputname::placeholder {
@@ -127,14 +110,6 @@ p {
     border: none;
     text-align: center;
     color: white;
-    margin: 0px;
-    position: absolute;
-    left: 62%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    top: 15%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 .inputlastname::placeholder {
@@ -161,7 +136,117 @@ p {
 
 /*----------------------------------------------------------------------------------------------------*/
 
+.grid-container-index {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto min-content min-content auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... place place place place ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... nameindex  buttonindex ... ...'
+        '... ... lastnameindex  buttonindex ... ...';
+}
+
+.indexname {
+    grid-area: nameindex;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.indexlastname {
+    grid-area: lastnameindex;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.indexbutton {
+    grid-area: buttonindex;
+    margin: auto;
+}
+
+.hold {
+    grid-area: place;
+    margin: auto;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
 .grid-container2 {
+    font-family: 'Indie Flower', cursive;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto auto;
@@ -231,6 +316,7 @@ p {
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container {
+    font-family: 'Indie Flower', cursive;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto auto;
@@ -294,7 +380,7 @@ p {
 
 .header {
     font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Indie Flower', cursive;
     text-align: center; 
     text-decoration: underline;  
     cursor: default;
@@ -413,7 +499,7 @@ p {
 	display: none;
 }
 .cookieConsentContainer .cookieTitle a {
-	font-family: OpenSans, arial, "sans-serif";
+	font-family: 'Indie Flower', cursive;
 	color: #FFFFFF;
 	font-size: 22px;
 	line-height: 20px;
@@ -422,20 +508,20 @@ p {
 .cookieConsentContainer .cookieDesc p {
 	margin: 0;
 	padding: 0;
-	font-family: OpenSans, arial, "sans-serif";
+	font-family: 'Indie Flower', cursive;
 	color: #FFFFFF;
 	font-size: 13px;
 	line-height: 20px;
 	display: block;
 	margin-top: 10px;
 } .cookieConsentContainer .cookieDesc a {
-	font-family: OpenSans, arial, "sans-serif";
+	font-family: 'Indie Flower', cursive;
 	color: #FFFFFF;
 	text-decoration: underline;
 }
 .cookieConsentContainer .cookieButton a {
 	display: inline-block;
-	font-family: OpenSans, arial, "sans-serif";
+	font-family: 'Indie Flower', cursive;
 	color: #FFFFFF;
 	font-size: 14px;
 	font-weight: bold;

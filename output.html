@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style_output.css" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title> Fächerwahl </title>
+        <script src="script.js"></script>
+        <script src="output.js"></script>
+      </head>
+
+    <body onload="output()">
+        <div class="bgimg grid-container3"> 
+            <button class="printbutton button1" onclick="buttonprint()" id="printbutton">Drucken</button>
+            <input type="text" class="name" name="name" id="name" readonly>
+            <label for="name" class="namelabel"> Name: </label>
 
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="style_output.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title> Fächerwahl </title>
-    <script src="script.js"></script>
-    <script src="output.js"></script>
-  </head>
+            <input type="text" class="lastname" name="lastname" id="lastname" readonly>
+            <label for="lastname" class="lastnamelabel"> Nachname: </label>
+            <input type="text" class="pfach1" name="pfach1" id="pfach1" readonly>
+            <label for="pfach1" class="pfach1label">Prüfungsfach 1:</label>
+            <input type="text" class="pfach2" name="pfach2" id="pfach2" readonly>
+            <label for="pfach2" class="pfach2label">Prüfungsfach 2:</label>
+            <input type="text" class="pfach3" name="pfach3" id="pfach3" readonly>
+            <label for="pfach3" class="pfach3label">Prüfungsfach 3:</label>
+            <input type="text" class="pfach4" name="pfach4" id="pfach4" readonly>
+            <label for="pfach4" class="pfach4label">Prüfungsfach 4:</label>
+            <input type="text" class="pfach5" name="pfach5" id="pfach5" readonly>
+            <label for="pfach5" class="pfach5label">Prüfungsfach 5:</label>
+            
 
+            <input type="text" class="extra1" name="extra1" id="extra1" readonly>
+            <label for="extra1" class="extra1label">Religion / Werte und Normen:</label>
+            <input type="text" class="extra2" name="extra2" id="extra2" readonly>
+            <label for="extra2" class="extra2label">Politik Wirtschaft:</label>
 
-  <body onload="output()">
-    <div class="bgimg">
-      <div class="grid-container3">
-        <button class="button1 printbutton" onclick="buttonprint()" id="printbutton">Drucken</button>
-        <input class="name" type="text" name="name" id="name" readonly>
-        <label class="namelabel" for="name"> Name: </label>
-        <input class="lastname" type="text" name="lastname" id="lastname" readonly>
-        <label class="lastnamelabel" for="lastname">Nachname: </label>
-        <input class="pfach1" type="text" name="pfach1" id="pfach1" readonly>
-        <label class="pfach1label" for="pfach1">Prüfungsfach 1: </label>
-        <input class="pfach2" type="text" name="pfach2" id="pfach2" readonly>
-        <label class="pfach2label" for="pfach2">Prüfungsfach 2:</label>
-        <input class="pfach3" type="text" name="pfach3" id="pfach3" readonly>
-        <label class="pfach3label" for="pfach3">Prüfungsfach 3:</label>
-        <input class="pfach4" type="text" name="pfach4" id="pfach4" readonly>
-        <label class="pfach4label" for="pfach4">Prüfungsfach 4:</label>
-        <input class="pfach5" type="text" name="pfach5" id="pfach5" readonly>
-        <label class="pfach5label" for="pfach5">Prüfungsfach 5:</label> 
-      </div>
-    </div>
-  </body>
+        </div>
+    </body>
 </html>
-
