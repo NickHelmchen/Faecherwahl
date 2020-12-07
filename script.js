@@ -11,8 +11,10 @@ function url() {
 
     console.log("Name: " + sessionStorage.getItem('savename'))
     console.log("Nachname: " + sessionStorage.getItem('savelastname'))
+}
 
-    sessionStorage.clear()
+function terminator() {
+  sessionStorage.clear()
 }
 
 
