@@ -11,6 +11,8 @@ function url() {
 
     console.log("Name: " + sessionStorage.getItem('savename'))
     console.log("Nachname: " + sessionStorage.getItem('savelastname'))
+
+    sessionStorage.clear()
 }
 
 
@@ -215,28 +217,40 @@ function afterwards() {
     if(i == 1) {
       for(j = 1; j<=13; j++) {
         if(document.getElementById("pfach1." + j).checked == true) {
-          document.getElementById("pfach1." + j).value = false
+          document.getElementById("pfach1." + j).checked = false
         }
       }
     }
     if(i == 2){
       for(j = 1; j<=13; j++) {
           document.getElementById("pfach2." + j + ".label").style.visibility = "hidden"
+          if(document.getElementById("pfach2." + j).checked == true) {
+            document.getElementById("pfach2." + j).checked = false
+          }
       }
     }
     if(i == 3){
       for(j = 1; j<=14; j++) {
         document.getElementById("pfach3." + j + ".label").style.visibility = "hidden"
+        if(document.getElementById("pfach3." + j).checked == true) {
+          document.getElementById("pfach3." + j).checked = false
+        }
       }
     }
     if(i == 4){
       for(j = 1; j<=16; j++) {
         document.getElementById("pfach4." + j + ".label").style.visibility = "hidden"
+        if(document.getElementById("pfach4." + j).checked == true) {
+          document.getElementById("pfach4." + j).checked = false
+        }
       }
     }
     if(i == 5){
       for(j = 1; j<=17; j++) {
         document.getElementById("pfach5." + j + ".label").style.visibility = "hidden"
+        if(document.getElementById("pfach5." + j).checked == true) {
+          document.getElementById("pfach5." + j).checked = false
+        }
       }
     }
   }
