@@ -255,13 +255,13 @@ body, html {height: 100%}
     grid-template-areas: 
         '... ... ... ... ...'
         'input2 ... ... button-next2 button-next2'
-        'reli powi sport erdkunde mathe'
+        'reli muku fsprach natu erdkunde'
         '... ... ... ... ...'
         '... ... ... ... ...';
 
 }
 
-.reli, .powi, .sport, .erdkunde, .mathe {
+.reli, .muku, .fsprach, .erdkunde, .natu {
     padding: 5px;
     background-color:rgb(236, 236, 236);
     border-radius: 20px;
@@ -269,28 +269,28 @@ body, html {height: 100%}
 }
 
 .reli { 
-    height: 200px;
+    height: 250px;
     grid-area: reli;  
 }
 
-.powi {  
-    height: 200px;
-    grid-area: powi;  
+.muku {  
+    height: 250px;
+    grid-area: muku;  
 }
 
-.sport {  
-    height: 200px;
-    grid-area: sport;  
+.fsprach {  
+    height: 250px;
+    grid-area: fsprach;  
 }
 
 .erdkunde { 
-    height: 200px;
+    height: 250px;
     grid-area: erdkunde; 
 }
 
-.mathe {
-    height: 200px;
-    grid-area: mathe;   
+.natu {
+    height: 250px;
+    grid-area: natu;   
 }
 
 .head-input2 {
