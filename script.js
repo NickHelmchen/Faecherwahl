@@ -211,7 +211,14 @@ function uncheck(pfach) {
 /*-----------------------------------------------------------------------------------------------------------------*/
 
 function afterwards() {
-  for(i = 2; i<=5; i++) {
+  for(i = 1; i<=5; i++) {
+    if(i == 1) {
+      for(j = 1; j<=13; j++) {
+        if(document.getElementById("pfach1." + j).checked == true) {
+          document.getElementById("pfach1." + j).value = false
+        }
+      }
+    }
     if(i == 2){
       for(j = 1; j<=13; j++) {
           document.getElementById("pfach2." + j + ".label").style.visibility = "hidden"
