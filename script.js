@@ -36,7 +36,18 @@ function wahl1() {
 }
 
 function wahl2() {
-  location.href = "wahlmanu.html"
+  if(sessionStorage.getItem(profil) == "mana") {
+    location.href = "wahlmanu.html"
+  }
+  if(sessionStorage.getItem(profil) == "spra") {
+    location.href = "wahlspra.html"
+  }
+  if(sessionStorage.getItem(profil) == "muku") {
+    location.href = "wahlmuku.html"
+  }
+  if(sessionStorage.getItem(profil) == "gese") {
+    location.href = "wahlgese.html"
+  }
 }
 
 function page2() {
