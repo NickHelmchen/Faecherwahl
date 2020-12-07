@@ -11,9 +11,8 @@
         <script src="output.js"></script>
     </head>
 
-    <body onload="afterwards(), terminator(), url()">
+    <body onload="url()">
         <div class="bgimg grid-container">
-            <textarea name="info" id="info" cols="30" rows="1" class="info" readonly>Hier wird in Zukunft ein Infotext stehen.</textarea>
             <textarea name="name" id="name" cols="20" rows="1" class="head-input1" readonly></textarea>
             <button onclick="wahl2()" id="nextpage1" class="next-button buttonfertig">weiter</button>
             <div class="gp1 w3-animate-left toggle-buttons">
@@ -62,12 +61,16 @@
                 <label for="pfach1.11" id="pfach1.11.label">Kunst</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach1" id="pfach1.12" value="Spanisch" onclick="selected('pfach1.', '12'), visible('pfach1.', '12'), save()">
-                <label for="pfach1.12" id="pfach1.12.label">Spanisch</label>
+                <input type="radio" name="pfach1" id="pfach1.12" value="Politik Wirtschaft" onclick="selected('pfach1.', '12'), visible('pfach1.', '12'), save()">
+                <label for="pfach1.12" id="pfach1.12.label">Politik Wirtschaft</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach1" id="pfach1.13" value="Deutsch" onclick="selected('pfach1.', '13'), visible('pfach1.', '13'), save()">
-                <label for="pfach1.13" id="pfach1.13.label">Deutsch</label>
+                <input type="radio" name="pfach1" id="pfach1.13" value="Spanisch" onclick="selected('pfach1.', '13'), visible('pfach1.', '13'), save()">
+                <label for="pfach1.13" id="pfach1.13.label">Spanisch</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach1" id="pfach1.14" value="Deutsch" onclick="selected('pfach1.', '14'), visible('pfach1.', '14'), save()">
+                <label for="pfach1.14" id="pfach1.14.label">Deutsch</label>
                 <br>
                 <br>
                 <br>
@@ -118,12 +121,16 @@
                 <label for="pfach2.11" id="pfach2.11.label">Kunst</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach2" id="pfach2.12" value="Spanisch" onclick="selected('pfach2.', '12'), visible('pfach2.', '12'), save()">
-                <label for="pfach2.12" id="pfach2.12.label">Spanisch</label>
+                <input type="radio" name="pfach2" id="pfach2.12" value="Politik Wirtschaft" onclick="selected('pfach2.', '12'), visible('pfach2.', '12'), save()">
+                <label for="pfach2.12" id="pfach2.12.label">Politik Wirtschaft</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach2" id="pfach2.13" value="Deutsch" onclick="selected('pfach2.', '13'), visible('pfach2.', '13'), save()">
-                <label for="pfach2.13" id="pfach2.13.label">Deutsch</label>
+                <input type="radio" name="pfach2" id="pfach2.13" value="Spanisch" onclick="selected('pfach2.', '13'), visible('pfach2.', '13'), save()">
+                <label for="pfach2.13" id="pfach2.13.label">Spanisch</label>
+                <br>
+                <br>
+                <input type="radio" name="pfach2" id="pfach2.14" value="Deutsch" onclick="selected('pfach2.', '14'), visible('pfach2.', '14'), save()">
+                <label for="pfach2.14" id="pfach2.14.label">Deutsch</label>
                 <br>
                 <br>
                 <br>
@@ -174,16 +181,16 @@
                 <label for="pfach3.11" id="pfach3.11.label">Kunst</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach3" id="pfach3.12" value="Spanisch" onclick="selected('pfach3.', '12'), visible('pfach3.', '12'), save()">
-                <label for="pfach3.12" id="pfach3.12.label">Spanisch</label>
+                <input type="radio" name="pfach3" id="pfach3.12" value="Politik Wirtschaft" onclick="selected('pfach3.', '12'), visible('pfach3.', '12'), save()">
+                <label for="pfach3.12" id="pfach3.12.label">Politik Wirtschaft</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach3" id="pfach3.13" value="Deutsch" onclick="selected('pfach3.', '13'), visible('pfach3.', '13'), save()">
-                <label for="pfach3.13" id="pfach3.13.label">Deutsch</label>
+                <input type="radio" name="pfach3" id="pfach3.13" value="Spanisch" onclick="selected('pfach3.', '13'), visible('pfach3.', '13'), save()">
+                <label for="pfach3.13" id="pfach3.13.label">Spanisch</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach3" id="pfach3.14" value="Politik Wirtschaft" onclick="selected('pfach3.', '14'), visible('pfach3.', '14'), save()">
-                <label for="pfach3.14" id="pfach3.14.label">Politik Wirtschaft</label>
+                <input type="radio" name="pfach3" id="pfach3.14" value="Deutsch" onclick="selected('pfach3.', '14'), visible('pfach3.', '14'), save()">
+                <label for="pfach3.14" id="pfach3.14.label">Deutsch</label>
                 <br>
                 <br>
                 <br>
@@ -234,24 +241,16 @@
                 <label for="pfach4.11" id="pfach4.11.label">Kunst</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach4" id="pfach4.12" value="Spanisch" onclick="selected('pfach4.', '12'), visible('pfach4.', '12'), save()">
-                <label for="pfach4.12" id="pfach4.12.label">Spanisch</label>
+                <input type="radio" name="pfach4" id="pfach4.12" value="Politik Wirtschaft" onclick="selected('pfach4.', '12'), visible('pfach4.', '12'), save()">
+                <label for="pfach4.12" id="pfach4.12.label">Politik Wirtschaft</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach4" id="pfach4.13" value="Deutsch" onclick="selected('pfach4.', '13'), visible('pfach4.', '13'), save()">
-                <label for="pfach4.13" id="pfach4.13.label">Deutsch</label>
+                <input type="radio" name="pfach4" id="pfach4.13" value="Spanisch" onclick="selected('pfach4.', '13'), visible('pfach4.', '13'), save()">
+                <label for="pfach4.13" id="pfach4.13.label">Spanisch</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach4" id="pfach4.14" value="Politik Wirtschaft" onclick="selected('pfach4.', '14'), visible('pfach4.', '14'), save()">
-                <label for="pfach4.14" id="pfach4.14.label">Politik Wirtschaft</label>
-                <br>
-                <br>
-                <input type="radio" name="pfach4" id="pfach4.15" value="Religion" onclick="selected('pfach4.', '15'), visible('pfach4.', '15'), save()">
-                <label for="pfach4.15" id="pfach4.15.label">Religion</label>
-                <br>
-                <br>
-                <input type="radio" name="pfach4" id="pfach4.16" value="Erdkunde" onclick="selected('pfach4.', '16'), visible('pfach4.', '16'), save()">
-                <label for="pfach4.16" id="pfach4.16.label">Erdkunde</label>
+                <input type="radio" name="pfach4" id="pfach4.14" value="Deutsch" onclick="selected('pfach4.', '14'), visible('pfach4.', '14'), save()">
+                <label for="pfach4.14" id="pfach4.14.label">Deutsch</label>
                 <br>
                 <br>
                 <br>
@@ -264,7 +263,7 @@
                 <br>
                 <input type="radio" name="pfach5" id="pfach5.2" value="Chemie" onclick="selected('pfach5.', '2'), visible('pfach5.', '2'), save()">
                 <label for="pfach5.2" id="pfach5.2.label">Chemie</label>
-                <br>
+                        <br>
                 <br>
                 <input type="radio" name="pfach5" id="pfach5.3" value="Englisch" onclick="selected('pfach5.', '3'), visible('pfach5.', '3'), save()">
                 <label for="pfach5.3" id="pfach5.3.label">Englisch</label>
@@ -302,30 +301,16 @@
                 <label for="pfach5.11" id="pfach5.11.label">Kunst</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach5" id="pfach5.12" value="Spanisch" onclick="selected('pfach5.', '12'), visible('pfach5.', '12'), save()">
-                <label for="pfach5.12" id="pfach5.12.label">Spanisch</label>
+                <input type="radio" name="pfach5" id="pfach5.12" value="Politik Wirtschaft" onclick="selected('pfach5.', '12'), visible('pfach5.', '12'), save()">
+                <label for="pfach5.12" id="pfach5.12.label">Politik Wirtschaft</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach5" id="pfach5.13" value="Deutsch" onclick="selected('pfach5.', '13'), visible('pfach5.', '13'), save()">
-                <label for="pfach5.13" id="pfach5.13.label">Deutsch</label>
+                <input type="radio" name="pfach5" id="pfach5.13" value="Spanisch" onclick="selected('pfach5.', '13'), visible('pfach5.', '13'), save()">
+                <label for="pfach5.13" id="pfach5.13.label">Spanisch</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach5" id="pfach5.14" value="Politik Wirtschaft" onclick="selected('pfach5.', '14'), visible('pfach5.', '14'), save()">
-                <label for="pfach5.14" id="pfach5.14.label">Politik Wirtschaft</label>
-                <br>
-                <br>
-                <input type="radio" name="pfach5" id="pfach5.15" value="Religion" onclick="selected('pfach5.', '15'), visible('pfach5.', '15'), save()">
-                <label for="pfach5.15" id="pfach5.15.label">Religion</label>
-                <br>
-                <br>
-                <input type="radio" name="pfach5" id="pfach5.16" value="Erdkunde" onclick="selected('pfach5.', '16'), visible('pfach5.', '16'), save()">
-                <label for="pfach5.16" id="pfach5.16.label">Erdkunde</label>
-                <br>
-                <br>
-                <input type="radio" name="pfach5" id="pfach5.17" value="Sport" onclick="selected('pfach5.', '17'), visible('pfach5.', '17'), save()">
-                <label for="pfach5.17" id="pfach5.17.label">Sport</label>
-                <br>
-                <br>
+                <input type="radio" name="pfach5" id="pfach5.14" value="Deutsch" onclick="selected('pfach5.', '14'), visible('pfach5.', '14'), save()">
+                <label for="pfach5.14" id="pfach5.14.label">Deutsch</label>
             </div>
         </div>
     </body>
