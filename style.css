@@ -245,6 +245,181 @@ body, html {height: 100%}
 
 /*----------------------------------------------------------------------------------------------------*/
 
+.grid-container5 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ...'
+        'input2 ... ... button-next2 button-next2'
+        'reli5 muku5 erdkunde5 fsprach5 natu5'
+        '... ... ... ... ...'
+        '... ... ... natu5-2 natu5-2';
+
+}
+
+.reli5, .muku5, .fsprach5, .erdkunde5, .natu5, .informatik5, .fsprach5-2, .natu5-2{
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli5 { 
+    height: 250px;
+    grid-area: reli5;  
+}
+
+.muku5 {  
+    height: 250px;
+    grid-area: muku5;  
+}
+
+.natu5 {
+    height: 250px;
+    grid-area: natu5;   
+}
+
+.natu5-2 {
+    height: 250px;
+    grid-area: natu5-2;   
+}
+
+.erdkunde5 { 
+    height: 250px;
+    grid-area: erdkunde5; 
+}
+
+.informatik5 { 
+    height: 250px;
+    grid-area: informatik5; 
+}
+
+.fsprach5 {  
+    height: 250px;
+    grid-area: fsprach5;  
+}
+
+.fsprach5-2 {  
+    height: 250px;
+    grid-area: fsprach5-2;  
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container4 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ... ...'
+        'input2 ... ... ... button-next2 button-next2'
+        'reli4 muku4 erdkunde4 informatik4 fsprach4 natu4'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...';
+
+}
+
+.reli4, .muku4, .fsprach4, .erdkunde4, .natu4, .informatik4{
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli4 { 
+    height: 250px;
+    grid-area: reli4;  
+}
+
+.muku4 {  
+    height: 250px;
+    grid-area: muku4;  
+}
+
+.natu4 {
+    height: 250px;
+    grid-area: natu4;   
+}
+
+.erdkunde4 { 
+    height: 250px;
+    grid-area: erdkunde4; 
+}
+
+.informatik4 { 
+    height: 250px;
+    grid-area: informatik4; 
+}
+
+.fsprach4 {  
+    height: 250px;
+    grid-area: fsprach4;  
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container3 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ... ...'
+        'input2 ... ... ... button-next2 button-next2'
+        'reli3 muku3 natu3 informatik3 erdkunde3 fsprach3'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...';
+
+}
+
+.reli3, .muku3, .fsprach3, .erdkunde3, .natu3, .informatik3{
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli3 { 
+    height: 250px;
+    grid-area: reli3;  
+}
+
+.muku3 {  
+    height: 250px;
+    grid-area: muku3;  
+}
+
+.natu3 {
+    height: 250px;
+    grid-area: natu3;   
+}
+
+.erdkunde3 { 
+    height: 250px;
+    grid-area: erdkunde3; 
+}
+
+.informatik3 { 
+    height: 250px;
+    grid-area: informatik3; 
+}
+
+.fsprach3 {  
+    height: 250px;
+    grid-area: fsprach3;  
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
 .grid-container2 {
     font-family: 'Indie Flower', cursive;
     display: grid;
