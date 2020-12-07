@@ -328,7 +328,7 @@ body, html {height: 100%}
         'lef lefmid mid rigmid rig';
 }
 
-.gp1, .gp2, .gp3, .gp4, .gp5{
+.gp1, .gp2, .gp3{
     padding: 5px;
     height: 700px;
     background-color:rgb(236, 236, 236);
@@ -350,10 +350,20 @@ body, html {height: 100%}
 
 .gp4 {
      grid-area: rigmid;
+     padding: 5px;
+     height: 780px;
+     background-color:rgb(236, 236, 236);
+     border-radius: 20px;
+     opacity: 0.9;
 }
 
 .gp5 {
     grid-area: rig;
+    padding: 5px;
+    height: 820px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 .head-input1 {

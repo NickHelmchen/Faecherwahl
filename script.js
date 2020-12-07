@@ -117,7 +117,8 @@ function selected(pfach, pnummer){
       }
     }
   } 
-}*/
+}
+*/
 
 function visible(pfach) {
   if(pfach === "pfach1."){
@@ -151,7 +152,7 @@ function visible(pfach) {
       }
   }
   if(pfach === "pfach4."){
-    for(i = 1; i <= 14; i++) {
+    for(i = 1; i <= 16; i++) {
       if(document.getElementById(pfach + i).checked == true) {
         document.getElementById(pfach + i + ".label").style.opacity = '1'
       }
@@ -161,7 +162,7 @@ function visible(pfach) {
       }
   }
   if(pfach === "pfach5."){
-    for(i = 1; i <= 14; i++) {
+    for(i = 1; i <= 17; i++) {
       if(document.getElementById(pfach + i).checked == true) {
         document.getElementById(pfach + i + ".label").style.opacity = '1'
       }
@@ -172,15 +173,15 @@ function visible(pfach) {
   }
 }
 
+
 function uncheck(pfach) {
-  for(i = 1; i <= 14; i++) {
+  for(i = 1; i <= 17; i++) {
     if(document.getElementById(pfach + i).checked == true) {
       document.getElementById(pfach + i).checked = false
     }
     document.getElementById(pfach + i + ".label").style.opacity = '1'
   }
 }
-
 
 
 /*-----------------------------------------------------------------------------------------------------------------*/
