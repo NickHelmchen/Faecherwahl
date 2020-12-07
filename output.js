@@ -51,7 +51,6 @@ function output() {
     for(i = 1; i <= 5; i++) {
         document.getElementById("pfach" + i).value = sessionStorage.getItem("pfach" + i);
     }
-    document.getElementById('extra2').value = "----/----"
   }
 
 function buttonprint() {
