@@ -336,6 +336,14 @@ body, html {height: 100%}
     opacity: 0.9;
 }
 
+.gp4, .gp5 {
+    padding: 5px;
+    height: 840px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
 .gp1 {
     grid-area: lef;
 }
@@ -350,20 +358,11 @@ body, html {height: 100%}
 
 .gp4 {
      grid-area: rigmid;
-     padding: 5px;
-     height: 780px;
-     background-color:rgb(236, 236, 236);
-     border-radius: 20px;
-     opacity: 0.9;
+
 }
 
 .gp5 {
     grid-area: rig;
-    padding: 5px;
-    height: 820px;
-    background-color:rgb(236, 236, 236);
-    border-radius: 20px;
-    opacity: 0.9;
 }
 
 .head-input1 {
