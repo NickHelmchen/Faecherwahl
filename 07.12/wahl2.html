@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="page2()">
+    <div class="bgimg grid-container2">
+        <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
+        <button onclick="wahl3()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
+        <div class="reli w3-animate-left toggle-buttons">
+            <p class="header">Religion / Werte und Normen</p>
+            <input type="radio" name="extra1" id="religion">
+            <label for="religion" id="religion.label">Religion</label>
+            <br>
+            <br>
+            <input type="radio" name="extra1" id="wn">
+            <label for="wn" id="wn.label">Werte und Normen</label>
+        </div>
+        <div class="powi w3-animate-top toggle-buttons">
+            <p class="header">Politik Wirtschaft</p>
+            <input type="radio" name="extra2" id="powi">
+            <label for="powi" id="powi.label">Politik Wirschaft</label>
+        </div>
+        <div class="sport w3-animate-top toggle-buttons">
+            <p class="header">Sport</p>
+            <input type="radio" name="extra2" id="sport">
+            <label for="sport" id="sport.label">Sport</label>
+        </div>
+        <div class="erdkunde w3-animate-top toggle-buttons">
+            <p class="header">Erdkunde</p>
+            <input type="radio" name="extra4" id="erdkunde">
+            <label for="erdkunde" id="erdkunde.label">Erdkunde</label>
+        </div>
+        <div class="mathe w3-animate-right toggle-buttons">
+            <p class="header">Mathe</p>
+            <input type="radio" name="extra5" id="mathe">
+            <label for="mathe" id="mathe.label">Mathe</label>
+        </div>
+    </div>    
+  </body>
+</html>
