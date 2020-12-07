@@ -489,13 +489,14 @@ body, html {height: 100%}
     font-family: 'Indie Flower', cursive;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: min-content min-content min-content min-content;
     grid-template-areas: 
         '... ... ... ... ...'
         'input1 ... ... button-next button-next'
-        'lef lefmid mid rigmid rig';
+        'lef lefmid mid rigmid rig'
+        'info info info rigmid rig';
 }
 
 .gp1, .gp2, .gp3{
@@ -553,6 +554,18 @@ body, html {height: 100%}
     width: 200px;
     border-radius: 25px;
     margin: auto;
+}
+
+.info {
+    grid-area: info;
+    background-color:rgb(236, 236, 236);
+    height: 60px;
+    width: 850px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
