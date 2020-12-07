@@ -34,7 +34,7 @@ function wahl1() {
 }
 
 function wahl2() {
-  location.href = "wahl2.html"
+  location.href = "wahlmanu.html"
 }
 
 function page2() {
