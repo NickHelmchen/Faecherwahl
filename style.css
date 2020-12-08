@@ -584,7 +584,7 @@ body, html {height: 100%}
 .info {
     grid-area: info;
     background-color:rgb(236, 236, 236);
-    height: 100px;
+    height: 120px;
     width: 850px;
     border-radius: 25px;
     cursor: default;
