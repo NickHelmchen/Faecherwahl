@@ -666,6 +666,7 @@ function logicsubjects(i) {
     sessionStorage.setItem('informatik_w', false)
     sessionStorage.setItem('chemie_w', false)
   }
+  console.log(sessionStorage.getItem('deutsch_w'))
 }
 
 function proof_in_advance(pfach, i) {
@@ -843,7 +844,7 @@ function proof_in_advance(pfach, i) {
         } */
         break; 
       case 'Deutsch':
-        proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[5]'), sessionStorage.getItem('deutsch'))
+        proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[5]'), sessionStorage.getItem('deutsch_w'))
         /*
         if (sessionStorage.getItem('w[0]') === 'true' && sessionStorage.getItem('deutsch_w') === 'true') {
           if (i === 2 && sessionStorage.getItem('p2_waehlbar[5]') == 'false') {

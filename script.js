@@ -36,16 +36,16 @@ function wahl1() {
 }
 
 function wahl2() {
-  if(sessionStorage.getItem(profil) == "mana") {
+  if(sessionStorage.getItem('profil') == 'mana') {
     location.href = "wahlmanu.html"
   }
-  if(sessionStorage.getItem(profil) == "spra") {
+  if(sessionStorage.getItem('profil') == 'spra') {
     location.href = "wahlspra.html"
   }
-  if(sessionStorage.getItem(profil) == "muku") {
+  if(sessionStorage.getItem('profil') == 'muku') {
     location.href = "wahlmuku.html"
   }
-  if(sessionStorage.getItem(profil) == "gese") {
+  if(sessionStorage.getItem('profil') == 'gese') {
     location.href = "wahlgese.html"
   }
 }
