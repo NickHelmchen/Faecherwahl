@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title> Fächerwahl </title>
+    <script src="logic.js"></script>
     <script src="script.js"></script>
   </head>
 
-  <body onload="page2()">
+  <body onload="page2(), gk()">
     <div class="bgimg grid-container2">
         <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
         <button onclick="wahl3()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
@@ -31,7 +32,7 @@
           <br>
           <br>
           <input type="radio" name="extra2" id="kunst">
-          <label for="kunst" id="kuns.label">Kunst</label>
+          <label for="kunst" id="kunst.label">Kunst</label>
           <br>
           <br>
           <input type="radio" name="extra2" id="ds">
