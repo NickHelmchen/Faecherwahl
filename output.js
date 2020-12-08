@@ -8,7 +8,7 @@ function save() {
             }  
         }
         if(i == 3) {
-            for(j = 1; j<= 13; j++) {
+            for(j = 1; j<= 14; j++) {
                 if(document.getElementById("pfach" + i + "." + j).checked == true) {
                     sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
                 }
