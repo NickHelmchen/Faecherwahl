@@ -486,6 +486,21 @@ function logicsubjects(i) {
                 for (var index = 0; index < 14; index++) {
                     sessionStorage.setItem('p2_waehlbar[' + index + ']', true)
                 }
+                sessionStorage.setItem('pfach3', 'Politik Wirtschaft')
+                /*interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
+                interaction += 1
+                sessionStorage.setItem('nicht_kernfaecher', interaction)
+                console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+
+                interaction = parseInt(sessionStorage.getItem('B_anzahl'))
+                interaction += 1
+                sessionStorage.setItem('B_anzahl', interaction)
+                console.log('B: ' + sessionStorage.getItem('B_anzahl'))
+
+                interaction = sessionStorage.getItem('powi_w')
+                interaction = false
+                sessionStorage.setItem('powi_w', interaction)
+                console.log('Wählbarkeit von PoWi: ' + sessionStorage.getItem('powi_w')) */
             }
             interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
             interaction += 1
@@ -721,6 +736,9 @@ function proof_in_advance(pfach, i) {
         break;
       case 'Politik Wirtschaft':
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[13]'), sessionStorage.getItem('powi_w'))
+        if (sessionStorage.getItem('profil') == 'gese' && i === 3) {
+          document.getElementById("pfach3.14.label").style.opacity = '1'
+        }
         break;
       case 'Spanisch':
         var help_fs = false
@@ -796,13 +814,18 @@ function proof_in_advance_visibility (pfach, i, j, bereich, waehlbar, fachvariab
       a = pfach + j
       document.getElementById(a).disabled = true
     } else {
-      document.getElementById(pfach + j + ".label").style.opacity = '1'
+      if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
+        document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+      } else {
+        document.getElementById(pfach + j + ".label").style.opacity = '1'
+      }
     }
   } else {
     document.getElementById(pfach + j + ".label").style.opacity = '0.5'
     var a = toString(pfach + j)
     a = pfach + j
     document.getElementById(a).disabled = true
+
   }
 }
 function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachvariable){
@@ -813,7 +836,11 @@ function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachv
       a = pfach + j
       document.getElementById(a).disabled = true
     } else {
-      document.getElementById(pfach + j + ".label").style.opacity = '1'
+      if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
+        document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+      } else {
+        document.getElementById(pfach + j + ".label").style.opacity = '1'
+      }
     }
   } else {
     document.getElementById(pfach + j + ".label").style.opacity = '0.5'
