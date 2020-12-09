@@ -14,7 +14,16 @@
     'pfach1label pfach1 pfach2label pfach2'
     'pfach3label pfach3 pfach4label pfach4'
     'pfach5label pfach5 ... ...'
-    'extra1label extra1 extra2label extra2';
+    '... ... ... ...'
+    'extra1label extra1 extra2label extra2'
+    'extra3label extra3 extra4label extra4'
+    'extra5label extra5 extra6label extra6'
+    'extra7label extra7 extra'
+    ''
+    ''
+    ''
+    ''
+    '';
 }
 
 .printbutton {
@@ -151,6 +160,216 @@
     text-align: center;   
 }
 
+.extra3 {
+    grid-area: extra3;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra4 {
+    grid-area: extra4;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra5 {
+    grid-area: extra5;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra6 {
+    grid-area: extra6;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra7 {
+    grid-area: extra7;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra8 {
+    grid-area: extra8;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra9 {
+    grid-area: extra9;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra10 {
+    grid-area: extra10;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra11 {
+    grid-area: extra11;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra12 {
+    grid-area: extra12;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra13 {
+    grid-area: extra13;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra14 {
+    grid-area: extra14;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra15 {
+    grid-area: extra15;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra16 {
+    grid-area: extra16;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
+.extra17 {
+    grid-area: extra17;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 
 .namelabel {
@@ -203,6 +422,96 @@
 
 .extra2label {
     grid-area: extra2label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra3label {
+    grid-area: extra3label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra4label {
+    grid-area: extra4label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra5label {
+    grid-area: extra5label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra6label {
+    grid-area: extra6label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra7label {
+    grid-area: extra7label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra8label {
+    grid-area: extra8label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra9label {
+    grid-area: extra9label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra10label {
+    grid-area: extra10label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra11label {
+    grid-area: extra11label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra12label {
+    grid-area: extra12label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra13label {
+    grid-area: extra13label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra14label {
+    grid-area: extra14label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra15label {
+    grid-area: extra15label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra16label {
+    grid-area: extra16label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra17label {
+    grid-area: extra17label;
     color: black; 
     margin: auto;   
 }
