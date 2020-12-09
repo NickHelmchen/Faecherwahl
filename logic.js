@@ -466,23 +466,6 @@ function logicsubjects(i) {
                 for (var index = 0; index < 14; index++) {
                     sessionStorage.setItem('p2_waehlbar[' + index + ']', true)
                 }
-                document.getElementById("pfach3.12").checked = true
-                document.getElementById("pfach3.12").clickable = false
-
-                interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-                interaction += 1
-                sessionStorage.setItem('nicht_kernfaecher', interaction)
-                console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
-
-                interaction = parseInt(sessionStorage.getItem('B_anzahl'))
-                interaction += 1
-                sessionStorage.setItem('B_anzahl', interaction)
-                console.log('B: ' + sessionStorage.getItem('B_anzahl'))
-
-                interaction = sessionStorage.getItem('powi_w')
-                interaction = false
-                sessionStorage.setItem('powi_w', interaction)
-                console.log('Wählbarkeit von Geschichte: ' + sessionStorage.getItem('powi_w'))
             }
             interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
             interaction += 1
@@ -565,7 +548,7 @@ function logicsubjects(i) {
             }
           }
           break
-    }
+    } 
   if (sessionStorage.getItem('nicht_kernfaecher') == 3) {
     sessionStorage.setItem('w_nk', false)
   }
@@ -660,7 +643,17 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[2]'), sessionStorage.getItem('chemie_w'))
         break;
       case 'Englisch':
-        proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+        var help_fs = false
+        for (let index = 1; index < 6; index++) {
+          if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Französisch') {
+            help_fs = true
+          }
+        } 
+        if (help_fs == true) {
+          proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+        } else {
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+        }
       break;
       case 'Physik':
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[4]'), sessionStorage.getItem('physik_w'))
@@ -672,10 +665,30 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[12]'), sessionStorage.getItem('geschichte_w'))
         break
       case 'Franzoesisch':
-        proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+        var help_fs = false
+        for (let index = 1; index < 6; index++) {
+          if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
+            help_fs = true
+          }
+        } 
+        if (help_fs == true) {
+          proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+        } else {
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+        }
         break;
       case 'Latein':
-        proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
+        var help_fs = false
+        for (let index = 1; index < 6; index++) {
+          if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
+            help_fs = true
+          }
+        } 
+        if (help_fs == true) {
+          proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
+        } else {
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
+        }
         break;
       case 'Musik':
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[11]'), sessionStorage.getItem('musik_w'))
@@ -690,7 +703,17 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[13]'), sessionStorage.getItem('powi_w'))
         break;
       case 'Spanisch':
-        proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
+        var help_fs = false
+        for (let index = 1; index < 6; index++) {
+          if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
+            help_fs = true
+          }
+        } 
+        if (help_fs == true) {
+          proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
+        } else {
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
+        }
         break; 
       case 'Deutsch':
         proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[5]'), sessionStorage.getItem('deutsch_w'))
@@ -780,151 +803,297 @@ function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachv
   }
 }
 
-function gk(){
-  if (sessionStorage.getItem('profil') == 'mana') {
-    for (var j = 1; j < 6; j++) {
-      pflicht(j)
-      if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) =='Kunst' || sessionStorage.getItem('pfach' + j) =='DS')) {
-        if (sessionStorage.getItem('pfach' + j) == 'Musik') {
-          sessionStorage.setItem('musik_gk', true)
-          sessionStorage.setItem('kunst_gk', false)
-          sessionStorage.setItem('ds_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
-          sessionStorage.setItem('musik_gk', false)
-          sessionStorage.setItem('kunst_gk', true)
-          sessionStorage.setItem('ds_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'DS') {
-          sessionStorage.setItem('musik_gk', false)
-          sessionStorage.setItem('kunst_gk', false)
-          sessionStorage.setItem('ds_gk', true)
-        }
+function mana(){
+  for (var j = 1; j < 6; j++) {
+    pflicht(j)
+    if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) =='Kunst' || sessionStorage.getItem('pfach' + j) =='DS')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Musik') {
+        sessionStorage.setItem('musik_gk', true)
+        sessionStorage.setItem('kunst_gk', false)
+        sessionStorage.setItem('ds_gk', false)
       }
-      if (sessionStorage.getItem('englisch_gk') == 'false' && sessionStorage.getItem('latein_gk') == 'false' && sessionStorage.getItem('franzoesisch_gk') == 'false' && sessionStorage.getItem('spanisch_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch')) {
-        if (sessionStorage.getItem('pfach' + j) == 'Englisch') {
-          sessionStorage.setItem('englisch_gk', true)
-          sessionStorage.setItem('latein_gk', false)
-          sessionStorage.setItem('franzoesisch_gk', false)
-          sessionStorage.setItem('spanisch_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Latein') {
-          sessionStorage.setItem('englisch_gk', false)
-          sessionStorage.setItem('latein_gk', true)
-          sessionStorage.setItem('franzoesisch_gk', false)
-          sessionStorage.setItem('spanisch_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Französisch') {
-          sessionStorage.setItem('englisch_gk', false)
-          sessionStorage.setItem('latein_gk', false)
-          sessionStorage.setItem('franzoesisch_gk', true)
-          sessionStorage.setItem('spanisch_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Spanisch') {
-          sessionStorage.setItem('englisch_gk', false)
-          sessionStorage.setItem('latein_gk', false)
-          sessionStorage.setItem('franzoesisch_gk', false)
-          sessionStorage.setItem('spanisch_gk', true)
-        }
+      if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
+        sessionStorage.setItem('musik_gk', false)
+        sessionStorage.setItem('kunst_gk', true)
+        sessionStorage.setItem('ds_gk', false)
       }
-      if (sessionStorage.getItem('pfach' + j) == 'Biologie' || sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Informatik') {
-        interaction = parseInt(sessionStorage.getItem('counter_nw'))
-        interaction += 1
-        sessionStorage.setItem('counter_nw', interaction)
-        console.log('NW-Counter: ' + sessionStorage.getItem('counter_nw'))
+      if (sessionStorage.getItem('pfach' + j) == 'DS') {
+        sessionStorage.setItem('musik_gk', false)
+        sessionStorage.setItem('kunst_gk', false)
+        sessionStorage.setItem('ds_gk', true)
       }
     }
-    //Sport
-    if (sessionStorage.getItem('pfach4') == 'Sport') {
-      sessionStorage.setItem('sport_gk', true)
+    if (sessionStorage.getItem('englisch_gk') == 'false' && sessionStorage.getItem('latein_gk') == 'false' && sessionStorage.getItem('franzoesisch_gk') == 'false' && sessionStorage.getItem('spanisch_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Englisch') {
+        sessionStorage.setItem('englisch_gk', true)
+        sessionStorage.setItem('latein_gk', false)
+        sessionStorage.setItem('franzoesisch_gk', false)
+        sessionStorage.setItem('spanisch_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Latein') {
+        sessionStorage.setItem('englisch_gk', false)
+        sessionStorage.setItem('latein_gk', true)
+        sessionStorage.setItem('franzoesisch_gk', false)
+        sessionStorage.setItem('spanisch_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Französisch') {
+        sessionStorage.setItem('englisch_gk', false)
+        sessionStorage.setItem('latein_gk', false)
+        sessionStorage.setItem('franzoesisch_gk', true)
+        sessionStorage.setItem('spanisch_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Spanisch') {
+        sessionStorage.setItem('englisch_gk', false)
+        sessionStorage.setItem('latein_gk', false)
+        sessionStorage.setItem('franzoesisch_gk', false)
+        sessionStorage.setItem('spanisch_gk', true)
+      }
     }
-    //1 FS
-    if (sessionStorage.getItem('englisch_gk') == 'false' && sessionStorage.getItem('latein_gk') == 'false' && sessionStorage.getItem('franzoesisch_gk') == 'false' && sessionStorage.getItem('spanisch_gk') == 'false') {
-      sessionStorage.setItem('englisch_gk', true)
-      sessionStorage.setItem('latein_gk', true)
-      sessionStorage.setItem('franzoesisch_gk', true)
-      sessionStorage.setItem('spanisch_gk', true)
+    if (sessionStorage.getItem('pfach' + j) == 'Biologie' || sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Informatik') {
+      interaction = parseInt(sessionStorage.getItem('counter_nw'))
+      interaction += 1
+      sessionStorage.setItem('counter_nw', interaction)
+      console.log('NW-Counter: ' + sessionStorage.getItem('counter_nw'))
     }
-    if (sessionStorage.getItem('englisch_gk') == 'true' && sessionStorage.getItem('latein_gk') == 'true' && sessionStorage.getItem('franzoesisch_gk') == 'true' && sessionStorage.getItem('spanisch_gk') == 'true') {
-      document.getElementById("englisch.label").style.opacity = '1'
-      document.getElementById("latein.label").style.opacity = '1'
-      document.getElementById("franzoesisch.label").style.opacity = '1'
-      document.getElementById("spanisch.label").style.opacity = '1'
-    } else {
-      document.getElementById("englisch.label").style.opacity = '0.5'
-      document.getElementById("latein.label").style.opacity = '0.5'
-      document.getElementById("franzoesisch.label").style.opacity = '0.5'
-      document.getElementById("spanisch.label").style.opacity = '0.5'
-    }
+  }
+  //Sport
+  if (sessionStorage.getItem('pfach4') == 'Sport') {
+    sessionStorage.setItem('sport_gk', true)
+  }
+  //1 FS
+  if (sessionStorage.getItem('englisch_gk') == 'false' && sessionStorage.getItem('latein_gk') == 'false' && sessionStorage.getItem('franzoesisch_gk') == 'false' && sessionStorage.getItem('spanisch_gk') == 'false') {
+    sessionStorage.setItem('englisch_gk', true)
+    sessionStorage.setItem('latein_gk', true)
+    sessionStorage.setItem('franzoesisch_gk', true)
+    sessionStorage.setItem('spanisch_gk', true)
+  }
+  if (sessionStorage.getItem('englisch_gk') == 'true' && sessionStorage.getItem('latein_gk') == 'true' && sessionStorage.getItem('franzoesisch_gk') == 'true' && sessionStorage.getItem('spanisch_gk') == 'true') {
+    document.getElementById("englisch.label").style.opacity = '1'
+    document.getElementById("latein.label").style.opacity = '1'
+    document.getElementById("franzoesisch.label").style.opacity = '1'
+    document.getElementById("spanisch.label").style.opacity = '1'
+  } else {
+    document.getElementById("englisch.label").style.opacity = '0.5'
+    document.getElementById("latein.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch.label").style.opacity = '0.5'
+    document.getElementById("spanisch.label").style.opacity = '0.5'
+  }
 
 
-    //Musik, Kunst, DS
-    if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false') {
-      sessionStorage.setItem('musik_gk', true)
-      sessionStorage.setItem('kunst_gk', true)
-      sessionStorage.setItem('ds_gk', true)
-    }
-    if (sessionStorage.getItem('musik_gk') == 'true' && sessionStorage.getItem('kunst_gk') == 'true'  && sessionStorage.getItem('ds_gk') == 'true') {
-      document.getElementById("musik.label").style.opacity = '1'
-      document.getElementById("ds.label").style.opacity = '1'
-      document.getElementById("kunst.label").style.opacity = '1'
-    } else {
-      document.getElementById("musik.label").style.opacity = '0.5'
-      document.getElementById("ds.label").style.opacity = '0.5'
-      document.getElementById("kunst.label").style.opacity = '0.5'
-    }
+  //Musik, Kunst, DS
+  if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false') {
+    sessionStorage.setItem('musik_gk', true)
+    sessionStorage.setItem('kunst_gk', true)
+    sessionStorage.setItem('ds_gk', true)
+  }
+  if (sessionStorage.getItem('musik_gk') == 'true' && sessionStorage.getItem('kunst_gk') == 'true'  && sessionStorage.getItem('ds_gk') == 'true') {
+    document.getElementById("musik.label").style.opacity = '1'
+    document.getElementById("ds.label").style.opacity = '1'
+    document.getElementById("kunst.label").style.opacity = '1'
+  } else {
+    document.getElementById("musik.label").style.opacity = '0.5'
+    document.getElementById("ds.label").style.opacity = '0.5'
+    document.getElementById("kunst.label").style.opacity = '0.5'
+  }
 
 
-    //Religion
-    if (sessionStorage.getItem('religion_gk') == 'false' && sessionStorage.getItem('wn_gk') == 'false') {
-      sessionStorage.setItem('religion_gk', true)
-      sessionStorage.setItem('wn_gk', true)
+  //Religion
+  if (sessionStorage.getItem('religion_gk') == 'false' && sessionStorage.getItem('wn_gk') == 'false') {
+    sessionStorage.setItem('religion_gk', true)
+    sessionStorage.setItem('wn_gk', true)
+  }
+  if (sessionStorage.getItem('religion_gk') == 'true' && sessionStorage.getItem('wn_gk') == 'true') {
+    document.getElementById("religion.label").style.opacity = '1'
+    document.getElementById("wn.label").style.opacity = '1'
+  } else {
+    document.getElementById("religion.label").style.opacity = '0.5'
+    document.getElementById("wn.label").style.opacity = '0.5'
+  }
+  //2 NW
+  if (parseInt(sessionStorage.getItem('counter_nw')) < 2) {
+    var help_informatik = false;
+    var help_biologie = false;
+    var help_physik = false;
+    var help_chemie = false;
+    for (let k = 1; k < 6; k++) {
+      if (sessionStorage.getItem('pfach' + k) == 'Informatik' || sessionStorage.getItem('informatik_gk') == 'true') {
+        help_informatik = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Biologie' || sessionStorage.getItem('biologie_gk') == 'true') {
+        help_biologie = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Physik' || sessionStorage.getItem('physik_gk') == 'true') {
+        help_physik = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Chemie' || sessionStorage.getItem('chemie_gk') == 'true') {
+        help_chemie = true;
+      } 
     }
-    if (sessionStorage.getItem('religion_gk') == 'true' && sessionStorage.getItem('wn_gk') == 'true') {
-      document.getElementById("religion.label").style.opacity = '1'
-      document.getElementById("wn.label").style.opacity = '1'
-    } else {
-      document.getElementById("religion.label").style.opacity = '0.5'
-      document.getElementById("wn.label").style.opacity = '0.5'
-    }
-    //2 NW
-    if (parseInt(sessionStorage.getItem('counter_nw')) < 2) {
-      var help_informatik = false;
-      var help_biologie = false;
-      var help_physik = false;
-      var help_chemie = false;
-      for (let k = 1; k < 6; k++) {
-        if (sessionStorage.getItem('pfach' + k) == 'Informatik' || sessionStorage.getItem('informatik_gk') == 'true') {
-          help_informatik = true;
-        } 
-        if (sessionStorage.getItem('pfach' + k) == 'Biologie' || sessionStorage.getItem('biologie_gk') == 'true') {
-          help_biologie = true;
-        } 
-        if (sessionStorage.getItem('pfach' + k) == 'Physik' || sessionStorage.getItem('physik_gk') == 'true') {
-          help_physik = true;
-        } 
-        if (sessionStorage.getItem('pfach' + k) == 'Chemie' || sessionStorage.getItem('chemie_gk') == 'true') {
-          help_chemie = true;
-        } 
-      }
-      if (help_informatik == true) {
-        document.getElementById("informatik.label").style.opacity = '0.5'
-      }
-      if (help_biologie == true) {
-        document.getElementById("bio.label").style.opacity = '0.5'
-      }
-      if (help_physik == true) {
-        document.getElementById("physik.label").style.opacity = '0.5'
-      }
-      if (help_chemie == true) {
-        document.getElementById("chemie.label").style.opacity = '0.5'
-      }
-    } else {
+    if (help_informatik == true) {
       document.getElementById("informatik.label").style.opacity = '0.5'
-      document.getElementById("physik.label").style.opacity = '0.5'
-      document.getElementById("chemie.label").style.opacity = '0.5'
+    }
+    if (help_biologie == true) {
       document.getElementById("bio.label").style.opacity = '0.5'
     }
+    if (help_physik == true) {
+      document.getElementById("physik.label").style.opacity = '0.5'
+    }
+    if (help_chemie == true) {
+      document.getElementById("chemie.label").style.opacity = '0.5'
+    }
+  } else {
+    document.getElementById("informatik.label").style.opacity = '0.5'
+    document.getElementById("physik.label").style.opacity = '0.5'
+    document.getElementById("chemie.label").style.opacity = '0.5'
+    document.getElementById("bio.label").style.opacity = '0.5'
+  }
+console.log('Religion-GK: ' + sessionStorage.getItem('religion_gk'))
+console.log('WN-GK: ' + sessionStorage.getItem('wn_gk'))  
+console.log('Deutsch-GK: ' + sessionStorage.getItem('deutsch_gk'))
+console.log('Mathe-GK: ' + sessionStorage.getItem('mathe_gk'))
+console.log('Geschichte-GK: ' + sessionStorage.getItem('geschichte_gk'))
+console.log('PoWi-GK: ' + sessionStorage.getItem('powi_gk'))
+console.log('Musik-GK: ' + sessionStorage.getItem('musik_gk'))
+console.log('Kunst-GK: ' + sessionStorage.getItem('kunst_gk'))
+console.log('DS-GK: ' + sessionStorage.getItem('ds_gk'))
+console.log('Englisch-GK: ' + sessionStorage.getItem('englisch_gk'))
+console.log('Spanisch-GK: ' + sessionStorage.getItem('spanisch_gk'))
+console.log('Latein-GK: ' + sessionStorage.getItem('latein_gk'))
+console.log('Französisch-GK: ' + sessionStorage.getItem('franzoesisch_gk'))
+
+}
+function spra() {
+  var help_informatik = false
+  for (var j = 1; j < 6; j++) {
+    pflicht(j)
+    if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) == 'Kunst' || sessionStorage.getItem('pfach' + j) == 'DS')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Musik') {
+        sessionStorage.setItem('musik_gk', true)
+        sessionStorage.setItem('kunst_gk', false)
+        sessionStorage.setItem('ds_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
+        sessionStorage.setItem('musik_gk', false)
+        sessionStorage.setItem('kunst_gk', true)
+        sessionStorage.setItem('ds_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'DS') {
+        sessionStorage.setItem('musik_gk', false)
+        sessionStorage.setItem('kunst_gk', false)
+        sessionStorage.setItem('ds_gk', true)
+      }
+    }
+    if (sessionStorage.getItem('physik_gk') == 'false' && sessionStorage.getItem('biologie_gk') == 'false' && sessionStorage.getItem('chemie_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Biologie')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Physik') {
+        sessionStorage.setItem('physik_gk', true)
+        sessionStorage.setItem('biologie_gk', false)
+        sessionStorage.setItem('chemie_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Chemie') {
+        sessionStorage.setItem('physik_gk', false)
+        sessionStorage.setItem('chemie_gk', true)
+        sessionStorage.setItem('biologie_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Biologie') {
+        sessionStorage.setItem('physik_gk', false)
+        sessionStorage.setItem('chemie_gk', false)
+        sessionStorage.setItem('biologie_gk', true)
+      }
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch') {
+      interaction = parseInt(sessionStorage.getItem('counter_fs'))
+      interaction += 1
+      sessionStorage.setItem('counter_fs', interaction)
+      console.log('FS-Counter: ' + sessionStorage.getItem('counter_fs'))
+    }
+    if (help_informatik == false && sessionStorage.getItem('pfach' + j) == 'Informatik') {
+      help_informatik = true
+    } 
+  }
+  if (parseInt(sessionStorage.getItem('counter_fs')) < 2)  {
+    var help_lang = false
+    for (let index = 1; index < 6; index++) {
+      if (sessionStorage.getItem('pfach' + index) == 'Englisch') {
+        help_lang = true
+      } 
+    }
+    if (help_lang == true) {
+      document.getElementById("spanisch.label").style.opacity = '1'
+      document.getElementById("latein.label").style.opacity = '1'
+      document.getElementById("franzoesisch.label").style.opacity = '1'
+    } else {
+      sessionStorage.setItem('englisch_gk', true)
+      document.getElementById("spanisch.label").style.opacity = '0.5'
+      document.getElementById("latein.label").style.opacity = '0.5'
+      document.getElementById("franzoesisch.label").style.opacity = '0.5'
+    }
+  } else {
+    sessionStorage.setItem('englisch_gk', true)
+    document.getElementById("spanisch.label").style.opacity = '0.5'
+    document.getElementById("latein.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch.label").style.opacity = '0.5'
+  }
+  if (help_informatik == true) {
+    document.getElementById("informatikja.label").style.opacity = '0.5'
+    document.getElementById("informatikne.label").style.opacity = '0.5'
+  } else {
+    document.getElementById("informatikja.label").style.opacity = '1'
+    document.getElementById("informatikne.label").style.opacity = '1'
+  }
+
+  //Sport
+  if (sessionStorage.getItem('pfach4') == 'Sport') {
+    sessionStorage.setItem('sport_gk', true)
+  }
+
+  //1 NW
+  if (sessionStorage.getItem('physik_gk') == 'false' && sessionStorage.getItem('chemie_gk') == 'false' && sessionStorage.getItem('biologie_gk') == 'false') {
+    sessionStorage.setItem('physik_gk', true)
+    sessionStorage.setItem('chemie_gk', true)
+    sessionStorage.setItem('biologie_gk', true)
+  }
+  if (sessionStorage.getItem('physik_gk') == 'true' && sessionStorage.getItem('chemie_gk') == 'true'  && sessionStorage.getItem('biologie_gk') == 'true') {
+    document.getElementById("physik.label").style.opacity = '1'
+    document.getElementById("chemie.label").style.opacity = '1'
+    document.getElementById("bio.label").style.opacity = '1'
+  } else {
+    document.getElementById("physik.label").style.opacity = '0.5'
+    document.getElementById("chemie.label").style.opacity = '0.5'
+    document.getElementById("bio.label").style.opacity = '0.5'
+  }
+
+
+  //Musik, Kunst, DS
+  if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false') {
+    sessionStorage.setItem('musik_gk', true)
+    sessionStorage.setItem('kunst_gk', true)
+    sessionStorage.setItem('ds_gk', true)
+  }
+  console.log(sessionStorage.getItem('musik_gk'))
+  if (sessionStorage.getItem('musik_gk') == 'true' && sessionStorage.getItem('kunst_gk') == 'true' && sessionStorage.getItem('ds_gk') == 'true') {
+    document.getElementById("musik.label").style.opacity = '1'
+    document.getElementById("ds.label").style.opacity = '1'
+    document.getElementById("kunst.label").style.opacity = '1'
+  } else {
+    document.getElementById("musik.label").style.opacity = '0.5'
+    document.getElementById("ds.label").style.opacity = '0.5'
+    document.getElementById("kunst.label").style.opacity = '0.5'
+    console.log('ghjfldkgnps')
+  }
+
+
+  //Religion
+  if (sessionStorage.getItem('religion_gk') == 'false' && sessionStorage.getItem('wn_gk') == 'false') {
+    sessionStorage.setItem('religion_gk', true)
+    sessionStorage.setItem('wn_gk', true)
+  }
+  if (sessionStorage.getItem('religion_gk') == 'true' && sessionStorage.getItem('wn_gk') == 'true') {
+    document.getElementById("religion.label").style.opacity = '1'
+    document.getElementById("wn.label").style.opacity = '1'
+  } else {
+    document.getElementById("religion.label").style.opacity = '0.5'
+    document.getElementById("wn.label").style.opacity = '0.5'
+  }
   console.log('Religion-GK: ' + sessionStorage.getItem('religion_gk'))
   console.log('WN-GK: ' + sessionStorage.getItem('wn_gk'))  
   console.log('Deutsch-GK: ' + sessionStorage.getItem('deutsch_gk'))
@@ -938,168 +1107,144 @@ function gk(){
   console.log('Spanisch-GK: ' + sessionStorage.getItem('spanisch_gk'))
   console.log('Latein-GK: ' + sessionStorage.getItem('latein_gk'))
   console.log('Französisch-GK: ' + sessionStorage.getItem('franzoesisch_gk'))
-  
-  }
-  if (sessionStorage.getItem('profil') == 'spra') {
-    var help_informatik = false
-    for (var j = 1; j < 6; j++) {
-      pflicht(j)
-      if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) == 'Kunst' || sessionStorage.getItem('pfach' + j) == 'DS')) {
-        if (sessionStorage.getItem('pfach' + j) == 'Musik') {
-          sessionStorage.setItem('musik_gk', true)
-          sessionStorage.setItem('kunst_gk', false)
-          sessionStorage.setItem('ds_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
-          sessionStorage.setItem('musik_gk', false)
-          sessionStorage.setItem('kunst_gk', true)
-          sessionStorage.setItem('ds_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'DS') {
-          sessionStorage.setItem('musik_gk', false)
-          sessionStorage.setItem('kunst_gk', false)
-          sessionStorage.setItem('ds_gk', true)
-        }
-      }
-      if (sessionStorage.getItem('physik_gk') == 'false' && sessionStorage.getItem('biologie_gk') == 'false' && sessionStorage.getItem('chemie_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Biologie')) {
-        if (sessionStorage.getItem('pfach' + j) == 'Physik') {
-          sessionStorage.setItem('physik_gk', true)
-          sessionStorage.setItem('biologie_gk', false)
-          sessionStorage.setItem('chemie_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Chemie') {
-          sessionStorage.setItem('physik_gk', false)
-          sessionStorage.setItem('chemie_gk', true)
-          sessionStorage.setItem('biologie_gk', false)
-        }
-        if (sessionStorage.getItem('pfach' + j) == 'Biologie') {
-          sessionStorage.setItem('physik_gk', false)
-          sessionStorage.setItem('chemie_gk', false)
-          sessionStorage.setItem('biologie_gk', true)
-        }
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch') {
-        interaction = parseInt(sessionStorage.getItem('counter_fs'))
-        interaction += 1
-        sessionStorage.setItem('counter_fs', interaction)
-        console.log('FS-Counter: ' + sessionStorage.getItem('counter_fs'))
-      }
-      if (help_informatik == false && sessionStorage.getItem('pfach' + j) == 'Informatik') {
-        help_informatik = true
-      } 
-    }
-    if (parseInt(sessionStorage.getItem('counter_fs')) < 2)  {
-      var help_lang = false
-      for (let index = 1; index < 6; index++) {
-        if (sessionStorage.getItem('pfach' + index) == 'Englisch') {
-          help_lang = true
-        } 
-      }
-      if (help_lang == true) {
-        document.getElementById("spanisch.label").style.opacity = '1'
-        document.getElementById("latein.label").style.opacity = '1'
-        document.getElementById("franzoesisch.label").style.opacity = '1'
-      } else {
+}
+function muku() {
+  var help_informatik = false
+  for (var j = 1; j < 6; j++) {
+    pflicht(j)
+    if (sessionStorage.getItem('englisch_gk') == 'false' && sessionStorage.getItem('latein_gk') == 'false' && sessionStorage.getItem('franzoesisch_gk') == 'false' && sessionStorage.getItem('spanisch_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Englisch') {
         sessionStorage.setItem('englisch_gk', true)
-        document.getElementById("spanisch.label").style.opacity = '0.5'
-        document.getElementById("latein.label").style.opacity = '0.5'
-        document.getElementById("franzoesisch.label").style.opacity = '0.5'
+        sessionStorage.setItem('latein_gk', false)
+        sessionStorage.setItem('franzoesisch_gk', false)
+        sessionStorage.setItem('spanisch_gk', false)
       }
-    } else {
-      sessionStorage.setItem('englisch_gk', true)
-      document.getElementById("spanisch.label").style.opacity = '0.5'
-      document.getElementById("latein.label").style.opacity = '0.5'
-      document.getElementById("franzoesisch.label").style.opacity = '0.5'
+      if (sessionStorage.getItem('pfach' + j) == 'Latein') {
+        sessionStorage.setItem('englisch_gk', false)
+        sessionStorage.setItem('latein_gk', true)
+        sessionStorage.setItem('franzoesisch_gk', false)
+        sessionStorage.setItem('spanisch_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Französisch') {
+        sessionStorage.setItem('englisch_gk', false)
+        sessionStorage.setItem('latein_gk', false)
+        sessionStorage.setItem('franzoesisch_gk', true)
+        sessionStorage.setItem('spanisch_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Spanisch') {
+        sessionStorage.setItem('englisch_gk', false)
+        sessionStorage.setItem('latein_gk', false)
+        sessionStorage.setItem('franzoesisch_gk', false)
+        sessionStorage.setItem('spanisch_gk', true)
+      }
     }
-    if (help_informatik == true) {
-      document.getElementById("informatikja.label").style.opacity = '0.5'
-      document.getElementById("informatikne.label").style.opacity = '0.5'
-    } else {
-      document.getElementById("informatikja.label").style.opacity = '1'
-      document.getElementById("informatikne.label").style.opacity = '1'
+    if (sessionStorage.getItem('physik_gk') == 'false' && sessionStorage.getItem('biologie_gk') == 'false' && sessionStorage.getItem('chemie_gk') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Biologie')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Physik') {
+        sessionStorage.setItem('physik_gk', true)
+        sessionStorage.setItem('biologie_gk', false)
+        sessionStorage.setItem('chemie_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Chemie') {
+        sessionStorage.setItem('physik_gk', false)
+        sessionStorage.setItem('chemie_gk', true)
+        sessionStorage.setItem('biologie_gk', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Biologie') {
+        sessionStorage.setItem('physik_gk', false)
+        sessionStorage.setItem('chemie_gk', false)
+        sessionStorage.setItem('biologie_gk', true)
+      }
     }
-
-    //Sport
-    if (sessionStorage.getItem('pfach4') == 'Sport') {
-      sessionStorage.setItem('sport_gk', true)
-    }
-
-    //1 NW
-    if (sessionStorage.getItem('physik_gk') == 'false' && sessionStorage.getItem('chemie_gk') == 'false' && sessionStorage.getItem('biologie_gk') == 'false') {
-      sessionStorage.setItem('physik_gk', true)
-      sessionStorage.setItem('chemie_gk', true)
-      sessionStorage.setItem('biologie_gk', true)
-    }
-    if (sessionStorage.getItem('physik_gk') == 'true' && sessionStorage.getItem('chemie_gk') == 'true'  && sessionStorage.getItem('biologie_gk') == 'true') {
-      document.getElementById("physik.label").style.opacity = '1'
-      document.getElementById("chemie.label").style.opacity = '1'
-      document.getElementById("bio.label").style.opacity = '1'
-    } else {
-      document.getElementById("physik.label").style.opacity = '0.5'
-      document.getElementById("chemie.label").style.opacity = '0.5'
-      document.getElementById("bio.label").style.opacity = '0.5'
-    }
-
-
-    //Musik, Kunst, DS
-    if (sessionStorage.getItem('musik_gk') == 'false' && sessionStorage.getItem('kunst_gk') == 'false' && sessionStorage.getItem('ds_gk') == 'false') {
-      sessionStorage.setItem('musik_gk', true)
-      sessionStorage.setItem('kunst_gk', true)
-      sessionStorage.setItem('ds_gk', true)
-    }
-    console.log(sessionStorage.getItem('musik_gk'))
-    if (sessionStorage.getItem('musik_gk') == 'true' && sessionStorage.getItem('kunst_gk') == 'true' && sessionStorage.getItem('ds_gk') == 'true') {
-      document.getElementById("musik.label").style.opacity = '1'
-      document.getElementById("ds.label").style.opacity = '1'
-      document.getElementById("kunst.label").style.opacity = '1'
-    } else {
-      document.getElementById("musik.label").style.opacity = '0.5'
-      document.getElementById("ds.label").style.opacity = '0.5'
-      document.getElementById("kunst.label").style.opacity = '0.5'
-      console.log('ghjfldkgnps')
-    }
-
-
-    //Religion
-    if (sessionStorage.getItem('religion_gk') == 'false' && sessionStorage.getItem('wn_gk') == 'false') {
-      sessionStorage.setItem('religion_gk', true)
-      sessionStorage.setItem('wn_gk', true)
-    }
-    if (sessionStorage.getItem('religion_gk') == 'true' && sessionStorage.getItem('wn_gk') == 'true') {
-      document.getElementById("religion.label").style.opacity = '1'
-      document.getElementById("wn.label").style.opacity = '1'
-    } else {
-      document.getElementById("religion.label").style.opacity = '0.5'
-      document.getElementById("wn.label").style.opacity = '0.5'
-    }
-    console.log('Religion-GK: ' + sessionStorage.getItem('religion_gk'))
-    console.log('WN-GK: ' + sessionStorage.getItem('wn_gk'))  
-    console.log('Deutsch-GK: ' + sessionStorage.getItem('deutsch_gk'))
-    console.log('Mathe-GK: ' + sessionStorage.getItem('mathe_gk'))
-    console.log('Geschichte-GK: ' + sessionStorage.getItem('geschichte_gk'))
-    console.log('PoWi-GK: ' + sessionStorage.getItem('powi_gk'))
-    console.log('Musik-GK: ' + sessionStorage.getItem('musik_gk'))
-    console.log('Kunst-GK: ' + sessionStorage.getItem('kunst_gk'))
-    console.log('DS-GK: ' + sessionStorage.getItem('ds_gk'))
-    console.log('Englisch-GK: ' + sessionStorage.getItem('englisch_gk'))
-    console.log('Spanisch-GK: ' + sessionStorage.getItem('spanisch_gk'))
-    console.log('Latein-GK: ' + sessionStorage.getItem('latein_gk'))
-    console.log('Französisch-GK: ' + sessionStorage.getItem('franzoesisch_gk'))
+    if (help_informatik == false && sessionStorage.getItem('pfach' + j) == 'Informatik') {
+      help_informatik = true
+    } 
   }
+
+  //Sport
+  if (sessionStorage.getItem('pfach4') == 'Sport') {
+    sessionStorage.setItem('sport_gk', true)
+  }
+  //1 FS
+  if (sessionStorage.getItem('englisch_gk') == 'false' && sessionStorage.getItem('latein_gk') == 'false' && sessionStorage.getItem('franzoesisch_gk') == 'false' && sessionStorage.getItem('spanisch_gk') == 'false') {
+    sessionStorage.setItem('englisch_gk', true)
+    sessionStorage.setItem('latein_gk', true)
+    sessionStorage.setItem('franzoesisch_gk', true)
+    sessionStorage.setItem('spanisch_gk', true)
+  }
+  if (sessionStorage.getItem('englisch_gk') == 'true' && sessionStorage.getItem('latein_gk') == 'true' && sessionStorage.getItem('franzoesisch_gk') == 'true' && sessionStorage.getItem('spanisch_gk') == 'true') {
+    document.getElementById("englisch.label").style.opacity = '1'
+    document.getElementById("latein.label").style.opacity = '1'
+    document.getElementById("franzoesisch.label").style.opacity = '1'
+    document.getElementById("spanisch.label").style.opacity = '1'
+  } else {
+    document.getElementById("englisch.label").style.opacity = '0.5'
+    document.getElementById("latein.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch.label").style.opacity = '0.5'
+    document.getElementById("spanisch.label").style.opacity = '0.5'
+    document.getElementById("englisch").disabled = true
+    document.getElementById("latein").disabled = true
+    document.getElementById("franzoesisch").disabled = true
+    document.getElementById("spanisch").disabled = true
+  }
+  //1 NW
+  if (sessionStorage.getItem('physik_gk') == 'false' && sessionStorage.getItem('chemie_gk') == 'false' && sessionStorage.getItem('biologie_gk') == 'false') {
+    sessionStorage.setItem('physik_gk', true)
+    sessionStorage.setItem('chemie_gk', true)
+    sessionStorage.setItem('biologie_gk', true)
+  }
+  if (sessionStorage.getItem('physik_gk') == 'true' && sessionStorage.getItem('chemie_gk') == 'true'  && sessionStorage.getItem('biologie_gk') == 'true') {
+    document.getElementById("physik.label").style.opacity = '1'
+    document.getElementById("chemie.label").style.opacity = '1'
+    document.getElementById("bio.label").style.opacity = '1'
+  } else {
+    document.getElementById("physik.label").style.opacity = '0.5'
+    document.getElementById("chemie.label").style.opacity = '0.5'
+    document.getElementById("bio.label").style.opacity = '0.5'
+    document.getElementById("physik").disabled = true
+    document.getElementById("chemie").disabled = true
+    document.getElementById("bio").disabled = true
+  }
+  //Religion
+  if (sessionStorage.getItem('religion_gk') == 'false' && sessionStorage.getItem('wn_gk') == 'false') {
+    sessionStorage.setItem('religion_gk', true)
+    sessionStorage.setItem('wn_gk', true)
+  }
+  if (sessionStorage.getItem('religion_gk') == 'true' && sessionStorage.getItem('wn_gk') == 'true') {
+    document.getElementById("religion.label").style.opacity = '1'
+    document.getElementById("wn.label").style.opacity = '1'
+  } else {
+    document.getElementById("religion.label").style.opacity = '0.5'
+    document.getElementById("wn.label").style.opacity = '0.5'
+    document.getElementById("religion").disabled = true
+    document.getElementById("wn").disabled = true
+  }
+  if (help_informatik == true) {
+    document.getElementById("informatikja.label").style.opacity = '0.5'
+    document.getElementById("informatikne.label").style.opacity = '0.5'
+    document.getElementById("informatikja").disabled = true
+    document.getElementById("informatikne").disabled = true
+  } else {
+    document.getElementById("informatikja.label").style.opacity = '1'
+    document.getElementById("informatikne.label").style.opacity = '1'
+  }
+  // 2 aus Musik, Kunst, DS
+  if (sessionStorage.getItem('pfach1') == 'Musik') {
+    document.getElementById("musik.label").style.opacity = '0.5'
+    document.getElementById("musik").disabled = true
+  } else if (sessionStorage.getItem('pfach1') == 'Kunst') {
+    document.getElementById("kunst.label").style.opacity = '0.5'
+    document.getElementById("kunst").disabled = true
+  }
+}
   
-  /*
-  if (sessionStorage.getItem('profil') == 'muku') {
-    for (var j = 1; j < 6; j++) {
-      pflicht(j)
-
-    }
+/*
+function gese(){
+  for (var j = 1; j < 6; j++) {
+    pflicht(j)
   }
-  if (sessionStorage.getItem('profil') == 'gese') { 
-    for (var j = 1; j < 6; j++) {
-      pflicht(j)
-    }
-  } */ 
-} 
+}
+*/ 
+
 
 function pflicht(j) {
   if (sessionStorage.getItem('deutsch_gk') == false && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
