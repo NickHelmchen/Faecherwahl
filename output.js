@@ -70,8 +70,10 @@ function output() {
 
 function buttonprint() {
     document.getElementById("printbutton").style.visibility = "hidden"
+    document.getElementById("signature").style.visibility = "visible"
 
     print()
 
     document.getElementById("printbutton").style.visibility = "visible"
+    document.getElementById("signature").style.visibility = "hidden"
 }
