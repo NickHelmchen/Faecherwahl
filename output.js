@@ -4,6 +4,7 @@ lp2 = 12
 lp3 = 14
 lp4 = 16
 lp5 = 17
+extras = 17
 
 function save() {
     for(i = 1; i <= 5; i++) {
@@ -50,7 +51,7 @@ function saveextra(name) {
 }
 
 function look_for_extra() {
-    for(i = 1; i <= 10; i++) {
+    for(i = 1; i <= extras; i++) {
         if(sessionStorage.getItem("extra" + i) == "true") {
             document.getElementById("extra" + i).value = "gewählt"
         }else {
