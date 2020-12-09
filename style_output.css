@@ -23,7 +23,7 @@
     'extra11label extra11 extra12label extra12'
     'extra13label extra13 extra14label extra14'
     'extra15label extra15 extra16label extra16'
-    'extra17label extra17 ... ...'
+    'extra17label extra17 extra18label extra18'
     '... ... ... ...'
     '... ... signature signature';
 }
@@ -385,6 +385,20 @@
     text-align: center;   
 }
 
+.extra18 {
+    grid-area: extra18;
+    background-color: skyblue;
+    color: black;
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;   
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 
 .namelabel {
@@ -527,6 +541,12 @@
 
 .extra17label {
     grid-area: extra17label;
+    color: black; 
+    margin: auto;   
+}
+
+.extra18label {
+    grid-area: extra18label;
     color: black; 
     margin: auto;   
 }
