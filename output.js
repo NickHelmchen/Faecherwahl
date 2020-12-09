@@ -51,7 +51,7 @@ function saveextra(name) {
 
 function look_for_extra() {
     for(i = 1; i <= 10; i++) {
-        if(sessionStorage.getItem("extra" + i) != null) {
+        if(sessionStorage.getItem("extra" + i) == "true") {
             document.getElementById("extra" + i).value = "gewählt"
         }else {
             document.getElementById("extra" + i).value = "---/---"
