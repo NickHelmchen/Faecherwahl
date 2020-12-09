@@ -633,7 +633,7 @@ function logicsubjects(i) {
 }
 
 function proof_in_advance(pfach, i) {
-  var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Geschichte', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
+  var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   for (let j = 0; j < 18; j++) {
     switch (all_subjects[j]) {
       case 'Mathe':
@@ -1157,7 +1157,8 @@ function muku() {
     }
     if (help_informatik == false && sessionStorage.getItem('pfach' + j) == 'Informatik') {
       help_informatik = true
-    } 
+    }
+     
   }
 
   //Sport
@@ -1236,14 +1237,203 @@ function muku() {
     document.getElementById("kunst").disabled = true
   }
 }
-  
-/*
+
 function gese(){
   for (var j = 1; j < 6; j++) {
     pflicht(j)
+    if (sessionStorage.getItem('pfach' + j) == 'Biologie' || sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Informatik') {
+      interaction = parseInt(sessionStorage.getItem('counter_nw'))
+      interaction += 1
+      sessionStorage.setItem('counter_nw', interaction)
+      console.log('NW-Counter: ' + sessionStorage.getItem('counter_nw'))
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch') {
+      interaction = parseInt(sessionStorage.getItem('counter_fs'))
+      interaction += 1
+      sessionStorage.setItem('counter_fs', interaction)
+      console.log('FS-Counter: ' + sessionStorage.getItem('counter_fs'))
+    }
+  }
+  //Sport
+  if (sessionStorage.getItem('pfach4') == 'Sport') {
+    sessionStorage.setItem('sport_gk', true)
+  }
+  //Religion
+  if (sessionStorage.getItem('religion_gk') == 'false' && sessionStorage.getItem('wn_gk') == 'false') {
+    sessionStorage.setItem('religion_gk', true)
+    sessionStorage.setItem('wn_gk', true)
+  }
+  if (sessionStorage.getItem('religion_gk') == 'true' && sessionStorage.getItem('wn_gk') == 'true') {
+    document.getElementById("religion.label").style.opacity = '1'
+    document.getElementById("wn.label").style.opacity = '1'
+  } else {
+    document.getElementById("religion.label").style.opacity = '0.5'
+    document.getElementById("wn.label").style.opacity = '0.5'
+    document.getElementById("religion").disabled = true
+    document.getElementById("wn").disabled = true
+  }
+  if (parseInt(sessionStorage.getItem('counter_nw')) == 0) {
+    document.getElementById("physik.label").style.opacity = '1'
+    document.getElementById("bio.label").style.opacity = '1'
+    document.getElementById("chemie.label").style.opacity = '1'
+    document.getElementById("informatik.label").style.opacity = '1'
+  } else if (parseInt(sessionStorage.getItem('counter_nw')) == 1) {
+    document.getElementById("physik.label").style.opacity = '0.5'
+    document.getElementById("bio.label").style.opacity = '0.5'
+    document.getElementById("chemie.label").style.opacity = '0.5'
+    document.getElementById("informatik.label").style.opacity = '0.5'
+    document.getElementById("physik").disabled = true
+    document.getElementById("bio").disabled = true
+    document.getElementById("chemie").disabled = true
+    document.getElementById("informatik").disabled = true
+    var help_informatik = false;
+    var help_biologie = false;
+    var help_physik = false;
+    var help_chemie = false;
+    for (let k = 1; k < 6; k++) {
+      if (sessionStorage.getItem('pfach' + k) == 'Informatik') {
+        help_informatik = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Biologie') {
+        help_biologie = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Physik') {
+        help_physik = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Chemie') {
+        help_chemie = true;
+      } 
+    }
+    if (help_informatik == true) {
+      document.getElementById("informatik2.label").style.opacity = '0.5'
+      document.getElementById("informatik2").disabled = true
+    }
+    if (help_biologie == true) {
+      document.getElementById("bio2.label").style.opacity = '0.5'
+      document.getElementById("bio2").disabled = true
+    }
+    if (help_physik == true) {
+      document.getElementById("physik2.label").style.opacity = '0.5'
+      document.getElementById("physik2").disabled = true
+    }
+    if (help_chemie == true) {
+      document.getElementById("chemie2.label").style.opacity = '0.5'
+      document.getElementById("chemie2").disabled = true
+    }
+  } else if (parseInt(sessionStorage.getItem('counter_nw')) == 2) {
+    document.getElementById("physik.label").style.opacity = '0.5'
+    document.getElementById("bio.label").style.opacity = '0.5'
+    document.getElementById("chemie.label").style.opacity = '0.5'
+    document.getElementById("informatik.label").style.opacity = '0.5'
+    document.getElementById("physik").disabled = true
+    document.getElementById("bio").disabled = true
+    document.getElementById("chemie").disabled = true
+    document.getElementById("informatik").disabled = true
+    document.getElementById("physik2.label").style.opacity = '0.5'
+    document.getElementById("bio2.label").style.opacity = '0.5'
+    document.getElementById("chemie2.label").style.opacity = '0.5'
+    document.getElementById("informatik2.label").style.opacity = '0.5'
+    document.getElementById("physik2").disabled = true
+    document.getElementById("bio2").disabled = true
+    document.getElementById("chemie2").disabled = true
+    document.getElementById("informatik2").disabled = true
+    document.getElementById("englisch2.label").style.opacity = '0.5'
+    document.getElementById("latein2.label").style.opacity = '0.5'
+    document.getElementById("spanisch2.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+    document.getElementById("englisch2").disabled = true
+    document.getElementById("latein2").disabled = true
+    document.getElementById("spanisch2").disabled = true
+    document.getElementById("franzoesisch2").disabled = true
+  }
+  if (parseInt(sessionStorage.getItem('counter_fs')) == 0) {
+    document.getElementById("englisch.label").style.opacity = '1'
+    document.getElementById("latein.label").style.opacity = '1'
+    document.getElementById("spanisch.label").style.opacity = '1'
+    document.getElementById("franzoesisch.label").style.opacity = '1'
+  } else if (parseInt(sessionStorage.getItem('counter_fs')) == 1) {
+    document.getElementById("englisch.label").style.opacity = '0.5'
+    document.getElementById("latein.label").style.opacity = '0.5'
+    document.getElementById("spanisch.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch.label").style.opacity = '0.5'
+    document.getElementById("englisch").disabled = true
+    document.getElementById("latein").disabled = true
+    document.getElementById("spanisch").disabled = true
+    document.getElementById("franzoesisch").disabled = true
+    var help_englisch = false
+    var help_latein = false
+    var help_spanisch = false
+    var help_franzoesisch = false
+    for (let k = 1; k < 6; k++) {
+      if (sessionStorage.getItem('pfach' + k) == 'Englisch') {
+        help_englisch = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Latein') {
+        help_latein = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Spanisch') {
+        help_spanisch = true;
+      } 
+      if (sessionStorage.getItem('pfach' + k) == 'Französisch') {
+        help_franzoesisch = true;
+      } 
+    }
+    if (help_englisch == true) {
+      document.getElementById("englisch2.label").style.opacity = '0.5'
+      document.getElementById("englisch2").disabled = true
+    }
+    if (help_latein == true) {
+      document.getElementById("latein2.label").style.opacity = '0.5'
+      document.getElementById("latein2").disabled = true
+      document.getElementById("spanisch2.label").style.opacity = '0.5'
+      document.getElementById("spanisch2").disabled = true
+      document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+      document.getElementById("franzoesisch2").disabled = true
+    }
+    if (help_spanisch == true) {
+      document.getElementById("latein2.label").style.opacity = '0.5'
+      document.getElementById("latein2").disabled = true
+      document.getElementById("spanisch2.label").style.opacity = '0.5'
+      document.getElementById("spanisch2").disabled = true
+      document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+      document.getElementById("franzoesisch2").disabled = true
+    }
+    if (help_franzoesisch == true) {
+      document.getElementById("latein2.label").style.opacity = '0.5'
+      document.getElementById("latein2").disabled = true
+      document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+      document.getElementById("franzoesisch2").disabled = true
+      document.getElementById("spanisch2.label").style.opacity = '0.5'
+      document.getElementById("spanisch2").disabled = true
+    }
+  } else if (parseInt(sessionStorage.getItem('counter_fs')) == 2) {
+    document.getElementById("englisch.label").style.opacity = '0.5'
+    document.getElementById("latein.label").style.opacity = '0.5'
+    document.getElementById("spanisch.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch.label").style.opacity = '0.5'
+    document.getElementById("englisch").disabled = true
+    document.getElementById("latein").disabled = true
+    document.getElementById("spanisch").disabled = true
+    document.getElementById("franzoesisch").disabled = true
+    document.getElementById("englisch2.label").style.opacity = '0.5'
+    document.getElementById("latein2.label").style.opacity = '0.5'
+    document.getElementById("spanisch2.label").style.opacity = '0.5'
+    document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+    document.getElementById("englisch2").disabled = true
+    document.getElementById("latein2").disabled = true
+    document.getElementById("spanisch2").disabled = true
+    document.getElementById("franzoesisch2").disabled = true
+    document.getElementById("physik2.label").style.opacity = '0.5'
+    document.getElementById("bio2.label").style.opacity = '0.5'
+    document.getElementById("chemie2.label").style.opacity = '0.5'
+    document.getElementById("informatik2.label").style.opacity = '0.5'
+    document.getElementById("physik2").disabled = true
+    document.getElementById("bio2").disabled = true
+    document.getElementById("chemie2").disabled = true
+    document.getElementById("informatik2").disabled = true
   }
 }
-*/ 
+
 
 
 function pflicht(j) {
@@ -1278,7 +1468,6 @@ function pflicht(j) {
     }
   }
 }
-
 function set_religion() {
   sessionStorage.setItem('religion_gk', true)
   sessionStorage.setItem('wn_gk', false)
@@ -1321,7 +1510,7 @@ function set_latein() {
   sessionStorage.setItem('spanisch_gk', false)
 }
 function set_spanisch() {
-  sessionStorage.setItem('englisch_gk', true)
+  sessionStorage.setItem('englisch_gk', false)
   sessionStorage.setItem('latein_gk', false)
   sessionStorage.setItem('franzoesisch_gk', false)
   sessionStorage.setItem('spanisch_gk', true)
@@ -1362,3 +1551,67 @@ function set_informatik() {
   sessionStorage.setItem('informatik_gk', true)
   sessionStorage.setItem('biologie_gk', false) 
 }  
+function set_biologie_gese() {
+  sessionStorage.setItem('biologie_gk', true)
+  document.getElementById("biologie2.label").style.opacity = '0.5'
+  document.getElementById("biologie2").disabled = true
+}
+function set_physik_gese() {
+  sessionStorage.setItem('physik_gk', true)
+  document.getElementById("physik2.label").style.opacity = '0.5'
+  document.getElementById("physik2").disabled = true
+} 
+function set_chemie_gese() {
+  sessionStorage.setItem('chemie_gk', true)
+  document.getElementById("chemie2.label").style.opacity = '0.5'
+  document.getElementById("chemie2").disabled = true
+}
+function set_informatik_gese() {
+  sessionStorage.setItem('informatik_gk', true)
+  document.getElementById("informatik2.label").style.opacity = '0.5'
+  document.getElementById("informatik2").disabled = true
+}   
+function set_spanisch_gese() {
+  sessionStorage.setItem('spanisch_gk', true)
+  document.getElementById("spanisch2.label").style.opacity = '0.5'
+  document.getElementById("spanisch2").disabled = true
+}
+function set_latein_gese() {
+  sessionStorage.setItem('latein_gk', true)
+  document.getElementById("latein2.label").style.opacity = '0.5'
+  document.getElementById("latein2").disabled = true
+}
+function set_englisch_gese() {
+  sessionStorage.setItem('englisch_gk', true)
+  document.getElementById("englisch2.label").style.opacity = '0.5'
+  document.getElementById("englisch2").disabled = true
+}
+function set_franzoesisch_gese() {
+  sessionStorage.setItem('franzoesisch_gk', true)
+  document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+  document.getElementById("franzoesisch2").disabled = true
+}
+function set_englisch_gese2() {
+  sessionStorage.setItem('englisch_gk', true)
+}
+function set_franzoesisch_gese2() {
+  sessionStorage.setItem('franzoesisch_gk', true)
+}
+function set_latein_gese2() {
+  sessionStorage.setItem('latein_gk', true)
+}
+function set_spanisch_gese2() {
+  sessionStorage.setItem('spanisch_gk', true)
+}
+function set_physik_gese2() {
+  sessionStorage.setItem('physik_gk', true)
+}
+function set_informatik_gese2() {
+  sessionStorage.setItem('informatik_gk', true)
+}
+function set_chemie_gese2() {
+  sessionStorage.setItem('chemie', true)
+}
+function set_biologie_gese2() {
+  sessionStorage.setItem('biologie_gk', true)
+}
