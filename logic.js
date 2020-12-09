@@ -1284,7 +1284,6 @@ function muku() {
     document.getElementById("kunst").disabled = true
   }
 }
-
 function gese(){
   for (var j = 1; j < 6; j++) {
     pflicht(j)
