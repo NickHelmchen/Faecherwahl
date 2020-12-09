@@ -4,7 +4,7 @@ lp2 = 12
 lp3 = 14
 lp4 = 16
 lp5 = 17
-extras = 17
+extras = 18
 
 function save() {
     for(i = 1; i <= 5; i++) {
