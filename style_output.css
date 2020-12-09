@@ -23,8 +23,23 @@
     'extra11label extra11 extra12label extra12'
     'extra13label extra13 extra14label extra14'
     'extra15label extra15 extra16label extra16'
-    'extra17label extra17 ... ...';
+    'extra17label extra17 ... ...'
+    '... ... ... ...'
+    '... ... signature signature';
 }
+
+.signature {
+    grid-area: signature;
+    visibility: hidden;
+    width: 350px;
+    border: 0px;
+    border-top: 1px solid black;
+    height: 30px;
+    font-size: x-small;
+    resize: none;
+    background: none;
+}
+
 
 .printbutton {
     grid-area: button;
