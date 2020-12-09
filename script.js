@@ -1,5 +1,5 @@
-
 //Anzahl der Fächer im jewailigen Prüfungsbereich
+
 lp1 = 13
 lp2 = 12
 lp3 = 14
