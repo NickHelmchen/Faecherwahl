@@ -5,7 +5,7 @@
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto;
     grid-row-gap: 15px;
-    grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content;
+    grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content;
     grid-template-areas: 
     '... ... ... button'
     'labelname name labellastname lastname'
@@ -18,12 +18,12 @@
     'extra1label extra1 extra2label extra2'
     'extra3label extra3 extra4label extra4'
     'extra5label extra5 extra6label extra6'
-    'extra7label extra7 extra'
-    ''
-    ''
-    ''
-    ''
-    '';
+    'extra7label extra7 extra8label extra8'
+    'extra9label extra9 extra10label extra10'
+    'extra11label extra11 extra12label extra12'
+    'extra13label extra13 extra14label extra14'
+    'extra15label extra15 extra16label extra16'
+    'extra17label extra17 ... ...';
 }
 
 .printbutton {
