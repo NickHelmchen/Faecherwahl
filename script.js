@@ -25,6 +25,43 @@ function terminator() {
   sessionStorage.clear()
 }
 
+function restart() {
+  afterwards()
+  for(i = 1; i <= 5; i++) {
+    if(i == 1) {
+      for(j = 1; j <= lp1; j++) {
+        document.getElementById("pfach1." + j).disabled = false
+      }
+      uncheck("pfach1.")
+    }
+    if(i == 2) {
+      for(j = 1; j <= lp1; j++) {
+        document.getElementById("pfach2." + j).disabled = false
+      }
+      uncheck("pfach2.")
+    }
+    if(i == 3) {
+      for(j = 1; j <= lp1; j++) {
+        document.getElementById("pfach3." + j).disabled = false
+      }
+      uncheck("pfach2.")
+    }
+    if(i == 4) {
+      for(j = 1; j <= lp1; j++) {
+        document.getElementById("pfach4." + j).disabled = false
+      }
+      uncheck("pfach4.")
+    }
+    if(i == 5) {
+      for(j = 1; j <= lp1; j++) {
+        document.getElementById("pfach5." + j).disabled = false
+      }
+      uncheck("pfach5.")
+    }
+  }
+  
+}
+
 
 function startset() {
   sessionStorage.setItem('savename', document.getElementById("name").value)
