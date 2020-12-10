@@ -1,0 +1,38 @@
+<html>
+  <style>
+    .wrapper {
+text-align: center;
+display: inline-block;
+position: absolute;
+left: 49%;
+}
+.center {
+ text-align: center
+}
+</style>
+<body>
+
+  <<h1 style="text-align:center">Interaktiver Raumplan</h1>
+<p class="center">Auf die roten Punkte klicken, um Bilder aufzurufen.</p>
+<div class="wrapper">
+  <form>
+      <input type="button" value="Zurück" onclick="history.back()">
+  </form>
+</div>
+
+<img src="Erdgeschoss.jpg" alt="Erdgeschoss" usemap="#erdgeschoss">
+
+<map name="erdgeschoss">
+  <area shape="rect" coords="535,480,550,496" alt="1" href="Aula.html">
+  <area shape="rect" coords="355,434,380,454" alt="1" href="Aula2.html">
+  <area shape="rect" coords="540,646,557,663" alt="1" href="Cafeteria.html">
+  <area shape="rect" coords="515,300,535,319" alt="1" href="Eingang.html">
+  <area shape="rect" coords="756,345,779,364" alt="1" href="Eingang_lehrerzimmer.html">
+  <area shape="rect" coords="146,558,170,577" alt="1" href="Schulhof_alt.html">
+  <area shape="rect" coords="246,248,273,265" alt="1" href="Schulhof_neu.html">
+  <area shape="rect" coords="0,356,22,380" alt="1" href="Schulhof_sporthalle.html">
+  <area shape="rect" coords="630,475,655,500" alt="1" href="Obergeschoss_treppe_altgebaeude.html">
+</map>
+
+</body>
+</html>
