@@ -519,7 +519,7 @@ body, html {height: 100%}
     grid-template-rows: min-content min-content min-content min-content;
     grid-template-areas: 
         '... ... ... ... ...'
-        'input1 ... ... button-next button-next'
+        'input1 ... buttonrestart button-next button-next'
         'lef lefmid mid rigmid rig'
         'info info info rigmid rig';
 }
@@ -591,6 +591,11 @@ body, html {height: 100%}
     resize: none;
     margin: auto;
     text-align: center;
+}
+
+.restartbutton {
+    grid-area: buttonrestart;
+    margin: auto;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
