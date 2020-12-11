@@ -118,6 +118,7 @@ function logicvariables() {
   sessionStorage.setItem('extra18', false)
   sessionStorage.setItem('sport_gk', false)
 
+  sessionStorage.setItem('wish_for_p4_p5', '')
 }
 function logicsubjects(i) {
     //Hilfsvariablen
@@ -1835,7 +1836,7 @@ function set_erdkunde_false() {
   sessionStorage.setItem('extra16', false)
 }
 //Informatik wird als Grundkurs belegt
-function set_informatik() {
+function set_informatik_voluntary() {
   sessionStorage.setItem('extra9', true)
 } 
 //Informatik wird nicht als Grundkurs belegt
@@ -1978,7 +1979,7 @@ function set_biologie_gese2() {
 
 //
 function end() {
-  for(i = 1; i < 6; i++){
+  for(let i = 1; i < 6; i++){
     switch (sessionStorage.getItem('pfach' + i)){
       case 'Mathe':
         if(i <=5){
