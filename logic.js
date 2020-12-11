@@ -118,6 +118,7 @@ function logicvariables() {
   sessionStorage.setItem('extra18', false)
   sessionStorage.setItem('sport_gk', false)
 
+  sessionStorage.setItem('wish_for_p4_p5', '')
 }
 function logicsubjects(i) {
     //Hilfsvariablen
@@ -963,17 +964,24 @@ function proof_in_advance(pfach, i) {
       //Religion wird überprüft       
       case 'Religion':
         //Überprüfung, ob Politik/Wirtschaft in der nächsten Stufe wählbar ist (Abfrage für Nicht-Kernfächer)
+        //Wenn Bereich B, Religion als Fach und Nicht-Kernfächer wählbar sind, wird die Anklickbarkeit und Sichtbarkeit des Buttons geändert
         if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('religion_w') === 'true') {
+          //Wenn Religion P1, P2 oder P3 wäre
           if (i <= 3) {
+            //Religion wird durchsichtiger
             document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+            //Der Knopf für Religion wird deaktiviert
             var a = toString(pfach + j)
             a = pfach + j
             document.getElementById(a).disabled = true
             break
           }
+          //Religion bleibt sichtbar
           document.getElementById(pfach + j + ".label").style.opacity = '1'
         } else {
+          //Religion wird durchsichtiger
           document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+          //Der Knopf für Religion wird deaktiviert
           var a = toString(pfach + j)
           a = pfach + j
           document.getElementById(a).disabled = true
@@ -983,31 +991,46 @@ function proof_in_advance(pfach, i) {
       case 'Erdkunde':
         //Überprüfung, ob Politik/Wirtschaft in der nächsten Stufe wählbar ist (Abfrage für Nicht-Kernfächer)
         if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('erdkunde_w') === 'true') {
+          //Wenn Erdkunde P1, P2 oder P3 wäre
           if (i <= 3) {
+            //Erdkunde wird durchsichtiger
             document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+            //Der Knopf für Erdkunde wird deaktiviert
             var a = toString(pfach + j)
             a = pfach + j
             document.getElementById(a).disabled = true
             break
           }
+          //Erdkunde wird durchsichtiger
           document.getElementById(pfach + j + ".label").style.opacity = '1'
         } else {
           document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+          //Der Knopf für Erdkunde wird deaktiviert
+          var a = toString(pfach + j)
+          console.log(a)
+          a = pfach + j
+          document.getElementById(a).disabled = true
         }
         break;
       //Sport wird überprüft 
       case 'Sport':
         //Überprüfung, ob Politik/Wirtschaft in der nächsten Stufe wählbar ist (Abfrage für Nicht-Kernfächer)
         if (sessionStorage.getItem('w[3]') != 'true') {
+          //Sport wird durchsichtiger
           document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+          //Der Knopf für Sport wird deaktiviert          
           var a = toString(pfach + j)
           a = pfach + j
           document.getElementById(a).disabled = true
         } else {
+          //WEnn Nicht-Kernfächer und Sport wählbar sind, verändert sich die Durchsichtigkeit nicht, ansonsten wird der Knopf durchsichtiger und wird deaktiviert
           if (sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('sport_w') === 'true') {
             document.getElementById(pfach + j + ".label").style.opacity = '1'
           } else {
             document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+            var a = toString(pfach + j)
+            a = pfach + j
+            document.getElementById(a).disabled = true
           }
         }
         break; 
@@ -1015,52 +1038,75 @@ function proof_in_advance(pfach, i) {
   }
 }
 
+//Prüfung, ob ein Fach in der nächsten Stufe wählbar ist (Kernfach)
 function proof_in_advance_visibility (pfach, i, j, bereich, waehlbar, fachvariable){
+  //Wenn der Bereich des Fachs und das Fach selbst wählbar ist, wird der Inhalt der Bedingung ausgeführt
   if (bereich === 'true' && fachvariable === 'true') {
+    //Wenn ein Fach nicht als P2 wählbar ist
     if (i === 2 && waehlbar === 'false') {
+      //Button des Fachs wird durchsichtiger
       document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+      //Button des Fachs wird deaktiviert
       var a = toString(pfach + j)
       a = pfach + j
       document.getElementById(a).disabled = true
     } else {
+      //Wenn ein Fach P3 wäre und das Profil gesellschaftlich ist
       if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
+        //Button des Fachs wird durchsichtiger
         document.getElementById(pfach + j + ".label").style.opacity = '0.5'
       } else {
+        //Button des Fachs bleibt gleich sichtbar
         document.getElementById(pfach + j + ".label").style.opacity = '1'
       }
     }
   } else {
+    //Button des Fachs wird durchsichtiger
     document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+    //Button des Fachs wird deaktiviert
     var a = toString(pfach + j)
     a = pfach + j
     document.getElementById(a).disabled = true
 
   }
 }
+//Prüfung, ob ein Fach in der nächsten Stufe wählbar ist (Nicht-Kernfach)
 function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachvariable){
+  //Wenn der Bereich des Fachs, Nicht-Kernfächer und das Fach selbst wählbar ist, wird der Inhalt der Bedingung ausgeführt
   if (bereich === 'true' && sessionStorage.getItem('w_nk') === 'true' && fachvariable === 'true') {
+    //Wenn ein Fach nicht als P2 wählbar ist
     if (i === 2 && waehlbar === 'false') {
+      //Button des Fachs wird durchsichtiger
       document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+      //Button des Fachs wird deaktiviert
       var a = toString(pfach + j)
       a = pfach + j
       document.getElementById(a).disabled = true
     } else {
+      //Wenn ein Fach P3 wäre und das Profil gesellschaftlich ist
       if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
+        //Button des Fachs wird durchsichtiger
         document.getElementById(pfach + j + ".label").style.opacity = '0.5'
       } else {
+        //Button des Fachs bleibt gleich sichtbar
         document.getElementById(pfach + j + ".label").style.opacity = '1'
       }
     }
   } else {
+    //Button des Fachs wird durchsichtiger
     document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+    //Button des Fachs wird deaktiviert
     var a = toString(pfach + j)
     a = pfach + j
     document.getElementById(a).disabled = true
   }
 }
 
+//Funktionen für die Grundkurse je nach gewähltem Profil
 function mana(){
+
   for (var j = 1; j < 6; j++) {
+    //Pflichtgrundkurse werden zugeordnet
     pflicht(j)
     if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) =='Kunst' || sessionStorage.getItem('pfach' + j) =='DS')) {
       if (sessionStorage.getItem('pfach' + j) == 'Musik') {
@@ -1688,22 +1734,27 @@ function gese(){
     document.getElementById("informatik2").disabled = true
   }
 }
+
 function pflicht(j) {
+  //Wenn Deutsch nicht gewählt wurde, wird Deutsch als Grundkurs gesetzt
   if (sessionStorage.getItem('extra12') == false && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
     sessionStorage.setItem('extra12', false)
   } else {
     sessionStorage.setItem('extra12', true)
   }
+  //Wenn Mathe nicht gewählt wurde, wird Mathe als Grundkurs gewählt
   if (sessionStorage.getItem('extra1') == false && sessionStorage.getItem('pfach' + j) == 'Mathe') {
     sessionStorage.setItem('extra1', false)
   } else {
     sessionStorage.setItem('extra1', true)
   }
+  //Wenn Geschichte nicht gewählt wurde, wird Geschichte als Grundkurs gewählt
   if (sessionStorage.getItem('extra13') == false && sessionStorage.getItem('pfach' + j) == 'Geschichte') {
     sessionStorage.setItem('extra13', false)
   } else {
     sessionStorage.setItem('extra13', true)
   }
+  //Wenn Politik/Wirtschaft nicht gewählt wurde, wird Politik/Wirtschaft als Grundkurs gewählt
   if (sessionStorage.getItem('extra14') == false && sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
     sessionStorage.setItem('extra14', false)
   } else {
@@ -1720,155 +1771,215 @@ function pflicht(j) {
     }
   }
 }
+//Religion wird als Grundkurs gewählt und Werte und Normen abgewählt
 function set_religion() {
   sessionStorage.setItem('extra15', true)
   sessionStorage.setItem('extra18', false)
 }
+//Werte und Normen wird als Grundkurs gewählt und Religion abgewählt
 function set_wn() {
   sessionStorage.setItem('extra15', false)
   sessionStorage.setItem('extra18', true)
 }
+//Musik wird gewählt, während Kunst und DS nicht als Grundkurse belegt werden
 function set_musik() {
   sessionStorage.setItem('extra8', true)
   sessionStorage.setItem('extra10', false)
   sessionStorage.setItem('extra17', false)
 }
+//Kunst wird gewählt, während Musik und DS nicht als Grundkurse belegt werden
 function set_kunst() {
   sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra10', true)
   sessionStorage.setItem('extra17', false)
 }
+//DS wird gewählt, während Kunst und Musik nicht als Grundkurse belegt werden
 function set_ds() {
   sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra10', false)
   sessionStorage.setItem('extra17', true) 
 }
+//Englisch wird als Grundkurs gesetzt und alle anderen Fremdsprachen werden nicht als Grundkurs belegt
 function set_englisch() {
   sessionStorage.setItem('extra3', true)
   sessionStorage.setItem('extra7', false)
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', false)
 }
+//Französisch wird als Grundkurs gesetzt und alle anderen Fremdsprachen werden nicht als Grundkurs belegt
 function set_franzoesisch() {
   sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra7', false)
   sessionStorage.setItem('extra6', true)
   sessionStorage.setItem('extra11', false)
 }
+//Latein wird als Grundkurs gesetzt und alle anderen Fremdsprachen werden nicht als Grundkurs belegt
 function set_latein() {
   sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra7', true)
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', false)
 }
+//Spanisch wird als Grundkurs gesetzt und alle anderen Fremdsprachen werden nicht als Grundkurs belegt
 function set_spanisch() {
   sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra7', false)
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', true)
 }
+//Erdkunde wird als Grundkurs belegt
 function set_erdkunde() {
   sessionStorage.setItem('extra16', true)
 } 
+//Erdkunde wird nicht als Grundkurs belegt
 function set_erdkunde_false() {
   sessionStorage.setItem('extra16', false)
 }
-function set_informatik() {
+//Informatik wird als Grundkurs belegt
+function set_informatik_voluntary() {
   sessionStorage.setItem('extra9', true)
 } 
+//Informatik wird nicht als Grundkurs belegt
 function set_informatik_false() {
   sessionStorage.setItem('extra9', false)
 }
+//Biologie wird als Grundkurs belegt und die anderen Naturwissenschaften werden nicht als Grundkurs festgelegt
 function set_biologie() {
   sessionStorage.setItem('extra5', true)
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra9', false)
 }
+//Physik wird als Grundkurs belegt und die anderen Naturwissenschaften werden nicht als Grundkurs festgelegt
 function set_physik() {
   sessionStorage.setItem('extra4', true)
   sessionStorage.setItem('extra5', false)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra9', false)
 } 
+//Chemie wird als Grundkurs belegt und die anderen Naturwissenschaften werden nicht als Grundkurs festgelegt
 function set_chemie() {
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra2', true)
   sessionStorage.setItem('extra9', false)
   sessionStorage.setItem('extra5', false)
 }
+//Informatik wird als Grundkurs belegt und die anderen Naturwissenschaften werden nicht als Grundkurs festgelegt
 function set_informatik() {
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra9', true)
   sessionStorage.setItem('extra5', false) 
 }  
+//Biologie wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_biologie_gese() {
   sessionStorage.setItem('extra5', true)
-  document.getElementById("biologie2.label").style.opacity = '0.5'
-  document.getElementById("biologie2").disabled = true
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra9', false)
+  document.getElementById("bio2.label").style.opacity = '0.5'
+  document.getElementById("bio2").disabled = true
 }
+//Physik wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_physik_gese() {
   sessionStorage.setItem('extra4', true)
+  sessionStorage.setItem('extra5', false)
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra9', false)
   document.getElementById("physik2.label").style.opacity = '0.5'
   document.getElementById("physik2").disabled = true
 } 
+//Chemie wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_chemie_gese() {
   sessionStorage.setItem('extra2', true)
+  sessionStorage.setItem('extra5', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra9', false)
   document.getElementById("chemie2.label").style.opacity = '0.5'
   document.getElementById("chemie2").disabled = true
 }
+//Informatik wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_informatik_gese() {
   sessionStorage.setItem('extra9', true)
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra5', false)
   document.getElementById("informatik2.label").style.opacity = '0.5'
   document.getElementById("informatik2").disabled = true
-}   
+}  
+//Spanisch wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_spanisch_gese() {
   sessionStorage.setItem('extra11', true)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
   document.getElementById("spanisch2.label").style.opacity = '0.5'
   document.getElementById("spanisch2").disabled = true
 }
+//Latein wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_latein_gese() {
   sessionStorage.setItem('extra7', true)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra11', false)
   document.getElementById("latein2.label").style.opacity = '0.5'
   document.getElementById("latein2").disabled = true
 }
+//Latein wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_englisch_gese() {
   sessionStorage.setItem('extra3', true)
+  sessionStorage.setItem('extra11', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
   document.getElementById("englisch2.label").style.opacity = '0.5'
   document.getElementById("englisch2").disabled = true
 }
+//Französisch wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_franzoesisch_gese() {
   sessionStorage.setItem('extra6', true)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra11', false)
+  sessionStorage.setItem('extra7', false)
   document.getElementById("franzoesisch2.label").style.opacity = '0.5'
   document.getElementById("franzoesisch2").disabled = true
 }
+//Englisch wird als Grundkurs gewählt
 function set_englisch_gese2() {
   sessionStorage.setItem('extra3', true)
 }
+//Französisch wird als Grundkurs gewählt
 function set_franzoesisch_gese2() {
   sessionStorage.setItem('extra6', true)
 }
+//Latein wird als Grundkurs gewählt
 function set_latein_gese2() {
   sessionStorage.setItem('extra7', true)
 }
+//Spanisch wird als Grundkurs gewählt
 function set_spanisch_gese2() {
   sessionStorage.setItem('extra11', true)
 }
+//Physik wird als Grundkurs gewählt
 function set_physik_gese2() {
   sessionStorage.setItem('extra4', true)
 }
+//Informatik wird als Grundkurs gewählt
 function set_informatik_gese2() {
   sessionStorage.setItem('extra9', true)
 }
+//Chemie wird als Grundkurs gewählt
 function set_chemie_gese2() {
   sessionStorage.setItem('chemie', true)
 }
+//Biologie wird als Grundkurs gewählt
 function set_biologie_gese2() {
   sessionStorage.setItem('extra5', true)
 }
+
+
+//
 function end() {
-  for(i = 1; i < 6; i++){
+  for(let i = 1; i < 6; i++){
     switch (sessionStorage.getItem('pfach' + i)){
       case 'Mathe':
         if(i <=5){
@@ -1919,7 +2030,7 @@ function end() {
           sessionStorage.setItem('extra3', true)
         }
         break;
-      case 'Franzoesisch':
+      case 'Französisch':
         if(i <=5){
           sessionStorage.setItem('extra6', false)
         } else {
@@ -1975,7 +2086,7 @@ function end() {
           sessionStorage.setItem('extra16', true)
         }
         break;
-      case 'PoWi':
+      case 'Politik Wirtschaft':
         if(i <=5){
           sessionStorage.setItem('extra14', false)
         } else {
