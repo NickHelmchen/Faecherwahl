@@ -1,0 +1,11 @@
+[1011/125432.103:ERROR:process_info.cc(329)] VirtualQueryEx: Zugriff verweigert (0x5)
+[1011/125432.105:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1011/125432.105:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: Es wurde versucht, auf einen Prozess zuzugreifen, der gerade beendet wurde. (0xc000010a)
+[1013/135207.049:ERROR:settings.cc(430)] Settings version is not 5
+[1027/133625.242:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1103/185856.302:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1126/093141.000:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1201/153144.700:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1202/140922.587:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1202/222138.148:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
+[1204/113358.095:ERROR:directory_reader_win.cc(43)] FindFirstFile: Das System kann den angegebenen Pfad nicht finden. (0x3)
