@@ -1104,7 +1104,6 @@ function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachv
 
 //Funktionen für die Grundkurse je nach gewähltem Profil
 function mana(){
-
   for (var j = 1; j < 6; j++) {
     //Pflichtgrundkurse werden zugeordnet
     pflicht(j)
@@ -1179,6 +1178,10 @@ function mana(){
     document.getElementById("latein.label").style.opacity = '0.5'
     document.getElementById("franzoesisch.label").style.opacity = '0.5'
     document.getElementById("spanisch.label").style.opacity = '0.5'
+    document.getElementById("englisch").disabled = true
+    document.getElementById("latein").disabled = true
+    document.getElementById("franzoesisch").disabled = true
+    document.getElementById("spanisch").disabled = true
   }
 
 
@@ -1196,6 +1199,9 @@ function mana(){
     document.getElementById("musik.label").style.opacity = '0.5'
     document.getElementById("ds.label").style.opacity = '0.5'
     document.getElementById("kunst.label").style.opacity = '0.5'
+    document.getElementById("kunst").disabled = true
+    document.getElementById("ds").disabled = true
+    document.getElementById("musik").disabled = true
   }
 
 
@@ -1210,6 +1216,8 @@ function mana(){
   } else {
     document.getElementById("religion.label").style.opacity = '0.5'
     document.getElementById("wn.label").style.opacity = '0.5'
+    document.getElementById("wn").disabled = true
+    document.getElementById("religion").disabled = true
   }
   //2 NW
   if (parseInt(sessionStorage.getItem('counter_nw')) < 2) {
@@ -1247,7 +1255,11 @@ function mana(){
     document.getElementById("informatik.label").style.opacity = '0.5'
     document.getElementById("physik.label").style.opacity = '0.5'
     document.getElementById("chemie.label").style.opacity = '0.5'
-    document.getElementById("bio.label").style.opacity = '0.5'
+    document.getElementById("bio.label").style.opacity = '0.5'    
+    document.getElementById("informatik").disabled = true
+    document.getElementById("physik").disabled = true
+    document.getElementById("chemie").disabled = true
+    document.getElementById("bio").disabled = true
   }
 console.log('Religion-GK: ' + sessionStorage.getItem('extra15'))
 console.log('WN-GK: ' + sessionStorage.getItem('extra18'))  
@@ -1328,16 +1340,24 @@ function spra() {
       document.getElementById("spanisch.label").style.opacity = '0.5'
       document.getElementById("latein.label").style.opacity = '0.5'
       document.getElementById("franzoesisch.label").style.opacity = '0.5'
+      document.getElementById("latein").disabled = true
+      document.getElementById("franzoesisch").disabled = true
+      document.getElementById("spanisch").disabled = true
     }
   } else {
     sessionStorage.setItem('extra3', true)
     document.getElementById("spanisch.label").style.opacity = '0.5'
     document.getElementById("latein.label").style.opacity = '0.5'
     document.getElementById("franzoesisch.label").style.opacity = '0.5'
+    document.getElementById("latein").disabled = true
+    document.getElementById("franzoesisch").disabled = true
+    document.getElementById("spanisch").disabled = true
   }
   if (help_informatik == true) {
     document.getElementById("informatikja.label").style.opacity = '0.5'
     document.getElementById("informatikne.label").style.opacity = '0.5'
+    document.getElementById("informatikja").disabled = true
+    document.getElementById("informatikne").disabled = true
   } else {
     document.getElementById("informatikja.label").style.opacity = '1'
     document.getElementById("informatikne.label").style.opacity = '1'
@@ -1362,6 +1382,9 @@ function spra() {
     document.getElementById("physik.label").style.opacity = '0.5'
     document.getElementById("chemie.label").style.opacity = '0.5'
     document.getElementById("bio.label").style.opacity = '0.5'
+    document.getElementById("physik").disabled = true
+    document.getElementById("chemie").disabled = true
+    document.getElementById("bio").disabled = true
   }
 
 
@@ -1380,7 +1403,9 @@ function spra() {
     document.getElementById("musik.label").style.opacity = '0.5'
     document.getElementById("ds.label").style.opacity = '0.5'
     document.getElementById("kunst.label").style.opacity = '0.5'
-    console.log('ghjfldkgnps')
+    document.getElementById("musik").disabled = true
+    document.getElementById("kunst").disabled = true
+    document.getElementById("ds").disabled = true
   }
 
 
@@ -1395,6 +1420,8 @@ function spra() {
   } else {
     document.getElementById("religion.label").style.opacity = '0.5'
     document.getElementById("wn.label").style.opacity = '0.5'
+    document.getElementById("religion").disabled = true
+    document.getElementById("wn").disabled = true
   }
   console.log('Religion-GK: ' + sessionStorage.getItem('extra15'))
   console.log('WN-GK: ' + sessionStorage.getItem('extra18'))  
@@ -1553,6 +1580,23 @@ function gese(){
       interaction += 1
       sessionStorage.setItem('counter_fs', interaction)
       console.log('FS-Counter: ' + sessionStorage.getItem('counter_fs'))
+    }
+    if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) == 'Kunst' || sessionStorage.getItem('pfach' + j) == 'DS')) {
+      if (sessionStorage.getItem('pfach' + j) == 'Musik') {
+        sessionStorage.setItem('extra8', true)
+        sessionStorage.setItem('extra10', false)
+        sessionStorage.setItem('extra17', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
+        sessionStorage.setItem('extra8', false)
+        sessionStorage.setItem('extra10', true)
+        sessionStorage.setItem('extra17', false)
+      }
+      if (sessionStorage.getItem('pfach' + j) == 'DS') {
+        sessionStorage.setItem('extra8', false)
+        sessionStorage.setItem('extra10', false)
+        sessionStorage.setItem('extra17', true)
+      }
     }
   }
   //Sport
@@ -1733,29 +1777,48 @@ function gese(){
     document.getElementById("chemie2").disabled = true
     document.getElementById("informatik2").disabled = true
   }
+  //Musik, Kunst, DS
+  if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false') {
+    sessionStorage.setItem('extra8', true)
+    sessionStorage.setItem('extra10', true)
+    sessionStorage.setItem('extra17', true)
+  }
+  console.log(sessionStorage.getItem('extra8'))
+  if (sessionStorage.getItem('extra8') == 'true' && sessionStorage.getItem('extra10') == 'true' && sessionStorage.getItem('extra17') == 'true') {
+    document.getElementById("musik.label").style.opacity = '1'
+    document.getElementById("ds.label").style.opacity = '1'
+    document.getElementById("kunst.label").style.opacity = '1'
+  } else {
+    document.getElementById("musik.label").style.opacity = '0.5'
+    document.getElementById("ds.label").style.opacity = '0.5'
+    document.getElementById("kunst.label").style.opacity = '0.5'
+    document.getElementById("musik").disabled = true
+    document.getElementById("ds").disabled = true
+    document.getElementById("kunst").disabled = true
+  }
 }
 
 function pflicht(j) {
   //Wenn Deutsch nicht gewählt wurde, wird Deutsch als Grundkurs gesetzt
-  if (sessionStorage.getItem('extra12') == false && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
+  if (sessionStorage.getItem('extra12') == 'false' && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
     sessionStorage.setItem('extra12', false)
   } else {
     sessionStorage.setItem('extra12', true)
   }
   //Wenn Mathe nicht gewählt wurde, wird Mathe als Grundkurs gewählt
-  if (sessionStorage.getItem('extra1') == false && sessionStorage.getItem('pfach' + j) == 'Mathe') {
+  if (sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('pfach' + j) == 'Mathe') {
     sessionStorage.setItem('extra1', false)
   } else {
     sessionStorage.setItem('extra1', true)
   }
   //Wenn Geschichte nicht gewählt wurde, wird Geschichte als Grundkurs gewählt
-  if (sessionStorage.getItem('extra13') == false && sessionStorage.getItem('pfach' + j) == 'Geschichte') {
+  if (sessionStorage.getItem('extra13') == 'false' && sessionStorage.getItem('pfach' + j) == 'Geschichte') {
     sessionStorage.setItem('extra13', false)
   } else {
     sessionStorage.setItem('extra13', true)
   }
   //Wenn Politik/Wirtschaft nicht gewählt wurde, wird Politik/Wirtschaft als Grundkurs gewählt
-  if (sessionStorage.getItem('extra14') == false && sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
+  if (sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
     sessionStorage.setItem('extra14', false)
   } else {
     sessionStorage.setItem('extra14', true)
@@ -1769,6 +1832,12 @@ function pflicht(j) {
       sessionStorage.setItem('extra15', false)
       sessionStorage.setItem('extra18', true)
     }
+  }
+  if (sessionStorage.getItem('pfach' + j) == 'Erdkunde') {
+    document.getElementById("erdkundja.label").style.opacity = '0.5'
+    document.getElementById("erdkundne.label").style.opacity = '0.5'
+    document.getElementById("erdkundja").disabled = true
+    document.getElementById("erdkundne").disabled = true
   }
 }
 //Religion wird als Grundkurs gewählt und Werte und Normen abgewählt
@@ -1878,7 +1947,34 @@ function set_biologie_gese() {
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra9', false)
   document.getElementById("bio2.label").style.opacity = '0.5'
+  document.getElementById("bio2").checked = false
   document.getElementById("bio2").disabled = true
+
+  document.getElementById("chemie2.label").style.opacity = '1'
+  document.getElementById("chemie2").disabled = false
+  document.getElementById("physik2.label").style.opacity = '1'
+  document.getElementById("physik2").disabled = false
+  document.getElementById("informatik2.label").style.opacity = '1'
+  document.getElementById("informatik2").disabled = false
+  
+  for (let index = 1; index < 6; index++) {
+    if (sessionStorage.getItem('pfach' + index) == 'Informatik') {
+      document.getElementById("informatik2.label").style.opacity = '0.5'
+      document.getElementById("informatik2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Chemie') {
+      document.getElementById("chemie2.label").style.opacity = '0.5'
+      document.getElementById("chemie2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Biologie') {
+      document.getElementById("bio2.label").style.opacity = '0.5'
+      document.getElementById("bio2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Physik') {
+      document.getElementById("physik2.label").style.opacity = '0.5'
+      document.getElementById("physik2").disabled = true
+    }
+  }
 }
 //Physik wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_physik_gese() {
@@ -1886,8 +1982,36 @@ function set_physik_gese() {
   sessionStorage.setItem('extra5', false)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra9', false)
+
   document.getElementById("physik2.label").style.opacity = '0.5'
+  document.getElementById("physik2").checked = false
   document.getElementById("physik2").disabled = true
+
+  document.getElementById("chemie2.label").style.opacity = '1'
+  document.getElementById("chemie2").disabled = false
+  document.getElementById("bio2.label").style.opacity = '1'
+  document.getElementById("bio2").disabled = false
+  document.getElementById("informatik2.label").style.opacity = '1'
+  document.getElementById("informatik2").disabled = false
+
+  for (let index = 1; index < 6; index++) {
+    if (sessionStorage.getItem('pfach' + index) == 'Informatik') {
+      document.getElementById("informatik2.label").style.opacity = '0.5'
+      document.getElementById("informatik2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Chemie') {
+      document.getElementById("chemie2.label").style.opacity = '0.5'
+      document.getElementById("chemie2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Biologie') {
+      document.getElementById("bio2.label").style.opacity = '0.5'
+      document.getElementById("bio2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Physik') {
+      document.getElementById("physik2.label").style.opacity = '0.5'
+      document.getElementById("physik2").disabled = true
+    }
+  }
 } 
 //Chemie wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_chemie_gese() {
@@ -1895,8 +2019,36 @@ function set_chemie_gese() {
   sessionStorage.setItem('extra5', false)
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra9', false)
+
   document.getElementById("chemie2.label").style.opacity = '0.5'
+  document.getElementById("chemie2").checked = false
   document.getElementById("chemie2").disabled = true
+
+  document.getElementById("bio2.label").style.opacity = '1'
+  document.getElementById("bio2").disabled = false
+  document.getElementById("physik2.label").style.opacity = '1'
+  document.getElementById("physik2").disabled = false
+  document.getElementById("informatik2.label").style.opacity = '1'
+  document.getElementById("informatik2").disabled = false
+
+  for (let index = 1; index < 6; index++) {
+    if (sessionStorage.getItem('pfach' + index) == 'Informatik') {
+      document.getElementById("informatik2.label").style.opacity = '0.5'
+      document.getElementById("informatik2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Chemie') {
+      document.getElementById("chemie2.label").style.opacity = '0.5'
+      document.getElementById("chemie2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Biologie') {
+      document.getElementById("bio2.label").style.opacity = '0.5'
+      document.getElementById("bio2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Physik') {
+      document.getElementById("physik2.label").style.opacity = '0.5'
+      document.getElementById("physik2").disabled = true
+    }
+  }
 }
 //Informatik wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_informatik_gese() {
@@ -1905,7 +2057,33 @@ function set_informatik_gese() {
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra5', false)
   document.getElementById("informatik2.label").style.opacity = '0.5'
+  document.getElementById("informatik2").checked = false
   document.getElementById("informatik2").disabled = true
+  
+  document.getElementById("chemie2.label").style.opacity = '1'
+  document.getElementById("chemie2").disabled = false
+  document.getElementById("bio2.label").style.opacity = '1'
+  document.getElementById("bio2").disabled = false
+  document.getElementById("physik2.label").style.opacity = '1'
+  document.getElementById("physik2").disabled = false
+  for (let index = 1; index < 6; index++) {
+    if (sessionStorage.getItem('pfach' + index) == 'Informatik') {
+      document.getElementById("informatik2.label").style.opacity = '0.5'
+      document.getElementById("informatik2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Chemie') {
+      document.getElementById("chemie2.label").style.opacity = '0.5'
+      document.getElementById("chemie2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Biologie') {
+      document.getElementById("bio2.label").style.opacity = '0.5'
+      document.getElementById("bio2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + index) == 'Physik') {
+      document.getElementById("physik2.label").style.opacity = '0.5'
+      document.getElementById("physik2").disabled = true
+    }
+  }
 }  
 //Spanisch wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_spanisch_gese() {
@@ -1914,7 +2092,15 @@ function set_spanisch_gese() {
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra7', false)
   document.getElementById("spanisch2.label").style.opacity = '0.5'
+  document.getElementById("spanisch2").checked = false
   document.getElementById("spanisch2").disabled = true
+
+  document.getElementById("englisch2.label").style.opacity = '1'
+  document.getElementById("englisch2").disabled = false
+  document.getElementById("latein2.label").style.opacity = '0.5'
+  document.getElementById("latein2").disabled = true
+  document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+  document.getElementById("franzoesisch2").disabled = true
 }
 //Latein wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_latein_gese() {
@@ -1923,7 +2109,15 @@ function set_latein_gese() {
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', false)
   document.getElementById("latein2.label").style.opacity = '0.5'
+  document.getElementById("latein2").checked = false
   document.getElementById("latein2").disabled = true
+
+  document.getElementById("englisch2.label").style.opacity = '1'
+  document.getElementById("englisch2").disabled = false
+  document.getElementById("spanisch2.label").style.opacity = '0.5'
+  document.getElementById("spanisch2").disabled = true
+  document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+  document.getElementById("franzoesisch2").disabled = true
 }
 //Latein wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_englisch_gese() {
@@ -1932,7 +2126,15 @@ function set_englisch_gese() {
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra7', false)
   document.getElementById("englisch2.label").style.opacity = '0.5'
+  document.getElementById("englisch2").checked = false
   document.getElementById("englisch2").disabled = true
+  
+  document.getElementById("spanisch2.label").style.opacity = '1'
+  document.getElementById("spanisch2").disabled = false
+  document.getElementById("latein2.label").style.opacity = '1'
+  document.getElementById("latein2").disabled = false
+  document.getElementById("franzoesisch2.label").style.opacity = '1'
+  document.getElementById("franzoesisch2").disabled = false
 }
 //Französisch wird als Grundkurs gewählt und der Button bei der 2. Fremdsprache/2. Naturwissenschaft wird unnutzbar gemacht, damit das Fach nicht doppelt gewählt werden kann
 function set_franzoesisch_gese() {
@@ -1940,6 +2142,14 @@ function set_franzoesisch_gese() {
   sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra11', false)
   sessionStorage.setItem('extra7', false)
+  document.getElementById("franzoesisch2.label").style.opacity = '0.5'
+  document.getElementById("franzoesisch2").checked = false
+  document.getElementById("franzoesisch2").disabled = true
+
+  document.getElementById("englisch2.label").style.opacity = '1'
+  document.getElementById("englisch2").disabled = false
+  document.getElementById("latein2.label").style.opacity = '0.5'
+  document.getElementById("latein2").disabled = true
   document.getElementById("franzoesisch2.label").style.opacity = '0.5'
   document.getElementById("franzoesisch2").disabled = true
 }
@@ -1975,8 +2185,6 @@ function set_chemie_gese2() {
 function set_biologie_gese2() {
   sessionStorage.setItem('extra5', true)
 }
-
-
 //
 function end() {
   for(let i = 1; i < 6; i++){
@@ -2103,3 +2311,133 @@ function end() {
     }
   }
 }
+function set_powi_wish() {
+  sessionStorage.getItem('wish_for_p4_p5', 'Politik Wirtschaft')
+}
+function set_geschichte_wish() {
+  sessionStorage.getItem('wish_for_p4_p5', 'Geschichte')
+}
+function set_kunst_wish() {
+  sessionStorage.getItem('wish_for_p4_p5', 'Kunst')
+}
+function set_musik_wish() {
+  sessionStorage.getItem('wish_for_p4_p5', 'Musik')
+}
+function set_religion_wish() {
+  sessionStorage.getItem('wish_for_p4_p5', 'Religion')
+}
+//
+function check_for_complete_p() {
+  var p1_gewaehlt = false
+  var p2_gewaehlt = false
+  var p3_gewaehlt = false
+  var p4_gewaehlt = false
+  var p5_gewaehlt = false
+
+  for (let index = 1; index < 6; index++) {
+    if (index == 1) {
+      for (let k = 1; k < 14; k++) {
+        if (document.getElementById("pfach" + index + "." + k).checked == true) {
+          p1_gewaehlt = true
+        }
+      }
+    }
+    if (index == 2) {
+      for (let k = 1; k < 13; k++) {
+        if (document.getElementById("pfach" + index + "." + k).checked == true) {
+          p2_gewaehlt = true
+        }
+      }
+    }
+    if (index == 3) {
+      for (let k = 1; k < 15; k++) {
+        if (document.getElementById("pfach" + index + "." + k).checked == true) {
+          p3_gewaehlt = true
+        }
+      }
+    }
+    if (index == 4) {
+      for (let k = 1; k < 17; k++) {
+        if (document.getElementById("pfach" + index + "." + k).checked == true) {
+          p4_gewaehlt = true
+        }
+      }
+    }
+    if (index == 5) {
+      for (let k = 1; k < 18; k++) {
+        if (document.getElementById("pfach" + index + "." + k).checked == true) {
+          p5_gewaehlt = true
+        }
+      }
+    }
+  }
+  if (p1_gewaehlt == true && p2_gewaehlt == true && p3_gewaehlt == true && p4_gewaehlt == true && p5_gewaehlt == true) {
+    console.log('gewählt')
+    return true
+  } else {
+    console.log('error')
+    return false
+  }
+}
+function check_for_complete_gk_gese() {
+  if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) && 
+  ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
+  && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) && 
+  ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true && document.getElementById("englisch").disabled == true) || (document.getElementById("englisch").checked == true || document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true)) && 
+  ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("informatik").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("informatik").checked == true || document.getElementById("chemie").checked == true)) &&
+  ((document.getElementById("spanisch2").disabled == true && document.getElementById("latein2").disabled == true && document.getElementById("englisch2").disabled == true && document.getElementById("franzoesisch2").disabled == true && 
+  document.getElementById("physik2").disabled == true && document.getElementById("informatik2").disabled == true && document.getElementById("chemie2").disabled == true && document.getElementById("bio2").disabled == true) || (document.getElementById("physik2").checked == true || document.getElementById("chemie2").checked == true || document.getElementById("informatik2").checked == true || document.getElementById("bio2").checked == true || document.getElementById("spanisch2").checked == true || document.getElementById("englisch2").checked == true || document.getElementById("latein2").checked == true || document.getElementById("franzoesisch2").checked == true))) 
+  {
+    console.log('gewählt')
+    return true
+  } else {
+    console.log('error')
+    return false
+  }
+}
+function check_for_complete_gk_manu() {
+  if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) && 
+  ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
+  && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) && 
+  ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true && document.getElementById("englisch").disabled == true) || (document.getElementById("englisch").checked == true || document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true)) && 
+  ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("informatik").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("informatik").checked == true || document.getElementById("chemie").checked == true))) 
+  {
+    console.log('gewählt')
+    return true
+  } else {
+    console.log('error')
+    return false
+  }
+}
+
+function check_for_complete_gk_muku() {
+  if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
+  ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) && 
+  ((document.getElementById("informatikja").disabled == true && document.getElementById("informatikne").disabled == true) || (document.getElementById("informatikja").checked == true || document.getElementById("informatikne").checked == true)) && 
+  ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("chemie").checked == true)) &&
+  ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true && document.getElementById("englisch").disabled == true) || (document.getElementById("englisch").checked == true || document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true)) && 
+  ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))) 
+  {
+    console.log('gewählt')
+    return true
+  } else {
+    console.log('error')
+    return false
+  }
+}
+
+function check_for_complete_gk_spra() {
+  if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) && 
+  ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
+  && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) && 
+  ((document.getElementById("informatikja").disabled == true && document.getElementById("informatikne").disabled == true) || (document.getElementById("informatikja").checked == true || document.getElementById("informatikne").checked == true)) && 
+  ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("chemie").checked == true)) &&
+  ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true) || (document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true))) 
+  {
+    console.log('gewählt')
+    return true
+  } else {
+    console.log('error')
+    return false
+  }
+} 

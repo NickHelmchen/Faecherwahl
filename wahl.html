@@ -10,6 +10,15 @@
         <script src="logic.js"></script>
         <script src="script.js"></script>
         <script src="output.js"></script>
+        <script>
+        function check() {
+            if (check_for_complete_p() == true) {
+                wahl2()
+            } else {
+                alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
+            }
+        }
+        </script>
     </head>
 
     <body onload="afterwards(), page2()">
@@ -21,7 +30,7 @@
                 Fächer, die im letzten Jahr nicht erteilt wurden dürfen nicht gewählt werden.  
             </textarea>
             <textarea name="name" id="name" cols="20" rows="1" class="head-input1" readonly></textarea>
-            <button onclick="wahl2()" id="nextpage1" class="next-button buttonfertig">weiter</button>
+            <button onclick="check()" id="nextpage1" class="next-button buttonfertig">weiter</button>
             <button onclick="restart(), terminator()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header">Prüfungsfach 1</p>

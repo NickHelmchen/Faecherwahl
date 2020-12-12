@@ -10,12 +10,22 @@
     <title> Fächerwahl </title>
     <script src="logic.js"></script>
     <script src="script.js"></script>
+    <script>
+      function check() {
+          if (check_for_complete_gk_muku() == true) {
+            end()
+            wahl3()
+          } else {
+              alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
+          }
+      }
+    </script>
   </head>
 
   <body onload="page2(), muku()">
     <div class="bgimg grid-container4">
         <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
-        <button onclick="end(), wahl3()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
+        <button onclick="check()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
         <div class="reli4 w3-animate-left toggle-buttons">
             <p class="header">Religion / Werte und Normen</p>
             <input type="radio" name="extra1" id="religion" onclick="set_religion()">
@@ -32,7 +42,7 @@
           <br>
           <br>
           <input type="radio" name="extra2" id="kunst" onclick="set_kunst()">
-          <label for="kunst" id="kuns.label">Kunst</label>
+          <label for="kunst" id="kunst.label">Kunst</label>
           <br>
           <br>
           <input type="radio" name="extra2" id="ds" onclick="set_ds()">
