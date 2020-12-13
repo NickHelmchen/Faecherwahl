@@ -119,6 +119,34 @@ function logicvariables() {
   sessionStorage.setItem('sport_gk', false)
 
   sessionStorage.setItem('wish_for_p4_p5', '')
+}  
+//Kernfächer werden um 1 hochgezählt
+function kernfaecher_add(interaction) {
+  interaction = parseInt(sessionStorage.getItem('kernfaecher'))
+  interaction += 1
+  sessionStorage.setItem('kernfaecher', interaction)
+  console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+}
+//Nicht-Kernfächer werden um 1 hochgezählt
+function nicht_kernfaecher_add(interaction) {
+  interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
+  interaction += 1
+  sessionStorage.setItem('nicht_kernfaecher', interaction)
+  console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+}
+function bereich_add(abc, interaction) {
+//Fächer im Bereich A, B oder C werden um 1 hochgezählt
+interaction = parseInt(sessionStorage.getItem(abc + '_anzahl'))
+interaction += 1
+sessionStorage.setItem((abc +'_anzahl'), interaction)
+console.log( abc + ': ' + sessionStorage.getItem( abc + '_anzahl'))
+}
+//Das entsprechende Fach wird auf "nicht mehr wählbar gesetzt"
+function waehlbarkeit_false(fach_w, interaction) {
+  interaction = sessionStorage.getItem(fach_w)
+  interaction = false
+  sessionStorage.setItem(fach_w, interaction)
+  console.log(fach_w + ': ' + sessionStorage.getItem(fach_w))
 }
 function logicsubjects(i) {
     //Hilfsvariablen
@@ -139,24 +167,9 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[3]', true)
               sessionStorage.setItem('p2_waehlbar[4]', true)              
             } 
-
-            //Kernfächer werden um 1 hochgezählt
-            interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('kernfaecher', interaction)
-            console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
-
-            //Fächer im Bereich C werden um 1 hochgezählt
-            interaction = parseInt(sessionStorage.getItem('C_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('C_anzahl', interaction)
-            console.log('C: ' + sessionStorage.getItem('C_anzahl'))
-
-            //Mathe wird auf "nicht mehr wählbar gesetzt"
-            interaction = sessionStorage.getItem('mathe_w')
-            interaction = false
-            sessionStorage.setItem('mathe_w', interaction)
-            console.log('Wählbarkeit von Mathe: ' + sessionStorage.getItem('mathe_w'))
+            kernfaecher_add(interaction)
+            bereich_add('C', interaction)
+            waehlbarkeit_false('mathe_w', interaction)
           } 
           break
         //Wenn Informatik gewählt wurde
@@ -173,23 +186,10 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[4]', true) 
             }
 
-            //Nicht-Kernfächer werden um 1 hochgezählt
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
-
-            //Fächer im Bereich C werden um 1 hochgezählt
-            interaction = parseInt(sessionStorage.getItem('C_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('C_anzahl', interaction)
-            console.log('C: ' + sessionStorage.getItem('C_anzahl'))
-
+            nicht_kernfaecher_add(interaction)
+            bereich_add('C', interaction)
+            waehlbarkeit_false('informatik_w', interaction)
             //Informatik wird auf "nicht mehr wählbar gesetzt"
-            interaction = sessionStorage.getItem('informatik_w')
-            interaction = false
-            sessionStorage.setItem('informatik_w', interaction)
-            console.log('Wählbarkeit von Biologie: ' + sessionStorage.getItem('informatik_w'))
           }
           break
         //Wenn Chemie gewählt wurde
@@ -206,23 +206,10 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[4]', true)
             } 
 
-            //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
-
-            //Fächer im Bereich C werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('C_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('C_anzahl', interaction)
-            console.log('C: ' + sessionStorage.getItem('C_anzahl'))
-
+            nicht_kernfaecher_add(interaction)
+            bereich_add('C', interaction)
+            waehlbarkeit_false('chemie_w', interaction)
             //Chemie wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('chemie_w')
-            interaction = false
-            sessionStorage.setItem('chemie_w', interaction)
-            console.log('Wählbarkeit von Chemie: ' + sessionStorage.getItem('chemie_w'))
           }
           break
         //Wenn Biologie gewählt wird
@@ -239,23 +226,10 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[4]', true)  
             }
 
-            //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
-
-            //Fächer im Bereich C werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('C_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('C_anzahl', interaction)
-            console.log('C: ' + sessionStorage.getItem('C_anzahl'))
-
+            nicht_kernfaecher_add(interaction)
+            bereich_add('C', interaction)
+            waehlbarkeit_false('biologie_w', interaction)
             //Biologie wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('biologie_w')
-            interaction = false
-            sessionStorage.setItem('biologie_w', interaction)
-            console.log('Wählbarkeit von Biologie: ' + sessionStorage.getItem('biologie_w'))
           }
           break
         //Wenn Physik gewählt wird
@@ -272,23 +246,10 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[3]', true)  
             }
 
-            //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
-
-            //Fächer im Bereich C werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('C_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('C_anzahl', interaction)
-            console.log('C: ' + sessionStorage.getItem('C_anzahl'))
-
+            nicht_kernfaecher_add(interaction)
+            bereich_add('C', interaction)
+            waehlbarkeit_false('physik_w', interaction)
             //Physik wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('physik_w')
-            interaction = false
-            sessionStorage.setItem('physik_w', interaction)
-            console.log('Wählbarkeit von Physik: ' + sessionStorage.getItem('physik_w'))
           }      
           break
         //Wenn Deutsch gewählt wird
@@ -304,23 +265,10 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[8]', true)
               sessionStorage.setItem('p2_waehlbar[9]', true)
             }
-            //Kernfächer werden um 1 hochgezählt
-            interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('kernfaecher', interaction)
-            console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
-
-            //Anzahl der Fächer im Bereich A werden um 1 hochgezählt
-            interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('A_anzahl', interaction)
-            console.log('A: ' + sessionStorage.getItem('A_anzahl'))
-
+            kernfaecher_add(interaction)
+            bereich_add('A', interaction)
+            waehlbarkeit_false('deutsch_w', interaction)
             //Deutsch wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('deutsch_w')
-            interaction = false
-            sessionStorage.setItem('deutsch_w', interaction)
-            console.log('Wählbarkeit von Deutsch: ' + sessionStorage.getItem('deutsch_w'))
           }
           break
         //Wenn Englisch gewählt wird
@@ -335,11 +283,8 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[7]', true)
               sessionStorage.setItem('p2_waehlbar[8]', true)
               sessionStorage.setItem('p2_waehlbar[9]', true)
-              //Kernfächer werden um 1 hochgezählt
-              interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('kernfaecher', interaction)
-              console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+
+              kernfaecher_add(interaction)
             }
           //Wenn Englisch nicht als P1 gewählt wurde
           if (i != 1) {
@@ -356,29 +301,17 @@ function logicsubjects(i) {
             }
             //Wenn eine Fremdsprache bisher gewählt wurde, werden Nicht-Kernfächer um 1 erhöht
             if (help2 == true) {
-              interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('nicht_kernfaecher', interaction)
-              console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+              nicht_kernfaecher_add(interaction)
             } else {
               //Wenn keine Fremdsprachen gewählt wurden, werden die Kernfächer um 1 erhöht 
-              interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('kernfaecher', interaction)
-              console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+              kernfaecher_add(interaction)
             }
           }  
           // Anzahl der Fächer im Bereich A wird um 1 hochgezählt
-          interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-          interaction += 1
-          sessionStorage.setItem('A_anzahl', interaction)
-          console.log('A: ' + sessionStorage.getItem('A_anzahl'))
+          bereich_add('A', interaction)
 
           //Englisch wird auf "nicht mehr wählbar" gesetzt
-          interaction = sessionStorage.getItem('englisch_w')
-          interaction = false
-          sessionStorage.setItem('englisch_w', interaction)
-          console.log('Wählbarkeit von Englisch: ' + sessionStorage.getItem('englisch_w'))
+          waehlbarkeit_false('englisch_w', interaction)
           }
           break 
         //Wenn Französisch gewählt wurde     
@@ -393,11 +326,7 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[6]', true)
               sessionStorage.setItem('p2_waehlbar[8]', true)
               sessionStorage.setItem('p2_waehlbar[9]', true)
-              //Kernfächer werden um 1 hochgezählt
-              interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('kernfaecher', interaction)
-              console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+              kernfaecher_add(interaction)
             }
           }
           //Wenn Französisch als P2-P5 gewählt wurde
@@ -416,31 +345,19 @@ function logicsubjects(i) {
             //Wenn help2 true ist
             if (help2 == true) {
               //Nicht-Kernfächer werden um 1 erhöht
-              interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('nicht_kernfaecher', interaction)
-              console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+              nicht_kernfaecher_add(interaction)
             } else {
               //Kernfächer werden um 1 erhöht
-              interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('kernfaecher', interaction)
-              console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+              kernfaecher_add(interaction)
             }
           } 
           //Anzahl der Fächer im Bereich A wird um 1 erhöht
           sessionStorage.setItem('latein_w', false)
           sessionStorage.setItem('spanisch_w', false)
-          interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-          interaction += 1
-          sessionStorage.setItem('A_anzahl', interaction)
-          console.log('A: ' + sessionStorage.getItem('A_anzahl'))
+          bereich_add('A', interaction)
 
           //Französisch wird auf "nicht mehr wählbar" gesetzt
-          interaction = sessionStorage.getItem('franzoesisch_w')
-          interaction = false
-          sessionStorage.setItem('franzoesisch_w', interaction)
-          console.log('Wählbarkeit von Französisch: ' + sessionStorage.getItem('franzoesisch_w'))
+          waehlbarkeit_false('franzoesisch_w', interaction)
           break  
         //Wenn Latein gewählt wurde
         case 'Latein':
@@ -456,10 +373,7 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[9]', true)
 
               //Kernfächer werden um 1 hochgezählt
-              interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('kernfaecher', interaction)
-              console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+              kernfaecher_add(interaction)
             }
             //Wenn Latein P2-P5 ist
             if (i > 1) {
@@ -477,31 +391,19 @@ function logicsubjects(i) {
               //Wenn help2 true ist
               if (help2 === true) {
                 //Nicht-Kernfächer werden um 1 erhöht
-                interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-                interaction += 1
-                sessionStorage.setItem('nicht_kernfaecher', interaction)
-                console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+                nicht_kernfaecher_add(interaction)
               } else {              
                 //Kernfächer werden um 1 erhöht
-                interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-                interaction += 1
-                sessionStorage.setItem('kernfaecher', interaction)
-                console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+                kernfaecher_add(interaction)
               }
             }   
             sessionStorage.setItem('franzoesisch_w', false)
             sessionStorage.setItem('spanisch_w', false)
             //Anzahl der Fächer im Bereich A wird um 1 erhöht 
-            interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('A_anzahl', interaction)
-            console.log('A: ' + sessionStorage.getItem('A_anzahl'))
+            bereich_add('A', interaction)
             
             //Latein wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('latein_w')
-            interaction = false
-            sessionStorage.setItem('latein_w', interaction)
-            console.log('Wählbarkeit von Latein: ' + sessionStorage.getItem('latein_w'))
+            waehlbarkeit_false('latein_w', interaction)
           }
           break
         //Wenn Spanisch gewählt wurde
@@ -517,10 +419,7 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[7]', true)
               sessionStorage.setItem('p2_waehlbar[8]', true)
               //Kernfächer werden um 1 erhöht
-              interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('kernfaecher', interaction)
-              console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+              kernfaecher_add(interaction)
             }
             //Wenn Spanisch als P2-P5 gewählt wurde
             if (i > 1) {
@@ -538,31 +437,19 @@ function logicsubjects(i) {
               //Wenn help2 true ist
               if (help2 == true) {
                 //Nicht-Kernfächer werden um 1 erhöht
-                interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-                interaction += 1
-                sessionStorage.setItem('nicht_kernfaecher', interaction)
-                console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+                nicht_kernfaecher_add(interaction)
               } else {
                 //Kernfächer werden um 1 erhöht
-                interaction = parseInt(sessionStorage.getItem('kernfaecher'))
-                interaction += 1
-                sessionStorage.setItem('kernfaecher', interaction)
-                console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+                kernfaecher_add(interaction)
               }
             } 
             sessionStorage.setItem('latein_w', false)
             sessionStorage.setItem('franzoesisch_w', false)
             //Anzahl der Fächer im Bereich A wird um 1 erhöht 
-            interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('A_anzahl', interaction)
-            console.log('A: ' + sessionStorage.getItem('A_anzahl'))
+            bereich_add('A', interaction)
            
             //Spanisch wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('spanisch_w')
-            interaction = false
-            sessionStorage.setItem('spanisch_w', interaction)
-            console.log('Wählbarkeit von Spanisch: ' + sessionStorage.getItem('spanisch_w'))
+            waehlbarkeit_false('spanisch_w', interaction)
           }
           break
         //Wenn Kunst gewählt wurde
@@ -579,22 +466,13 @@ function logicsubjects(i) {
             //Musik ist nicht mehr wählbar
             sessionStorage.setItem('musik_w', false)
             //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+            nicht_kernfaecher_add(interaction)
 
             //Anzahl der Fächer im Bereich A wird um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('A_anzahl', interaction)
-            console.log('A: ' + sessionStorage.getItem('A_anzahl'))
+            bereich_add('A', interaction)
 
             //Kunst wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('kunst_w')
-            interaction = false
-            sessionStorage.setItem('kunst_w', interaction)
-            console.log('Wählbarkeit von Kunst: ' + sessionStorage.getItem('kunst_w'))
+            waehlbarkeit_false('kunst_w', interaction)
           }
           break
         //Wenn Musik gewählt wurde
@@ -611,22 +489,13 @@ function logicsubjects(i) {
             //Kunst ist nicht mehr wählbar
             sessionStorage.setItem('kunst_w', false)
             //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+            nicht_kernfaecher_add(interaction)
 
             //Anzahl der Fächer im Bereich A wird um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('A_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('A_anzahl', interaction)
-            console.log('A: ' + sessionStorage.getItem('A_anzahl'))
+            bereich_add('A', interaction)
 
             //Musik wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('musik_w')
-            interaction = false
-            sessionStorage.setItem('musik_w', interaction)
-            console.log('Wählbarkeit von Musik: ' + sessionStorage.getItem('musik_w'))
+            waehlbarkeit_false('musik_w', interaction)
           }
           break
         //Wenn Geschichte gewählt wurde
@@ -644,88 +513,52 @@ function logicsubjects(i) {
               sessionStorage.setItem('pfach3', 'Politik Wirtschaft')
             }
             //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+            nicht_kernfaecher_add(interaction)
 
             //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            interaction = parseInt(sessionStorage.getItem('B_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('B_anzahl', interaction)
-            console.log('B: ' + sessionStorage.getItem('B_anzahl'))
+            bereich_add('B', interaction)
 
             //Geshcichte wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('geschichte_w')
-            interaction = false
-            sessionStorage.setItem('geschichte_w', interaction)
-            console.log('Wählbarkeit von Geschichte: ' + sessionStorage.getItem('geschichte_w'))
+            waehlbarkeit_false('geschichte_w', interaction)
           }
           break
         //Wenn Religion gewählt wurde
         case 'Religion':
           if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('religion_w') == 'true') {
             //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+            nicht_kernfaecher_add(interaction)
 
             //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            interaction = parseInt(sessionStorage.getItem('B_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('B_anzahl', interaction)
-            console.log('B: ' + sessionStorage.getItem('B_anzahl'))
+            bereich_add('B', interaction)
 
             //Religion wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('religion_w')
-            interaction = false
-            sessionStorage.setItem('religion_w', interaction)
-            console.log('Wählbarkeit von Religion: ' + sessionStorage.getItem('religion_w'))
+            waehlbarkeit_false('religion_w', interaction)
           }
           break
-        //Wenn Erdkunde gewählt wurde
+        //Wenn Erdkunde gewählt wurde 
         case 'Erdkunde':
           if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('erdkunde_w') == 'true') {  
             //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+            nicht_kernfaecher_add(interaction)
 
             //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            interaction = parseInt(sessionStorage.getItem('B_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('B_anzahl', interaction)
-            console.log('B: ' + sessionStorage.getItem('B_anzahl'))
+            bereich_add('B', interaction)
 
             //Erdkunde wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('erdkunde_w')
-            interaction = false
-            sessionStorage.setItem('erdkunde_w', interaction)
-            console.log('Wählbarkeit von Erdkunde: ' + sessionStorage.getItem('erdkunde_w'))
+            waehlbarkeit_false('erdkunde_w', interaction)
           }
           break
         //Wenn Politik/Wirtschaft gewählt wurde
         case 'Politik Wirtschaft':
           if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('powi_w') == 'true') {
             //Nicht-Kernfächer werden um 1 erhöht
-            interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-            interaction += 1
-            sessionStorage.setItem('nicht_kernfaecher', interaction)
-            console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+            nicht_kernfaecher_add(interaction)
 
             //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            interaction = parseInt(sessionStorage.getItem('B_anzahl'))
-            interaction += 1
-            sessionStorage.setItem('B_anzahl', interaction)
-            console.log('B: ' + sessionStorage.getItem('B_anzahl'))
+            bereich_add('B', interaction)
 
             //PoWi wird auf "nicht mehr wählbar" gesetzt
-            interaction = sessionStorage.getItem('powi_w')
-            interaction = false
-            sessionStorage.setItem('powi_w', interaction)
-            console.log('Wählbarkeit von PoWi: ' + sessionStorage.getItem('powi_w'))
+            waehlbarkeit_false('powi_w', interaction)
           }
           break
         //Wenn Sport gewählt wurde
@@ -733,10 +566,7 @@ function logicsubjects(i) {
           if (sessionStorage.getItem('w[3]') == 'true') {
             if (sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('sport_w') == true) {
               //Nicht-Kernfächer werden um 1 erhöht
-              interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
-              interaction += 1
-              sessionStorage.setItem('nicht_kernfaecher', interaction)
-              console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+              nicht_kernfaecher_add(interaction)
             }
           }
           break
@@ -840,9 +670,7 @@ function logicsubjects(i) {
     sessionStorage.setItem('informatik_w', false)
     sessionStorage.setItem('chemie_w', false)
   }
-  console.log(sessionStorage.getItem('counter_fs'))
 }
-
 //Funktion, welche prüft, welche Fächer in der nächsten Stufe gewählt werden können (die Stufe, welche überprüft werden muss, wird hier übergeben)
 function proof_in_advance(pfach, i) {
   //all_subjects enthält alle Fächer in der Reihenfolge, in der sie auf der Webseite angezeigt werden
@@ -1037,7 +865,6 @@ function proof_in_advance(pfach, i) {
     }
   }
 }
-
 //Prüfung, ob ein Fach in der nächsten Stufe wählbar ist (Kernfach)
 function proof_in_advance_visibility (pfach, i, j, bereich, waehlbar, fachvariable){
   //Wenn der Bereich des Fachs und das Fach selbst wählbar ist, wird der Inhalt der Bedingung ausgeführt
@@ -1101,12 +928,12 @@ function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachv
     document.getElementById(a).disabled = true
   }
 }
-
 //Funktionen für die Grundkurse je nach gewähltem Profil
 function mana(){
   for (var j = 1; j < 6; j++) {
     //Pflichtgrundkurse werden zugeordnet
     pflicht(j)
+    //Wenn Musik, Kunst oder DS als Prüfungsfach gewählt wurden, wird der Grundkurs vorübergehend auf gewählt gesetzt
     if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) =='Kunst' || sessionStorage.getItem('pfach' + j) =='DS')) {
       if (sessionStorage.getItem('pfach' + j) == 'Musik') {
         sessionStorage.setItem('extra8', true)
@@ -1124,6 +951,7 @@ function mana(){
         sessionStorage.setItem('extra17', true)
       }
     }
+    //Wenn Englisch, Latein, Französisch oder Spanisch als Prüfungsfach gewählt wurden, wird der Grundkurs vorübergehend auf gewählt gesetzt
     if (sessionStorage.getItem('extra3') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra6') == 'false' && sessionStorage.getItem('extra11') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch')) {
       if (sessionStorage.getItem('pfach' + j) == 'Englisch') {
         sessionStorage.setItem('extra3', true)
@@ -1150,6 +978,7 @@ function mana(){
         sessionStorage.setItem('extra11', true)
       }
     }
+    //Wenn eine Naturwissenschaft als Prüfungsfach gewählt wurde, wird der Zähler für die Naturwissenschaften um 1 hochgezählt
     if (sessionStorage.getItem('pfach' + j) == 'Biologie' || sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Informatik') {
       interaction = parseInt(sessionStorage.getItem('counter_nw'))
       interaction += 1
@@ -1157,8 +986,8 @@ function mana(){
       console.log('NW-Counter: ' + sessionStorage.getItem('counter_nw'))
     }
   }
-  //Sport
-  if (sessionStorage.getItem('pfach4') == 'Sport') {
+  //Wenn Sport als P5 gewählt wurde, wird
+  if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
   }
   //1 FS
@@ -1364,7 +1193,7 @@ function spra() {
   }
 
   //Sport
-  if (sessionStorage.getItem('pfach4') == 'Sport') {
+  if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
   }
 
@@ -1491,7 +1320,7 @@ function muku() {
   }
 
   //Sport
-  if (sessionStorage.getItem('pfach4') == 'Sport') {
+  if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
   }
   //1 FS
@@ -1600,7 +1429,7 @@ function gese(){
     }
   }
   //Sport
-  if (sessionStorage.getItem('pfach4') == 'Sport') {
+  if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
   }
   //Religion
@@ -1797,7 +1626,6 @@ function gese(){
     document.getElementById("kunst").disabled = true
   }
 }
-
 function pflicht(j) {
   //Wenn Deutsch nicht gewählt wurde, wird Deutsch als Grundkurs gesetzt
   if (sessionStorage.getItem('extra12') == 'false' && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
@@ -2409,7 +2237,6 @@ function check_for_complete_gk_manu() {
     return false
   }
 }
-
 function check_for_complete_gk_muku() {
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
   ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) && 
@@ -2425,7 +2252,6 @@ function check_for_complete_gk_muku() {
     return false
   }
 }
-
 function check_for_complete_gk_spra() {
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) && 
   ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
