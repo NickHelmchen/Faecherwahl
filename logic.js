@@ -1070,15 +1070,19 @@ function mana(){
     }
     if (help_informatik == true) {
       document.getElementById("informatik.label").style.opacity = '0.5'
+      document.getElementById("informatik").disabled = true
     }
     if (help_biologie == true) {
       document.getElementById("bio.label").style.opacity = '0.5'
+      document.getElementById("bio").disabled = true
     }
     if (help_physik == true) {
       document.getElementById("physik.label").style.opacity = '0.5'
+      document.getElementById("physik").disabled = true
     }
     if (help_chemie == true) {
       document.getElementById("chemie.label").style.opacity = '0.5'
+      document.getElementById("chemie").disabled = true
     }
   } else {
     document.getElementById("informatik.label").style.opacity = '0.5'
