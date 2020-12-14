@@ -1,10 +1,10 @@
-body {font-family: 'Indie Flower', cursive}
+body {font-family: 'Actor', sans-serif;}
 body, html {height: 100%}
 
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
 
 .font {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
 }
 
 .bgimg {
@@ -137,7 +137,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container-index {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto min-content min-content auto auto;
@@ -246,7 +246,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container5 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto auto auto;
@@ -306,7 +306,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container4 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto auto auto;
@@ -361,7 +361,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container3 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto auto auto;
@@ -416,7 +416,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container2 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto auto;
@@ -486,7 +486,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container1 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto;
@@ -511,7 +511,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto auto auto;
@@ -602,7 +602,7 @@ body, html {height: 100%}
 
 .header {
     font-size: 20px;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     text-align: center; 
     text-decoration: underline;  
     cursor: default;
@@ -721,7 +721,7 @@ body, html {height: 100%}
 	display: none;
 }
 .cookieConsentContainer .cookieTitle a {
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	font-size: 22px;
 	line-height: 20px;
@@ -730,20 +730,20 @@ body, html {height: 100%}
 .cookieConsentContainer .cookieDesc p {
 	margin: 0;
 	padding: 0;
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	font-size: 13px;
 	line-height: 20px;
 	display: block;
 	margin-top: 10px;
 } .cookieConsentContainer .cookieDesc a {
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	text-decoration: underline;
 }
 .cookieConsentContainer .cookieButton a {
 	display: inline-block;
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	font-size: 14px;
 	font-weight: bold;
