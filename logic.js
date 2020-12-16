@@ -582,6 +582,12 @@ function logicsubjects(i) {
   //Wenn 3 Fächer aus Bereich A gewählt wurden, kann Bereich A nicht mehr gewählt werden
   if (parseInt(sessionStorage.getItem('A_anzahl')) == 3) {
     sessionStorage.setItem('w[0]', false)
+    if (parseInt(sessionStorage.getItem('kernfaecher')) == 1) {
+      sessionStorage.setItem('physik_w', false)
+      sessionStorage.setItem('chemie_w', false)
+      sessionStorage.setItem('informatik_w', false)
+      sessionStorage.setItem('biologie_w', false)
+    }
     //Wenn 3 Fächer aus Bereich A gewählt wurden und 1 Fach aus Bereich B gewählt wurde, kann Bereich B ebenfalls nicht mehr gewählt werden
     if (parseInt(sessionStorage.getItem('B_anzahl')) == 1) {
       sessionStorage.setItem('w[1]', false)
@@ -939,6 +945,26 @@ function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachv
 //Funktionen für die Grundkurse je nach gewähltem Profil
 function mana(){
   for (var j = 1; j < 6; j++) {
+    if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
+      document.getElementById("Kunst2").disabled = true
+      document.getElementById("Kunst2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Musik') {
+      document.getElementById("Musik2").disabled = true
+      document.getElementById("Musik2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
+      document.getElementById("PoWi2.label").style.opacity = '0.5'
+      document.getElementById("PoWi2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Geschichte') {
+      document.getElementById("Geschichte2").disabled = true
+      document.getElementById("Geschichte2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Religion') {
+      document.getElementById("Religion2").disabled = true
+      document.getElementById("Religion2.label").style.opacity = '0.5'
+    }
     //Pflichtgrundkurse werden zugeordnet
     pflicht(j)
     //Wenn Musik, Kunst oder DS als Prüfungsfach gewählt wurden, wird der Grundkurs vorübergehend auf gewählt gesetzt
@@ -998,14 +1024,7 @@ function mana(){
   if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
   }
-  //1 FS
   if (sessionStorage.getItem('extra3') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra6') == 'false' && sessionStorage.getItem('extra11') == 'false') {
-    sessionStorage.setItem('extra3', true)
-    sessionStorage.setItem('extra7', true)
-    sessionStorage.setItem('extra6', true)
-    sessionStorage.setItem('extra11', true)
-  }
-  if (sessionStorage.getItem('extra3') == 'true' && sessionStorage.getItem('extra7') == 'true' && sessionStorage.getItem('extra6') == 'true' && sessionStorage.getItem('extra11') == 'true') {
     document.getElementById("englisch.label").style.opacity = '1'
     document.getElementById("latein.label").style.opacity = '1'
     document.getElementById("franzoesisch.label").style.opacity = '1'
@@ -1019,17 +1038,12 @@ function mana(){
     document.getElementById("latein").disabled = true
     document.getElementById("franzoesisch").disabled = true
     document.getElementById("spanisch").disabled = true
-    document.getElementById("div_fs").title = "Da bereits eine Fremdsprachen gewählt wurde, muss hier nichts mehr gewählt werden"
+    document.getElementById("div_fs").title = "Da bereits eine Fremdsprache gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 
 
   //Musik, Kunst, DS
   if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false') {
-    sessionStorage.setItem('extra8', true)
-    sessionStorage.setItem('extra10', true)
-    sessionStorage.setItem('extra17', true)
-  }
-  if (sessionStorage.getItem('extra8') == 'true' && sessionStorage.getItem('extra10') == 'true'  && sessionStorage.getItem('extra17') == 'true') {
     document.getElementById("musik.label").style.opacity = '1'
     document.getElementById("ds.label").style.opacity = '1'
     document.getElementById("kunst.label").style.opacity = '1'
@@ -1046,10 +1060,6 @@ function mana(){
 
   //Religion
   if (sessionStorage.getItem('extra15') == 'false' && sessionStorage.getItem('extra18') == 'false') {
-    sessionStorage.setItem('extra15', true)
-    sessionStorage.setItem('extra18', true)
-  }
-  if (sessionStorage.getItem('extra15') == 'true' && sessionStorage.getItem('extra18') == 'true') {
     document.getElementById("religion.label").style.opacity = '1'
     document.getElementById("wn.label").style.opacity = '1'
   } else {
@@ -1124,6 +1134,26 @@ console.log('Französisch-GK: ' + sessionStorage.getItem('extra6'))
 function spra() {
   var help_informatik = false
   for (var j = 1; j < 6; j++) {
+    if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
+      document.getElementById("Kunst2").disabled = true
+      document.getElementById("Kunst2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Musik') {
+      document.getElementById("Musik2").disabled = true
+      document.getElementById("Musik2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
+      document.getElementById("PoWi2.label").style.opacity = '0.5'
+      document.getElementById("PoWi2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Geschichte') {
+      document.getElementById("Geschichte2").disabled = true
+      document.getElementById("Geschichte2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Religion') {
+      document.getElementById("Religion2").disabled = true
+      document.getElementById("Religion2.label").style.opacity = '0.5'
+    }
     pflicht(j)
     if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) == 'Kunst' || sessionStorage.getItem('pfach' + j) == 'DS')) {
       if (sessionStorage.getItem('pfach' + j) == 'Musik') {
@@ -1218,11 +1248,6 @@ function spra() {
 
   //1 NW
   if (sessionStorage.getItem('extra4') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra5') == 'false') {
-    sessionStorage.setItem('extra4', true)
-    sessionStorage.setItem('extra2', true)
-    sessionStorage.setItem('extra5', true)
-  }
-  if (sessionStorage.getItem('extra4') == 'true' && sessionStorage.getItem('extra2') == 'true'  && sessionStorage.getItem('extra5') == 'true') {
     document.getElementById("physik.label").style.opacity = '1'
     document.getElementById("chemie.label").style.opacity = '1'
     document.getElementById("bio.label").style.opacity = '1'
@@ -1239,12 +1264,6 @@ function spra() {
 
   //Musik, Kunst, DS
   if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false') {
-    sessionStorage.setItem('extra8', true)
-    sessionStorage.setItem('extra10', true)
-    sessionStorage.setItem('extra17', true)
-  }
-  console.log(sessionStorage.getItem('extra8'))
-  if (sessionStorage.getItem('extra8') == 'true' && sessionStorage.getItem('extra10') == 'true' && sessionStorage.getItem('extra17') == 'true') {
     document.getElementById("musik.label").style.opacity = '1'
     document.getElementById("ds.label").style.opacity = '1'
     document.getElementById("kunst.label").style.opacity = '1'
@@ -1262,10 +1281,6 @@ function spra() {
 
   //Religion
   if (sessionStorage.getItem('extra15') == 'false' && sessionStorage.getItem('extra18') == 'false') {
-    sessionStorage.setItem('extra15', true)
-    sessionStorage.setItem('extra18', true)
-  }
-  if (sessionStorage.getItem('extra15') == 'true' && sessionStorage.getItem('extra18') == 'true') {
     document.getElementById("religion.label").style.opacity = '1'
     document.getElementById("wn.label").style.opacity = '1'
   } else {
@@ -1292,6 +1307,18 @@ function spra() {
 function muku() {
   var help_informatik = false
   for (var j = 1; j < 6; j++) {
+    if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
+      document.getElementById("PoWi2.label").style.opacity = '0.5'
+      document.getElementById("PoWi2").disabled = true
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Geschichte') {
+      document.getElementById("Geschichte2").disabled = true
+      document.getElementById("Geschichte2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Religion') {
+      document.getElementById("Religion2").disabled = true
+      document.getElementById("Religion2.label").style.opacity = '0.5'
+    }
     pflicht(j)
     if (sessionStorage.getItem('extra3') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra6') == 'false' && sessionStorage.getItem('extra11') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch')) {
       if (sessionStorage.getItem('pfach' + j) == 'Englisch') {
@@ -1371,11 +1398,6 @@ function muku() {
   }
   //1 NW
   if (sessionStorage.getItem('extra4') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra5') == 'false') {
-    sessionStorage.setItem('extra4', true)
-    sessionStorage.setItem('extra2', true)
-    sessionStorage.setItem('extra5', true)
-  }
-  if (sessionStorage.getItem('extra4') == 'true' && sessionStorage.getItem('extra2') == 'true'  && sessionStorage.getItem('extra5') == 'true') {
     document.getElementById("physik.label").style.opacity = '1'
     document.getElementById("chemie.label").style.opacity = '1'
     document.getElementById("bio.label").style.opacity = '1'
@@ -1390,10 +1412,6 @@ function muku() {
   }
   //Religion
   if (sessionStorage.getItem('extra15') == 'false' && sessionStorage.getItem('extra18') == 'false') {
-    sessionStorage.setItem('extra15', true)
-    sessionStorage.setItem('extra18', true)
-  }
-  if (sessionStorage.getItem('extra15') == 'true' && sessionStorage.getItem('extra18') == 'true') {
     document.getElementById("religion.label").style.opacity = '1'
     document.getElementById("wn.label").style.opacity = '1'
   } else {
@@ -1424,6 +1442,18 @@ function muku() {
 }
 function gese(){
   for (var j = 1; j < 6; j++) {
+    if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
+      document.getElementById("Kunst2").disabled = true
+      document.getElementById("Kunst2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Musik') {
+      document.getElementById("Musik2").disabled = true
+      document.getElementById("Musik2.label").style.opacity = '0.5'
+    }
+    if (sessionStorage.getItem('pfach' + j) == 'Religion') {
+      document.getElementById("Religion2").disabled = true
+      document.getElementById("Religion2.label").style.opacity = '0.5'
+    }
     pflicht(j)
     if (sessionStorage.getItem('pfach' + j) == 'Biologie' || sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Informatik') {
       interaction = parseInt(sessionStorage.getItem('counter_nw'))
@@ -1461,10 +1491,6 @@ function gese(){
   }
   //Religion
   if (sessionStorage.getItem('extra15') == 'false' && sessionStorage.getItem('extra18') == 'false') {
-    sessionStorage.setItem('extra15', true)
-    sessionStorage.setItem('extra18', true)
-  }
-  if (sessionStorage.getItem('extra15') == 'true' && sessionStorage.getItem('extra18') == 'true') {
     document.getElementById("religion.label").style.opacity = '1'
     document.getElementById("wn.label").style.opacity = '1'
   } else {
@@ -1706,29 +1732,50 @@ function pflicht(j) {
 function set_religion() {
   sessionStorage.setItem('extra15', true)
   sessionStorage.setItem('extra18', false)
+  document.getElementById("Religion2.label").style.opacity = '1'
+  document.getElementById("Religion2").disabled = false
 }
 //Werte und Normen wird als Grundkurs gewählt und Religion abgewählt
 function set_wn() {
   sessionStorage.setItem('extra15', false)
   sessionStorage.setItem('extra18', true)
+  document.getElementById("Religion2.label").style.opacity = '0.5'
+  document.getElementById("Religion2").checked = false
+  document.getElementById("Religion2").disabled = true
 }
 //Musik wird gewählt, während Kunst und DS nicht als Grundkurse belegt werden
 function set_musik() {
   sessionStorage.setItem('extra8', true)
   sessionStorage.setItem('extra10', false)
   sessionStorage.setItem('extra17', false)
+  document.getElementById("Musik2.label").style.opacity = '1'
+  document.getElementById("Musik2").disabled = false
+  document.getElementById("Kunst2.label").style.opacity = '0.5'
+  document.getElementById("Kunst2").disabled = true
+  document.getElementById("Kunst2").checked = false
 }
 //Kunst wird gewählt, während Musik und DS nicht als Grundkurse belegt werden
 function set_kunst() {
   sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra10', true)
   sessionStorage.setItem('extra17', false)
+  document.getElementById("Kunst2.label").style.opacity = '1'
+  document.getElementById("Kunst2").disabled = false
+  document.getElementById("Musik2.label").style.opacity = '0.5'
+  document.getElementById("Musik2").checked = false
+  document.getElementById("Musik2").disabled = true
 }
 //DS wird gewählt, während Kunst und Musik nicht als Grundkurse belegt werden
 function set_ds() {
   sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra10', false)
   sessionStorage.setItem('extra17', true) 
+  document.getElementById("Kunst2.label").style.opacity = '0.5'
+  document.getElementById("Kunst2").disabled = true
+  document.getElementById("Kunst2").checked = false
+  document.getElementById("Musik2.label").style.opacity = '0.5'
+  document.getElementById("Musik2").checked = false
+  document.getElementById("Musik2").disabled = true
 }
 //Englisch wird als Grundkurs gesetzt und alle anderen Fremdsprachen werden nicht als Grundkurs belegt
 function set_englisch() {
