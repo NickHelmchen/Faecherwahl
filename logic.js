@@ -643,6 +643,14 @@ function logicsubjects(i) {
     sessionStorage.setItem('biologie_w', false)
     sessionStorage.setItem('physik_w', false)
     sessionStorage.setItem('informatik_w', false)
+    for (let i = 1; i < 6; i++) {
+      if (sessionStorage.getItem("pfach" + i) == 'Englisch' || sessionStorage.getItem("pfach" + i) == 'Spanisch' || sessionStorage.getItem("pfach" + i) == 'Latein' || sessionStorage.getItem("pfach" + i) == 'Französisch') {
+        sessionStorage.setItem('englisch_w', false)
+        sessionStorage.setItem('latein_w', false)
+        sessionStorage.setItem('spanisch_w', false)
+        sessionStorage.setItem('franzoesisch_w', false)
+      }
+    }
   }
   //Wenn 2 Fächer aus Bereich A und 1 Fach aus Bereich C gewählt wurde und unter diesen Fächern 1 Kernfach ist, können keine Fächer aus Bereich A mehr gewählt werden, die keine Kernfächer sind/sein können
   if (parseInt(sessionStorage.getItem('A_anzahl')) == 2 && parseInt(sessionStorage.getItem('C_anzahl')) == 1 && parseInt(sessionStorage.getItem('kernfaecher')) == 1) {
