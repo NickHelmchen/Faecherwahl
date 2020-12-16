@@ -260,11 +260,11 @@ font-family: 'Indie Flower', cursive; */
         'input2 ... ... button-next2 button-next2'
         'reli5 muku5 erdkunde5 fsprach5 natu5'
         '... ... ... ... ...'
-        '... ... ... natu5-2 natu5-2';
+        '... natu5-3 natu5-3 natu5-2 natu5-2';
 
 }
 
-.reli5, .muku5, .fsprach5, .erdkunde5, .natu5, .informatik5, .fsprach5-2, .natu5-2{
+.reli5, .muku5, .fsprach5, .erdkunde5, .natu5, .informatik5, .fsprach5-2, .natu5-2, .natu5-3{
     padding: 5px;
     background-color:rgb(236, 236, 236);
     border-radius: 20px;
@@ -290,11 +290,10 @@ font-family: 'Indie Flower', cursive; */
     height: 450px;
     grid-area: natu5-2;   
 }
-
-.natu5-3 {
-    height: 450px;
-    grid-area: natu5-3;
-}
+ .natu5-3 {
+     height: 250px;
+     grid-area: natu5-3;
+ }
 
 .erdkunde5 { 
     height: 250px;
@@ -324,12 +323,12 @@ font-family: 'Indie Flower', cursive; */
         '... ... ... ... ... ...'
         'input2 ... ... ... button-next2 button-next2'
         'reli4 muku4 erdkunde4 informatik4 fsprach4 natu4'
-        '... ... ... ... ... ...'
+        '... ... natu4-2 natu4-2 ... ...'
         '... ... ... ... ... ...';
 
 }
 
-.reli4, .muku4, .fsprach4, .erdkunde4, .natu4, .informatik4{
+.reli4, .muku4, .fsprach4, .erdkunde4, .natu4, .informatik4, .natu4-2{
     padding: 5px;
     background-color:rgb(236, 236, 236);
     border-radius: 20px;
@@ -349,6 +348,11 @@ font-family: 'Indie Flower', cursive; */
 .natu4 {
     height: 250px;
     grid-area: natu4;   
+}
+
+.natu4-2 {
+    height: 250px;
+    grid-area: natu4-2;
 }
 
 .erdkunde4 { 
@@ -379,12 +383,12 @@ font-family: 'Indie Flower', cursive; */
         '... ... ... ... ... ...'
         'input2 ... ... ... button-next2 button-next2'
         'reli3 muku3 natu3 informatik3 erdkunde3 fsprach3'
-        '... ... ... ... ... ...'
+        '... ... natu3-2 natu3-2 ... ...'
         '... ... ... ... ... ...';
 
 }
 
-.reli3, .muku3, .fsprach3, .erdkunde3, .natu3, .informatik3{
+.reli3, .muku3, .fsprach3, .erdkunde3, .natu3, .natu3-2, .informatik3{
     padding: 5px;
     background-color:rgb(236, 236, 236);
     border-radius: 20px;
@@ -404,6 +408,11 @@ font-family: 'Indie Flower', cursive; */
 .natu3 {
     height: 250px;
     grid-area: natu3;   
+}
+
+.natu3-2 {
+    height: 300px;
+    grid-area: natu3-2;
 }
 
 .erdkunde3 { 
@@ -434,12 +443,12 @@ font-family: 'Indie Flower', cursive; */
         '... ... ... ... ...'
         'input2 ... ... button-next2 button-next2'
         'reli muku fsprach natu erdkunde'
-        '... ... ... ... ...'
+        '... ... natu1-2 natu1-2 ...'
         '... ... ... ... ...';
 
 }
 
-.reli, .muku, .fsprach, .erdkunde, .natu {
+.reli, .muku, .fsprach, .erdkunde, .natu, .natu1-2 {
     padding: 5px;
     background-color:rgb(236, 236, 236);
     border-radius: 20px;
@@ -469,6 +478,11 @@ font-family: 'Indie Flower', cursive; */
 .natu {
     height: 250px;
     grid-area: natu;   
+}
+
+.natu1-2 {
+    height: 300px;
+    grid-area: natu1-2;
 }
 
 .head-input2 {
