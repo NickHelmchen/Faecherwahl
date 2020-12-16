@@ -257,7 +257,7 @@ font-family: 'Indie Flower', cursive; */
     grid-template-rows: min-content min-content min-content min-content min-content;
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... ... ... ... ... button-next2 button-next2'
+        'input2 ... ... button-next2 button-next2'
         'reli5 muku5 erdkunde5 fsprach5 natu5'
         '... ... ... ... ...'
         '... ... ... natu5-2 natu5-2';
