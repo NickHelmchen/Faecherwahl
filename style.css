@@ -252,7 +252,7 @@ font-family: 'Indie Flower', cursive; */
     font-family: 'Indie Flower', cursive;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     grid-row-gap: 5px;
     grid-template-rows: min-content min-content min-content min-content min-content;
     grid-template-areas: 
