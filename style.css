@@ -291,6 +291,11 @@ font-family: 'Indie Flower', cursive; */
     grid-area: natu5-2;   
 }
 
+.natu5-3 {
+    height: 450px;
+    grid-area: natu5-3;
+}
+
 .erdkunde5 { 
     height: 250px;
     grid-area: erdkunde5; 
