@@ -26,7 +26,7 @@
     <div class="bgimg grid-container2">
         <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
         <button onclick="check()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
-        <div class="reli w3-animate-left toggle-buttons">
+        <div class="reli w3-animate-left toggle-buttons" title="Entweder Religion oder Werte und Normen als Grundkurs belegen" id="div_rewn">
             <p class="header">Religion / Werte und Normen</p>
             <input type="radio" name="extra1" id="religion" onclick="set_religion()">
             <label for="religion" id="religion.label">Religion</label>
@@ -35,7 +35,7 @@
             <input type="radio" name="extra1" id="wn" onclick="set_wn()">
             <label for="wn" id="wn.label">Werte und Normen</label>
         </div>
-        <div class="muku w3-animate-top toggle-buttons">
+        <div class="muku w3-animate-top toggle-buttons" title="Entweder Musik, Kunst oder DS als Grundkurs belegen" id="div_muku">
           <p class="header">Musisch- Künstlicherisch</p>
           <input type="radio" name="extra2" id="musik" onclick="set_musik()">
           <label for="musik" id="musik.label">Musik</label>
@@ -48,7 +48,7 @@
           <input type="radio" name="extra2" id="ds" onclick="set_ds()">
           <label for="ds" id="ds.label">Darstellendes Spiel</label>
       </div>
-        <div class="fsprach w3-animate-top toggle-buttons">
+        <div class="fsprach w3-animate-top toggle-buttons" title="Eine Fremdsprache als Grundkurs belegen" id="div_fs">
             <p class="header">Fremdsprache</p>
             <input type="radio" name="extra3" id="englisch" onclick="set_englisch()">
             <label for="englisch" id="englisch.label">Englisch</label>
@@ -65,7 +65,7 @@
             <input type="radio" name="extra3" id="latein" onclick="set_latein()">
             <label for="latein" id="latein.label">Latein</label>
         </div>
-        <div class="erdkunde w3-animate-top toggle-buttons">
+        <div class="erdkunde w3-animate-top toggle-buttons" title="Erdkunde als zusätzliches Fach wählen" id="div_ek">
             <p class="header">Erdkunde</p>
             <input type="radio" name="extra4" id="erdkundja" onclick="set_erdkunde()">
             <label for="erdkundja" id="erdkundja.label">Ja</label>
@@ -74,7 +74,7 @@
             <input type="radio" name="extra4" id="erdkundne" onclick="set_erdkunde_false()">
             <label for="erdkundne" id="erdkundne.label">Nein</label>
         </div>
-        <div class="natu w3-animate-right toggle-buttons">
+        <div class="natu w3-animate-right toggle-buttons" title="Eine 2. Naturwissenschaft als Grundkurs belegen" id="div_nw">
             <p class="header">Naturwissenschaften</p>
             <input type="radio" name="extra5" id="chemie" onclick="set_chemie()">
             <label for="chemie" id="chemie.label">Chemie</label>

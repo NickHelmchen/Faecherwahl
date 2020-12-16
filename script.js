@@ -22,7 +22,13 @@ function url() {
 }
 
 function terminator() {
+  var temp1 = ''
+  var temp2 = ''
+  temp1 = sessionStorage.getItem("savename")
+  temp2 = sessionStorage.getItem("savelastname")
   sessionStorage.clear()
+  sessionStorage.setItem('savename', temp1)
+  sessionStorage.setItem('savelastname', temp2)
 }
 
 function restart() {

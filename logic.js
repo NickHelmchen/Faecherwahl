@@ -1019,6 +1019,7 @@ function mana(){
     document.getElementById("latein").disabled = true
     document.getElementById("franzoesisch").disabled = true
     document.getElementById("spanisch").disabled = true
+    document.getElementById("div_fs").title = "Da bereits eine Fremdsprachen gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 
 
@@ -1039,6 +1040,7 @@ function mana(){
     document.getElementById("kunst").disabled = true
     document.getElementById("ds").disabled = true
     document.getElementById("musik").disabled = true
+    document.getElementById("div_muku").title = "Da bereits ein musisch-künstlerisches Fach gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 
 
@@ -1055,6 +1057,7 @@ function mana(){
     document.getElementById("wn.label").style.opacity = '0.5'
     document.getElementById("wn").disabled = true
     document.getElementById("religion").disabled = true
+    document.getElementById("div_rewn").title = "Da bereits Religion oder Werte und Normen gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   //2 NW
   if (parseInt(sessionStorage.getItem('counter_nw')) < 2) {
@@ -1101,6 +1104,7 @@ function mana(){
     document.getElementById("physik").disabled = true
     document.getElementById("chemie").disabled = true
     document.getElementById("bio").disabled = true
+    document.getElementById("div_nw").title = "Da bereits 2 Naturwissenschaften gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 console.log('Religion-GK: ' + sessionStorage.getItem('extra15'))
 console.log('WN-GK: ' + sessionStorage.getItem('extra18'))  
@@ -1184,6 +1188,7 @@ function spra() {
       document.getElementById("latein").disabled = true
       document.getElementById("franzoesisch").disabled = true
       document.getElementById("spanisch").disabled = true
+      document.getElementById("div_fs").title = "Da bereits eine 2. Fremdsprache gewählt wurde, wird Englisch automatisch als Grundkurs gewählt"
     }
   } else {
     sessionStorage.setItem('extra3', true)
@@ -1193,12 +1198,14 @@ function spra() {
     document.getElementById("latein").disabled = true
     document.getElementById("franzoesisch").disabled = true
     document.getElementById("spanisch").disabled = true
+    document.getElementById("div_fs").title = "Da bereits eine 2. Fremdsprache gewählt wurde, wird Englisch automatisch als Grundkurs gewählt"
   }
   if (help_informatik == true) {
     document.getElementById("informatikja.label").style.opacity = '0.5'
     document.getElementById("informatikne.label").style.opacity = '0.5'
     document.getElementById("informatikja").disabled = true
     document.getElementById("informatikne").disabled = true
+    document.getElementById("div_inf").title = "Da bereits Informatik gewählt wurde, muss hier nichts mehr gewählt werden"
   } else {
     document.getElementById("informatikja.label").style.opacity = '1'
     document.getElementById("informatikne.label").style.opacity = '1'
@@ -1226,6 +1233,7 @@ function spra() {
     document.getElementById("physik").disabled = true
     document.getElementById("chemie").disabled = true
     document.getElementById("bio").disabled = true
+    document.getElementById("div_nw").title = "Da bereits eine Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 
 
@@ -1247,6 +1255,8 @@ function spra() {
     document.getElementById("musik").disabled = true
     document.getElementById("kunst").disabled = true
     document.getElementById("ds").disabled = true
+    document.getElementById("div_muku").title = "Da bereits ein musisch-künstlerisches Fach gewählt wurde, muss hier nichts mehr gewählt werden"
+
   }
 
 
@@ -1263,6 +1273,7 @@ function spra() {
     document.getElementById("wn.label").style.opacity = '0.5'
     document.getElementById("religion").disabled = true
     document.getElementById("wn").disabled = true
+    document.getElementById("div_rewn").title = "Da bereits Religion oder Werte und Normen gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   console.log('Religion-GK: ' + sessionStorage.getItem('extra15'))
   console.log('WN-GK: ' + sessionStorage.getItem('extra18'))  
@@ -1356,6 +1367,7 @@ function muku() {
     document.getElementById("latein").disabled = true
     document.getElementById("franzoesisch").disabled = true
     document.getElementById("spanisch").disabled = true
+    document.getElementById("div_fs").title = "Da bereits eine Fremdsprache gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   //1 NW
   if (sessionStorage.getItem('extra4') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra5') == 'false') {
@@ -1374,6 +1386,7 @@ function muku() {
     document.getElementById("physik").disabled = true
     document.getElementById("chemie").disabled = true
     document.getElementById("bio").disabled = true
+    document.getElementById("div_nw").title = "Da bereits eine Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   //Religion
   if (sessionStorage.getItem('extra15') == 'false' && sessionStorage.getItem('extra18') == 'false') {
@@ -1388,12 +1401,14 @@ function muku() {
     document.getElementById("wn.label").style.opacity = '0.5'
     document.getElementById("religion").disabled = true
     document.getElementById("wn").disabled = true
+    document.getElementById("div_rewn").title = "Da bereits Religion oder Werte und Normen gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   if (help_informatik == true) {
     document.getElementById("informatikja.label").style.opacity = '0.5'
     document.getElementById("informatikne.label").style.opacity = '0.5'
     document.getElementById("informatikja").disabled = true
     document.getElementById("informatikne").disabled = true
+    document.getElementById("div_inf").title = "Da Informatik gewählt wurde, muss hier nichts mehr gewählt werden"
   } else {
     document.getElementById("informatikja.label").style.opacity = '1'
     document.getElementById("informatikne.label").style.opacity = '1'
@@ -1457,6 +1472,7 @@ function gese(){
     document.getElementById("wn.label").style.opacity = '0.5'
     document.getElementById("religion").disabled = true
     document.getElementById("wn").disabled = true
+    document.getElementById("div_rewn").title = "Da bereits eines der beiden Fächer gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   if (parseInt(sessionStorage.getItem('counter_nw')) == 0) {
     document.getElementById("physik.label").style.opacity = '1'
@@ -1472,6 +1488,7 @@ function gese(){
     document.getElementById("bio").disabled = true
     document.getElementById("chemie").disabled = true
     document.getElementById("informatik").disabled = true
+    document.getElementById("div_nw1").title = "Da bereits eine Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
     var help_informatik = false;
     var help_biologie = false;
     var help_physik = false;
@@ -1531,6 +1548,7 @@ function gese(){
     document.getElementById("latein2").disabled = true
     document.getElementById("spanisch2").disabled = true
     document.getElementById("franzoesisch2").disabled = true
+    document.getElementById("div_2fs2nw").title = "Da bereits eine 2. Fremdsprache oder 2. Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   if (parseInt(sessionStorage.getItem('counter_fs')) == 0) {
     document.getElementById("englisch.label").style.opacity = '1'
@@ -1546,6 +1564,7 @@ function gese(){
     document.getElementById("latein").disabled = true
     document.getElementById("spanisch").disabled = true
     document.getElementById("franzoesisch").disabled = true
+    document.getElementById("div_fs1").title = "Da bereits eine Fremdsprache gewählt wurde, muss hier nichts mehr gewählt werden"
     var help_englisch = false
     var help_latein = false
     var help_spanisch = false
@@ -1617,6 +1636,7 @@ function gese(){
     document.getElementById("bio2").disabled = true
     document.getElementById("chemie2").disabled = true
     document.getElementById("informatik2").disabled = true
+    document.getElementById("div_2fs2nw").title = "Da bereits eine 2. Fremdsprache oder 2. Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   //Musik, Kunst, DS
   if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra17') == 'false') {
@@ -1636,6 +1656,7 @@ function gese(){
     document.getElementById("musik").disabled = true
     document.getElementById("ds").disabled = true
     document.getElementById("kunst").disabled = true
+    document.getElementById("div_muku").title = "Da bereits ein musisch-künstlerisches Fach gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
 function pflicht(j) {
@@ -1678,6 +1699,7 @@ function pflicht(j) {
     document.getElementById("erdkundne.label").style.opacity = '0.5'
     document.getElementById("erdkundja").disabled = true
     document.getElementById("erdkundne").disabled = true
+    document.getElementById("div_ek").title = "Da Erdkunde bereits gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
 //Religion wird als Grundkurs gewählt und Werte und Normen abgewählt
