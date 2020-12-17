@@ -943,24 +943,30 @@ function proof_in_advance_visibility_w_nk (pfach, i, j, bereich, waehlbar, fachv
   }
 }
 //Funktionen für die Grundkurse je nach gewähltem Profil
+//Wenn ein mathematisch-naturwissenschaftliches Profil gewählt wurde
 function mana(){
   for (var j = 1; j < 6; j++) {
+    //Wenn Kunst als Prüfungskurs gewählt wurde, wird es bei den Wünschen ausgeblendet, da es 4 Semester belegt wird
     if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
       document.getElementById("Kunst2").disabled = true
       document.getElementById("Kunst2.label").style.opacity = '0.5'
     }
+    //Wenn Musik als Prüfungskurs gewählt wurde, wird es bei den Wünschen ausgeblendet, da es 4 Semester belegt wird
     if (sessionStorage.getItem('pfach' + j) == 'Musik') {
       document.getElementById("Musik2").disabled = true
       document.getElementById("Musik2.label").style.opacity = '0.5'
     }
+    //Wenn Politik Wirtschaft als Prüfungskurs gewählt wurde, wird es bei den Wünschen ausgeblendet, da es 4 Semester belegt wird
     if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
       document.getElementById("PoWi2.label").style.opacity = '0.5'
       document.getElementById("PoWi2").disabled = true
     }
+    //Wenn Geschichte als Prüfungskurs gewählt wurde, wird es bei den Wünschen ausgeblendet, da es 4 Semester belegt wird
     if (sessionStorage.getItem('pfach' + j) == 'Geschichte') {
       document.getElementById("Geschichte2").disabled = true
       document.getElementById("Geschichte2.label").style.opacity = '0.5'
     }
+    //Wenn Religion als Prüfungskurs gewählt wurde, wird es bei den Wünschen ausgeblendet, da es 4 Semester belegt wird
     if (sessionStorage.getItem('pfach' + j) == 'Religion') {
       document.getElementById("Religion2").disabled = true
       document.getElementById("Religion2.label").style.opacity = '0.5'
@@ -1020,16 +1026,18 @@ function mana(){
       console.log('NW-Counter: ' + sessionStorage.getItem('counter_nw'))
     }
   }
-  //Wenn Sport als P5 gewählt wurde, wird
+  //Wenn Sport als P5 gewählt wurde, wird Sport als Grundkurs gesetzt
   if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
   }
+  //Wenn keine Fremdsprache als Prüfungsfach gewählt wurde, muss eine Fremdsprache gewählt werden
   if (sessionStorage.getItem('extra3') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra6') == 'false' && sessionStorage.getItem('extra11') == 'false') {
     document.getElementById("englisch.label").style.opacity = '1'
     document.getElementById("latein.label").style.opacity = '1'
     document.getElementById("franzoesisch.label").style.opacity = '1'
     document.getElementById("spanisch.label").style.opacity = '1'
   } else {
+    //Fremdsprachenbuttons werden deaktiviert, da bereits eine Fremdsprache gewählt wurde
     document.getElementById("englisch.label").style.opacity = '0.5'
     document.getElementById("latein.label").style.opacity = '0.5'
     document.getElementById("franzoesisch.label").style.opacity = '0.5'
@@ -1131,6 +1139,7 @@ console.log('Latein-GK: ' + sessionStorage.getItem('extra7'))
 console.log('Französisch-GK: ' + sessionStorage.getItem('extra6'))
 
 }
+//Wenn ein sprachliches Profil gewählt wurde
 function spra() {
   var help_informatik = false
   for (var j = 1; j < 6; j++) {
@@ -1304,6 +1313,7 @@ function spra() {
   console.log('Latein-GK: ' + sessionStorage.getItem('extra7'))
   console.log('Französisch-GK: ' + sessionStorage.getItem('extra6'))
 }
+//Wenn ein musisch-künstlerisches Profil Profil gewählt wurde
 function muku() {
   var help_informatik = false
   for (var j = 1; j < 6; j++) {
@@ -1440,6 +1450,7 @@ function muku() {
     document.getElementById("kunst").disabled = true
   }
 }
+//Wenn ein gesellschaftliches Profil gewählt wurde
 function gese(){
   for (var j = 1; j < 6; j++) {
     if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
@@ -1685,6 +1696,7 @@ function gese(){
     document.getElementById("div_muku").title = "Da bereits ein musisch-künstlerisches Fach gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
+//Überprüfung
 function pflicht(j) {
   //Wenn Deutsch nicht gewählt wurde, wird Deutsch als Grundkurs gesetzt
   if (sessionStorage.getItem('extra12') == 'false' && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
