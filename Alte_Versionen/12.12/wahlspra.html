@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+    <script src="logic.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="page2(), spra()">
+    <div class="bgimg grid-container3">
+        <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
+        <button onclick="end(), wahl3()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
+        <div class="reli3 w3-animate-left toggle-buttons">
+            <p class="header">Religion / Werte und Normen</p>
+            <input type="radio" name="extra1" id="religion" onclick="set_religion()">
+            <label for="religion" id="religion.label">Religion</label>
+            <br>
+            <br>
+            <input type="radio" name="extra1" id="wn" onclick="set_wn()">
+            <label for="wn" id="wn.label">Werte und Normen</label>
+        </div>
+        <div class="muku3 w3-animate-top toggle-buttons">
+          <p class="header">Musisch- Künstlicherisch</p>
+          <input type="radio" name="extra2" id="musik" onclick="set_musik()">
+          <label for="musik" id="musik.label">Musik</label>
+          <br>
+          <br>
+          <input type="radio" name="extra2" id="kunst" onclick="set_kunst()">
+          <label for="kunst" id="kunst.label">Kunst</label>
+          <br>
+          <br>
+          <input type="radio" name="extra2" id="ds" onclick="set_ds()">
+          <label for="ds" id="ds.label">Darstellendes Spiel</label>
+      </div>
+        <div class="erdkunde3 w3-animate-top toggle-buttons">
+            <p class="header">Erdkunde</p>
+            <input type="radio" name="extra4" id="erdkundja" onclick="set_erdkunde()">
+            <label for="erdkundja" id="erdkundja.label">Ja</label>
+            <br>
+            <br>
+            <input type="radio" name="extra4" id="erdkundne" onclick="set_erdkunde_false()">
+            <label for="erdkundne" id="erdkundne.label">Nein</label>
+        </div>
+        <div class="informatik3 w3-animate-top toggle-buttons">
+            <p class="header">Informatik</p>
+            <input type="radio" name="extra5" id="informatikja" onclick="set_informatik_voluntary()">
+            <label for="informatikja" id="informatikja.label">Ja</label>
+            <br>
+            <br>
+            <input type="radio" name="extra5" id="informatikne" onclick="set_informatik_false()">
+            <label for="informatikne" id="informatikne.label">Nein</label>
+        </div>
+        <div class="natu3 w3-animate-right toggle-buttons">
+            <p class="header">Naturwissenschaften</p>
+            <input type="radio" name="extra6" id="chemie" onclick="set_chemie()">
+            <label for="chemie" id="chemie.label">Chemie</label>
+            <br>
+            <br>
+            <input type="radio" name="extra6" id="bio" onclick="set_biologie()">
+            <label for="bio" id="bio.label">Biologie</label>
+            <br>
+            <br>
+            <input type="radio" name="extra6" id="physik" onclick="set_physik()">
+            <label for="physik" id="physik.label">Physik</label>
+        </div>
+        <div class="fsprach3 w3-animate-top toggle-buttons">
+            <p class="header">Fremdsprache</p>
+            <input type="radio" name="extra3" id="spanisch" onclick="set_spanisch()">
+            <label for="spanisch" id="spanisch.label">Spanisch</label>
+            <br>
+            <br>
+            <input type="radio" name="extra3" id="franzoesisch" onclick="set_franzoesisch()">
+            <label for="franzoesisch" id="franzoesisch.label">Französisch</label>
+            <br>
+            <br>
+            <input type="radio" name="extra3" id="latein" onclick="set_latein()">
+            <label for="latein" id="latein.label">Latein</label>
+        </div>
+    </div>    
+  </body>
+</html>

@@ -73,6 +73,7 @@ function output() {
 function buttonprint() {
     document.getElementById("printbutton").style.visibility = "hidden"
     document.getElementById("signature").style.visibility = "visible"
+    document.getElementById("namelabel").style.border = '0'
 
     print()
 
