@@ -1,3 +1,11 @@
+.box{
+    padding: 5px;
+    height: 700px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
 .grid-container3 {
     font-family: 'Indie Flower', cursive;
     display: grid;
