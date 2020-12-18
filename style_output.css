@@ -24,13 +24,40 @@
     'extra15label extra15 extra18label extra18'
     'extra16label extra16 extra17label extra17'
     '... ... ... ...'
-    '... ... signature signature';
+    '... ... ... ...'
+    '... signature3 signature signature'
+    '... ... ... ...'
+    '... ... signature2 signature2';
 }
 
 .signature {
     grid-area: signature;
     visibility: hidden;
     width: 350px;
+    border: 0px;
+    border-top: 1px solid black;
+    height: 30px;
+    font-size: x-small;
+    resize: none;
+    background: none;
+}
+
+.signature2 {
+    grid-area: signature2;
+    visibility: hidden;
+    width: 350px;
+    border: 0px;
+    border-top: 1px solid black;
+    height: 30px;
+    font-size: x-small;
+    resize: none;
+    background: none;
+}
+
+.signature3 {
+    grid-area: signature3;
+    visibility: hidden;
+    width: 150px;
     border: 0px;
     border-top: 1px solid black;
     height: 30px;
