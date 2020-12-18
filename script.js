@@ -59,12 +59,18 @@ function restart() {
         document.getElementById("pfach5." + j).disabled = false
       }
     }
+    //Titel (Hovertexte) der Sprachen werden zurückgesetzt
+    document.getElementById("pfach" + i + ".3.label").title = "Kernfach, Bereich A"    
+    document.getElementById("pfach" + i + ".6.label").title = "Kernfach, Bereich A"    
+    document.getElementById("pfach" + i + ".7.label").title = "Kernfach, Bereich A"    
+    document.getElementById("pfach" + i + ".11.label").title = "Kernfach, Bereich A" 
   }
   uncheck("pfach1.")
   uncheck("pfach2.")
   uncheck("pfach3.")
   uncheck("pfach4.")
   uncheck("pfach5.")
+
 }
 
 

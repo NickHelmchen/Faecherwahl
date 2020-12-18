@@ -127,10 +127,22 @@ function kernfaecher_add(interaction) {
   sessionStorage.setItem('kernfaecher', interaction)
   console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
 }
+function kernfaecher_dec(interaction) {
+  interaction = parseInt(sessionStorage.getItem('kernfaecher'))
+  interaction -= 1
+  sessionStorage.setItem('kernfaecher', interaction)
+  console.log('Kernfächer: ' + sessionStorage.getItem('kernfaecher'))
+}
 //Nicht-Kernfächer werden um 1 hochgezählt
 function nicht_kernfaecher_add(interaction) {
   interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
   interaction += 1
+  sessionStorage.setItem('nicht_kernfaecher', interaction)
+  console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
+}
+function nicht_kernfaecher_dec(interaction) {
+  interaction = parseInt(sessionStorage.getItem('nicht_kernfaecher'))
+  interaction--
   sessionStorage.setItem('nicht_kernfaecher', interaction)
   console.log('Nicht-Kernfächer: ' + sessionStorage.getItem('nicht_kernfaecher'))
 }
@@ -141,12 +153,55 @@ interaction += 1
 sessionStorage.setItem((abc +'_anzahl'), interaction)
 console.log( abc + ': ' + sessionStorage.getItem( abc + '_anzahl'))
 }
+function bereich_dec(abc, interaction) {
+  //Fächer im Bereich A, B oder C werden um 1 hochgezählt
+  interaction = parseInt(sessionStorage.getItem(abc + '_anzahl'))
+  interaction--
+  sessionStorage.setItem((abc +'_anzahl'), interaction)
+  console.log( abc + ': ' + sessionStorage.getItem( abc + '_anzahl'))
+  }
 //Das entsprechende Fach wird auf "nicht mehr wählbar gesetzt"
 function waehlbarkeit_false(fach_w, interaction) {
   interaction = sessionStorage.getItem(fach_w)
   interaction = false
   sessionStorage.setItem(fach_w, interaction)
   console.log(fach_w + ': ' + sessionStorage.getItem(fach_w))
+}
+function waehlbarkeit_true(fach_w, interaction) {
+  interaction = sessionStorage.getItem(fach_w)
+  interaction = true
+  sessionStorage.setItem(fach_w, interaction)
+  console.log(fach_w + ': ' + sessionStorage.getItem(fach_w))
+}
+function disable_buttons(i) {
+  var help_lp = 1
+  var lp2 = 12
+  var lp3 = 14
+  var lp4 = 16
+  var lp5 = 17
+  if (i == 1) {
+    help_lp = lp1
+    console.log(help_lp)
+  }
+  if (i == 2) {
+    help_lp = lp2
+    console.log(help_lp)
+  }
+  if (i == 3) {
+    help_lp = lp3
+    console.log(help_lp)
+  }
+  if (i == 4) {
+    help_lp = lp4
+    console.log(help_lp)
+  }
+  if (i == 5) {
+    help_lp = lp5
+    console.log(help_lp)
+  }
+  for (let j = 1; j < help_lp + 1; j++) {
+    document.getElementById('pfach' + i + "." + j).disabled = true
+  }
 }
 function logicsubjects(i) {
     //Hilfsvariablen
@@ -687,6 +742,32 @@ function logicsubjects(i) {
 }
 //Funktion, welche prüft, welche Fächer in der nächsten Stufe gewählt werden können (die Stufe, welche überprüft werden muss, wird hier übergeben)
 function proof_in_advance(pfach, i) {
+  //Alle Buttons werden auf sichtbar gesetzt und aktiviert
+  var help_lp = 2
+  var lp2 = 12
+  var lp3 = 14
+  var lp4 = 16
+  var lp5 = 17
+  for (let c = 2; c < 6; c++) {
+    if (c == 2) {
+      help_lp = lp2
+    }
+    if (c == 3) {
+      help_lp = lp3
+    }
+    if (c == 4) {
+      help_lp = lp4
+    }
+    if (c == 5) {
+      help_lp = lp5
+    }
+    for (let j = 1; j < help_lp; j++) {
+      if (c >= i) {
+        document.getElementById("pfach" + c + "." + j + ".label").style.opacity = '1'
+        document.getElementById("pfach" + c + "." + j).disabled = false
+      }
+    }
+  }
   //all_subjects enthält alle Fächer in der Reihenfolge, in der sie auf der Webseite angezeigt werden
   var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   //Alle Fächer des Array werden überprüft
