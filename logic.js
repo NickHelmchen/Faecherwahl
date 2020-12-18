@@ -687,6 +687,36 @@ function logicsubjects(i) {
 }
 //Funktion, welche prüft, welche Fächer in der nächsten Stufe gewählt werden können (die Stufe, welche überprüft werden muss, wird hier übergeben)
 function proof_in_advance(pfach, i) {
+  //Alle Buttons werden auf sichtbar gesetzt und aktiviert
+  var help_lp = 2
+  var lp2 = 12
+  var lp3 = 14
+  var lp4 = 16
+  var lp5 = 17
+  for (let c = 2; c < 6; c++) {
+    if (c == 2) {
+      help_lp = lp2
+      console.log(help_lp)
+    }
+    if (c == 3) {
+      help_lp = lp3
+      console.log(help_lp)
+    }
+    if (c == 4) {
+      help_lp = lp4
+      console.log(help_lp)
+    }
+    if (c == 5) {
+      help_lp = lp5
+      console.log(help_lp)
+    }
+    for (let j = 1; j < help_lp; j++) {
+      if (c >= i) {
+        document.getElementById("pfach" + c + "." + j + ".label").style.opacity = '1'
+        document.getElementById("pfach" + c + "." + j).disabled = false
+      }
+    }
+  }
   //all_subjects enthält alle Fächer in der Reihenfolge, in der sie auf der Webseite angezeigt werden
   var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   //Alle Fächer des Array werden überprüft
