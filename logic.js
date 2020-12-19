@@ -260,7 +260,6 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[3]', true)
               sessionStorage.setItem('p2_waehlbar[4]', true)
             } 
-
             nicht_kernfaecher_add(interaction)
             bereich_add('C', interaction)
             waehlbarkeit_false('chemie_w', interaction)
@@ -280,7 +279,6 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[2]', true)
               sessionStorage.setItem('p2_waehlbar[4]', true)  
             }
-
             nicht_kernfaecher_add(interaction)
             bereich_add('C', interaction)
             waehlbarkeit_false('biologie_w', interaction)
@@ -300,7 +298,6 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[2]', true)
               sessionStorage.setItem('p2_waehlbar[3]', true)  
             }
-
             nicht_kernfaecher_add(interaction)
             bereich_add('C', interaction)
             waehlbarkeit_false('physik_w', interaction)
@@ -338,7 +335,6 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[7]', true)
               sessionStorage.setItem('p2_waehlbar[8]', true)
               sessionStorage.setItem('p2_waehlbar[9]', true)
-
               kernfaecher_add(interaction)
             }
           //Wenn Englisch nicht als P1 gewählt wurde
@@ -386,7 +382,7 @@ function logicsubjects(i) {
           }
           //Wenn Französisch als P2-P5 gewählt wurde
           if (i > 1) {
-            //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Kernfächern bereits eine Fremdsprache befindet 
+            //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
             var help2 = false
             //Alle Prüfungsfächer werden durchgegangen
             for(let k = 1; k < i && help2 == false; k++) {
@@ -432,7 +428,7 @@ function logicsubjects(i) {
             }
             //Wenn Latein P2-P5 ist
             if (i > 1) {
-              //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Kernfächern bereits eine Fremdsprache befindet 
+              //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
               var help2 = false
                //Alle Prüfungsfächer werden durchgegangen
               for(let k = 1; k < i && help2 == false; k++) {
