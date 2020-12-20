@@ -204,389 +204,389 @@ function disable_buttons(i) {
   }
 }
 function logicsubjects(i) {
-    //Hilfsvariablen
-    var interaction = 0
-    var help = 0
-    //Überprüfung, welches Prüfungsfach gewählt wurde
-    switch (sessionStorage.getItem('pfach' + i)) {
-      //Wenn Mathe gewählt wurde
-        case 'Mathe':
-            //Wenn Mathe als P1 gewählt wurde
-            if (i === 1) {
-              //Das Profil wird auf mathematisch-naturwissenschaftlich gesetzt
-              sessionStorage.setItem('profil', 'mana')
-              //Alle Naturwissenschaften werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[1]', true)
-              sessionStorage.setItem('p2_waehlbar[2]', true)
-              sessionStorage.setItem('p2_waehlbar[3]', true)
-              sessionStorage.setItem('p2_waehlbar[4]', true)              
-            } 
-            kernfaecher_add(interaction)
-            bereich_add('C', interaction)
-            waehlbarkeit_false('mathe_w', interaction)
-          break
-        //Wenn Informatik gewählt wurde
-        case 'Informatik':
-            //Wenn Informatik als P1 gewählt wurde
-            if (i === 1) {
-              //Das Profil wird auf mathematisch-naturwissenschaftlich gesetzt
-              sessionStorage.setItem('profil', 'mana')
-              //Physik, Biologie, Chemie und Mathe werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[0]', true)
-              sessionStorage.setItem('p2_waehlbar[2]', true)
-              sessionStorage.setItem('p2_waehlbar[3]', true)
-              sessionStorage.setItem('p2_waehlbar[4]', true) 
-            }
+//Hilfsvariablen
+var interaction = 0
+var help = 0
+//Überprüfung, welches Prüfungsfach gewählt wurde
+switch (sessionStorage.getItem('pfach' + i)) {
+//Wenn Mathe gewählt wurde
+  case 'Mathe':
+      //Wenn Mathe als P1 gewählt wurde
+      if (i === 1) {
+        //Das Profil wird auf mathematisch-naturwissenschaftlich gesetzt
+        sessionStorage.setItem('profil', 'mana')
+        //Alle Naturwissenschaften werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[1]', true)
+        sessionStorage.setItem('p2_waehlbar[2]', true)
+        sessionStorage.setItem('p2_waehlbar[3]', true)
+        sessionStorage.setItem('p2_waehlbar[4]', true)              
+      } 
+      kernfaecher_add(interaction)
+      bereich_add('C', interaction)
+      waehlbarkeit_false('mathe_w', interaction)
+    break
+  //Wenn Informatik gewählt wurde
+  case 'Informatik':
+      //Wenn Informatik als P1 gewählt wurde
+      if (i === 1) {
+        //Das Profil wird auf mathematisch-naturwissenschaftlich gesetzt
+        sessionStorage.setItem('profil', 'mana')
+        //Physik, Biologie, Chemie und Mathe werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[0]', true)
+        sessionStorage.setItem('p2_waehlbar[2]', true)
+        sessionStorage.setItem('p2_waehlbar[3]', true)
+        sessionStorage.setItem('p2_waehlbar[4]', true) 
+      }
 
-            nicht_kernfaecher_add(interaction)
-            bereich_add('C', interaction)
-            waehlbarkeit_false('informatik_w', interaction)
-            //Informatik wird auf "nicht mehr wählbar gesetzt"
-          break
-        //Wenn Chemie gewählt wurde
-        case 'Chemie':
-            //Wenn Chemie als P1 gewählt wird
-            if (i === 1) {
-              //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
-              sessionStorage.setItem('profil', 'mana')
-              //Mathe, Informatik, Biologie und Physik werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[0]', true)
-              sessionStorage.setItem('p2_waehlbar[1]', true)
-              sessionStorage.setItem('p2_waehlbar[3]', true)
-              sessionStorage.setItem('p2_waehlbar[4]', true)
-            } 
-            nicht_kernfaecher_add(interaction)
-            bereich_add('C', interaction)
-            waehlbarkeit_false('chemie_w', interaction)
-            //Chemie wird auf "nicht mehr wählbar" gesetzt
-          break
-        //Wenn Biologie gewählt wird
-        case 'Biologie':
-            //Wenn Biologie als P1 gewählt wird
-            if (i === 1) {
-              //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
-              sessionStorage.setItem('profil', 'mana')
-              //Mathe, Informatik, Chemie und Physik werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[0]', true)
-              sessionStorage.setItem('p2_waehlbar[1]', true)
-              sessionStorage.setItem('p2_waehlbar[2]', true)
-              sessionStorage.setItem('p2_waehlbar[4]', true)  
-            }
-            nicht_kernfaecher_add(interaction)
-            bereich_add('C', interaction)
-            waehlbarkeit_false('biologie_w', interaction)
-            //Biologie wird auf "nicht mehr wählbar" gesetzt
-          break
-        //Wenn Physik gewählt wird
-        case 'Physik':
-            //Wenn Physik als P1 gewählt wird
-            if (i === 1) {
-              //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
-              sessionStorage.setItem('profil', 'mana')
-              //Mathe, Informatik, Chemie und Biologie werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[0]', true)
-              sessionStorage.setItem('p2_waehlbar[1]', true)
-              sessionStorage.setItem('p2_waehlbar[2]', true)
-              sessionStorage.setItem('p2_waehlbar[3]', true)  
-            }
-            nicht_kernfaecher_add(interaction)
-            bereich_add('C', interaction)
-            waehlbarkeit_false('physik_w', interaction)
-            //Physik wird auf "nicht mehr wählbar" gesetzt
-          break
-        //Wenn Deutsch gewählt wird
-        case 'Deutsch':
-            //Wenn Deutsch als P1 gewählt wird
-            if (i === 1) {
-              //Profil wird auf sprachlich gesetzt
-              sessionStorage.setItem('profil', 'spra')
-              //Alle Fremdsprachen (Latein, Spanisch, Französisch und Englisch) werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[6]', true)
-              sessionStorage.setItem('p2_waehlbar[7]', true)
-              sessionStorage.setItem('p2_waehlbar[8]', true)
-              sessionStorage.setItem('p2_waehlbar[9]', true)
-            }
-            kernfaecher_add(interaction)
-            bereich_add('A', interaction)
-            waehlbarkeit_false('deutsch_w', interaction)
-            //Deutsch wird auf "nicht mehr wählbar" gesetzt
-          break
-        //Wenn Englisch gewählt wird
-        case 'Englisch':
-            //Wenn Englisch als P1 gewählt wird
-            if (i === 1) {
-              //Profil wird auf sprachlich gesetzt
-              sessionStorage.setItem('profil', 'spra')
-              //Deutsch, Französisch, Latein, Spanisch werden aus "als P2 wählbar gesetzt"
-              sessionStorage.setItem('p2_waehlbar[5]', true)
-              sessionStorage.setItem('p2_waehlbar[7]', true)
-              sessionStorage.setItem('p2_waehlbar[8]', true)
-              sessionStorage.setItem('p2_waehlbar[9]', true)
-              kernfaecher_add(interaction)
-            }
-          //Wenn Englisch nicht als P1 gewählt wurde
-          if (i != 1) {
-            //Hilfsvariable help2 wird definiert, welche zeigt, ob bereits eine Fremdsprache gewählt wurde
-            var help2 = false
-            //Wenn in P1-P5 eine Fremdsprache vorliegt, wird die Hilfsvariable auf false gesetzt
-            for(let k = 1; k < i && help2 == false; k++) {
-              if (sessionStorage.getItem('pfach' + k) != 'Latein' && sessionStorage.getItem('pfach' + k) != 'Spanisch' && sessionStorage.getItem('pfach' + k) != 'Französisch') {
-                help2 = false
-              } else {
-                //Wenn keine Fremdsprache drinnen ist, wird help2 auf true gesetzt
-                help2 = true
-              }
-            }
-            //Wenn eine Fremdsprache bisher gewählt wurde, werden Nicht-Kernfächer um 1 erhöht
-            if (help2 == true) {
-              nicht_kernfaecher_add(interaction)
-            } else {
-              //Wenn keine Fremdsprachen gewählt wurden, werden die Kernfächer um 1 erhöht 
-              kernfaecher_add(interaction)
-            }
-          }  
-          // Anzahl der Fächer im Bereich A wird um 1 hochgezählt
-          bereich_add('A', interaction)
+      nicht_kernfaecher_add(interaction)
+      bereich_add('C', interaction)
+      waehlbarkeit_false('informatik_w', interaction)
+      //Informatik wird auf "nicht mehr wählbar gesetzt"
+    break
+  //Wenn Chemie gewählt wurde
+  case 'Chemie':
+      //Wenn Chemie als P1 gewählt wird
+      if (i === 1) {
+        //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
+        sessionStorage.setItem('profil', 'mana')
+        //Mathe, Informatik, Biologie und Physik werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[0]', true)
+        sessionStorage.setItem('p2_waehlbar[1]', true)
+        sessionStorage.setItem('p2_waehlbar[3]', true)
+        sessionStorage.setItem('p2_waehlbar[4]', true)
+      } 
+      nicht_kernfaecher_add(interaction)
+      bereich_add('C', interaction)
+      waehlbarkeit_false('chemie_w', interaction)
+      //Chemie wird auf "nicht mehr wählbar" gesetzt
+    break
+  //Wenn Biologie gewählt wird
+  case 'Biologie':
+      //Wenn Biologie als P1 gewählt wird
+      if (i === 1) {
+        //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
+        sessionStorage.setItem('profil', 'mana')
+        //Mathe, Informatik, Chemie und Physik werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[0]', true)
+        sessionStorage.setItem('p2_waehlbar[1]', true)
+        sessionStorage.setItem('p2_waehlbar[2]', true)
+        sessionStorage.setItem('p2_waehlbar[4]', true)  
+      }
+      nicht_kernfaecher_add(interaction)
+      bereich_add('C', interaction)
+      waehlbarkeit_false('biologie_w', interaction)
+      //Biologie wird auf "nicht mehr wählbar" gesetzt
+    break
+  //Wenn Physik gewählt wird
+  case 'Physik':
+      //Wenn Physik als P1 gewählt wird
+      if (i === 1) {
+        //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
+        sessionStorage.setItem('profil', 'mana')
+        //Mathe, Informatik, Chemie und Biologie werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[0]', true)
+        sessionStorage.setItem('p2_waehlbar[1]', true)
+        sessionStorage.setItem('p2_waehlbar[2]', true)
+        sessionStorage.setItem('p2_waehlbar[3]', true)  
+      }
+      nicht_kernfaecher_add(interaction)
+      bereich_add('C', interaction)
+      waehlbarkeit_false('physik_w', interaction)
+      //Physik wird auf "nicht mehr wählbar" gesetzt
+    break
+  //Wenn Deutsch gewählt wird
+  case 'Deutsch':
+      //Wenn Deutsch als P1 gewählt wird
+      if (i === 1) {
+        //Profil wird auf sprachlich gesetzt
+        sessionStorage.setItem('profil', 'spra')
+        //Alle Fremdsprachen (Latein, Spanisch, Französisch und Englisch) werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[6]', true)
+        sessionStorage.setItem('p2_waehlbar[7]', true)
+        sessionStorage.setItem('p2_waehlbar[8]', true)
+        sessionStorage.setItem('p2_waehlbar[9]', true)
+      }
+      kernfaecher_add(interaction)
+      bereich_add('A', interaction)
+      waehlbarkeit_false('deutsch_w', interaction)
+      //Deutsch wird auf "nicht mehr wählbar" gesetzt
+    break
+  //Wenn Englisch gewählt wird
+  case 'Englisch':
+      //Wenn Englisch als P1 gewählt wird
+      if (i === 1) {
+        //Profil wird auf sprachlich gesetzt
+        sessionStorage.setItem('profil', 'spra')
+        //Deutsch, Französisch, Latein, Spanisch werden aus "als P2 wählbar gesetzt"
+        sessionStorage.setItem('p2_waehlbar[5]', true)
+        sessionStorage.setItem('p2_waehlbar[7]', true)
+        sessionStorage.setItem('p2_waehlbar[8]', true)
+        sessionStorage.setItem('p2_waehlbar[9]', true)
+        kernfaecher_add(interaction)
+      }
+    //Wenn Englisch nicht als P1 gewählt wurde
+    if (i != 1) {
+      //Hilfsvariable help2 wird definiert, welche zeigt, ob bereits eine Fremdsprache gewählt wurde
+      var help2 = false
+      //Wenn in P1-P5 eine Fremdsprache vorliegt, wird die Hilfsvariable auf false gesetzt
+      for(let k = 1; k < i && help2 == false; k++) {
+        if (sessionStorage.getItem('pfach' + k) != 'Latein' && sessionStorage.getItem('pfach' + k) != 'Spanisch' && sessionStorage.getItem('pfach' + k) != 'Französisch') {
+          help2 = false
+        } else {
+          //Wenn keine Fremdsprache drinnen ist, wird help2 auf true gesetzt
+          help2 = true
+        }
+      }
+      //Wenn eine Fremdsprache bisher gewählt wurde, werden Nicht-Kernfächer um 1 erhöht
+      if (help2 == true) {
+        nicht_kernfaecher_add(interaction)
+      } else {
+        //Wenn keine Fremdsprachen gewählt wurden, werden die Kernfächer um 1 erhöht 
+        kernfaecher_add(interaction)
+      }
+    }  
+    // Anzahl der Fächer im Bereich A wird um 1 hochgezählt
+    bereich_add('A', interaction)
 
-          //Englisch wird auf "nicht mehr wählbar" gesetzt
-          waehlbarkeit_false('englisch_w', interaction)
-          break 
-        //Wenn Französisch gewählt wurde     
-        case 'Französisch':
-            //Wenn Französisch als P1 gewählt wurde
-            if (i === 1) {
-              //Profil wird auf sprachlich gesetzt
-              sessionStorage.setItem('profil', 'spra')
-              //Deutsch, Englisch, Latein und Spanisch werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[5]', true)
-              sessionStorage.setItem('p2_waehlbar[6]', true)
-              sessionStorage.setItem('p2_waehlbar[8]', true)
-              sessionStorage.setItem('p2_waehlbar[9]', true)
-              kernfaecher_add(interaction)
-            }
-          //Wenn Französisch als P2-P5 gewählt wurde
-          if (i > 1) {
-            //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
-            var help2 = false
-            //Alle Prüfungsfächer werden durchgegangen
-            for(let k = 1; k < i && help2 == false; k++) {
-              //Wenn keine Fremdsprache bereits gewählt wurde, wird help2 auf false gesetzt, ansonsten wird es auf true gesetzt und die Schleife abgebrochen 
-              if (sessionStorage.getItem('pfach' + k) != 'Englisch' && sessionStorage.getItem('pfach' + k) != 'Spanisch' && sessionStorage.getItem('pfach' + k) != 'Latein') {
-                help2 = false
-              } else {
-                help2 = true
-              }
-            }
-            //Wenn help2 true ist
-            if (help2 == true) {
-              //Nicht-Kernfächer werden um 1 erhöht
-              nicht_kernfaecher_add(interaction)
-            } else {
-              //Kernfächer werden um 1 erhöht
-              kernfaecher_add(interaction)
-            }
-          } 
-          //Anzahl der Fächer im Bereich A wird um 1 erhöht
-          sessionStorage.setItem('latein_w', false)
-          sessionStorage.setItem('spanisch_w', false)
-          bereich_add('A', interaction)
-
-          //Französisch wird auf "nicht mehr wählbar" gesetzt
-          waehlbarkeit_false('franzoesisch_w', interaction)
-          break  
-        //Wenn Latein gewählt wurde
-        case 'Latein':
-            //Wenn Latein P1 ist
-            if (i === 1) {
-              //Profil wird auf sprachlich gesetzt
-              sessionStorage.setItem('profil', 'spra')
-              //Deutsch, Englisch, Französisch und Spanisch werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[5]', true)
-              sessionStorage.setItem('p2_waehlbar[6]', true)
-              sessionStorage.setItem('p2_waehlbar[7]', true)
-              sessionStorage.setItem('p2_waehlbar[9]', true)
-
-              //Kernfächer werden um 1 hochgezählt
-              kernfaecher_add(interaction)
-            }
-            //Wenn Latein P2-P5 ist
-            if (i > 1) {
-              //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
-              var help2 = false
-               //Alle Prüfungsfächer werden durchgegangen
-              for(let k = 1; k < i && help2 == false; k++) {
-                //Wenn keine Fremdsprache bereits gewählt wurde, wird help2 auf false gesetzt, ansonsten wird es auf true gesetzt und die Schleife abgebrochen 
-                if (sessionStorage.getItem('pfach' + k) != 'Englisch' && sessionStorage.getItem('pfach' + k) != 'Spanisch' && sessionStorage.getItem('pfach' + k) != 'Französisch') {
-                  help2 = false
-                } else {
-                  help2 = true
-                }
-              }
-              //Wenn help2 true ist
-              if (help2 === true) {
-                //Nicht-Kernfächer werden um 1 erhöht
-                nicht_kernfaecher_add(interaction)
-              } else {              
-                //Kernfächer werden um 1 erhöht
-                kernfaecher_add(interaction)
-              }
-            }   
-            sessionStorage.setItem('franzoesisch_w', false)
-            sessionStorage.setItem('spanisch_w', false)
-            //Anzahl der Fächer im Bereich A wird um 1 erhöht 
-            bereich_add('A', interaction)
-            
-            //Latein wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('latein_w', interaction)
-          break
-        //Wenn Spanisch gewählt wurde
-        case 'Spanisch':
-            //Wenn Spanisch als P1 gewählt wurde
-            if (i === 1) {
-              //Profil wird auf sprachlich gesetzt
-              sessionStorage.setItem('profil', 'spra')
-              //Deutsch, Englisch, Latein und Französisch werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[5]', true)
-              sessionStorage.setItem('p2_waehlbar[6]', true)
-              sessionStorage.setItem('p2_waehlbar[7]', true)
-              sessionStorage.setItem('p2_waehlbar[8]', true)
-              //Kernfächer werden um 1 erhöht
-              kernfaecher_add(interaction)
-            }
-            //Wenn Spanisch als P2-P5 gewählt wurde
-            if (i > 1) {
-              //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Kernfächern bereits eine Fremdsprache befindet 
-              var help2 = false
-              //Alle Prüfungsfächer werden durchgegangen
-              for(let k = 1; k < i && help2 == false; k++) {
-                //Wenn keine Fremdsprache bereits gewählt wurde, wird help2 auf false gesetzt, ansonsten wird es auf true gesetzt und die Schleife abgebrochen 
-                if (sessionStorage.getItem('pfach' + k) != 'Englisch' && sessionStorage.getItem('pfach' + k) != 'Latein' && sessionStorage.getItem('pfach' + k) != 'Französisch') {
-                  help2 = false
-                } else {
-                  help2 = true
-                }
-              }
-              //Wenn help2 true ist
-              if (help2 == true) {
-                //Nicht-Kernfächer werden um 1 erhöht
-                nicht_kernfaecher_add(interaction)
-              } else {
-                //Kernfächer werden um 1 erhöht
-                kernfaecher_add(interaction)
-              }
-            } 
-            sessionStorage.setItem('latein_w', false)
-            sessionStorage.setItem('franzoesisch_w', false)
-            //Anzahl der Fächer im Bereich A wird um 1 erhöht 
-            bereich_add('A', interaction)
-           
-            //Spanisch wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('spanisch_w', interaction)
-          break
-        //Wenn Kunst gewählt wurde
-        case 'Kunst':
-            //Wenn Kunst als P1 gewählt wurde
-            if (i === 1) {
-              //Profil wird auf musisch-künstlerisch gesetzt
-              sessionStorage.setItem('profil', 'muku')
-              //Mathe und Deutsch werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[0]', true)
-              sessionStorage.setItem('p2_waehlbar[5]', true)
-            }
-            //Musik ist nicht mehr wählbar
-            sessionStorage.setItem('musik_w', false)
-            //Nicht-Kernfächer werden um 1 erhöht
-            nicht_kernfaecher_add(interaction)
-
-            //Anzahl der Fächer im Bereich A wird um 1 erhöht
-            bereich_add('A', interaction)
-
-            //Kunst wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('kunst_w', interaction)
-          break
-        //Wenn Musik gewählt wurde
-        case 'Musik':
-            //Wenn Musik als P1 gewählt wurde            
-            if (i === 1) {
-              //Profil wird auf musisch-künstlerisch gesetzt
-              sessionStorage.setItem('profil', 'muku')
-              //Mathe und Deutsch werden auf "als P2 wählbar" gesetzt
-              sessionStorage.setItem('p2_waehlbar[0]', true)
-              sessionStorage.setItem('p2_waehlbar[5]', true)
-            }
-            //Kunst ist nicht mehr wählbar
-            sessionStorage.setItem('kunst_w', false)
-            //Nicht-Kernfächer werden um 1 erhöht
-            nicht_kernfaecher_add(interaction)
-
-            //Anzahl der Fächer im Bereich A wird um 1 erhöht
-            bereich_add('A', interaction)
-
-            //Musik wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('musik_w', interaction)
-          break
-        //Wenn Geschichte gewählt wurde
-        case 'Geschichte':
-            //Wenn Geschichte als P1 gewählt wurde
-            if (i === 1) {
-              //Profil wird auf gesellschaftlich gesetzt
-              sessionStorage.setItem('profil', 'gese')
-              //jegliches Fach wird auf "als P2 wählbar" gesetzt
-              for (var index = 0; index < 14; index++) {
-                  sessionStorage.setItem('p2_waehlbar[' + index + ']', true)
-              }
-              //PoWi wird auf P3 gesetzt
-              sessionStorage.setItem('pfach3', 'Politik Wirtschaft')
-            }
-            //Nicht-Kernfächer werden um 1 erhöht
-            nicht_kernfaecher_add(interaction)
-
-            //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            bereich_add('B', interaction)
-
-            //Geshcichte wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('geschichte_w', interaction)
-          break
-        //Wenn Religion gewählt wurde
-        case 'Religion':
-            //Nicht-Kernfächer werden um 1 erhöht
-            nicht_kernfaecher_add(interaction)
-
-            //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            bereich_add('B', interaction)
-
-            //Religion wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('religion_w', interaction)
-          break
-        //Wenn Erdkunde gewählt wurde 
-        case 'Erdkunde':
-            //Nicht-Kernfächer werden um 1 erhöht
-            nicht_kernfaecher_add(interaction)
-
-            //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            bereich_add('B', interaction)
-
-            //Erdkunde wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('erdkunde_w', interaction)
-          break
-        //Wenn Politik/Wirtschaft gewählt wurde
-        case 'Politik Wirtschaft':
-            //Nicht-Kernfächer werden um 1 erhöht
-            nicht_kernfaecher_add(interaction)
-
-            //Anzahl der Fächer im Bereich B wird um 1 erhöht 
-            bereich_add('B', interaction)
-
-            //PoWi wird auf "nicht mehr wählbar" gesetzt
-            waehlbarkeit_false('powi_w', interaction)
-          break
-        //Wenn Sport gewählt wurde
-        case 'Sport':
-              //Nicht-Kernfächer werden um 1 erhöht
-              nicht_kernfaecher_add(interaction)
-              waehlbarkeit_false('sport_w', interaction)
-          break
+    //Englisch wird auf "nicht mehr wählbar" gesetzt
+    waehlbarkeit_false('englisch_w', interaction)
+    break 
+  //Wenn Französisch gewählt wurde     
+  case 'Französisch':
+      //Wenn Französisch als P1 gewählt wurde
+      if (i === 1) {
+        //Profil wird auf sprachlich gesetzt
+        sessionStorage.setItem('profil', 'spra')
+        //Deutsch, Englisch, Latein und Spanisch werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[5]', true)
+        sessionStorage.setItem('p2_waehlbar[6]', true)
+        sessionStorage.setItem('p2_waehlbar[8]', true)
+        sessionStorage.setItem('p2_waehlbar[9]', true)
+        kernfaecher_add(interaction)
+      }
+    //Wenn Französisch als P2-P5 gewählt wurde
+    if (i > 1) {
+      //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
+      var help2 = false
+      //Alle Prüfungsfächer werden durchgegangen
+      for(let k = 1; k < i && help2 == false; k++) {
+        //Wenn keine Fremdsprache bereits gewählt wurde, wird help2 auf false gesetzt, ansonsten wird es auf true gesetzt und die Schleife abgebrochen 
+        if (sessionStorage.getItem('pfach' + k) != 'Englisch' && sessionStorage.getItem('pfach' + k) != 'Spanisch' && sessionStorage.getItem('pfach' + k) != 'Latein') {
+          help2 = false
+        } else {
+          help2 = true
+        }
+      }
+      //Wenn help2 true ist
+      if (help2 == true) {
+        //Nicht-Kernfächer werden um 1 erhöht
+        nicht_kernfaecher_add(interaction)
+      } else {
+        //Kernfächer werden um 1 erhöht
+        kernfaecher_add(interaction)
+      }
     } 
+    //Anzahl der Fächer im Bereich A wird um 1 erhöht
+    sessionStorage.setItem('latein_w', false)
+    sessionStorage.setItem('spanisch_w', false)
+    bereich_add('A', interaction)
+
+    //Französisch wird auf "nicht mehr wählbar" gesetzt
+    waehlbarkeit_false('franzoesisch_w', interaction)
+    break  
+  //Wenn Latein gewählt wurde
+  case 'Latein':
+      //Wenn Latein P1 ist
+      if (i === 1) {
+        //Profil wird auf sprachlich gesetzt
+        sessionStorage.setItem('profil', 'spra')
+        //Deutsch, Englisch, Französisch und Spanisch werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[5]', true)
+        sessionStorage.setItem('p2_waehlbar[6]', true)
+        sessionStorage.setItem('p2_waehlbar[7]', true)
+        sessionStorage.setItem('p2_waehlbar[9]', true)
+
+        //Kernfächer werden um 1 hochgezählt
+        kernfaecher_add(interaction)
+      }
+      //Wenn Latein P2-P5 ist
+      if (i > 1) {
+        //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
+        var help2 = false
+          //Alle Prüfungsfächer werden durchgegangen
+        for(let k = 1; k < i && help2 == false; k++) {
+          //Wenn keine Fremdsprache bereits gewählt wurde, wird help2 auf false gesetzt, ansonsten wird es auf true gesetzt und die Schleife abgebrochen 
+          if (sessionStorage.getItem('pfach' + k) != 'Englisch' && sessionStorage.getItem('pfach' + k) != 'Spanisch' && sessionStorage.getItem('pfach' + k) != 'Französisch') {
+            help2 = false
+          } else {
+            help2 = true
+          }
+        }
+        //Wenn help2 true ist
+        if (help2 === true) {
+          //Nicht-Kernfächer werden um 1 erhöht
+          nicht_kernfaecher_add(interaction)
+        } else {              
+          //Kernfächer werden um 1 erhöht
+          kernfaecher_add(interaction)
+        }
+      }   
+      sessionStorage.setItem('franzoesisch_w', false)
+      sessionStorage.setItem('spanisch_w', false)
+      //Anzahl der Fächer im Bereich A wird um 1 erhöht 
+      bereich_add('A', interaction)
+      
+      //Latein wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('latein_w', interaction)
+    break
+  //Wenn Spanisch gewählt wurde
+  case 'Spanisch':
+      //Wenn Spanisch als P1 gewählt wurde
+      if (i === 1) {
+        //Profil wird auf sprachlich gesetzt
+        sessionStorage.setItem('profil', 'spra')
+        //Deutsch, Englisch, Latein und Französisch werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[5]', true)
+        sessionStorage.setItem('p2_waehlbar[6]', true)
+        sessionStorage.setItem('p2_waehlbar[7]', true)
+        sessionStorage.setItem('p2_waehlbar[8]', true)
+        //Kernfächer werden um 1 erhöht
+        kernfaecher_add(interaction)
+      }
+      //Wenn Spanisch als P2-P5 gewählt wurde
+      if (i > 1) {
+        //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Kernfächern bereits eine Fremdsprache befindet 
+        var help2 = false
+        //Alle Prüfungsfächer werden durchgegangen
+        for(let k = 1; k < i && help2 == false; k++) {
+          //Wenn keine Fremdsprache bereits gewählt wurde, wird help2 auf false gesetzt, ansonsten wird es auf true gesetzt und die Schleife abgebrochen 
+          if (sessionStorage.getItem('pfach' + k) != 'Englisch' && sessionStorage.getItem('pfach' + k) != 'Latein' && sessionStorage.getItem('pfach' + k) != 'Französisch') {
+            help2 = false
+          } else {
+            help2 = true
+          }
+        }
+        //Wenn help2 true ist
+        if (help2 == true) {
+          //Nicht-Kernfächer werden um 1 erhöht
+          nicht_kernfaecher_add(interaction)
+        } else {
+          //Kernfächer werden um 1 erhöht
+          kernfaecher_add(interaction)
+        }
+      } 
+      sessionStorage.setItem('latein_w', false)
+      sessionStorage.setItem('franzoesisch_w', false)
+      //Anzahl der Fächer im Bereich A wird um 1 erhöht 
+      bereich_add('A', interaction)
+      
+      //Spanisch wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('spanisch_w', interaction)
+    break
+  //Wenn Kunst gewählt wurde
+  case 'Kunst':
+      //Wenn Kunst als P1 gewählt wurde
+      if (i === 1) {
+        //Profil wird auf musisch-künstlerisch gesetzt
+        sessionStorage.setItem('profil', 'muku')
+        //Mathe und Deutsch werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[0]', true)
+        sessionStorage.setItem('p2_waehlbar[5]', true)
+      }
+      //Musik ist nicht mehr wählbar
+      sessionStorage.setItem('musik_w', false)
+      //Nicht-Kernfächer werden um 1 erhöht
+      nicht_kernfaecher_add(interaction)
+
+      //Anzahl der Fächer im Bereich A wird um 1 erhöht
+      bereich_add('A', interaction)
+
+      //Kunst wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('kunst_w', interaction)
+    break
+  //Wenn Musik gewählt wurde
+  case 'Musik':
+      //Wenn Musik als P1 gewählt wurde            
+      if (i === 1) {
+        //Profil wird auf musisch-künstlerisch gesetzt
+        sessionStorage.setItem('profil', 'muku')
+        //Mathe und Deutsch werden auf "als P2 wählbar" gesetzt
+        sessionStorage.setItem('p2_waehlbar[0]', true)
+        sessionStorage.setItem('p2_waehlbar[5]', true)
+      }
+      //Kunst ist nicht mehr wählbar
+      sessionStorage.setItem('kunst_w', false)
+      //Nicht-Kernfächer werden um 1 erhöht
+      nicht_kernfaecher_add(interaction)
+
+      //Anzahl der Fächer im Bereich A wird um 1 erhöht
+      bereich_add('A', interaction)
+
+      //Musik wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('musik_w', interaction)
+    break
+  //Wenn Geschichte gewählt wurde
+  case 'Geschichte':
+      //Wenn Geschichte als P1 gewählt wurde
+      if (i === 1) {
+        //Profil wird auf gesellschaftlich gesetzt
+        sessionStorage.setItem('profil', 'gese')
+        //jegliches Fach wird auf "als P2 wählbar" gesetzt
+        for (var index = 0; index < 14; index++) {
+            sessionStorage.setItem('p2_waehlbar[' + index + ']', true)
+        }
+        //PoWi wird auf P3 gesetzt
+        sessionStorage.setItem('pfach3', 'Politik Wirtschaft')
+      }
+      //Nicht-Kernfächer werden um 1 erhöht
+      nicht_kernfaecher_add(interaction)
+
+      //Anzahl der Fächer im Bereich B wird um 1 erhöht 
+      bereich_add('B', interaction)
+
+      //Geshcichte wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('geschichte_w', interaction)
+    break
+  //Wenn Religion gewählt wurde
+  case 'Religion':
+      //Nicht-Kernfächer werden um 1 erhöht
+      nicht_kernfaecher_add(interaction)
+
+      //Anzahl der Fächer im Bereich B wird um 1 erhöht 
+      bereich_add('B', interaction)
+
+      //Religion wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('religion_w', interaction)
+    break
+  //Wenn Erdkunde gewählt wurde 
+  case 'Erdkunde':
+      //Nicht-Kernfächer werden um 1 erhöht
+      nicht_kernfaecher_add(interaction)
+
+      //Anzahl der Fächer im Bereich B wird um 1 erhöht 
+      bereich_add('B', interaction)
+
+      //Erdkunde wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('erdkunde_w', interaction)
+    break
+  //Wenn Politik/Wirtschaft gewählt wurde
+  case 'Politik Wirtschaft':
+      //Nicht-Kernfächer werden um 1 erhöht
+      nicht_kernfaecher_add(interaction)
+
+      //Anzahl der Fächer im Bereich B wird um 1 erhöht 
+      bereich_add('B', interaction)
+
+      //PoWi wird auf "nicht mehr wählbar" gesetzt
+      waehlbarkeit_false('powi_w', interaction)
+    break
+  //Wenn Sport gewählt wurde
+  case 'Sport':
+        //Nicht-Kernfächer werden um 1 erhöht
+        nicht_kernfaecher_add(interaction)
+        waehlbarkeit_false('sport_w', interaction)
+    break
+  } 
   //Wenn 3 Nicht-Kernfächer gewählt wurden, können nur noch Kernfächer gewählt werden
   if (sessionStorage.getItem('nicht_kernfaecher') == 3) {
     sessionStorage.setItem('w_nk', false)
