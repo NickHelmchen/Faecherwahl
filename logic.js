@@ -211,7 +211,6 @@ function logicsubjects(i) {
     switch (sessionStorage.getItem('pfach' + i)) {
       //Wenn Mathe gewählt wurde
         case 'Mathe':
-          if (sessionStorage.getItem('w[2]') === 'true' && sessionStorage.getItem('mathe_w') === 'true') {
             //Wenn Mathe als P1 gewählt wurde
             if (i === 1) {
               //Das Profil wird auf mathematisch-naturwissenschaftlich gesetzt
@@ -225,11 +224,9 @@ function logicsubjects(i) {
             kernfaecher_add(interaction)
             bereich_add('C', interaction)
             waehlbarkeit_false('mathe_w', interaction)
-          } 
           break
         //Wenn Informatik gewählt wurde
         case 'Informatik':
-          if (sessionStorage.getItem('w[2]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('informatik_w') == 'true') {
             //Wenn Informatik als P1 gewählt wurde
             if (i === 1) {
               //Das Profil wird auf mathematisch-naturwissenschaftlich gesetzt
@@ -245,11 +242,9 @@ function logicsubjects(i) {
             bereich_add('C', interaction)
             waehlbarkeit_false('informatik_w', interaction)
             //Informatik wird auf "nicht mehr wählbar gesetzt"
-          }
           break
         //Wenn Chemie gewählt wurde
         case 'Chemie':
-          if (sessionStorage.getItem('w[2]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('chemie_w') == 'true') {
             //Wenn Chemie als P1 gewählt wird
             if (i === 1) {
               //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
@@ -264,11 +259,9 @@ function logicsubjects(i) {
             bereich_add('C', interaction)
             waehlbarkeit_false('chemie_w', interaction)
             //Chemie wird auf "nicht mehr wählbar" gesetzt
-          }
           break
         //Wenn Biologie gewählt wird
         case 'Biologie':
-          if (sessionStorage.getItem('w[2]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('biologie_w') == 'true') {
             //Wenn Biologie als P1 gewählt wird
             if (i === 1) {
               //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
@@ -283,11 +276,9 @@ function logicsubjects(i) {
             bereich_add('C', interaction)
             waehlbarkeit_false('biologie_w', interaction)
             //Biologie wird auf "nicht mehr wählbar" gesetzt
-          }
           break
         //Wenn Physik gewählt wird
         case 'Physik':
-          if (sessionStorage.getItem('w[2]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('physik_w') == 'true') {
             //Wenn Physik als P1 gewählt wird
             if (i === 1) {
               //Profil wird auf mathematisch-naturwissenschaftlich gesetzt
@@ -302,11 +293,9 @@ function logicsubjects(i) {
             bereich_add('C', interaction)
             waehlbarkeit_false('physik_w', interaction)
             //Physik wird auf "nicht mehr wählbar" gesetzt
-          }      
           break
         //Wenn Deutsch gewählt wird
         case 'Deutsch':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('deutsch_w') == 'true') {
             //Wenn Deutsch als P1 gewählt wird
             if (i === 1) {
               //Profil wird auf sprachlich gesetzt
@@ -321,11 +310,9 @@ function logicsubjects(i) {
             bereich_add('A', interaction)
             waehlbarkeit_false('deutsch_w', interaction)
             //Deutsch wird auf "nicht mehr wählbar" gesetzt
-          }
           break
         //Wenn Englisch gewählt wird
         case 'Englisch':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('englisch_w') == 'true') {
             //Wenn Englisch als P1 gewählt wird
             if (i === 1) {
               //Profil wird auf sprachlich gesetzt
@@ -363,11 +350,9 @@ function logicsubjects(i) {
 
           //Englisch wird auf "nicht mehr wählbar" gesetzt
           waehlbarkeit_false('englisch_w', interaction)
-          }
           break 
         //Wenn Französisch gewählt wurde     
         case 'Französisch':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('franzoesisch_w') == 'true') {
             //Wenn Französisch als P1 gewählt wurde
             if (i === 1) {
               //Profil wird auf sprachlich gesetzt
@@ -379,7 +364,6 @@ function logicsubjects(i) {
               sessionStorage.setItem('p2_waehlbar[9]', true)
               kernfaecher_add(interaction)
             }
-          }
           //Wenn Französisch als P2-P5 gewählt wurde
           if (i > 1) {
             //Hilfsvariable help2 drückt aus, ob sich unter den gewählten Prüfungsfächern bereits eine Fremdsprache befindet 
@@ -412,7 +396,6 @@ function logicsubjects(i) {
           break  
         //Wenn Latein gewählt wurde
         case 'Latein':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('latein_w') == 'true') {
             //Wenn Latein P1 ist
             if (i === 1) {
               //Profil wird auf sprachlich gesetzt
@@ -455,11 +438,9 @@ function logicsubjects(i) {
             
             //Latein wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('latein_w', interaction)
-          }
           break
         //Wenn Spanisch gewählt wurde
         case 'Spanisch':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('spanisch_w') == 'true') {
             //Wenn Spanisch als P1 gewählt wurde
             if (i === 1) {
               //Profil wird auf sprachlich gesetzt
@@ -501,11 +482,9 @@ function logicsubjects(i) {
            
             //Spanisch wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('spanisch_w', interaction)
-          }
           break
         //Wenn Kunst gewählt wurde
         case 'Kunst':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('kunst_w') == 'true') {
             //Wenn Kunst als P1 gewählt wurde
             if (i === 1) {
               //Profil wird auf musisch-künstlerisch gesetzt
@@ -524,11 +503,9 @@ function logicsubjects(i) {
 
             //Kunst wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('kunst_w', interaction)
-          }
           break
         //Wenn Musik gewählt wurde
         case 'Musik':
-          if (sessionStorage.getItem('w[0]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('musik_w') == 'true') {
             //Wenn Musik als P1 gewählt wurde            
             if (i === 1) {
               //Profil wird auf musisch-künstlerisch gesetzt
@@ -547,11 +524,9 @@ function logicsubjects(i) {
 
             //Musik wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('musik_w', interaction)
-          }
           break
         //Wenn Geschichte gewählt wurde
         case 'Geschichte':
-          if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('geschichte_w') == 'true') {
             //Wenn Geschichte als P1 gewählt wurde
             if (i === 1) {
               //Profil wird auf gesellschaftlich gesetzt
@@ -571,11 +546,9 @@ function logicsubjects(i) {
 
             //Geshcichte wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('geschichte_w', interaction)
-          }
           break
         //Wenn Religion gewählt wurde
         case 'Religion':
-          if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('religion_w') == 'true') {
             //Nicht-Kernfächer werden um 1 erhöht
             nicht_kernfaecher_add(interaction)
 
@@ -584,11 +557,9 @@ function logicsubjects(i) {
 
             //Religion wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('religion_w', interaction)
-          }
           break
         //Wenn Erdkunde gewählt wurde 
         case 'Erdkunde':
-          if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('erdkunde_w') == 'true') {  
             //Nicht-Kernfächer werden um 1 erhöht
             nicht_kernfaecher_add(interaction)
 
@@ -597,11 +568,9 @@ function logicsubjects(i) {
 
             //Erdkunde wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('erdkunde_w', interaction)
-          }
           break
         //Wenn Politik/Wirtschaft gewählt wurde
         case 'Politik Wirtschaft':
-          if (sessionStorage.getItem('w[1]') == 'true' && sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('powi_w') == 'true') {
             //Nicht-Kernfächer werden um 1 erhöht
             nicht_kernfaecher_add(interaction)
 
@@ -610,16 +579,12 @@ function logicsubjects(i) {
 
             //PoWi wird auf "nicht mehr wählbar" gesetzt
             waehlbarkeit_false('powi_w', interaction)
-          }
           break
         //Wenn Sport gewählt wurde
         case 'Sport':
-          if (sessionStorage.getItem('w[3]') == 'true') {
-            if (sessionStorage.getItem('w_nk') == 'true' && sessionStorage.getItem('sport_w') == true) {
               //Nicht-Kernfächer werden um 1 erhöht
               nicht_kernfaecher_add(interaction)
-            }
-          }
+              waehlbarkeit_false('sport_w', interaction)
           break
     } 
   //Wenn 3 Nicht-Kernfächer gewählt wurden, können nur noch Kernfächer gewählt werden
