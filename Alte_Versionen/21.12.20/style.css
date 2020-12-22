@@ -1,0 +1,791 @@
+body {font-family: 'Indie Flower', cursive;}
+body, html {height: 100%}
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.font {
+    font-family: 'Indie Flower', cursive;
+}
+
+.bgimg {
+    background-image: url(pictures/background2.jpg);
+    /*background-position: 800px 20%;*/
+    background-attachment: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    min-height: 100%;
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.button1 {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;   
+    cursor: pointer;
+}
+    .button1:hover,
+    .button1:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+.buttonstart {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;   
+    cursor: pointer;
+    align-self: center;
+}
+    .buttonstart:hover,
+    .buttonstart:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+.buttonfertig {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+}
+    .buttonfertig:hover,
+    .buttonfertig:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.inputname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+}
+
+.inputname::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+    text-align: center;
+}
+
+.showname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 12%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 3%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: default;
+}
+
+
+.inputlastname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+}
+
+.inputlastname::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+    text-align: center;
+}
+
+.showlastname {
+    background-color: skyblue;
+    border: none;
+    text-align: center;
+    color: white;
+    margin: 0px;
+    position: absolute;
+    left: 30.5%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 3%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container-index {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto min-content min-content auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... place place place place ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... ... ... ... ...'
+        '... ... nameindex  buttonindex ... ...'
+        '... ... lastnameindex  buttonindex ... ...';
+}
+
+.indexname {
+    grid-area: nameindex;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.indexlastname {
+    grid-area: lastnameindex;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.indexbutton {
+    grid-area: buttonindex;
+    margin: auto;
+}
+
+.hold {
+    grid-area: place;
+    margin: auto;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container5 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ...'
+        'input2 ... ... button-next2 button-next2'
+        'reli5 muku5 erdkunde5 fsprach5 natu5'
+        '... ... ... ... ...'
+        '... natu5-3 natu5-3 natu5-2 natu5-2';
+
+}
+
+.reli5, .muku5, .fsprach5, .erdkunde5, .natu5, .informatik5, .fsprach5-2, .natu5-2, .natu5-3{
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli5 { 
+    height: 250px;
+    grid-area: reli5;  
+}
+
+.muku5 {  
+    height: 250px;
+    grid-area: muku5;  
+}
+
+.natu5 {
+    height: 250px;
+    grid-area: natu5;   
+}
+
+.natu5-2 {
+    height: 450px;
+    grid-area: natu5-2;   
+}
+ .natu5-3 {
+     height: 250px;
+     grid-area: natu5-3;
+ }
+
+.erdkunde5 { 
+    height: 250px;
+    grid-area: erdkunde5; 
+}
+
+.informatik5 { 
+    height: 250px;
+    grid-area: informatik5; 
+}
+
+.fsprach5 {  
+    height: 250px;
+    grid-area: fsprach5;  
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container4 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ... ...'
+        'input2 ... ... ... button-next2 button-next2'
+        'reli4 muku4 erdkunde4 informatik4 fsprach4 natu4'
+        '... ... natu4-2 natu4-2 ... ...'
+        '... ... ... ... ... ...';
+
+}
+
+.reli4, .muku4, .fsprach4, .erdkunde4, .natu4, .informatik4, .natu4-2{
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli4 { 
+    height: 250px;
+    grid-area: reli4;  
+}
+
+.muku4 {  
+    height: 250px;
+    grid-area: muku4;  
+}
+
+.natu4 {
+    height: 250px;
+    grid-area: natu4;   
+}
+
+.natu4-2 {
+    height: 250px;
+    grid-area: natu4-2;
+}
+
+.erdkunde4 { 
+    height: 250px;
+    grid-area: erdkunde4; 
+}
+
+.informatik4 { 
+    height: 250px;
+    grid-area: informatik4; 
+}
+
+.fsprach4 {  
+    height: 250px;
+    grid-area: fsprach4;  
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container3 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ... ...'
+        'input2 ... ... ... button-next2 button-next2'
+        'reli3 muku3 natu3 informatik3 erdkunde3 fsprach3'
+        '... ... natu3-2 natu3-2 ... ...'
+        '... ... ... ... ... ...';
+
+}
+
+.reli3, .muku3, .fsprach3, .erdkunde3, .natu3, .natu3-2, .informatik3{
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli3 { 
+    height: 250px;
+    grid-area: reli3;  
+}
+
+.muku3 {  
+    height: 250px;
+    grid-area: muku3;  
+}
+
+.natu3 {
+    height: 250px;
+    grid-area: natu3;   
+}
+
+.natu3-2 {
+    height: 300px;
+    grid-area: natu3-2;
+}
+
+.erdkunde3 { 
+    height: 250px;
+    grid-area: erdkunde3; 
+}
+
+.informatik3 { 
+    height: 250px;
+    grid-area: informatik3; 
+}
+
+.fsprach3 {  
+    height: 250px;
+    grid-area: fsprach3;  
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container2 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ...'
+        'input2 ... ... button-next2 button-next2'
+        'reli muku fsprach natu erdkunde'
+        '... ... natu1-2 natu1-2 ...'
+        '... ... ... ... ...';
+
+}
+
+.reli, .muku, .fsprach, .erdkunde, .natu, .natu1-2 {
+    padding: 5px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.reli { 
+    height: 250px;
+    grid-area: reli;  
+}
+
+.muku {  
+    height: 250px;
+    grid-area: muku;  
+}
+
+.fsprach {  
+    height: 250px;
+    grid-area: fsprach;  
+}
+
+.erdkunde { 
+    height: 250px;
+    grid-area: erdkunde; 
+}
+
+.natu {
+    height: 250px;
+    grid-area: natu;   
+}
+
+.natu1-2 {
+    height: 300px;
+    grid-area: natu1-2;
+}
+
+.head-input2 {
+    grid-area: input2;
+    height: 30px;
+    width: 200px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;
+}
+
+
+.next-button2 {
+    grid-area: button-next2;
+    height: 60px;
+    width: 200px;
+    border-radius: 25px;
+    margin: auto;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container1 {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ...'
+        'input1 ... ... button-next button-next'
+        '... ... ... ... ...'
+        '... ... textinfo ... ...'
+        '... ... textinfo ... ...'
+        '... ... textinfo ... ...';
+}
+
+.infotext {
+    grid-area: textinfo;
+    border-radius: 25px;
+    background-color:rgb(236, 236, 236);
+    resize: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.grid-container {
+    font-family: 'Indie Flower', cursive;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-template-columns: auto auto auto auto;
+    grid-row-gap: 5px;
+    grid-template-rows: min-content min-content min-content min-content;
+    grid-template-areas: 
+        '... ... ... ... ...'
+        'input1 ... ... buttonrestart button-next'
+        'lef lefmid mid rigmid rig'
+        'info info info rigmid rig';
+}
+
+.gp1, .gp2, .gp3{
+    padding: 5px;
+    height: 700px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.gp4, .gp5 {
+    padding: 5px;
+    height: 840px;
+    background-color:rgb(236, 236, 236);
+    border-radius: 20px;
+    opacity: 0.9;
+}
+
+.gp1 {
+    grid-area: lef;
+}
+
+.gp2 {
+    grid-area: lefmid;
+}
+
+.gp3 {
+    grid-area: mid;
+}
+
+.gp4 {
+     grid-area: rigmid;
+
+}
+
+.gp5 {
+    grid-area: rig;
+}
+
+.head-input1 {
+    grid-area: input1;
+    height: 30px;
+    width: 200px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;
+}
+
+
+.next-button {
+    grid-area: button-next;
+    height: 60px;
+    width: 200px;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.info {
+    grid-area: info;
+    background-color:rgb(236, 236, 236);
+    height: 120px;
+    width: 850px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin: auto;
+    text-align: center;
+}
+
+.restartbutton {
+    grid-area: buttonrestart;
+    margin: auto;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.header {
+    font-size: 20px;
+    font-family: 'Indie Flower', cursive;
+    text-align: center; 
+    text-decoration: underline;  
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.toggle-buttons input[type="radio"]{
+    visibility: hidden;
+}
+
+
+.toggle-buttons label {
+    border: 1px solid #333;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+}
+
+.toggle-buttons input:checked + label{
+    background: #aefcff;
+    color: #013e49;
+    box-shadow: none;
+}
+
+.toggle-buttons-invisible {
+    display: none;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.manu {
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;   
+    cursor: pointer;
+    top: 280px;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.startauswahlbutton {
+    font-family: 'Indie Flower', cursive;
+    background-color: skyblue;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;   
+    cursor: pointer;
+    position: absolute;
+    left: 35%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+    .startauswahlbutton:hover,
+    .startauswahlbutton:focus {
+        box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+    }
+
+    .startauswahlbutton2 {
+        font-family: 'Indie Flower', cursive;
+        background-color: skyblue;
+        border: none;
+        border-radius: 15px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;   
+        cursor: pointer;
+        position: absolute;
+        left: 35%;
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 55%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+        .startauswahlbutton2:hover,
+        .startauswahlbutton2:focus {
+            box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+        }
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.cookieConsentContainer {
+	z-index: 999;
+	width: 350px;
+	min-height: 20px;
+	box-sizing: border-box;
+	padding: 30px 30px 30px 30px;
+	background: #232323;
+	overflow: hidden;
+	position: fixed;
+    bottom: 30px;
+	right: 30px;
+	display: none;
+}
+.cookieConsentContainer .cookieTitle a {
+	font-family: 'Indie Flower', cursive;
+	color: #FFFFFF;
+	font-size: 22px;
+	line-height: 20px;
+	display: block;
+}
+.cookieConsentContainer .cookieDesc p {
+	margin: 0;
+	padding: 0;
+	font-family: 'Indie Flower', cursive;
+	color: #FFFFFF;
+	font-size: 13px;
+	line-height: 20px;
+	display: block;
+	margin-top: 10px;
+} .cookieConsentContainer .cookieDesc a {
+	font-family: 'Indie Flower', cursive;
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.cookieConsentContainer .cookieButton a {
+	display: inline-block;
+	font-family: 'Indie Flower', cursive;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 14px;
+	background: #000000;
+	box-sizing: border-box; 
+	padding: 15px 24px;
+	text-align: center;
+	transition: background 0.3s;
+}
+.cookieConsentContainer .cookieButton a:hover { 
+	cursor: pointer;
+	background: #3E9B67;
+}
+
+@media (max-width: 980px) {
+	.cookieConsentContainer {
+		bottom: 0px !important;
+		left: 0px !important;
+		width: 100%  !important;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
