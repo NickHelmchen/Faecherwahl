@@ -51,91 +51,91 @@
         </div>
         <div class="erdkunde5 w3-animate-top toggle-buttons" title="Erdkunde als zusätzliches Fach wählen" id="div_ek">
             <p class="header">Erdkunde</p>
-            <input type="radio" name="extra4" id="erdkundja" onclick="set_erdkunde()">
+            <input type="radio" name="extra4" id="erdkundja" onclick="set_erdkunde(true)">
             <label for="erdkundja" id="erdkundja.label">Ja</label>
             <br>
             <br>
-            <input type="radio" name="extra4" id="erdkundne" onclick="set_erdkunde_false()">
+            <input type="radio" name="extra4" id="erdkundne" onclick="set_erdkunde(false)">
             <label for="erdkundne" id="erdkundne.label">Nein</label>
         </div>
         <div class="natu5 w3-animate-right toggle-buttons" title="Eine Naturwissenschaft als Grundkurs belegen" id="div_nw1">
             <p class="header">Naturwissenschaften</p>
-            <input type="radio" name="extra6" id="chemie" onclick="set_chemie_gese()">
+            <input type="radio" name="extra6" id="chemie" onclick="enable_2fs_2nw(), set_chemie()">
             <label for="chemie" id="chemie.label">Chemie</label>
             <br>
             <br>
-            <input type="radio" name="extra6" id="bio" onclick="set_biologie_gese()">
+            <input type="radio" name="extra6" id="bio" onclick="enable_2fs_2nw(), set_biologie()">
             <label for="bio" id="bio.label">Biologie</label>
             <br>
             <br>
-            <input type="radio" name="extra6" id="physik" onclick="set_physik_gese()">
+            <input type="radio" name="extra6" id="physik" onclick="enable_2fs_2nw(), set_physik()">
             <label for="physik" id="physik.label">Physik</label>
             <br>
             <br>
-            <input type="radio" name="extra6" id="informatik" onclick="set_informatik_gese()">
+            <input type="radio" name="extra6" id="informatik" onclick="enable_2fs_2nw(), set_informatik()">
             <label for="informatik" id="informatik.label">Informatik</label>
         </div>
         <div class="fsprach5 w3-animate-top toggle-buttons" title="Eine Fremdsprache als Grundkurs belegen" id="div_fs1">
             <p class="header">Fremdsprache</p>
-            <input type="radio" name="extra3" id="spanisch" onclick="set_spanisch_gese()">
+            <input type="radio" name="extra3" id="spanisch" onclick="enable_2fs_2nw(), set_spanisch()">
             <label for="spanisch" id="spanisch.label">Spanisch</label>
             <br>
             <br>
-            <input type="radio" name="extra3" id="franzoesisch" onclick="set_franzoesisch_gese()">
+            <input type="radio" name="extra3" id="franzoesisch" onclick="enable_2fs_2nw(), set_franzoesisch()">
             <label for="franzoesisch" id="franzoesisch.label">Französisch</label>
             <br>
             <br>
-            <input type="radio" name="extra3" id="latein" onclick="set_latein_gese()">
+            <input type="radio" name="extra3" id="latein" onclick="enable_2fs_2nw(), set_latein()">
             <label for="latein" id="latein.label">Latein</label>
             <br>
             <br>
-            <input type="radio" name="extra3" id="englisch" onclick="set_englisch_gese()">
+            <input type="radio" name="extra3" id="englisch" onclick="enable_2fs_2nw(), set_englisch()">
             <label for="englisch" id="englisch.label">Englisch</label>
         </div>
       <div class="natu5-2 w3-animate-right toggle-buttons" title="Eine 2. Naturwissenschaft oder eine 2. Fremdsprache als Grundkurs belegen" id="div_2fs2nw">
         <p class="header">Fremdsprache oder Naturwissenschaften</p>
-        <input type="radio" name="extra7" id="spanisch2" onclick="set_spanisch_gese2()">
+        <input type="radio" name="extra7" id="spanisch2" onclick="set_spanisch_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="spanisch2" id="spanisch2.label">Spanisch</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="franzoesisch2" onclick="set_franzoesisch_gese2()">
+        <input type="radio" name="extra7" id="franzoesisch2" onclick="set_franzoesisch_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="franzoesisch2" id="franzoesisch2.label">Französisch</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="latein2" onclick="set_latein_gese2()">
+        <input type="radio" name="extra7" id="latein2" onclick="set_latein_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="latein2" id="latein2.label">Latein</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="englisch2" onclick="set_englisch_gese2()">
+        <input type="radio" name="extra7" id="englisch2" onclick="set_englisch_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="englisch2" id="englisch2.label">Englisch</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="chemie2" onclick="set_chemie_gese2()">
+        <input type="radio" name="extra7" id="chemie2" onclick="set_chemie_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="chemie2" id="chemie2.label">Chemie</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="bio2" onclick="set_biologie_gese2()">
+        <input type="radio" name="extra7" id="bio2" onclick="set_biologie_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="bio2" id="bio2.label">Biologie</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="physik2" onclick="set_physik_gese2()">
+        <input type="radio" name="extra7" id="physik2" onclick="set_physik_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="physik2" id="physik2.label">Physik</label>
         <br>
         <br>
-        <input type="radio" name="extra7" id="informatik2" onclick="set_informatik_gese2()">
+        <input type="radio" name="extra7" id="informatik2" onclick="set_informatik_gese2()" disabled="true" style="opacity: 0.5;">
         <label for="informatik2" id="informatik2.label">Informatik</label>       
     </div>
     <div class="natu5-3 w3-animate-bottom toggle-buttons" title="Hier kannst du einen Wunsch angeben, welches Fach du vielleicht noch als P4 oder P5 festlegen möchtest und daher im 12. Jahrgang belegen möchtest">
       <p class="header">In 12 belegen</p>
-      <input type="radio" name="extra6" id="Kunst2" onclick="set_kunst_wish()">
+      <input type="radio" name="extra8" id="Kunst2" onclick="set_wish('Kunst')">
       <label for="Kunst2" id="Kunst2.label">Kunst</label> 
       <br>
       <br>
-      <input type="radio" name="extra6" id="Musik2" onclick="set_musik_wish()">
+      <input type="radio" name="extra8" id="Musik2" onclick="set_wish('Musik')">
       <label for="Musik2" id="Musik2.label">Musik</label> 
       <br>
       <br>
-      <input type="radio" name="extra6" id="Religion2" onclick="set_religion_wish()">
+      <input type="radio" name="extra8" id="Religion2" onclick="set_wish('Religion')">
       <label for="Religion2" id="Religion2.label">Religion</label> 
     </div>
     </div>    
