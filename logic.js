@@ -182,13 +182,13 @@ function disable_buttons_p(i) {
     document.getElementById('pfach' + i + "." + j).disabled = true
   }
 }
-function disable_fachbutton(fach) {
-  document.getElementById(fach + ".label").style.opacity = '0.5'
-  document.getElementById(fach).disabled = true
-}
 function enable_fachbutton(fach) {
   document.getElementById(fach + ".label").style.opacity = '1'
   document.getElementById(fach).disabled = false
+}
+function disable_fachbutton(fach) {
+  document.getElementById(fach + ".label").style.opacity = '0.5'
+  document.getElementById(fach).disabled = true
 }
 //Der Zähler für Naturwissenschaften wird um 1 erhöht
 function nw_add() {
@@ -1232,8 +1232,8 @@ function set_religion() {
   enable_fachbutton('Religion2')
 }
 function set_wn() {
-  sessionStorage.setItem('extra15', false)
   sessionStorage.setItem('extra18', true)
+  sessionStorage.setItem('extra15', false)
   document.getElementById("Religion2").checked = false
   disable_fachbutton('Religion2')
 }
@@ -1241,22 +1241,22 @@ function set_musik() {
   sessionStorage.setItem('extra8', true)
   sessionStorage.setItem('extra10', false)
   sessionStorage.setItem('extra17', false)
-  enable_fachbutton('Musik2')
   document.getElementById("Kunst2").checked = false
+  enable_fachbutton('Musik2')
   disable_fachbutton('Kunst2')
 }
 function set_kunst() {
-  sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra10', true)
+  sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra17', false)
-  enable_fachbutton('Kunst2')
   document.getElementById("Musik2").checked = false
+  enable_fachbutton('Kunst2')
   disable_fachbutton('Musik2')
 }
 function set_ds() {
+  sessionStorage.setItem('extra17', true)
   sessionStorage.setItem('extra8', false)
   sessionStorage.setItem('extra10', false)
-  sessionStorage.setItem('extra17', true)
   document.getElementById("Kunst2").checked = false
   document.getElementById("Musik2").checked = false
   disable_fachbutton('Kunst2')
@@ -1268,50 +1268,50 @@ function set_englisch() {
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', false)
   if (sessionStorage.getItem('profil') == 'gese') {
+    document.getElementById("englisch2").checked = false
     enable_fachbutton('spanisch2')
     enable_fachbutton('latein2')
     enable_fachbutton('franzoesisch2')
-    document.getElementById("englisch2").checked = false
     disable_fachbutton('englisch2')
   }
 }
 function set_franzoesisch() {
+  sessionStorage.setItem('extra6', true)
   sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra7', false)
-  sessionStorage.setItem('extra6', true)
   sessionStorage.setItem('extra11', false)
   if (sessionStorage.getItem('profil') == 'gese') {
-    enable_fachbutton('englisch2')
     document.getElementById("franzoesisch2").checked = false
     disable_fachbutton('franzoesisch2')
     disable_fachbutton('latein2')
     disable_fachbutton('spanisch2')
+    enable_fachbutton('englisch2')
   }
 }
 function set_latein() {
-  sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra7', true)
+  sessionStorage.setItem('extra3', false)
   sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', false)
   if (sessionStorage.getItem('profil') == 'gese') {
-    enable_fachbutton('englisch2')
     document.getElementById("latein2").checked = false
     disable_fachbutton('latein2')
     disable_fachbutton('spanisch2')
     disable_fachbutton('franzoesisch2')
+    enable_fachbutton('englisch2')
   }
 }
 function set_spanisch() {
-  sessionStorage.setItem('extra3', false)
-  sessionStorage.setItem('extra7', false)
-  sessionStorage.setItem('extra6', false)
   sessionStorage.setItem('extra11', true)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
   if (sessionStorage.getItem('profil') == 'gese') {
-    enable_fachbutton('englisch2')
     document.getElementById("spanisch2").checked = false
     disable_fachbutton('spanisch2')
     disable_fachbutton('latein2')
     disable_fachbutton('franzoesisch2')
+    enable_fachbutton('englisch2')
   }
 }
 function set_biologie() {
@@ -1320,10 +1320,10 @@ function set_biologie() {
   sessionStorage.setItem('extra4', false)
   sessionStorage.setItem('extra9', false)
   if (sessionStorage.getItem('profil') == 'gese') {
+    document.getElementById("bio2").checked = false
     enable_fachbutton('chemie2')
     enable_fachbutton('physik2')
     enable_fachbutton('informatik2')
-    document.getElementById("bio2").checked = false
     disable_fachbutton('bio2')
     for (let index = 1; index < 6; index++) {
       if (sessionStorage.getItem('pfach' + index) == 'Informatik') {
