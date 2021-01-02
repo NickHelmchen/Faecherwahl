@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Seminarfuchs2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+    <script src="script.js"></script>
+    <script src="cookies.js"></script>
+  </head>
+
+  <body class="bgimg" onload="terminator(), cookieConsent()">
+    <form action="info.html" method="GET" class="">
+      <div class="grid-container-index">
+        <h1 class="font hold">Fächerwahl für die Sekundarstufe II</h1>
+        <input class="inputname indexname" type="text" id="name" name="name" autocomplete="off" placeholder="Name" required>
+        <input class="inputlastname indexlastname" type="text" id="lasname" name="lastname" autocomplete="off" placeholder="Nachname" required>
+        <input class="buttonstart indexbutton" type="submit" value="Start">
+      </div>
+    </form>
+  </body>
+</html>
