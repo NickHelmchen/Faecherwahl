@@ -38,7 +38,7 @@ function loginUser($conn, $username, $pwd) {
         $_SESSION["userid"] = $uid["usersId"];
         $_SESSION["userUid"] = $uid["usersUid"];
         $_SESSION["userName"] = $uid["usersName"];
-        header("location: ../test.php");
+        header("location: ../../info.html");
     }
     else if ($pwd != $pwdcheck){
         header("location: ../index.php/?error=wronglogin");
