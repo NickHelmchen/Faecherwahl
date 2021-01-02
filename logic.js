@@ -119,7 +119,13 @@ function logicvariables() {
   sessionStorage.setItem('sport_gk', false)
 
   sessionStorage.setItem('wish_for_p4_p5', '')
-}  
+
+  sessionStorage.setItem('lp1', 13)
+  sessionStorage.setItem('lp2', 12)
+  sessionStorage.setItem('lp3', 14)
+  sessionStorage.setItem('lp4', 16)
+  sessionStorage.setItem('lp5', 17)
+} 
 //Kernfächer werden um 1 erhöht
 function kernfaecher_add() {
   sessionStorage.setItem('kernfaecher', (parseInt(sessionStorage.getItem('kernfaecher')) + 1))
@@ -158,25 +164,20 @@ function waehlbarkeit(fach_w, choose) {
 //Die Buttons einer Stufe werden deaktiviert
 function disable_buttons_p(i) {
   var help_lp = 1
-  var lp1 = 13
-  var lp2 = 12
-  var lp3 = 14
-  var lp4 = 16
-  var lp5 = 17
   if (i == 1) {
-    help_lp = lp1
+    help_lp = parseInt(sessionStorage.getItem('lp1'))
   }
   if (i == 2) {
-    help_lp = lp2
+    help_lp = parseInt(sessionStorage.getItem('lp2'))
   }
   if (i == 3) {
-    help_lp = lp3
+    help_lp = parseInt(sessionStorage.getItem('lp3'))
   }
   if (i == 4) {
-    help_lp = lp4
+    help_lp = parseInt(sessionStorage.getItem('lp4'))
   }
   if (i == 5) {
-    help_lp = lp5
+    help_lp = parseInt(sessionStorage.getItem('lp5'))
   }
   for (let j = 1; j < help_lp + 1; j++) {
     document.getElementById('pfach' + i + "." + j).disabled = true
@@ -538,22 +539,18 @@ function logicsubjects(i) {
 //Teil der Logik, der prüft, welche Fächer in der nächsten Stufe noch wählbar sind (ruft die beiden folgenden Methoden dafür auf)
 function proof_in_advance(pfach, i) {
   var help_lp = 2
-  var lp2 = 12
-  var lp3 = 14
-  var lp4 = 16
-  var lp5 = 17
   for (let c = 2; c < 6; c++) {
     if (c == 2) {
-      help_lp = lp2
+      help_lp = sessionStorage.getItem('lp2')
     }
     if (c == 3) {
-      help_lp = lp3
+      help_lp = sessionStorage.getItem('lp3')
     }
     if (c == 4) {
-      help_lp = lp4
+      help_lp = sessionStorage.getItem('lp4')
     }
     if (c == 5) {
-      help_lp = lp5
+      help_lp = sessionStorage.getItem('lp5')
     }
     for (let j = 1; j < help_lp; j++) {
       if (c >= i) {
@@ -633,6 +630,7 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[13]'), sessionStorage.getItem('powi_w'))
         if (sessionStorage.getItem('profil') == 'gese' && i === 3) {
           document.getElementById("pfach3.14.label").style.opacity = '1'
+          document.getElementById("pfach3.14").disabled = false
         }
         break;
       case 'Spanisch':
@@ -697,36 +695,34 @@ function proof_in_advance(pfach, i) {
 function proof_in_advance_visibility(pfach, i, j, bereich, waehlbar, fachvariable) {
   if (bereich === 'true' && fachvariable === 'true') {
     if (i === 2 && waehlbar === 'false') {
-      document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-      document.getElementById((pfach + j)).disabled = true
+      disable_fachbutton((pfach + j))
     } else {
       if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
         document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+        document.getElementById((pfach + j)).disabled = true
       } else {
         document.getElementById(pfach + j + ".label").style.opacity = '1'
       }
     }
   } else {
-    document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-    document.getElementById((pfach + j)).disabled = true
+    disable_fachbutton((pfach + j))
   }
 }
 //Überprüft die Wählbarkeit und passt Buttons dementsprechend an (Nicht-Kernfächer)
 function proof_in_advance_visibility_w_nk(pfach, i, j, bereich, waehlbar, fachvariable) {
   if (bereich === 'true' && sessionStorage.getItem('w_nk') === 'true' && fachvariable === 'true') {
     if (i === 2 && waehlbar === 'false') {
-      document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-      document.getElementById((pfach + j)).disabled = true
+      disable_fachbutton((pfach + j))
     } else {
       if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
         document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+        document.getElementById((pfach + j)).disabled = true
       } else {
         document.getElementById(pfach + j + ".label").style.opacity = '1'
       }
     }
   } else {
-    document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-    document.getElementById((pfach + j)).disabled = true
+    disable_fachbutton((pfach + j))
   }
 }
 //Die Wunschbuttons werden entsprechend angepasst, je nachdem, ob das Fach als Prüfungsfach gewählt wurde
@@ -735,7 +731,6 @@ function disable_wish(fach, j) {
     document.getElementById(fach + "2").disabled = true
     document.getElementById(fach + "2.label").style.opacity = '0.5'
   }
-  
 }
 //Sportgrundkurs
 function sport_gk() {
@@ -1562,10 +1557,8 @@ function check_for_complete_p() {
     }
   }
   if (p1_gewaehlt == true && p2_gewaehlt == true && p3_gewaehlt == true && p4_gewaehlt == true && p5_gewaehlt == true) {
-    console.log('gewählt')
     return true
   } else {
-    console.log('error')
     return false
   }
 }
@@ -1577,10 +1570,8 @@ function check_for_complete_gk_gese() {
     ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("informatik").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("informatik").checked == true || document.getElementById("chemie").checked == true)) &&
     ((document.getElementById("spanisch2").disabled == true && document.getElementById("latein2").disabled == true && document.getElementById("englisch2").disabled == true && document.getElementById("franzoesisch2").disabled == true &&
       document.getElementById("physik2").disabled == true && document.getElementById("informatik2").disabled == true && document.getElementById("chemie2").disabled == true && document.getElementById("bio2").disabled == true) || (document.getElementById("physik2").checked == true || document.getElementById("chemie2").checked == true || document.getElementById("informatik2").checked == true || document.getElementById("bio2").checked == true || document.getElementById("spanisch2").checked == true || document.getElementById("englisch2").checked == true || document.getElementById("latein2").checked == true || document.getElementById("franzoesisch2").checked == true))) {
-    console.log('gewählt')
     return true
   } else {
-    console.log('error')
     return false
   }
 }
@@ -1590,10 +1581,8 @@ function check_for_complete_gk_manu() {
     && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) &&
     ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true && document.getElementById("englisch").disabled == true) || (document.getElementById("englisch").checked == true || document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true)) &&
     ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("informatik").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("informatik").checked == true || document.getElementById("chemie").checked == true))) {
-    console.log('gewählt')
     return true
   } else {
-    console.log('error')
     return false
   }
 }
@@ -1604,10 +1593,8 @@ function check_for_complete_gk_muku() {
     ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("chemie").checked == true)) &&
     ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true && document.getElementById("englisch").disabled == true) || (document.getElementById("englisch").checked == true || document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true)) &&
     ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))) {
-    console.log('gewählt')
     return true
   } else {
-    console.log('error')
     return false
   }
 }
@@ -1618,10 +1605,11 @@ function check_for_complete_gk_spra() {
     ((document.getElementById("informatikja").disabled == true && document.getElementById("informatikne").disabled == true) || (document.getElementById("informatikja").checked == true || document.getElementById("informatikne").checked == true)) &&
     ((document.getElementById("physik").disabled == true && document.getElementById("bio").disabled == true && document.getElementById("chemie").disabled == true) || (document.getElementById("physik").checked == true || document.getElementById("bio").checked == true || document.getElementById("chemie").checked == true)) &&
     ((document.getElementById("spanisch").disabled == true && document.getElementById("latein").disabled == true && document.getElementById("franzoesisch").disabled == true) || (document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true))) {
-    console.log('gewählt')
     return true
   } else {
-    console.log('error')
     return false
   }
 }   
+function show_kf_abc() {
+  document.getElementById('info_kf').value = 'Kernfächer: ' + sessionStorage.getItem('kernfaecher') +  ', Bereich A: ' + sessionStorage.getItem('A_anzahl') +  ', Bereich B: ' + sessionStorage.getItem('B_anzahl') +  ', Bereich C: ' + sessionStorage.getItem('C_anzahl')
+}
