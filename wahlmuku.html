@@ -15,6 +15,7 @@
       function check() {
           if (check_for_complete_gk_muku() == true) {
             end()
+            sessionStorage.setItem('gks_gewaehlt', true)
             wahl3()
           } else {
             alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
@@ -23,10 +24,12 @@
     </script>
   </head>
 
-  <body onload="page2(), muku()">
+  <body onload="page2(), check_for_pfaecher_gewaehlt(), muku()">
     <div class="bgimg grid-container4">
         <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
         <button onclick="check()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
+        <button class="reset4 buttonfertig" onclick="uncheck_reset_gk_muku()" id="resetbutton">Grundkurse zurücksetzen</button>
+        <button class="reset-p-4 buttonfertig" onclick="location.href='wahl.html'" id="resetbutton2">Prüfungsfächer neu wählen</button>
         <div class="reli4 w3-animate-left toggle-buttons" title="Entweder Religion oder Werte und Normen als Grundkurs belegen" id="div_rewn">
             <p class="header">Religion / Werte und Normen</p>
             <input type="radio" name="extra1" id="religion" onclick="set_religion()">
@@ -37,7 +40,7 @@
             <label for="wn" id="wn.label">Werte und Normen</label>
         </div>
         <div class="muku4 w3-animate-top toggle-buttons" title="Ein 2. musisch-künstlerisches Fach als Grundkurs belegen" id="div_muku">
-          <p class="header">weiteres musisch-Künstlicherisches Fach</p>
+          <p class="header">Musisch-Künstlicherisch</p>
           <input type="radio" name="extra2" id="musik" onclick="set_musik()"> 
           <label for="musik" id="musik.label">Musik</label>
           <br>

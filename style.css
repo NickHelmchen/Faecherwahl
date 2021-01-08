@@ -249,10 +249,10 @@ body, html {height: 100%}
     grid-column-gap: 5px;
     grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... ... button-next2'
+        'input2 ... reset-p-5 reset5 button-next2'
         'reli5 muku5 fsprach5 natu5 natu5-2'
         'erdkunde5 natu5-3 ... ... ...'
         '... ... ... ... ...';
@@ -304,6 +304,18 @@ body, html {height: 100%}
     height: 300px;
     grid-area: fsprach5;  
 }
+.reset5 {
+    grid-area: reset5;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-5 {
+    grid-area: reset-p-5;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
 
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -313,11 +325,11 @@ body, html {height: 100%}
     grid-column-gap: 5px;
     grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content repeat(3, 1fr);
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... ... button-next2'
-        'reli4 muku4 fsprach4 natu4 natu4'
+        'input2 ... reset-p-4 reset4 button-next2'
+        'reli4 fsprach4 natu4 muku4 muku4'
         'natu4-2 erdkunde4 informatik4 ... ...'
         '... ... ... ... ...';
 
@@ -364,6 +376,18 @@ body, html {height: 100%}
     height: 300px;
     grid-area: fsprach4;  
 }
+.reset4 {
+    grid-area: reset4;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-4 {
+    grid-area: reset-p-4;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
 
 /*----------------------------------------------------------------------------------------------------*/
 
@@ -373,10 +397,10 @@ body, html {height: 100%}
     grid-column-gap: 5px;
     grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... ... button-next2'
+        'input2 ... reset-p-3 reset3 button-next2'
         'reli3 muku3 natu3 fsprach3 fsprach3'
         'natu3-2 erdkunde3 informatik3 ... ...'
         '... ... ... ... ...';
@@ -424,7 +448,18 @@ body, html {height: 100%}
     height: 300px;
     grid-area: fsprach3;  
 }
-
+.reset3 {
+    grid-area: reset3;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-3 {
+    grid-area: reset-p-3;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container2 {
@@ -433,10 +468,10 @@ body, html {height: 100%}
     grid-column-gap: 5px;
     grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... ... button-next2'
+        'input2 ... reset-p-2 reset2 button-next2'
         'reli muku fsprach natu natu'
         'natu1-2 erdkunde ... ... ...'
         '... ... ... ... ...';
@@ -498,7 +533,18 @@ body, html {height: 100%}
     width: 1fr;
     border-radius: 25px;
 }
-
+.reset2 {
+    grid-area: reset2;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-2 {
+    grid-area: reset-p-2;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container1 {

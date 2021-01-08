@@ -125,6 +125,9 @@ function logicvariables() {
   sessionStorage.setItem('lp3', 14)
   sessionStorage.setItem('lp4', 16)
   sessionStorage.setItem('lp5', 17)
+
+  sessionStorage.setItem('pfaecher_gewaehlt', false)
+  sessionStorage.setItem('gks_gewaehlt', false)
 } 
 //Kernfächer werden um 1 erhöht
 function kernfaecher_add() {
@@ -1562,6 +1565,36 @@ function check_for_complete_p() {
     return false
   }
 }
+function check_for_pfaecher_gewaehlt(){
+  if (sessionStorage.getItem('pfaecher_gewaehlt') == 'false' || sessionStorage.getItem('gks_gewaehlt') == null) {
+    console.log("nicht gewählt")
+    window.location.href = "faecherwahl_main.html"
+  } else {
+    console.log("gewählt")
+  }
+}
+function check_for_gk_gewaehlt() {
+  if (sessionStorage.getItem('gks_gewaehlt') == 'false' || sessionStorage.getItem('gks_gewaehlt') == null) {
+    console.log("nicht gewählt")
+    if (sessionStorage.getItem('profil') != null) {
+      window.location.href = "wahl" + sessionStorage.getItem('profil') + ".html"
+    } else {
+      window.location.href = "faecherwahl_main.html"
+    }
+  } else {
+    console.log("gewählt")
+  }
+}
+function check_for_gewaehlt_output() {
+  console.log(sessionStorage.getItem('gks_gewaehlt'))
+  if (sessionStorage.getItem('gks_gewaehlt') == 'false' || sessionStorage.getItem('gks_gewaehlt') == null) {
+    if (sessionStorage.getItem('pfaecher_gewaehlt') == 'false' || sessionStorage.getItem('pfaecher_gewaehlt') == null) {
+      window.location.href = "faecherwahl_main.html"
+    } else {  
+      check_for_gk_gewaehlt()
+    }
+  }
+}
 function check_for_complete_gk_gese() {
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
     ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
@@ -1609,7 +1642,220 @@ function check_for_complete_gk_spra() {
   } else {
     return false
   }
-}   
+}
+
 function show_kf_abc() {
   document.getElementById('info_kf').value = 'Kernfächer: ' + sessionStorage.getItem('kernfaecher') +  ', Bereich A: ' + sessionStorage.getItem('A_anzahl') +  ', Bereich B: ' + sessionStorage.getItem('B_anzahl') +  ', Bereich C: ' + sessionStorage.getItem('C_anzahl')
+}
+
+function uncheck_reset_gk_manu() {
+  document.getElementById("religion").checked = false
+  document.getElementById("wn").checked = false
+
+  document.getElementById("musik").checked = false
+  document.getElementById("ds").checked = false
+  document.getElementById("kunst").checked = false
+
+  document.getElementById("spanisch").checked = false
+  document.getElementById("latein").checked = false
+  document.getElementById("englisch").checked = false
+  document.getElementById("franzoesisch").checked = false
+  
+  document.getElementById("erdkundja").checked = false
+  document.getElementById("erdkundne").checked = false
+
+  document.getElementById("chemie").checked = false
+  document.getElementById("physik").checked = false
+  document.getElementById("informatik").checked = false
+  document.getElementById("bio").checked = false
+  
+  document.getElementById("PoWi2").checked = false
+  document.getElementById("Geschichte2").checked = false
+  document.getElementById("Kunst2").checked = false
+  document.getElementById("Musik2").checked = false
+  document.getElementById("Religion2").checked = false
+
+  sessionStorage.setItem('extra1', false)  
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra5', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
+  sessionStorage.setItem('extra8', false)
+  sessionStorage.setItem('extra9', false)
+  sessionStorage.setItem('extra10', false)
+  sessionStorage.setItem('extra11', false)
+  sessionStorage.setItem('extra12', false)
+  sessionStorage.setItem('extra13', false)
+  sessionStorage.setItem('extra14', false)
+  sessionStorage.setItem('extra15', false)
+  sessionStorage.setItem('extra16', false)
+  sessionStorage.setItem('extra17', false)
+  sessionStorage.setItem('extra18', false)
+  sessionStorage.setItem('sport_gk', false)
+
+  sessionStorage.setItem('wish_for_p4_p5', '')
+  mana()
+}
+
+function uncheck_reset_gk_spra() {
+  document.getElementById("religion").checked = false
+  document.getElementById("wn").checked = false
+
+  document.getElementById("musik").checked = false
+  document.getElementById("ds").checked = false
+  document.getElementById("kunst").checked = false
+
+  document.getElementById("spanisch").checked = false
+  document.getElementById("latein").checked = false
+  document.getElementById("franzoesisch").checked = false
+  
+  document.getElementById("erdkundja").checked = false
+  document.getElementById("erdkundne").checked = false
+
+  document.getElementById("informatikja").checked = false
+  document.getElementById("informatikne").checked = false
+
+  document.getElementById("chemie").checked = false
+  document.getElementById("physik").checked = false
+  document.getElementById("bio").checked = false
+  
+  document.getElementById("PoWi2").checked = false
+  document.getElementById("Geschichte2").checked = false
+  document.getElementById("Kunst2").checked = false
+  document.getElementById("Musik2").checked = false
+  document.getElementById("Religion2").checked = false
+
+  sessionStorage.setItem('extra1', false)  
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra5', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
+  sessionStorage.setItem('extra8', false)
+  sessionStorage.setItem('extra9', false)
+  sessionStorage.setItem('extra10', false)
+  sessionStorage.setItem('extra11', false)
+  sessionStorage.setItem('extra12', false)
+  sessionStorage.setItem('extra13', false)
+  sessionStorage.setItem('extra14', false)
+  sessionStorage.setItem('extra15', false)
+  sessionStorage.setItem('extra16', false)
+  sessionStorage.setItem('extra17', false)
+  sessionStorage.setItem('extra18', false)
+  sessionStorage.setItem('sport_gk', false)
+
+  sessionStorage.setItem('wish_for_p4_p5', '')
+  spra()
+}
+
+function uncheck_reset_gk_muku() {
+  document.getElementById("religion").checked = false
+  document.getElementById("wn").checked = false
+
+  document.getElementById("musik").checked = false
+  document.getElementById("ds").checked = false
+  document.getElementById("kunst").checked = false
+
+  document.getElementById("spanisch").checked = false
+  document.getElementById("latein").checked = false
+  document.getElementById("franzoesisch").checked = false
+  document.getElementById("englisch").checked = false
+  
+  document.getElementById("erdkundja").checked = false
+  document.getElementById("erdkundne").checked = false
+
+  document.getElementById("informatikja").checked = false
+  document.getElementById("informatikne").checked = false
+
+  document.getElementById("chemie").checked = false
+  document.getElementById("physik").checked = false
+  document.getElementById("bio").checked = false
+  
+  document.getElementById("PoWi2").checked = false
+  document.getElementById("Geschichte2").checked = false
+  document.getElementById("Religion2").checked = false
+
+  sessionStorage.setItem('extra1', false)  
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra5', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
+  sessionStorage.setItem('extra8', false)
+  sessionStorage.setItem('extra9', false)
+  sessionStorage.setItem('extra10', false)
+  sessionStorage.setItem('extra11', false)
+  sessionStorage.setItem('extra12', false)
+  sessionStorage.setItem('extra13', false)
+  sessionStorage.setItem('extra14', false)
+  sessionStorage.setItem('extra15', false)
+  sessionStorage.setItem('extra16', false)
+  sessionStorage.setItem('extra17', false)
+  sessionStorage.setItem('extra18', false)
+  sessionStorage.setItem('sport_gk', false)
+
+  sessionStorage.setItem('wish_for_p4_p5', '')
+  muku()
+}
+
+function uncheck_reset_gk_gese() {
+  document.getElementById("religion").checked = false
+  document.getElementById("wn").checked = false
+
+  document.getElementById("musik").checked = false
+  document.getElementById("ds").checked = false
+  document.getElementById("kunst").checked = false
+
+  document.getElementById("spanisch").checked = false
+  document.getElementById("latein").checked = false
+  document.getElementById("franzoesisch").checked = false
+  document.getElementById("englisch").checked = false
+  
+  document.getElementById("erdkundja").checked = false
+  document.getElementById("erdkundne").checked = false
+
+  document.getElementById("chemie").checked = false
+  document.getElementById("physik").checked = false
+  document.getElementById("bio").checked = false
+  document.getElementById("informatik").checked = false
+  
+  document.getElementById("chemie2").checked = false
+  document.getElementById("physik2").checked = false
+  document.getElementById("bio2").checked = false
+  document.getElementById("informatik2").checked = false
+  document.getElementById("spanisch2").checked = false
+  document.getElementById("latein2").checked = false
+  document.getElementById("franzoesisch2").checked = false
+  document.getElementById("englisch2").checked = false
+
+  document.getElementById("Kunst2").checked = false
+  document.getElementById("Musik2").checked = false
+  document.getElementById("Religion2").checked = false
+
+  sessionStorage.setItem('extra1', false)  
+  sessionStorage.setItem('extra2', false)
+  sessionStorage.setItem('extra3', false)
+  sessionStorage.setItem('extra4', false)
+  sessionStorage.setItem('extra5', false)
+  sessionStorage.setItem('extra6', false)
+  sessionStorage.setItem('extra7', false)
+  sessionStorage.setItem('extra8', false)
+  sessionStorage.setItem('extra9', false)
+  sessionStorage.setItem('extra10', false)
+  sessionStorage.setItem('extra11', false)
+  sessionStorage.setItem('extra12', false)
+  sessionStorage.setItem('extra13', false)
+  sessionStorage.setItem('extra14', false)
+  sessionStorage.setItem('extra15', false)
+  sessionStorage.setItem('extra16', false)
+  sessionStorage.setItem('extra17', false)
+  sessionStorage.setItem('extra18', false)
+  sessionStorage.setItem('sport_gk', false)
+
+  sessionStorage.setItem('wish_for_p4_p5', '')
+  gese()
 }

@@ -13,6 +13,7 @@
         <script>
         function check() {
             if (check_for_complete_p() == true) {
+                sessionStorage.setItem('pfaecher_gewaehlt', true)
                 wahl2()
             } else {
                 alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
