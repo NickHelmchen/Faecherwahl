@@ -55,7 +55,12 @@ function saveextra(name) {
 function look_for_extra() {
     for(i = 1; i <= extras; i++) {
         if(sessionStorage.getItem("extra" + i) == "true") {
-            document.getElementById("extra" + i).value = "gewählt"
+            var out = "gewählt"
+            console.log(document.getElementById("extra" + i + "label").textContent)
+            if (document.getElementById("extra" + i + "label").textContent == sessionStorage.getItem('wish_for_p4_p5') + ":") {
+                out = "gewählt (Wunsch für JG 12)"
+            }
+            document.getElementById("extra" + i).value = out
         }else {
             document.getElementById("extra" + i).value = "---/---"
         }
@@ -72,6 +77,7 @@ function output() {
 
 function buttonprint() {
     document.getElementById("printbutton").style.visibility = "hidden"
+    document.getElementById("resetbutton").style.visibility = "hidden"
     document.getElementById("signature").style.visibility = "visible"
     document.getElementById("signature2").style.visibility = "visible"
     document.getElementById("signature3").style.visibility = "visible"
@@ -105,6 +111,7 @@ function buttonprint() {
     print()
 
     document.getElementById("printbutton").style.visibility = "visible"
+    document.getElementById("resetbutton").style.visibility = "visible"
     document.getElementById("signature").style.visibility = "hidden"
     document.getElementById("signature2").style.visibility = "hidden"
     document.getElementById("signature3").style.visibility = "hidden"

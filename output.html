@@ -13,7 +13,7 @@
         <script src="output.js"></script>
       </head>
 
-    <body onload="output(), look_for_extra(), check_for_gewaehlt_output()"class="bgimg">
+    <body onload="output(), check_for_gewaehlt_output()"class="bgimg">
         <div class="grid-container3"> 
 
             <button class="printbutton button1" onclick="buttonprint()" id="printbutton">Drucken</button>
@@ -76,7 +76,9 @@
             <textarea name="signature" id="signature" cols="30" rows="1" class="signature">Unterschrift des/der Schüler(in)</textarea>
             <textarea name="signature" id="signature2" cols="30" rows="1" class="signature2">Unterschrift eines Erziehungsberechtigten</textarea>
             <textarea name="signature" id="signature3" cols="30" rows="1" class="signature3">Datum</textarea>
-
+            <script>
+                look_for_extra()
+            </script>
         </div>
     </body>
 </html>
