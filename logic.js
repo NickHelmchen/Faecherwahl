@@ -43,7 +43,7 @@ function logicvariables() {
   /*
   0: A
   1: B
-  2: C
+  2: C9
   3: Sport
   */
   sessionStorage.setItem("w[0]", true)
@@ -592,7 +592,11 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[3]'), sessionStorage.getItem('biologie_w'))
         break;
       case 'Geschichte':
-        proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[12]'), sessionStorage.getItem('geschichte_w'))
+        try {
+          proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[12]'), sessionStorage.getItem('geschichte_w'))
+        } catch (e) {
+          
+        }
         break
       case 'Franzoesisch':
         var help_fs = false
@@ -630,10 +634,14 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[10]'), sessionStorage.getItem('kunst_w'))
         break;
       case 'Politik Wirtschaft':
-        proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[13]'), sessionStorage.getItem('powi_w'))
-        if (sessionStorage.getItem('profil') == 'gese' && i === 3) {
-          document.getElementById("pfach3.14.label").style.opacity = '1'
-          document.getElementById("pfach3.14").disabled = false
+        try {
+          proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[13]'), sessionStorage.getItem('powi_w'))
+          if (sessionStorage.getItem('profil') == 'gese' && i === 3) {
+            document.getElementById("pfach3.14.label").style.opacity = '1'
+            document.getElementById("pfach3.14").disabled = false
+          }
+        } catch (error) {
+          
         }
         break;
       case 'Spanisch':
@@ -653,42 +661,55 @@ function proof_in_advance(pfach, i) {
         proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[5]'), sessionStorage.getItem('deutsch_w'))
         break;
       case 'Religion':
-        if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('religion_w') === 'true') {
-          if (i <= 3) {
-            document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-            document.getElementById((pfach + j)).disabled = true
-            break
-          }
-          document.getElementById(pfach + j + ".label").style.opacity = '1'
-        } else {
-          document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-          document.getElementById((pfach + j)).disabled = true
-        }
-        break;
-      case 'Erdkunde':
-        if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('erdkunde_w') === 'true') {
-          if (i <= 3) {
-            document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-            document.getElementById((pfach + j)).disabled = true
-            break
-          }
-          document.getElementById(pfach + j + ".label").style.opacity = '1'
-        } else {
-          document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-          document.getElementById((pfach + j)).disabled = true
-        }
-        break;
-      case 'Sport':
-        if (sessionStorage.getItem('w[3]') != 'true') {
-          document.getElementById(pfach + j + ".label").style.opacity = '0.5'
-          document.getElementById((pfach + j)).disabled = true
-        } else {
-          if (sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('sport_w') === 'true') {
+        try {
+          if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('religion_w') === 'true') {
+            if (i <= 3) {
+              document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+              document.getElementById((pfach + j)).disabled = true
+              break
+            }
             document.getElementById(pfach + j + ".label").style.opacity = '1'
           } else {
             document.getElementById(pfach + j + ".label").style.opacity = '0.5'
             document.getElementById((pfach + j)).disabled = true
           }
+        } catch (error) {
+          
+        }
+        
+        break;
+      case 'Erdkunde':
+        try {
+          if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('erdkunde_w') === 'true') {
+            if (i <= 3) {
+              document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+              document.getElementById((pfach + j)).disabled = true
+              break
+            }
+            document.getElementById(pfach + j + ".label").style.opacity = '1'
+          } else {
+            document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+            document.getElementById((pfach + j)).disabled = true
+          }
+        } catch (error) {
+          
+        }
+        break;
+      case 'Sport':
+        try {
+          if (sessionStorage.getItem('w[3]') != 'true') {
+            document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+            document.getElementById((pfach + j)).disabled = true
+          } else {
+            if (sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('sport_w') === 'true') {
+              document.getElementById(pfach + j + ".label").style.opacity = '1'
+            } else {
+              document.getElementById(pfach + j + ".label").style.opacity = '0.5'
+              document.getElementById((pfach + j)).disabled = true
+            }
+          }
+        } catch (error) {
+          
         }
         break;
     }
@@ -972,6 +993,11 @@ function spra() {
       disable_fachbutton('spanisch')
       disable_fachbutton('latein')
       disable_fachbutton('franzoesisch')
+
+      let text = document.getElementById("pflicht").textContent
+      text += ', En'
+      document.getElementById("pflicht").textContent = text
+        
       document.getElementById("div_fs").title = "Da bereits eine 2. Fremdsprache gewählt wurde, wird Englisch automatisch als Grundkurs gewählt"
     }
   } else {
@@ -1191,7 +1217,7 @@ function pflicht_label() {
     if (text == 'Pflicht: ') {
       text += 'PoWi'
     } else {
-      text += ', PoWi '
+      text += ', PoWi'
     }
   }
   document.getElementById("pflicht").textContent = text
