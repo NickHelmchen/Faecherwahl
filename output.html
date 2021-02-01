@@ -90,7 +90,7 @@
         var lastname = sessionStorage.getItem('savelastname')
 
         async function modifyPdf() {
-            const url = '/Profil_pdf/' + sessionStorage.getItem('profil') + '.pdf'
+            const url = 'Profil_pdf/' + sessionStorage.getItem('profil') + '.pdf'
             const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
 
             const pdfDoc = await PDFDocument.load(existingPdfBytes)
