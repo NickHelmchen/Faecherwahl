@@ -267,6 +267,7 @@ body, html {height: 100%}
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
+    align-self: center;
 }
 .reli5, .muku5, .fsprach5, .erdkunde5, .natu5, .informatik5, .fsprach5-2, .natu5-2, .natu5-3{
     padding: 5px;
@@ -601,8 +602,8 @@ body, html {height: 100%}
     grid-row-gap: 5px;
     grid-template-rows: min-content min-content min-content min-content;
     grid-template-areas: 
-        '... ... ... ... ...'
         'input1 info2 info2 buttonrestart button-next'
+        'button-reset-p1 button-reset-p2 button-reset-p3 button-reset-p4 button-reset-p5'
         'lef lefmid mid rigmid rig'
         'info info info rigmid rig';
 }
@@ -622,7 +623,31 @@ body, html {height: 100%}
     border-radius: 20px;
     opacity: 0.9;
 }
-
+.button-reset-p1 {
+    grid-area: button-reset-p1;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p2 {
+    grid-area: button-reset-p2;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p3 {
+    grid-area: button-reset-p3;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p4 {
+    grid-area: button-reset-p4;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p5 {
+    grid-area: button-reset-p5;
+    height: 60px;
+    border-radius: 25px;
+}
 .gp1 {
     grid-area: lef;
 }

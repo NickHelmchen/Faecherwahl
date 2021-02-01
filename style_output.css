@@ -14,6 +14,14 @@
     'pfach3label pfach3 ... pfach4label pfach4'
     'pfach5label pfach5 ... ... ...'
     '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    'extragk ... ... ... ...'
+    '... ... ... ... ...'
     'extra1label extra1 ... extra2label extra2'
     'extra3label extra3 ... extra4label extra4'
     'extra5label extra5 ... extra6label extra6'
@@ -382,7 +390,14 @@
 }
 
 /*----------------------------------------------------------------------------------------------------*/
-
+.extragk {
+    grid-area: extragk;
+    color: black;
+    background-color: skyblue;
+    border-radius: 25px;
+    border: 4px solid skyblue;
+    text-align: center;
+}
 .namelabel {
     grid-area: labelname;
     color: black;

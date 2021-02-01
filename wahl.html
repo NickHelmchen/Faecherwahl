@@ -73,6 +73,30 @@
                 document.getElementById(help_p_index + ".7.label").title = "Kernfach, Bereich A" 
             }
         }
+
+        function p_reset_to_certain_p(a) {
+            for (let i = a; i < 6; i++) {
+                sessionStorage.setItem('pfach' + i, null)
+                uncheck('pfach' + i + '.')
+                if (a == 1) {
+                    for (let j = 1; j < parseInt(sessionStorage.getItem('lp1')) + 1; j++) {
+                        document.getElementById("pfach1." + j).disabled = false
+                    }
+                }
+            }
+            logicvariables()
+            for (let i = a + 1; i < 6; i++) {
+                for (let j = 1; j < parseInt(sessionStorage.getItem('lp' + i)) + 1; j++) {
+                    document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "hidden"
+                    document.getElementById("pfach" + i + "." + j).disabled = true      
+                }
+            }
+            for (let i = 1; i < a; i++) {
+                logicsubjects(i)
+            }
+            proof_in_advance('pfach' + a + '.', a)
+            show_kf_abc()
+        }
         </script>
     </head>
 
@@ -85,10 +109,15 @@
                 Fächer, die im letzten Jahr nicht erteilt wurden dürfen nicht gewählt werden.  
             </textarea>
             <textarea name="info2" id="info_kf" cols="30" rows="1" class="info_kf" readonly>
-Hier tauchen die Infos zu Kernfächern und den Bereichen auf
+Hier tauchen die Infos zu Kernfächern und den Bereichen auf.
             </textarea>
             <textarea name="name" id="name" cols="20" rows="1" class="head-input1" readonly></textarea>
             <button onclick="check()" id="nextpage1" class="next-button buttonfertig">weiter</button>
+            <button onclick="p_reset_to_certain_p(1)" id="resetp1" class="button-reset-p1 buttonfertig">P1 zurücksetzen</button>
+            <button onclick="p_reset_to_certain_p(2)" id="resetp2" class="button-reset-p2 buttonfertig">P2 zurücksetzen</button>
+            <button onclick="p_reset_to_certain_p(3)" id="resetp3" class="button-reset-p3 buttonfertig">P3 zurücksetzen</button>
+            <button onclick="p_reset_to_certain_p(4)" id="resetp4" class="button-reset-p4 buttonfertig">P4 zurücksetzen</button>
+            <button onclick="p_reset_to_certain_p(5)" id="resetp5" class="button-reset-p5 buttonfertig">P5 zurücksetzen</button>
             <button onclick="restart(), terminator()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header" title="schriftliches Prüfungsfach mit erhöhtem Anforderungsniveau (5-stündig)">Prüfungsfach 1</p>
