@@ -56,12 +56,11 @@ function look_for_extra() {
     for(i = 1; i <= extras; i++) {
         if(sessionStorage.getItem("extra" + i) == "true") {
             var out = "gewählt"
-            console.log(document.getElementById("extra" + i + "label").textContent)
             if (document.getElementById("extra" + i + "label").textContent == sessionStorage.getItem('wish_for_p4_p5') + ":") {
                 out = "gewählt (Wunsch für JG 12)"
             }
             document.getElementById("extra" + i).value = out
-        }else {
+        } else {
             document.getElementById("extra" + i).value = "---/---"
         }
     }

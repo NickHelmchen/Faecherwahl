@@ -16,9 +16,6 @@ function url() {
 
     sessionStorage.setItem('savename', params.get('name'))
     sessionStorage.setItem('savelastname', params.get('lastname'))
-
-    console.log("Name: " + sessionStorage.getItem('savename'))
-    console.log("Nachname: " + sessionStorage.getItem('savelastname'))
 }
 
 function terminator() {
@@ -80,13 +77,6 @@ function startset() {
   sessionStorage.setItem('savename', document.getElementById("name").value)
   sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
 
-  console.log(sessionStorage.getItem('savename'))
-  console.log(sessionStorage.getItem('savelastname'))
-}
-
-function selection() {
-  console.log(sessionStorage.getItem('savename'))
-  console.log(sessiontorage.getItem('savelastname'))
 }
 
 function wahl1() {
@@ -110,8 +100,6 @@ function wahl2() {
 
 function page2() {
   document.getElementById("name").value = sessionStorage.getItem('savename') + " " + sessionStorage.getItem('savelastname')
-  console.log("Name: " + sessionStorage.getItem('savename'))
-  console.log("Nachname: " + sessionStorage.getItem('savelastname'))
 }
 
 function wahl3() {
@@ -150,49 +138,6 @@ function selected(pfach, pnummer){
     }
     nextone(pfach)
   }
-
-
-/*function invisible(pfach, pnummer) {
-  console.log(pfach + " : " + document.getElementById(pfach + pnummer).value);
-  if(document.getElementById(pfach + pnummer).checked == true){
-    if(pfach === "pfach1."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach2."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach3."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach4."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach5."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-  } 
-}
-*/
 
 function visible(pfach) {
   if(pfach === "pfach1."){

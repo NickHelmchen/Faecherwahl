@@ -69,12 +69,12 @@
         <label for="extra14" class="extra14label" id="extra14label">Physik:</label>
         <input type="text" class="extra15" name="extra15" id="extra15" readonly>
         <label for="extra15" class="extra15label" id="extra15label">Politik Wirtschaft:</label>
-        <input type="text" class="extra18" name="extra18" id="extra18" readonly>
-        <label for="extra18" class="extra18label" id="extra18label">Religion:</label>
-        <input type="text" class="extra16" name="extra16" id="extra16" readonly>
-        <label for="extra16" class="extra16label" id="extra16label">Spanisch:</label>
-        <input type="text" class="extra17" name="extra17" id="extra17" readonly>
-        <label for="extra17" class="extra17label" id="extra17label">Werte und Normen:</label>
+        <input type="text" class="extra18" name="extra18" id="extra16" readonly>
+        <label for="extra18" class="extra18label" id="extra16label">Religion:</label>
+        <input type="text" class="extra16" name="extra16" id="extra17" readonly>
+        <label for="extra16" class="extra16label" id="extra17label">Spanisch:</label>
+        <input type="text" class="extra17" name="extra17" id="extra18" readonly>
+        <label for="extra17" class="extra17label" id="extra18label">Werte und Normen:</label>
 
         <br>
         <script>
@@ -82,6 +82,15 @@
         </script>
     </div>
     <script>
+        function draw_text_to_pdf(name, location_x, location_y, firstPage, helveticaFont, rgb) {
+            firstPage.drawText(name, {
+                x: location_x,
+                y: location_y,
+                size: 10,
+                font: helveticaFont,
+                color: rgb(0, 0, 0)
+            })
+        }
         var PDFDocument = PDFLib.PDFDocument
         var rgb = PDFLib.rgb
         var StandardFonts = PDFLib.StandardFonts
@@ -100,60 +109,16 @@
             const firstPage = pages[0]
             const { width, height } = firstPage.getSize()
 
-            firstPage.drawText(firstname, {
-                x: 135,
-                y: height -80,
-                size: 10,
-                font: helveticaFont,
-                color: rgb(0, 0, 0)
-            })
-            firstPage.drawText(lastname, {
-                x: 320,
-                y: height - 80,
-                size: 10,
-                font: helveticaFont,
-                color: rgb(0, 0, 0)
-            })
+            draw_text_to_pdf(firstname, 135, height - 80, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(lastname, 320, height - 80, firstPage, helveticaFont, rgb)
 
             if (sessionStorage.getItem('profil') != 'gese') {
-                firstPage.drawText(sessionStorage.getItem('pfach1'), {
-                    x: 41,
-                    y: height / 2 + 78,
-                    size: 10,
-                    font: helveticaFont,
-                    color: rgb(0, 0, 0)
-                })
+                draw_text_to_pdf(sessionStorage.getItem('pfach1'), 41, height / 2 + 78, firstPage, helveticaFont, rgb)
+                draw_text_to_pdf(sessionStorage.getItem('pfach3'), 251, height / 2 + 78, firstPage, helveticaFont, rgb)
             }
-            firstPage.drawText(sessionStorage.getItem('pfach2'), {
-                x: 146,
-                y: height / 2 + 78,
-                size: 10,
-                font: helveticaFont,
-                color: rgb(0, 0, 0)
-            })
-            if (sessionStorage.getItem('profil') != 'gese') {
-                firstPage.drawText(sessionStorage.getItem('pfach3'), {
-                    x: 251,
-                    y: height / 2 + 78,
-                    size: 10,
-                    font: helveticaFont,
-                    color: rgb(0, 0, 0)
-                })
-            }
-            firstPage.drawText(sessionStorage.getItem('pfach4'), {
-                x: 356,
-                y: height / 2 + 78,
-                size: 10,
-                font: helveticaFont,
-                color: rgb(0, 0, 0)
-            })
-            firstPage.drawText(sessionStorage.getItem('pfach5'), {
-                x: 461,
-                y: height / 2 + 78,
-                size: 10,
-                font: helveticaFont,
-                color: rgb(0, 0, 0)
-            })
+            draw_text_to_pdf(sessionStorage.getItem('pfach2'), 146, height / 2 + 78, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(sessionStorage.getItem('pfach4'), 356, height / 2 + 78, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(sessionStorage.getItem('pfach5'), 461, height / 2 + 78, firstPage, helveticaFont, rgb)
 
             let gk_x
             if (sessionStorage.getItem('profil') != 'mana') {
@@ -335,70 +300,36 @@
             if (sessionStorage.getItem('pfach5') == 'Sport') {
                 draw_cross(gk_x, 127.25, firstPage)
             }
-            switch (sessionStorage.getItem('profil')) {
-                case 'mana':
-                    switch (sessionStorage.getItem('wish_for_p4_p5')) {
-                        case 'Geschichte':
-                            draw_cross(35, 70, firstPage)
-                            break;
-                        case 'Politik Wirtschaft':
-                            draw_cross(141, 70, firstPage)
-                            break;
-                        case 'Kunst':
-                            draw_cross(212, 70, firstPage)
-                            break;
-                        case 'Musik':
-                            draw_cross(282.75, 70, firstPage)
-                            break;
-                        case 'Religion':
-                            draw_cross(353.5, 70, firstPage)
-                            break;
-                    }
+            let geschichte_wish_x = 35
+            let powi_wish_x = 141
+            let kunst_wish_x = 212
+            let musik_wish_x = 282.75
+            let religion_wish_x = 353.5
+            if(sessionStorage.getItem('profil') == 'muku' || sessionStorage.getItem('profil') == 'gese'){
+                kunst_wish_x = 35
+                musik_wish_x = 141
+            }
+            if (sessionStorage.getItem('profil') == 'muku') {
+                religion_wish_x = 212
+                }
+            if (sessionStorage.getItem('profil') == 'gese') {
+                religion_wish_x = 247.5
+            }
+            switch (sessionStorage.getItem('wish_for_p4_p5')) {
+                case 'Geschichte':
+                    draw_cross(geschichte_wish_x, 70, firstPage)
                     break;
-                case 'spra':
-                    switch (sessionStorage.getItem('wish_for_p4_p5')) {
-                        case 'Geschichte':
-                            draw_cross(35, 70, firstPage)
-                            break;
-                        case 'Politik Wirtschaft':
-                            draw_cross(141, 70, firstPage)
-                            break;
-                        case 'Kunst':
-                            draw_cross(212, 70, firstPage)
-                            break;
-                        case 'Musik':
-                            draw_cross(282.75, 70, firstPage)
-                            break;
-                        case 'Religion':
-                            draw_cross(353.5, 70, firstPage)
-                            break;
-                    }
+                case 'Kunst':
+                    draw_cross(kunst_wish_x, 70, firstPage)
                     break;
-                case 'muku':
-                    switch (sessionStorage.getItem('wish_for_p4_p5')) {
-                        case 'Geschichte':
-                            draw_cross(35, 70, firstPage)
-                            break;
-                        case 'Politik Wirtschaft':
-                            draw_cross(141, 70, firstPage)
-                            break;
-                        case 'Religion':
-                            draw_cross(212, 70, firstPage)
-                            break;
-                    }
+                case 'Politik Wirtschaft':
+                    draw_cross(powi_wish_x, 70, firstPage)
                     break;
-                case 'gese':
-                    switch (sessionStorage.getItem('wish_for_p4_p5')) {
-                        case 'Kunst':
-                            draw_cross(35, 70, firstPage)
-                            break;
-                        case 'Musik':
-                            draw_cross(141, 70, firstPage)
-                            break;
-                        case 'Religion':
-                            draw_cross(247.5, 70, firstPage)
-                            break;
-                    }
+                case 'Musik':
+                    draw_cross(musik_wish_x, 70, firstPage)
+                    break;
+                case 'Religion':
+                    draw_cross(religion_wish_x, 70, firstPage)
                     break;
             }
             const pdfBytes = await pdfDoc.save()
