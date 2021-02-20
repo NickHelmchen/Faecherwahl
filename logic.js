@@ -160,24 +160,8 @@ function waehlbarkeit(fach_w, choose) {
 }
 //Die Buttons einer Stufe werden deaktiviert
 function disable_buttons_p(i) {
-  var help_lp = 1
-  if (i == 1) {
-    help_lp = parseInt(sessionStorage.getItem('lp1'))
-  }
-  if (i == 2) {
-    help_lp = parseInt(sessionStorage.getItem('lp2'))
-  }
-  if (i == 3) {
-    help_lp = parseInt(sessionStorage.getItem('lp3'))
-  }
-  if (i == 4) {
-    help_lp = parseInt(sessionStorage.getItem('lp4'))
-  }
-  if (i == 5) {
-    help_lp = parseInt(sessionStorage.getItem('lp5'))
-  }
-  for (let j = 1; j < help_lp + 1; j++) {
-    document.getElementById('pfach' + i + "." + j).disabled = true
+  for (let j = 1; j < parseInt(sessionStorage.getItem('lp' + i)) + 1; j++) {
+      document.getElementById('pfach' + i + "." + j).disabled = true
   }
 }
 function enable_fachbutton(fach) {
@@ -528,7 +512,8 @@ function logicsubjects(i) {
 }
 //Teil der Logik, der prüft, welche Fächer in der nächsten Stufe noch wählbar sind (ruft die beiden folgenden Methoden dafür auf)
 function proof_in_advance(pfach, i) {
-  let help_lp = 2
+  let help_lp = sessionStorage.getItem('lp' + i)
+  /*let help_lp = 2
   for (let c = 2; c < 6; c++) {
     if (c == 2) {
       help_lp = sessionStorage.getItem('lp2')
@@ -542,13 +527,17 @@ function proof_in_advance(pfach, i) {
     if (c == 5) {
       help_lp = sessionStorage.getItem('lp5')
     }
+    */
     for (let j = 1; j < help_lp; j++) {
-      if (c >= i) {
-        document.getElementById("pfach" + c + "." + j + ".label").style.opacity = '1'
-        document.getElementById("pfach" + c + "." + j).disabled = false
-      }
+      //if (c >= i) {
+        document.getElementById("pfach" + i + "." + j + ".label").style.opacity = '1'
+        document.getElementById("pfach" + i + "." + j).disabled = false
+        //document.getElementById("pfach" + c + "." + j + ".label").style.opacity = '1'
+        //document.getElementById("pfach" + c + "." + j).disabled = false
+      //}
+      
     }
-  }
+  //}
   //Alle Fächer werden nach Wählbarkeit überprüft
   var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   for (let j = 0; j < 18; j++) {
