@@ -1,10 +1,10 @@
-body {font-family: 'Indie Flower', cursive;}
+body {font-family: 'Actor', sans-serif;}
 body, html {height: 100%}
 
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
 
 .font {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
 }
 
 .bgimg {
@@ -30,7 +30,6 @@ body, html {height: 100%}
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;   
     cursor: pointer;
 }
     .button1:hover,
@@ -65,7 +64,6 @@ body, html {height: 100%}
     text-align: center;
     text-decoration: none;
     display:inline-block;
-    font-size: 15px;   
     cursor: pointer;
 }
     .buttonfertig:hover,
@@ -137,7 +135,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container-index {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
     grid-template-columns: auto auto min-content min-content auto auto;
@@ -246,21 +244,31 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container5 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... button-next2 button-next2'
-        'reli5 muku5 erdkunde5 fsprach5 natu5'
-        '... ... ... ... ...'
-        '... natu5-3 natu5-3 natu5-2 natu5-2';
+        'input2 pflicht_gk reset-p-5 reset5 button-next2'
+        'reli5 muku5 fsprach5 natu5 natu5-2'
+        'erdkunde5 natu5-3 ... ... ...'
+        '... ... ... ... ...';
 
 }
-
+.pflicht_gk {
+    grid-area: pflicht_gk;
+    height: 30px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    align-self: center;
+}
 .reli5, .muku5, .fsprach5, .erdkunde5, .natu5, .informatik5, .fsprach5-2, .natu5-2, .natu5-3{
     padding: 5px;
     background-color:rgb(236, 236, 236);
@@ -269,59 +277,71 @@ body, html {height: 100%}
 }
 
 .reli5 { 
-    height: 250px;
+    height: 300px;
     grid-area: reli5;  
 }
 
 .muku5 {  
-    height: 250px;
+    height: 300px;
     grid-area: muku5;  
 }
 
 .natu5 {
-    height: 250px;
+    height: 300px;
     grid-area: natu5;   
 }
 
 .natu5-2 {
-    height: 450px;
     grid-area: natu5-2;   
+    grid-row: 3 / 6;
 }
  .natu5-3 {
-     height: 250px;
+     height: 300px;
      grid-area: natu5-3;
  }
 
 .erdkunde5 { 
-    height: 250px;
+    height: 300px;
     grid-area: erdkunde5; 
 }
 
 .informatik5 { 
-    height: 250px;
+    height: 300px;
     grid-area: informatik5; 
 }
 
 .fsprach5 {  
-    height: 250px;
+    height: 300px;
     grid-area: fsprach5;  
+}
+.reset5 {
+    grid-area: reset5;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-5 {
+    grid-area: reset-p-5;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container4 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
-        '... ... ... ... ... ...'
-        'input2 ... ... ... button-next2 button-next2'
-        'reli4 muku4 erdkunde4 informatik4 fsprach4 natu4'
-        '... ... natu4-2 natu4-2 ... ...'
-        '... ... ... ... ... ...';
+        '... ... ... ... ...'
+        'input2 pflicht_gk reset-p-4 reset4 button-next2'
+        'reli4 fsprach4 natu4 muku4 muku4'
+        'natu4-2 erdkunde4 informatik4 ... ...'
+        '... ... ... ... ...';
 
 }
 
@@ -333,55 +353,67 @@ body, html {height: 100%}
 }
 
 .reli4 { 
-    height: 250px;
+    height: 300px;
     grid-area: reli4;  
 }
 
 .muku4 {  
-    height: 250px;
+    height: 300px;
     grid-area: muku4;  
 }
 
 .natu4 {
-    height: 250px;
+    height: 300px;
     grid-area: natu4;   
 }
 
 .natu4-2 {
-    height: 250px;
+    height: 300px;
     grid-area: natu4-2;
 }
 
 .erdkunde4 { 
-    height: 250px;
+    height: 300px;
     grid-area: erdkunde4; 
 }
 
 .informatik4 { 
-    height: 250px;
+    height: 300px;
     grid-area: informatik4; 
 }
 
 .fsprach4 {  
-    height: 250px;
+    height: 300px;
     grid-area: fsprach4;  
+}
+.reset4 {
+    grid-area: reset4;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-4 {
+    grid-area: reset-p-4;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container3 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
-        '... ... ... ... ... ...'
-        'input2 ... ... ... button-next2 button-next2'
-        'reli3 muku3 natu3 informatik3 erdkunde3 fsprach3'
-        '... ... natu3-2 natu3-2 ... ...'
-        '... ... ... ... ... ...';
+        '... ... ... ... ...'
+        'input2 pflicht_gk reset-p-3 reset3 button-next2'
+        'reli3 muku3 natu3 fsprach3 fsprach3'
+        'natu3-2 erdkunde3 informatik3 ... ...'
+        '... ... ... ... ...';
 
 }
 
@@ -393,17 +425,17 @@ body, html {height: 100%}
 }
 
 .reli3 { 
-    height: 250px;
+    height: 300px;
     grid-area: reli3;  
 }
 
 .muku3 {  
-    height: 250px;
+    height: 300px;
     grid-area: muku3;  
 }
 
 .natu3 {
-    height: 250px;
+    height: 300px;
     grid-area: natu3;   
 }
 
@@ -413,34 +445,45 @@ body, html {height: 100%}
 }
 
 .erdkunde3 { 
-    height: 250px;
+    height: 300px;
     grid-area: erdkunde3; 
 }
 
 .informatik3 { 
-    height: 250px;
+    height: 300px;
     grid-area: informatik3; 
 }
 
 .fsprach3 {  
-    height: 250px;
+    height: 300px;
     grid-area: fsprach3;  
 }
-
+.reset3 {
+    grid-area: reset3;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-3 {
+    grid-area: reset-p-3;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container2 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
-    grid-template-rows: min-content min-content min-content min-content min-content;
+    grid-template-rows: repeat(5, min-content);
     grid-template-areas: 
         '... ... ... ... ...'
-        'input2 ... ... button-next2 button-next2'
-        'reli muku fsprach natu erdkunde'
-        '... ... natu1-2 natu1-2 ...'
+        'input2 pflicht_gk reset-p-2 reset2 button-next2'
+        'reli muku fsprach natu natu'
+        'natu1-2 erdkunde ... ... ...'
         '... ... ... ... ...';
 
 }
@@ -453,27 +496,27 @@ body, html {height: 100%}
 }
 
 .reli { 
-    height: 250px;
+    height: 300px;
     grid-area: reli;  
 }
 
 .muku {  
-    height: 250px;
+    height: 300px;
     grid-area: muku;  
 }
 
 .fsprach {  
-    height: 250px;
+    height: 3ß0px;
     grid-area: fsprach;  
 }
 
 .erdkunde { 
-    height: 250px;
+    height: 300px;
     grid-area: erdkunde; 
 }
 
 .natu {
-    height: 250px;
+    height: 300px;
     grid-area: natu;   
 }
 
@@ -485,11 +528,11 @@ body, html {height: 100%}
 .head-input2 {
     grid-area: input2;
     height: 30px;
-    width: 200px;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: center;
 }
 
@@ -497,27 +540,37 @@ body, html {height: 100%}
 .next-button2 {
     grid-area: button-next2;
     height: 60px;
-    width: 200px;
+    width: 1fr;
     border-radius: 25px;
-    margin: auto;
 }
-
+.reset2 {
+    grid-area: reset2;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
+.reset-p-2 {
+    grid-area: reset-p-2;
+    height: 60px;
+    width: 1fr;
+    border-radius: 25px;
+}
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container1 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
     grid-template-rows: min-content min-content min-content min-content;
     grid-template-areas: 
         '... ... ... ... ...'
-        'input1 ... ... button-next button-next'
+        'input1 ... ... ... button-next'
         '... ... ... ... ...'
-        '... ... textinfo ... ...'
-        '... ... textinfo ... ...'
-        '... ... textinfo ... ...';
+        '... textinfo textinfo textinfo ...'
+        '... textinfo textinfo textinfo ...'
+        '... textinfo textinfo textinfo ...';
 }
 
 .infotext {
@@ -527,18 +580,30 @@ body, html {height: 100%}
     resize: none;
 }
 
+.head-input1 {
+    grid-area: input1;
+    height: 30px;
+    grid-column: 1 / 2;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
+
 /*----------------------------------------------------------------------------------------------------*/
 
 .grid-container {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(5, 1fr);
     grid-row-gap: 5px;
     grid-template-rows: min-content min-content min-content min-content;
     grid-template-areas: 
-        '... ... ... ... ...'
-        'input1 ... ... buttonrestart button-next'
+        'input1 info2 info2 buttonrestart button-next'
+        'button-reset-p1 button-reset-p2 button-reset-p3 button-reset-p4 button-reset-p5'
         'lef lefmid mid rigmid rig'
         'info info info rigmid rig';
 }
@@ -558,7 +623,31 @@ body, html {height: 100%}
     border-radius: 20px;
     opacity: 0.9;
 }
-
+.button-reset-p1 {
+    grid-area: button-reset-p1;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p2 {
+    grid-area: button-reset-p2;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p3 {
+    grid-area: button-reset-p3;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p4 {
+    grid-area: button-reset-p4;
+    height: 60px;
+    border-radius: 25px;
+}
+.button-reset-p5 {
+    grid-area: button-reset-p5;
+    height: 60px;
+    border-radius: 25px;
+}
 .gp1 {
     grid-area: lef;
 }
@@ -583,11 +672,12 @@ body, html {height: 100%}
 .head-input1 {
     grid-area: input1;
     height: 30px;
-    width: 200px;
+    grid-column: 1 / 2;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     text-align: center;
 }
 
@@ -595,33 +685,48 @@ body, html {height: 100%}
 .next-button {
     grid-area: button-next;
     height: 60px;
-    width: 200px;
+    grid-column: 5 / 6;
     border-radius: 25px;
-    margin: auto;
 }
 
 .info {
     grid-area: info;
+    grid-column: 1 / 4;
+    justify-self: stretch;
+    align-self: stretch;
     background-color:rgb(236, 236, 236);
     height: 120px;
-    width: 850px;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
-
+.info_kf {
+    grid-area: info2;
+    grid-column: 2 / span 2;
+    justify-self: stretch;
+    align-self: stretch;
+    background-color:rgb(236, 236, 236);
+    height: 30px;
+    border-radius: 25px;
+    overflow: hidden;
+    cursor: default;
+    resize: none;
+    text-align: center;
+    align-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
 .restartbutton {
     grid-area: buttonrestart;
-    margin: auto;
+    grid-column: 4 / 5;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
 
 .header {
     font-size: 20px;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     text-align: center; 
     text-decoration: underline;  
     cursor: default;
@@ -664,7 +769,6 @@ body, html {height: 100%}
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;   
     cursor: pointer;
     top: 280px;
     -ms-transform: translateX(-50%);
@@ -677,7 +781,7 @@ body, html {height: 100%}
 /*----------------------------------------------------------------------------------------------------*/
 
 .startauswahlbutton {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     background-color: skyblue;
     border: none;
     border-radius: 15px;
@@ -702,7 +806,7 @@ body, html {height: 100%}
     }
 
     .startauswahlbutton2 {
-        font-family: 'Indie Flower', cursive;
+        font-family: 'Actor', sans-serif;
         background-color: skyblue;
         border: none;
         border-radius: 15px;
@@ -742,7 +846,7 @@ body, html {height: 100%}
 	display: none;
 }
 .cookieConsentContainer .cookieTitle a {
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	font-size: 22px;
 	line-height: 20px;
@@ -751,20 +855,20 @@ body, html {height: 100%}
 .cookieConsentContainer .cookieDesc p {
 	margin: 0;
 	padding: 0;
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	font-size: 13px;
 	line-height: 20px;
 	display: block;
 	margin-top: 10px;
 } .cookieConsentContainer .cookieDesc a {
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	text-decoration: underline;
 }
 .cookieConsentContainer .cookieButton a {
 	display: inline-block;
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Actor', sans-serif;
 	color: #FFFFFF;
 	font-size: 14px;
 	font-weight: bold;

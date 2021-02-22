@@ -1,80 +1,356 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="Seminarfuchs2.png" type="image/x-icon">
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="style_output.css" />
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <title> Fächerwahl </title>
-        <script src="script.js"></script>
-        <script src="output.js"></script>
-      </head>
 
-    <body onload="output(), look_for_extra()"class="bgimg">
-        <div class="grid-container3"> 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Seminarfuchs2.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_output.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title> Fächerwahl </title>
+    <script src="script.js"></script>
+    <script src="logic.js"></script>
+    <script src="output.js"></script>
+    <script src="pdf-lib/dist/pdf-lib.js"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+</head>
 
-            <button class="printbutton button1" onclick="buttonprint()" id="printbutton">Drucken</button>
-            <input type="text" class="name" name="name" id="name" readonly>
-            <label for="name" class="namelabel" id="namelabel"> Name: </label>
-            <input type="text" class="lastname" name="lastname" id="lastname" readonly>
-            <label for="lastname" class="lastnamelabel" id="lastnamelabel"> Nachname: </label>
-            <input type="text" class="pfach1" name="pfach1" id="pfach1" readonly>
-            <label for="pfach1" class="pfach1label" id="pfach1label">Prüfungsfach 1:</label>
-            <input type="text" class="pfach2" name="pfach2" id="pfach2" readonly>
-            <label for="pfach2" class="pfach2label" id="pfach2label">Prüfungsfach 2:</label>
-            <input type="text" class="pfach3" name="pfach3" id="pfach3" readonly>
-            <label for="pfach3" class="pfach3label" id="pfach3label">Prüfungsfach 3:</label>
-            <input type="text" class="pfach4" name="pfach4" id="pfach4" readonly>
-            <label for="pfach4" class="pfach4label" id="pfach4label">Prüfungsfach 4:</label>
-            <input type="text" class="pfach5" name="pfach5" id="pfach5" readonly>
-            <label for="pfach5" class="pfach5label" id="pfach5label">Prüfungsfach 5:</label>
-            
+<body onload="output(), check_for_gewaehlt_output()" class="bgimg">
+    <div class="grid-container3">
 
-            <input type="text" class="extra1" name="extra1" id="extra1" readonly>
-            <label for="extra1" class="extra1label" id="extra1label">Mathe:</label>
-            <input type="text" class="extra2" name="extra2" id="extra2" readonly>
-            <label for="extra2" class="extra2label" id="extra2label">Chemie:</label>
-            <input type="text" class="extra3" name="extra3" id="extra3" readonly>
-            <label for="extra3" class="extra3label" id="extra3label">Englisch:</label>
-            <input type="text" class="extra4" name="extra4" id="extra4" readonly>
-            <label for="extra4" class="extra4label" id="extra4label">Physik:</label>
-            <input type="text" class="extra5" name="extra5" id="extra5" readonly>
-            <label for="extra5" class="extra5label" id="extra5label">Biologie:</label>
-            <input type="text" class="extra6" name="extra" id="extra6" readonly>
-            <label for="extra6" class="extra6label" id="extra6label">Französisch:</label>
-            <input type="text" class="extra7" name="extra7" id="extra7" readonly>
-            <label for="extra7" class="extra7label" id="extra7label">Latein:</label>
-            <input type="text" class="extra8" name="extra8" id="extra8" readonly>
-            <label for="extra8" class="extra8label" id="extra8label">Musik:</label>
-            <input type="text" class="extra9" name="extra9" id="extra9" readonly>
-            <label for="extra9" class="extra9label" id="extra9label">Informatik:</label>
-            <input type="text" class="extra10" name="extra10" id="extra10" readonly>
-            <label for="extra10" class="extra10label" id="extra10label">Kunst:</label>
-            <input type="text" class="extra11" name="extra11" id="extra11" readonly>
-            <label for="extra11" class="extra11label" id="extra11label">Spanisch:</label>
-            <input type="text" class="extra12" name="extra12" id="extra12" readonly>
-            <label for="extra12" class="extra12label" id="extra12label">Deutsch:</label>
-            <input type="text" class="extra13" name="extra13" id="extra13" readonly>
-            <label for="extra13" class="extra13label" id="extra13label">Geschichte:</label>
-            <input type="text" class="extra14" name="extra14" id="extra14" readonly>
-            <label for="extra14" class="extra14label" id="extra14label">Politik Wirtschaft:</label>
-            <input type="text" class="extra15" name="extra15" id="extra15" readonly>
-            <label for="extra15" class="extra15label" id="extra15label">Religion:</label>
-            <input type="text" class="extra18" name="extra18" id="extra18" readonly>
-            <label for="extra18" class="extra18label" id="extra18label">Werte und Normen:</label>
-            <input type="text" class="extra16" name="extra16" id="extra16" readonly>
-            <label for="extra16" class="extra16label" id="extra16label">Erdkunde:</label>
-            <input type="text" class="extra17" name="extra17" id="extra17" readonly>
-            <label for="extra17" class="extra17label" id="extra17label">Darstellendes Spiel:</label>
+        <button class="printbutton button1" onclick="modifyPdf()" id="printbutton">PDF herunterladen</button>
+        <button class="resetbutton button1" onclick="location.href='faecherwahl_main.html'" type="button"
+            id="resetbutton">Nochmal wählen</button>
+        <input type="text" class="name" name="name" id="name" readonly>
+        <label for="name" class="namelabel" id="namelabel"> Name: </label>
+        <input type="text" class="lastname" name="lastname" id="lastname" readonly>
+        <label for="lastname" class="lastnamelabel" id="lastnamelabel"> Nachname: </label>
+        <input type="text" class="pfach1" name="pfach1" id="pfach1" readonly>
+        <label for="pfach1" class="pfach1label" id="pfach1label">Prüfungsfach 1:</label>
+        <input type="text" class="pfach2" name="pfach2" id="pfach2" readonly>
+        <label for="pfach2" class="pfach2label" id="pfach2label">Prüfungsfach 2:</label>
+        <input type="text" class="pfach3" name="pfach3" id="pfach3" readonly>
+        <label for="pfach3" class="pfach3label" id="pfach3label">Prüfungsfach 3:</label>
+        <input type="text" class="pfach4" name="pfach4" id="pfach4" readonly>
+        <label for="pfach4" class="pfach4label" id="pfach4label">Prüfungsfach 4:</label>
+        <input type="text" class="pfach5" name="pfach5" id="pfach5" readonly>
+        <label for="pfach5" class="pfach5label" id="pfach5label">Prüfungsfach 5:</label>
 
-            <br>
 
-            <textarea name="signature" id="signature" cols="30" rows="1" class="signature">Unterschrift des/der Schüler(in)</textarea>
-            <textarea name="signature" id="signature2" cols="30" rows="1" class="signature2">Unterschrift eines Erziehungsberechtigten</textarea>
-            <textarea name="signature" id="signature3" cols="30" rows="1" class="signature3">Datum</textarea>
+        <label for="extragk" class="extragk" id="extragklabel"> Gewählte Grundkurse: </label>
+        <input type="text" class="extra1" name="extra1" id="extra1" readonly>
+        <label for="extra1" class="extra1label" id="extra1label">Biologie:</label>
+        <input type="text" class="extra2" name="extra2" id="extra2" readonly>
+        <label for="extra2" class="extra2label" id="extra2label">Chemie:</label>
+        <input type="text" class="extra3" name="extra3" id="extra3" readonly>
+        <label for="extra3" class="extra3label" id="extra3label">Darstellendes Spiel:</label>
+        <input type="text" class="extra4" name="extra4" id="extra4" readonly>
+        <label for="extra4" class="extra4label" id="extra4label">Deutsch:</label>
+        <input type="text" class="extra5" name="extra5" id="extra5" readonly>
+        <label for="extra5" class="extra5label" id="extra5label">Englisch:</label>
+        <input type="text" class="extra6" name="extra" id="extra6" readonly>
+        <label for="extra6" class="extra6label" id="extra6label">Erdkunde:</label>
+        <input type="text" class="extra7" name="extra7" id="extra7" readonly>
+        <label for="extra7" class="extra7label" id="extra7label">Französisch:</label>
+        <input type="text" class="extra8" name="extra8" id="extra8" readonly>
+        <label for="extra8" class="extra8label" id="extra8label">Geschichte:</label>
+        <input type="text" class="extra9" name="extra9" id="extra9" readonly>
+        <label for="extra9" class="extra9label" id="extra9label">Informatik:</label>
+        <input type="text" class="extra10" name="extra10" id="extra10" readonly>
+        <label for="extra10" class="extra10label" id="extra10label">Kunst:</label>
+        <input type="text" class="extra11" name="extra11" id="extra11" readonly>
+        <label for="extra11" class="extra11label" id="extra11label">Latein:</label>
+        <input type="text" class="extra12" name="extra12" id="extra12" readonly>
+        <label for="extra12" class="extra12label" id="extra12label">Mathematik:</label>
+        <input type="text" class="extra13" name="extra13" id="extra13" readonly>
+        <label for="extra13" class="extra13label" id="extra13label">Musik:</label>
+        <input type="text" class="extra14" name="extra14" id="extra14" readonly>
+        <label for="extra14" class="extra14label" id="extra14label">Physik:</label>
+        <input type="text" class="extra15" name="extra15" id="extra15" readonly>
+        <label for="extra15" class="extra15label" id="extra15label">Politik Wirtschaft:</label>
+        <input type="text" class="extra18" name="extra18" id="extra16" readonly>
+        <label for="extra18" class="extra18label" id="extra16label">Religion:</label>
+        <input type="text" class="extra16" name="extra16" id="extra17" readonly>
+        <label for="extra16" class="extra16label" id="extra17label">Spanisch:</label>
+        <input type="text" class="extra17" name="extra17" id="extra18" readonly>
+        <label for="extra17" class="extra17label" id="extra18label">Werte und Normen:</label>
 
-        </div>
-    </body>
+        <br>
+        <script>
+            look_for_extra()
+        </script>
+    </div>
+    <script>
+        function draw_text_to_pdf(name, location_x, location_y, firstPage, helveticaFont, rgb) {
+            firstPage.drawText(name, {
+                x: location_x,
+                y: location_y,
+                size: 10,
+                font: helveticaFont,
+                color: rgb(0, 0, 0)
+            })
+        }
+        var PDFDocument = PDFLib.PDFDocument
+        var rgb = PDFLib.rgb
+        var StandardFonts = PDFLib.StandardFonts
+        var degrees = PDFLib.degrees
+        var firstname = sessionStorage.getItem('savename')
+        var lastname = sessionStorage.getItem('savelastname')
+
+        async function modifyPdf() {
+            const url = 'Profil_pdf/' + sessionStorage.getItem('profil') + '.pdf'
+            const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer())
+
+            const pdfDoc = await PDFDocument.load(existingPdfBytes)
+            const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica)
+
+            const pages = pdfDoc.getPages()
+            const firstPage = pages[0]
+            const { width, height } = firstPage.getSize()
+
+            draw_text_to_pdf(firstname, 135, height - 80, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(lastname, 320, height - 80, firstPage, helveticaFont, rgb)
+
+            if (sessionStorage.getItem('profil') != 'gese') {
+                draw_text_to_pdf(sessionStorage.getItem('pfach1'), 41, height / 2 + 78, firstPage, helveticaFont, rgb)
+                draw_text_to_pdf(sessionStorage.getItem('pfach3'), 251, height / 2 + 78, firstPage, helveticaFont, rgb)
+            }
+            draw_text_to_pdf(sessionStorage.getItem('pfach2'), 146, height / 2 + 78, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(sessionStorage.getItem('pfach4'), 356, height / 2 + 78, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(sessionStorage.getItem('pfach5'), 461, height / 2 + 78, firstPage, helveticaFont, rgb)
+
+            let gk_x
+            if (sessionStorage.getItem('profil') != 'mana') {
+                gk_x = 249.25
+            } else {
+                gk_x = 252.75
+            }
+
+            for (let i = 1; i < 6; i++) {
+                switch (sessionStorage.getItem('pfach' + i)) {
+                    case 'Biologie':
+                        if (i < 4) {
+                            draw_cross(175, 410, firstPage)
+                        } else {
+                            draw_cross(gk_x, 410, firstPage)
+                        }
+                        break;
+                    case 'Chemie':
+                        if (i < 4) {
+                            draw_cross(175, 391, firstPage)
+                        } else {
+                            draw_cross(gk_x, 391, firstPage)
+                        }
+                        break;
+                    case 'Deutsch':
+                        if (i < 4) {
+                            draw_cross(175, 361, firstPage)
+                        } else {
+                            draw_cross(gk_x, 361, firstPage)
+                        }
+                        break;
+                    case 'Englisch':
+                        if (i < 4) {
+                            draw_cross(175, 346.25, firstPage)
+                        } else {
+                            draw_cross(gk_x, 346.25, firstPage)
+                        }
+                        break;
+                    case 'Französisch':
+                        if (i < 4) {
+                            draw_cross(175, 317, firstPage)
+                        } else {
+                            draw_cross(gk_x, 317, firstPage)
+                        }
+                        break;
+                    case 'Geschichte':
+                        if (i < 4) {
+                            if (sessionStorage.getItem('profil') != 'gese') {
+                                draw_cross(175, 302, firstPage)
+                            }
+                        } else {
+                            draw_cross(gk_x, 302, firstPage)
+                        }
+                        break;
+                    case 'Informatik':
+                        if (i < 4) {
+                            draw_cross(175, 288, firstPage)
+                        } else {
+                            draw_cross(gk_x, 288, firstPage)
+                        }
+                        break;
+                    case 'Kunst':
+                        if (i < 4) {
+                            draw_cross(175, 273, firstPage)
+                        } else {
+                            draw_cross(gk_x, 273, firstPage)
+                        }
+                        break;
+                    case 'Latein':
+                        if (i < 4) {
+                            draw_cross(175, 259, firstPage)
+                        } else {
+                            draw_cross(gk_x, 259, firstPage)
+                        }
+                        break;
+                    case 'Mathe':
+                        if (i < 4) {
+                            draw_cross(175, 243.5, firstPage)
+                        } else {
+                            draw_cross(gk_x, 243.5, firstPage)
+                        }
+                        break;
+                    case 'Musik':
+                        if (i < 4) {
+                            draw_cross(175, 229.5, firstPage)
+                        } else {
+                            draw_cross(gk_x, 229.5, firstPage)
+                        }
+                        break;
+                    case 'Physik':
+                        if (i < 4) {
+                            draw_cross(175, 214.5, firstPage)
+                        } else {
+                            draw_cross(gk_x, 214.5, firstPage)
+                        }
+                        break;
+                    case 'Politik Wirtschaft':
+                        if (i < 4) {
+                            if (sessionStorage.getItem('profil') != 'gese') {
+                                draw_cross(175, 199.75, firstPage)
+                            }
+                        } else {
+                            draw_cross(gk_x, 199.75, firstPage)
+                        }
+                        break;
+                    case 'Spanisch':
+                        if (i < 4) {
+                            draw_cross(175, 156, firstPage)
+                        } else {
+                            draw_cross(gk_x, 156, firstPage)
+                        }
+                        break;
+                    case 'Religion':
+                        draw_cross(gk_x, 184.75, firstPage)
+                        break;
+                }
+
+            }
+            for (let i = 1; i < 19; i++) {
+                if (sessionStorage.getItem('extra' + i) == 'true') {
+                    switch (document.getElementById("extra" + i + "label").innerText) {
+                        case "Biologie:":
+                            draw_cross(gk_x, 410, firstPage)
+                            break;
+                        case "Chemie:":
+                            draw_cross(gk_x, 391, firstPage)
+                            break;
+                        case "Darstellendes Spiel:":
+                            draw_cross(gk_x, 376, firstPage)
+                            break;
+                        case "Deutsch:":
+                            draw_cross(gk_x, 361, firstPage)
+                            break;
+                        case "Englisch:":
+                            draw_cross(gk_x, 346.25, firstPage)
+                            break;
+                        case "Erdkunde:":
+                            draw_cross(gk_x, 332, firstPage)
+                            break;
+                        case "Französisch:":
+                            draw_cross(gk_x, 317, firstPage)
+                            break;
+                        case "Geschichte:":
+                            draw_cross(gk_x, 302, firstPage)
+                            break;
+                        case "Informatik:":
+                            draw_cross(gk_x, 288, firstPage)
+                            break;
+                        case "Kunst:":
+                            draw_cross(gk_x, 273, firstPage)
+                            break;
+                        case "Latein:":
+                            draw_cross(gk_x, 259, firstPage)
+                            break;
+                        case "Mathematik:":
+                            draw_cross(gk_x, 243.5, firstPage)
+                            break;
+                        case "Musik:":
+                            draw_cross(gk_x, 229.5, firstPage)
+                            break;
+                        case "Physik:":
+                            draw_cross(gk_x, 214.5, firstPage)
+                            break;
+                        case "Politik Wirtschaft:":
+                            draw_cross(gk_x, 199.75, firstPage)
+                            break;
+                        case "Religion:":
+                            draw_cross(gk_x, 184.75, firstPage)
+                            break;
+                        case "Spanisch:":
+                            draw_cross(gk_x, 156, firstPage)
+                            break;
+                        case "Werte und Normen:":
+                            draw_cross(gk_x, 112.25, firstPage)
+                            break;
+                    }
+                }
+            }
+            if (sessionStorage.getItem('pfach5') == 'Sport') {
+                draw_cross(gk_x, 127.25, firstPage)
+            }
+            let geschichte_wish_x = 35
+            let powi_wish_x = 141
+            let kunst_wish_x = 212
+            let musik_wish_x = 282.75
+            let religion_wish_x = 353.5
+            if(sessionStorage.getItem('profil') == 'muku' || sessionStorage.getItem('profil') == 'gese'){
+                kunst_wish_x = 35
+                musik_wish_x = 141
+            }
+            if (sessionStorage.getItem('profil') == 'muku') {
+                religion_wish_x = 212
+                }
+            if (sessionStorage.getItem('profil') == 'gese') {
+                religion_wish_x = 247.5
+            }
+            switch (sessionStorage.getItem('wish_for_p4_p5')) {
+                case 'Geschichte':
+                    draw_cross(geschichte_wish_x, 70, firstPage)
+                    break;
+                case 'Kunst':
+                    draw_cross(kunst_wish_x, 70, firstPage)
+                    break;
+                case 'Politik Wirtschaft':
+                    draw_cross(powi_wish_x, 70, firstPage)
+                    break;
+                case 'Musik':
+                    draw_cross(musik_wish_x, 70, firstPage)
+                    break;
+                case 'Religion':
+                    draw_cross(religion_wish_x, 70, firstPage)
+                    break;
+            }
+            const pdfBytes = await pdfDoc.save()
+            download(pdfBytes, "Wahlen_QP_" + firstname + "_" + lastname + ".pdf", "application/pdf")
+        }
+
+        function draw_cross(a, e, firstPage) {
+            firstPage.drawLine({
+                color: rgb(0, 0, 0),
+                start: { x: a, y: e },
+                end: { x: a + 10, y: e + 10 },
+                thickness: 1
+            })
+            firstPage.drawLine({
+                color: rgb(0, 0, 0),
+                start: { x: a, y: e + 10 },
+                end: { x: a + 10, y: e },
+                thickness: 1
+            })
+        }
+    </script>
+</body>
+
 </html>
