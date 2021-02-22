@@ -43,7 +43,7 @@ function logicvariables() {
   /*
   0: A
   1: B
-  2: C9
+  2: C
   3: Sport
   */
   sessionStorage.setItem("w[0]", true)
@@ -164,10 +164,14 @@ function disable_buttons_p(i) {
       document.getElementById('pfach' + i + "." + j).disabled = true
   }
 }
+
+//Die Buttons eines bestimmten Fachs werden aktiviert
 function enable_fachbutton(fach) {
   document.getElementById(fach + ".label").style.opacity = '1'
   document.getElementById(fach).disabled = false
 }
+
+//Die Buttons eines bestimmten Fachs werden deaktiviert
 function disable_fachbutton(fach) {
   document.getElementById(fach + ".label").style.opacity = '0.5'
   document.getElementById(fach).disabled = true
@@ -180,6 +184,8 @@ function nw_add() {
 function fs_add() {
   sessionStorage.setItem('counter_fs', (parseInt(sessionStorage.getItem('counter_fs')) + 1))
 }
+
+//Es wird überprüft, ob eine Fremdsprache bereits gewählt wurde. Falls ja, ist die nächste Fremdsprache kein Kernfach mehr.
 function fs_schon_gewaehlt_logic(fach_a, fach_b, fach_c) {
   let help2 = false
   for (let k = 1; k < i && help2 == false; k++) {
@@ -195,7 +201,8 @@ function fs_schon_gewaehlt_logic(fach_a, fach_b, fach_c) {
     kernfaecher_add()
   }
 }
-//Der Teil, der Logik, welcher die Variablen setzt
+
+//Der Teil, der Logik, welcher die Variablen setzt. Die Profile werden durch die P1er Fächer gesetzt.
 function logicsubjects(i) {
   switch (sessionStorage.getItem('pfach' + i)) {
     case 'Mathe':
@@ -416,25 +423,32 @@ function logicsubjects(i) {
       waehlbarkeit('sport_w', false)
       break
   }
+  //Falls nicht kernfächer 3 sind, muss man Kernfächer wählen & kann eben keine nicht Kernfächer mehr wählen
   if (sessionStorage.getItem('nicht_kernfaecher') == 3) {
     sessionStorage.setItem('w_nk', false)
   }
+  //Falls weder der Bereich A, noch der Bereich B noch der Bereich C 0 ist und i bereits 4 ist, wird Sport auf wählbar gesetzt.
   if (sessionStorage.getItem('A_anzahl') != 0 && sessionStorage.getItem('B_anzahl') != 0 && sessionStorage.getItem('C_anzahl') != 0 && i == 4) {
     sessionStorage.setItem('w[3]', true)
   }
 
+  //Es wird ein Array erstellt, in dem die Bezeichnungen von den Anzahlen rein kommen
   let Anzahlen = [['A_anzahl', 'B_anzahl', 'C_anzahl'],['B_anzahl', 'C_anzahl', 'A_anzahl'],['C_anzahl', 'A_anzahl', 'B_anzahl']]
+  //Die Wählbarkeit der Bereiche wird in diesem Array gespeichert.
   let waehlbarkeit_bereiche = [['w[0]', 'w[1]', 'w[2]'], ['w[1]', 'w[2]', 'w[0]'], ['w[2]', 'w[0]', 'w[1]']]
 
+  //Das Array Anzahlen wird durch gegangen und es wird gschaut, ob ein Bereich bereits 3 mal gewählt wurde. Falls ja, darf dieser Bereich nicht mehr gewählt werden
   for (let h = 0; h < Anzahlen.length; h++) {
     if (parseInt(sessionStorage.getItem(Anzahlen[h][0])) == 3) {
       sessionStorage.setItem(toString(waehlbarkeit_bereiche[h][0]), false)
+      //Falls Kernfächer bereits 1 sind und A gleich 3 ist, darf keine Naturwissenschaft mehr gewählt werden
       if (parseInt(sessionStorage.getItem('kernfaecher')) == 1 && parseInt(sessionStorage.getItem('A_anzahl')) == 3) {
         sessionStorage.setItem('physik_w', false)
         sessionStorage.setItem('chemie_w', false)
         sessionStorage.setItem('informatik_w', false)
         sessionStorage.setItem('biologie_w', false)
       }
+      //Falls ein Bereich eins ist, darf dieser auch nicht mehr gewählt werden, da A,B,C min. 1 mal vertreten sein muss.
       if (sessionStorage.getItem(Anzahlen[h][1]) == '1') {
         sessionStorage.setItem(waehlbarkeit_bereiche[h][1], false)
       }
@@ -444,6 +458,7 @@ function logicsubjects(i) {
     }
   }
 
+  //Falls ein Bereich bereits 2 mal gewählt wurde, muss geschaut werden, ob ein Anderer Bereich bereits 2 mal gewählt wurde. Falls ja, muss der letzte Bereich auch vertreten sein.
   if (parseInt(sessionStorage.getItem('A_anzahl')) == 2) {
     if (parseInt(sessionStorage.getItem('B_anzahl')) == 2) {
       sessionStorage.setItem('w[0]', false)
@@ -494,13 +509,14 @@ function logicsubjects(i) {
     }
   }
 
-
+  //Es wird nach Naturwissenschaften in dem Musisch-Künstlicherischen Profil gesucht.
   var nw_for_mu_and_ku = 0
   for (let index = 1; index < 6; index++) {
     if (sessionStorage.getItem('pfach' + index) == 'Biologie' || sessionStorage.getItem('pfach' + index) == 'Physik' || sessionStorage.getItem('pfach' + index) == 'Informatik' || sessionStorage.getItem('pfach' + index) == 'Chemie') {
       nw_for_mu_and_ku++
     }
   }
+  //Falls die Naturwissenschaften bereits 2 oder mehr sind, darf keine weitere mehr gewählt werden und auch kein Musik oder Kunst mehr.
   if (nw_for_mu_and_ku >= 2) {
     sessionStorage.setItem('musik_w', false)
     sessionStorage.setItem('kunst_w', false)
@@ -512,32 +528,12 @@ function logicsubjects(i) {
 }
 //Teil der Logik, der prüft, welche Fächer in der nächsten Stufe noch wählbar sind (ruft die beiden folgenden Methoden dafür auf)
 function proof_in_advance(pfach, i) {
+  //Es wird die Anzahl der Fächer von der Prüfungsfachleiste ausgelesen (i ist die Prüfungsfachleiste)
   let help_lp = sessionStorage.getItem('lp' + i)
-  /*let help_lp = 2
-  for (let c = 2; c < 6; c++) {
-    if (c == 2) {
-      help_lp = sessionStorage.getItem('lp2')
-    }
-    if (c == 3) {
-      help_lp = sessionStorage.getItem('lp3')
-    }
-    if (c == 4) {
-      help_lp = sessionStorage.getItem('lp4')
-    }
-    if (c == 5) {
-      help_lp = sessionStorage.getItem('lp5')
-    }
-    */
     for (let j = 1; j < help_lp; j++) {
-      //if (c >= i) {
         document.getElementById("pfach" + i + "." + j + ".label").style.opacity = '1'
-        document.getElementById("pfach" + i + "." + j).disabled = false
-        //document.getElementById("pfach" + c + "." + j + ".label").style.opacity = '1'
-        //document.getElementById("pfach" + c + "." + j).disabled = false
-      //}
-      
+        document.getElementById("pfach" + i + "." + j).disabled = false    
     }
-  //}
   //Alle Fächer werden nach Wählbarkeit überprüft
   var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   for (let j = 0; j < 18; j++) {
