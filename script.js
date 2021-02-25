@@ -169,14 +169,14 @@ function uncheck(pfach) {
 
 
 function afterwards() {
+  console.log('Hallo. Hier ist Afterwards おはよ / こんにちは, 안녕하세요,　一、二、三, 二千二十, 이천이십일년 이월 이십오일')
+  
   for(i = 1; i<=5; i++) {
-    for (let j = 1; j <= parseInt(sessionStorage.getItem('lp' + i)); j++) {
-      if (i == 1) {
+    for (let j = 1; j <= sessionStorage.getItem('lp' + i); j++) {
+      if (i === 1) {
         document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "visible"
-        console.log("bin zu sehen")
       } else {
         document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "hidden"
-        console.log("kb angezeigt zu werden")
       }
       if(document.getElementById("pfach" + i + "." + j).checked == true) {
         document.getElementById("pfach" + i + "." + j).checked = false
