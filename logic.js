@@ -43,7 +43,7 @@ function logicvariables() {
   /*
   0: A
   1: B
-  2: C9
+  2: C
   3: Sport
   */
   sessionStorage.setItem("w[0]", true)
@@ -219,6 +219,9 @@ function logicsubjects(i) {
         sessionStorage.setItem('p2_waehlbar[2]', true)
         sessionStorage.setItem('p2_waehlbar[3]', true)
         sessionStorage.setItem('p2_waehlbar[4]', true)
+        sessionStorage.setItem('chemie_w', true)
+        sessionStorage.setItem('biologie_w', true)
+        sessionStorage.setItem('physik_w', true)
       }
       nicht_kernfaecher_add()
       bereich_add('C')
@@ -233,6 +236,9 @@ function logicsubjects(i) {
         sessionStorage.setItem('p2_waehlbar[1]', true)
         sessionStorage.setItem('p2_waehlbar[3]', true)
         sessionStorage.setItem('p2_waehlbar[4]', true)
+        sessionStorage.setItem('informatik_w', true)
+        sessionStorage.setItem('biologie_w', true)
+        sessionStorage.setItem('physik_w', true)
       }
       nicht_kernfaecher_add()
       bereich_add('C')
@@ -247,6 +253,9 @@ function logicsubjects(i) {
         sessionStorage.setItem('p2_waehlbar[1]', true)
         sessionStorage.setItem('p2_waehlbar[2]', true)
         sessionStorage.setItem('p2_waehlbar[4]', true)
+        sessionStorage.setItem('informatik_w', true)
+        sessionStorage.setItem('chemie_w', true)
+        sessionStorage.setItem('physik_w', true)
       }
       nicht_kernfaecher_add()
       bereich_add('C')
@@ -261,6 +270,9 @@ function logicsubjects(i) {
         sessionStorage.setItem('p2_waehlbar[1]', true)
         sessionStorage.setItem('p2_waehlbar[2]', true)
         sessionStorage.setItem('p2_waehlbar[3]', true)
+        sessionStorage.setItem('informatik_w', true)
+        sessionStorage.setItem('chemie_w', true)
+        sessionStorage.setItem('biologie_w', true)
       }
       nicht_kernfaecher_add()
       bereich_add('C')
