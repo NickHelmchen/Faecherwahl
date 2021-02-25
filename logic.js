@@ -55,7 +55,7 @@ function logicvariables() {
   sessionStorage.setItem('A_anzahl', 0)
   sessionStorage.setItem('B_anzahl', 0)
   sessionStorage.setItem('C_anzahl', 0)
-  sessionStorage.setItem('counter_fs', 0)
+  sessionStorage.setItem('counter_fs', 0) 
   sessionStorage.setItem('counter_nw', 0)
 
   //Variablen, die definieren, ob ein Fach wählbar ist
@@ -428,7 +428,7 @@ function logicsubjects(i) {
 
   for (let h = 0; h < Anzahlen.length; h++) {
     if (parseInt(sessionStorage.getItem(Anzahlen[h][0])) == 3) {
-      sessionStorage.setItem(toString(waehlbarkeit_bereiche[h][0]), false)
+      sessionStorage.setItem(waehlbarkeit_bereiche[h][0], false)
       if (parseInt(sessionStorage.getItem('kernfaecher')) == 1 && parseInt(sessionStorage.getItem('A_anzahl')) == 3) {
         sessionStorage.setItem('physik_w', false)
         sessionStorage.setItem('chemie_w', false)
@@ -495,7 +495,7 @@ function logicsubjects(i) {
   }
 
 
-  var nw_for_mu_and_ku = 0
+  let nw_for_mu_and_ku = 0
   for (let index = 1; index < 6; index++) {
     if (sessionStorage.getItem('pfach' + index) == 'Biologie' || sessionStorage.getItem('pfach' + index) == 'Physik' || sessionStorage.getItem('pfach' + index) == 'Informatik' || sessionStorage.getItem('pfach' + index) == 'Chemie') {
       nw_for_mu_and_ku++
@@ -513,31 +513,10 @@ function logicsubjects(i) {
 //Teil der Logik, der prüft, welche Fächer in der nächsten Stufe noch wählbar sind (ruft die beiden folgenden Methoden dafür auf)
 function proof_in_advance(pfach, i) {
   let help_lp = sessionStorage.getItem('lp' + i)
-  /*let help_lp = 2
-  for (let c = 2; c < 6; c++) {
-    if (c == 2) {
-      help_lp = sessionStorage.getItem('lp2')
-    }
-    if (c == 3) {
-      help_lp = sessionStorage.getItem('lp3')
-    }
-    if (c == 4) {
-      help_lp = sessionStorage.getItem('lp4')
-    }
-    if (c == 5) {
-      help_lp = sessionStorage.getItem('lp5')
-    }
-    */
     for (let j = 1; j < help_lp; j++) {
-      //if (c >= i) {
         document.getElementById("pfach" + i + "." + j + ".label").style.opacity = '1'
         document.getElementById("pfach" + i + "." + j).disabled = false
-        //document.getElementById("pfach" + c + "." + j + ".label").style.opacity = '1'
-        //document.getElementById("pfach" + c + "." + j).disabled = false
-      //}
-      
     }
-  //}
   //Alle Fächer werden nach Wählbarkeit überprüft
   var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   for (let j = 0; j < 18; j++) {
@@ -557,17 +536,13 @@ function proof_in_advance(pfach, i) {
         break;
       case 'Englisch':
         try {
-          var help_fs = false
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Französisch') {
-              help_fs = true
+              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+              break;
             }
           }
-          if (help_fs == true) {
-            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
-          } else {
-            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
-          }
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
         } catch (error) {
 
         }
@@ -595,34 +570,25 @@ function proof_in_advance(pfach, i) {
         break
       case 'Franzoesisch':
         try {
-          var help_fs = false
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
-              help_fs = true
+              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+              break
             }
           }
-          if (help_fs == true) {
-            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
-          } else {
-            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
-          }
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
         } catch (error) {
 
         }
         break;
       case 'Latein':
         try {
-          var help_fs = false
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
-              help_fs = true
+              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
             }
           }
-          if (help_fs == true) {
-            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
-          } else {
-            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
-          }
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
         } catch (error) {
 
         }
@@ -661,17 +627,12 @@ function proof_in_advance(pfach, i) {
         break;
       case 'Spanisch':
         try {
-          var help_fs = false
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
-              help_fs = true
+              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
             }
           }
-          if (help_fs === true) {
-            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
-          } else {
-            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
-          }
+          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
         } catch (error) {
 
         }
@@ -792,6 +753,23 @@ function sport_gk() {
 //Überprüft, ob Musik, Kunst oder DS als Prüfungsfächer gewählt wurden und setzt vorläufig die passende Grundkursvariable auf true
 function checking_for_muku_gk(j) {
   if (sessionStorage.getItem('extra13') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra3') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Musik' || sessionStorage.getItem('pfach' + j) == 'Kunst' || sessionStorage.getItem('pfach' + j) == 'DS')) {
+    sessionStorage.setItem('extra13', false)
+    sessionStorage.setItem('extra10', false)
+    sessionStorage.setItem('extra3', false)
+    switch (sessionStorage.getItem('pfach' + j)) {
+      case 'Musik':
+        sessionStorage.setItem('extra13', true)
+        break;
+      case 'Kunst':
+        sessionStorage.setItem('extra10', true)
+        break;
+      case 'DS':
+        sessionStorage.setItem('extra3', true)
+        break;
+      default:
+        break;
+    }
+    /*
     if (sessionStorage.getItem('pfach' + j) == 'Musik') {
       sessionStorage.setItem('extra13', true)
       sessionStorage.setItem('extra10', false)
@@ -807,6 +785,7 @@ function checking_for_muku_gk(j) {
       sessionStorage.setItem('extra10', false)
       sessionStorage.setItem('extra3', true)
     }
+    */
   }
 }
 function buttons_muku() {

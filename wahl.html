@@ -118,7 +118,7 @@ Hier tauchen die Infos zu Kernfächern und den Bereichen auf.
             <button onclick="p_reset_to_certain_p(3)" id="resetp3" class="button-reset-p3 buttonfertig">P3 zurücksetzen</button>
             <button onclick="p_reset_to_certain_p(4)" id="resetp4" class="button-reset-p4 buttonfertig">P4 zurücksetzen</button>
             <button onclick="p_reset_to_certain_p(5)" id="resetp5" class="button-reset-p5 buttonfertig">P5 zurücksetzen</button>
-            <button onclick="restart(), terminator()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
+            <button onclick="restart(), terminator(), logicvariables()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header" title="schriftliches Prüfungsfach mit erhöhtem Anforderungsniveau (5-stündig)">Prüfungsfach 1</p>
                 <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="selected('pfach1.', '1'), visible('pfach1.', '1'), save(), logicvariables(), change_kf_text_lang(), logicsubjects(1), show_kf_abc(), proof_in_advance('pfach2.', 2)">

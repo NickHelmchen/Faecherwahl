@@ -16,7 +16,7 @@
       if (check_for_complete_gk_gese() == true) {
         end()
         sessionStorage.setItem('gks_gewaehlt', true)
-        wahl3()
+        wahl('output')
       } else {
         alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
       }
@@ -31,7 +31,7 @@
     <button onclick="check()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
     <button class="reset5 buttonfertig" onclick="uncheck_reset_gk_gese()" id="resetbutton">Grundkurse
       zurücksetzen</button>
-    <button class="reset-p-5 buttonfertig" onclick="location.href='wahl.html'" id="resetbutton2">Prüfungsfächer neu
+    <button class="reset-p-5 buttonfertig" onclick="go_back()" id="resetbutton2">Prüfungsfächer neu
       wählen</button>
     <div class="reli5 w3-animate-left toggle-buttons"
       title="Entweder Religion oder Werte und Normen als Grundkurs belegen" id="div_rewn">

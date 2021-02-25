@@ -16,7 +16,7 @@
           if (check_for_complete_gk_spra() == true) {
             end()
             sessionStorage.setItem('gks_gewaehlt', true)
-            wahl3()
+            wahl('output')
           } else {
               alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
           }
@@ -30,7 +30,7 @@
         <textarea name="pflicht" id="pflicht" cols="40" rows="1" class="pflicht_gk" readonly>Pflicht: </textarea>
         <button onclick="check()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
         <button class="reset3 buttonfertig" onclick="uncheck_reset_gk_spra()" id="resetbutton">Grundkurse zurücksetzen</button>
-        <button class="reset-p-3 buttonfertig" onclick="location.href='wahl.html'" id="resetbutton2">Prüfungsfächer neu wählen</button>
+        <button class="reset-p-3 buttonfertig" onclick="go_back()" id="resetbutton2">Prüfungsfächer neu wählen</button>
         <div class="reli3 w3-animate-left toggle-buttons" title="Entweder Religion oder Werte und Normen als Grundkurs belegen" id="div_rewn">
             <p class="header">Religion / Werte und Normen</p>
             <input type="radio" name="extra1" id="religion" onclick="set_religion()">

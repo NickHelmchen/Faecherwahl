@@ -31,31 +31,11 @@ function terminator() {
 function restart() {
   afterwards()
   for(i = 1; i <= 5; i++) {
-    if(i === 1) {
-      for(j = 1; j <= lp1; j++) {
-        document.getElementById("pfach1." + j).disabled = false
-      }
+    let lp = parseInt(sessionStorage.getItem('lp' + i))
+    for (let j = 1; j <= lp ; j++) {
+      document.getElementById("pfach" + i + "." + j).disabled = false
     }
-    if(i === 2) {
-      for(j = 1; j <= lp2; j++) {
-        document.getElementById("pfach2." + j).disabled = false
-      }
-    }
-    if(i === 3) {
-      for(j = 1; j <= lp3; j++) {
-        document.getElementById("pfach3." + j).disabled = false
-      }
-    }
-    if(i == 4) {
-      for(j = 1; j <= lp4; j++) {
-        document.getElementById("pfach4." + j).disabled = false
-      }
-    }
-    if(i == 5) {
-      for(j = 1; j <= lp5; j++) {
-        document.getElementById("pfach5." + j).disabled = false
-      }
-    }
+
     //Titel (Hovertexte) der Sprachen werden zurückgesetzt
     document.getElementById("pfach" + i + ".3.label").title = "Kernfach, Bereich A"    
     document.getElementById("pfach" + i + ".6.label").title = "Kernfach, Bereich A"    
@@ -79,31 +59,20 @@ function startset() {
 
 }
 
-function wahl1() {
-    location.href = "wahl.html"
+function wahl(a) {
+    location.href = a + ".html"
 }
 
 function wahl2() {
-  if(sessionStorage.getItem('profil') == 'mana') {
+  if (sessionStorage.getItem('profil') == 'mana') {
     location.href = "wahlmanu.html"
-  }
-  if(sessionStorage.getItem('profil') == 'spra') {
-    location.href = "wahlspra.html"
-  }
-  if(sessionStorage.getItem('profil') == 'muku') {
-    location.href = "wahlmuku.html"
-  }
-  if(sessionStorage.getItem('profil') == 'gese') {
-    location.href = "wahlgese.html"
+  } else {
+    location.href = "wahl" + sessionStorage.getItem('profil') + ".html"
   }
 }
 
 function page2() {
   document.getElementById("name").value = sessionStorage.getItem('savename') + " " + sessionStorage.getItem('savelastname')
-}
-
-function wahl3() {
-  location.href = "output.html"
 }
 
 
@@ -140,101 +109,82 @@ function selected(pfach, pnummer){
   }
 
 function visible(pfach) {
-  if(pfach === "pfach1."){
-    for(i = 1; i <= lp1; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
+  let j 
+  switch (pfach) {
+    case 'pfach1.':
+      j = 1
+      break;
+    case 'pfach2.':
+      j = 2
+      break;
+    case 'pfach3.':
+      j = 3
+      break;
+    case 'pfach4.':
+      j = 4
+      break;
+    case 'pfach5.':
+      j = 5
+      break;
   }
-  if(pfach === "pfach2."){
-    for(i = 1; i <= lp2; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-  }
-  if(pfach === "pfach3."){
-    for(i = 1; i <= lp3; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-  }
-  if(pfach === "pfach4."){
-    for(i = 1; i <= lp4; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-  }
-  if(pfach === "pfach5."){
-    for(i = 1; i <= lp5; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
+  for (i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
+    console.log(pfach + i)
+    if(document.getElementById(pfach + i).checked == true) {
+      document.getElementById(pfach + i + ".label").style.opacity = '1'
+    }
+    else { 
+      document.getElementById(pfach + i + ".label").style.opacity = '0.5'
+    }
   }
 }
 
 
 function uncheck(pfach) {
-  if(pfach == "pfach1.") {
-    for(i = 1; i <= lp1; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
+  let j 
+  switch (pfach) {
+    case 'pfach1.':
+      j = 1
+      break;
+    case 'pfach2.':
+      j = 2
+      break;
+    case 'pfach3.':
+      j = 3
+      break;
+    case 'pfach4.':
+      j = 4
+      break;
+    case 'pfach5.':
+      j = 5
+      break;
   }
-  if(pfach == "pfach2.") {
-    for(i = 1; i <= lp2; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
+  for(i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
+    if(document.getElementById(pfach + i).checked == true) {
+      document.getElementById(pfach + i).checked = false
     }
-  }
-  if(pfach == "pfach3.") {
-    for(i = 1; i <= lp3; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
-  }else if(pfach == "pfach4.") {
-    for(i = 1; i <= lp4; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
-  }else if(pfach == "pfach5.") {
-    for(i = 1; i <= lp5; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
+    document.getElementById(pfach + i + ".label").style.opacity = '1'
   }
 }
 /*-----------------------------------------------------------------------------------------------------------------*/
 
+
+function afterwards() {
+  for(i = 1; i<=5; i++) {
+    for (let j = 1; j <= parseInt(sessionStorage.getItem('lp' + i)); j++) {
+      if (i == 1) {
+        document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "visible"
+        console.log("bin zu sehen")
+      } else {
+        document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "hidden"
+        console.log("kb angezeigt zu werden")
+      }
+      if(document.getElementById("pfach" + i + "." + j).checked == true) {
+        document.getElementById("pfach" + i + "." + j).checked = false
+      }
+    }
+  }
+}
+/*
 function afterwards() {
   for(i = 1; i<=5; i++) {
     if(i == 1) {
@@ -278,28 +228,30 @@ function afterwards() {
     }
   }
 }
-
+*/
 function nextone(pfach) {
-  if(pfach == "pfach1.") {
-    for(i = 1; i<=lp2; i++) {
-      document.getElementById("pfach2." + i + ".label").style.visibility = "visible"
-    }
+  let j 
+  switch (pfach) {
+    case 'pfach1.':
+      j = 2
+      break;
+    case 'pfach2.':
+      j = 3
+      break;
+    case 'pfach3.':
+      j = 4
+      break;
+    case 'pfach4.':
+      j = 5
+      break;
   }
-  if(pfach == "pfach2.") {
-    for(i = 1; i<=lp3; i++) {
-      document.getElementById("pfach3." + i + ".label").style.visibility = "visible"
-    }
-  }
-  if(pfach == "pfach3.") {
-    for(i = 1; i<=lp4; i++) {
-      document.getElementById("pfach4." + i + ".label").style.visibility = "visible"
-    }
-  }
-  if(pfach == "pfach4.") {
-    for(i = 1; i<=lp5; i++) {
-      document.getElementById("pfach5." + i + ".label").style.visibility = "visible"
-    }
+  for(i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
+    document.getElementById("pfach" + j + "."+ i + ".label").style.visibility = "visible"
+    console.log(pfach + i)
   }
 }
-
+function go_back() {
+  logicvariables()
+  location.href='wahl.html'
+}
 /*-----------------------------------------------------------------------------------------------------------------*/

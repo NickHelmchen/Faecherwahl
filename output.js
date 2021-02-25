@@ -1,49 +1,9 @@
-
-lp1 = 13
-lp2 = 12
-lp3 = 14
-lp4 = 16
-lp5 = 17
-extras = 18
-
-
-
 function save() {
     for(i = 1; i <= 5; i++) {
-        if(i == 1) {
-            for(j = 1; j<= lp1; j++) {
-                if(document.getElementById("pfach" + i + "." + j).checked == true) {
-                    sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
-                }
-            }  
-        }
-        if(i == 2) {
-            for(j = 1; j<= lp2; j++) {
-                if(document.getElementById("pfach" + i + "." + j).checked == true) {
-                    sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
-                }
-            }  
-        }
-        if(i == 3) {
-            for(j = 1; j<= lp3; j++) {
-                if(document.getElementById("pfach" + i + "." + j).checked == true) {
-                    sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
-                }
-            }  
-        }
-        if(i == 4) {
-            for(j = 1; j<= lp4; j++) {
-                if(document.getElementById("pfach" + i + "." + j).checked == true) {
-                    sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
-                }
-            }  
-        }
-        if(i == 5) {
-            for(j = 1; j<= lp5; j++) {
-                if(document.getElementById("pfach" + i + "." + j).checked == true) {
-                    sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
-                }
-            }  
+        for (let j = 1; j <= parseInt(sessionStorage.getItem('lp' + i)) ; j++) {
+            if(document.getElementById("pfach" + i + "." + j).checked == true){
+                sessionStorage.setItem("pfach" + i, document.getElementById("pfach" + i + "." + j).value)
+            }
         }
     }
 }
@@ -53,6 +13,7 @@ function saveextra(name) {
 }
 
 function look_for_extra() {
+    let extras = 18
     for(i = 1; i <= extras; i++) {
         if(sessionStorage.getItem("extra" + i) == "true") {
             var out = "gewählt"
