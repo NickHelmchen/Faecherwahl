@@ -170,7 +170,8 @@ function uncheck(pfach) {
 
 function afterwards() {
   console.log('Hallo. Hier ist Afterwards おはよ / こんにちは, 안녕하세요,　一、二、三, 二千二十, 이천이십일년 이월 이십오일')
-  
+  console.log('저는 빵 좋아하는데 기차를 더 좋아해요')
+  console.log('わたし　は　列車　が　すきです')
   for(i = 1; i<=5; i++) {
     for (let j = 1; j <= sessionStorage.getItem('lp' + i); j++) {
       if (i === 1) {
@@ -247,7 +248,6 @@ function nextone(pfach) {
   }
   for(i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
     document.getElementById("pfach" + j + "."+ i + ".label").style.visibility = "visible"
-    console.log(pfach + i)
   }
 }
 function go_back() {
