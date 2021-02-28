@@ -170,6 +170,15 @@ function bereich_dec(abc) {
 function waehlbarkeit(fach_w, choose) {
   sessionStorage.setItem(fach_w, choose)
 }
+function check_fach_for_pfach(fach) {
+  let help = false
+  for (let i = 1; i < 6; i++) {
+    if (sessionStorage.getItem('pfach' + i) == fach) {
+      help = true
+    }
+  }
+  return help
+}
 //Die Buttons einer Stufe werden deaktiviert
 function disable_buttons_p(i) {
   for (let j = 1; j < parseInt(sessionStorage.getItem('lp' + i)) + 1; j++) {
@@ -507,6 +516,13 @@ function logicsubjects(i) {
       sessionStorage.setItem('biologie_w', false)
       sessionStorage.setItem('physik_w', false)
       sessionStorage.setItem('informatik_w', false)
+      if (check_fach_for_pfach('Englisch') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Latein') || check_fach_for_pfach('Französisch')) {
+        sessionStorage.setItem('englisch_w', false)
+        sessionStorage.setItem('latein_w', false)
+        sessionStorage.setItem('spanisch_w', false)
+        sessionStorage.setItem('franzoesisch_w', false)
+      }
+      /* Ersetzt
       for (let i = 1; i < 6; i++) {
         if (sessionStorage.getItem("pfach" + i) == 'Englisch' || sessionStorage.getItem("pfach" + i) == 'Spanisch' || sessionStorage.getItem("pfach" + i) == 'Latein' || sessionStorage.getItem("pfach" + i) == 'Französisch') {
           sessionStorage.setItem('englisch_w', false)
@@ -515,6 +531,7 @@ function logicsubjects(i) {
           sessionStorage.setItem('franzoesisch_w', false)
         }
       }
+      */
     }
   }
 
@@ -560,6 +577,13 @@ function proof_in_advance(pfach, i) {
         break;
       case 'Englisch':
         try {
+          if (check_fach_for_pfach('Latein') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Französisch')) {
+            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+            break;
+          } else {
+            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+          }
+          /*
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Französisch') {
               proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
@@ -567,6 +591,7 @@ function proof_in_advance(pfach, i) {
             }
           }
           proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
+          */
         } catch (error) {
 
         }
@@ -594,6 +619,13 @@ function proof_in_advance(pfach, i) {
         break
       case 'Franzoesisch':
         try {
+          if (check_fach_for_pfach('Latein') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Englisch')) {
+            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+            break;
+          } else {
+            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+          }
+          /*
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
               proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
@@ -601,18 +633,27 @@ function proof_in_advance(pfach, i) {
             }
           }
           proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
+          */
         } catch (error) {
 
         }
         break;
       case 'Latein':
         try {
+          if (check_fach_for_pfach('Englisch') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Französisch')) {
+            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
+            break;
+          } else {
+            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
+          }
+          /*
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
               proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
             }
           }
           proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
+          */
         } catch (error) {
 
         }
@@ -651,12 +692,20 @@ function proof_in_advance(pfach, i) {
         break;
       case 'Spanisch':
         try {
+          if (check_fach_for_pfach('Englisch') || check_fach_for_pfach('Latein') || check_fach_for_pfach('Französisch')) {
+            proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
+            break;
+          } else {
+            proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
+          }
+          /*
           for (let index = 1; index < 6; index++) {
             if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
               proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
             }
           }
           proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
+          */
         } catch (error) {
 
         }
@@ -947,6 +996,19 @@ function mana() {
   buttons_fs()
   buttons_muku()
   if (parseInt(sessionStorage.getItem('counter_nw')) < 2) {
+    if (check_fach_for_pfach('Informatik') || sessionStorage.getItem('extra9') == 'true') {
+      disable_fachbutton('informatik')
+    }
+    if (check_fach_for_pfach('Biologie') || sessionStorage.getItem('extra1') == 'true') {
+      disable_fachbutton('bio')
+    }
+    if (check_fach_for_pfach('Physik') || sessionStorage.getItem('extra14') == 'true') {
+      disable_fachbutton('physik')
+    }
+    if (check_fach_for_pfach('Chemie') || sessionStorage.getItem('extra2') == 'true') {
+      disable_fachbutton('chemie')
+    }
+    /*
     for (let k = 1; k < 6; k++) {
       if (sessionStorage.getItem('pfach' + k) == 'Informatik' || sessionStorage.getItem('extra9') == 'true') {
         disable_fachbutton('informatik')
@@ -961,6 +1023,7 @@ function mana() {
         disable_fachbutton('chemie')
       }
     }
+    */
   } else {
     disable_fachbutton('informatik')
     disable_fachbutton('bio')
@@ -1079,10 +1142,19 @@ function gese() {
     disable_fachbutton('chemie')
     disable_fachbutton('informatik')
     document.getElementById("div_nw1").title = "Da bereits eine Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
-    var help_informatik = false;
-    var help_biologie = false;
-    var help_physik = false;
-    var help_chemie = false;
+    if (check_fach_for_pfach('Informatik')) {
+      disable_fachbutton('informatik2')
+    }
+    if (check_fach_for_pfach('Biologie')) {
+      disable_fachbutton('bio2')
+    }
+    if (check_fach_for_pfach('Physik')) {
+      disable_fachbutton('physik2')
+    }
+    if (check_fach_for_pfach('Chemie')) {
+      disable_fachbutton('chemie2')
+    }
+    /*
     for (let k = 1; k < 6; k++) {
       if (sessionStorage.getItem('pfach' + k) == 'Informatik') {
         disable_fachbutton('informatik2')
@@ -1097,6 +1169,7 @@ function gese() {
         disable_fachbutton('chemie2')
       }
     }
+    */
   } else if (parseInt(sessionStorage.getItem('counter_nw')) == 2) {
     disable_fachbutton('physik')
     disable_fachbutton('bio')
@@ -1124,6 +1197,27 @@ function gese() {
     disable_fachbutton('spanisch')
     disable_fachbutton('franzoesisch')
     document.getElementById("div_fs1").title = "Da bereits eine Fremdsprache gewählt wurde, muss hier nichts mehr gewählt werden"
+
+    if (check_fach_for_pfach('Englisch')) {
+      disable_fachbutton('englisch2')
+    }
+    if (check_fach_for_pfach('Latein')) {
+      disable_fachbutton('latein2')
+      disable_fachbutton('spanisch2')
+      disable_fachbutton('franzoesisch2')
+    }
+    if (check_fach_for_pfach('Spanisch')) {
+      disable_fachbutton('latein2')
+      disable_fachbutton('spanisch2')
+      disable_fachbutton('franzoesisch2')
+    }
+    if (check_fach_for_pfach('Französisch')) {
+      disable_fachbutton('latein2')
+      disable_fachbutton('franzoesisch2')
+      disable_fachbutton('spanisch2')
+    }
+
+    /*
     let help_englisch = false
     let help_latein = false
     let help_spanisch = false
@@ -1160,6 +1254,7 @@ function gese() {
       disable_fachbutton('franzoesisch2')
       disable_fachbutton('spanisch2')
     }
+    */
   } else if (parseInt(sessionStorage.getItem('counter_fs')) == 2) {
     disable_fachbutton('englisch')
     disable_fachbutton('latein')
@@ -1181,55 +1276,35 @@ function gese() {
 }
 function pflicht_label() {
   let text = document.getElementById("pflicht").textContent
-  let deutsch_help = false
-  let mathe_help = false
-  let geschichte_help = false
-  let powi_help = false
-  for (let i = 1; i < 6; i++) {
-    switch (sessionStorage.getItem('pfach' + i)) {
-      case 'Deutsch':
-        deutsch_help = true
-        break
-      case 'Mathe':
-        mathe_help = true
-        break
-      case 'Geschichte':
-        geschichte_help = true
-        break
-      case 'Politik Wirtschaft':
-        powi_help = true
-        break
-    }
-  }
-  if (deutsch_help == false) {
+  if (!check_fach_for_pfach("Deutsch")) {
     if (text == 'Pflicht: ') {
       text += 'De'
     } else {
       text += ', De'
     }
   }
-  if (mathe_help == false) {
+  if (!check_fach_for_pfach("Mathe")) {
     if (text == 'Pflicht: ') {
       text += 'Ma'
     } else {
       text += ', Ma'
     }
   }
-  if (geschichte_help == false) {
+  if (!check_fach_for_pfach("Geschichte")) {
     if (text == 'Pflicht: ') {
       text += 'Ge'
     } else {
       text += ', Ge'
     }
   }
-  if (powi_help == false) {
+  if (!check_fach_for_pfach("Politik Wirtschaft")) {
     if (text == 'Pflicht: ') {
       text += 'PoWi'
     } else {
       text += ', PoWi'
     }
   }
-  if (deutsch_help == true && mathe_help == true && geschichte_help == true && powi_help == true) {
+  if (check_fach_for_pfach("Deutsch") && check_fach_for_pfach("Mathe") && check_fach_for_pfach("Geschichte") && check_fach_for_pfach("Politik Wirtschaft")) {
     text += ' --- / --- '
   }
   document.getElementById("pflicht").textContent = text
@@ -1275,6 +1350,7 @@ function pflicht(j) {
 }
 
 function calc_stunden_for_pflicht() {
+  /*
   let deutsch_help = false
   let mathe_help = false
   let geschichte_help = false
@@ -1295,16 +1371,17 @@ function calc_stunden_for_pflicht() {
         break
     }
   }
-  if (deutsch_help == false) {
+  */
+  if (check_fach_for_pfach("Deutsch")) {
     sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
   } 
-  if (mathe_help == false) {
+  if (check_fach_for_pfach("Mathe")) {
     sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
   } 
-  if (geschichte_help == false) {
+  if (check_fach_for_pfach("Geschichte")) {
     sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
   }
-  if (powi_help == false) {
+  if (check_fach_for_pfach("Politik Wirtschaft")) {
     sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
   }
 }
@@ -1356,15 +1433,6 @@ function enable_2fs_2nw() {
   }
 }
 
-function check_fach_for_pfach(fach) {
-  let help = false
-  for (let i = 1; i < 6; i++) {
-    if (sessionStorage.getItem('pfach' + i) == fach) {
-      help = true
-    }
-  }
-  return help
-}
 /* Fächer werden gewählt und jeweils zusammenhängende Buttons deaktiviert*/
 function set_religion() {
   if (sessionStorage.getItem('extra18') == 'false' && sessionStorage.getItem('extra16') == 'false') {

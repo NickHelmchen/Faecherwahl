@@ -251,6 +251,7 @@ function nextone(pfach) {
   }
 }
 function go_back() {
+  terminator()
   logicvariables()
   location.href='wahl.html'
 }
