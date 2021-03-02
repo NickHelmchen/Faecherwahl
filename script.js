@@ -250,6 +250,22 @@ function nextone(pfach) {
     document.getElementById("pfach" + j + "."+ i + ".label").style.visibility = "visible"
   }
 }
+
+function nicht_waehlen_Fach(fach){
+  sessionStorage.setItem('nicht_waehlen_Fach' , fach + "_w")
+  switch (fach) {
+    case 'franzoesisch':
+      document.getElementById('info_nicht_waehlen').value = "Dieses Fach wird in der nächsten Auswahlmöglichkeit nicht mehr wählbar sein: Französisch"   
+      break;
+    case 'powi':
+        document.getElementById('info_nicht_waehlen').value = "Dieses Fach wird in der nächsten Auswahlmöglichkeit nicht mehr wählbar sein: Politik Wirtschaft"   
+        break;
+    default:
+      document.getElementById('info_nicht_waehlen').value = "Dieses Fach wird in der nächsten Auswahlmöglichkeit nicht mehr wählbar sein: " + fach[0].toUpperCase() + fach.slice(1,fach.length) 
+      break;
+  }
+}
+
 function go_back() {
   terminator()
   logicvariables()
