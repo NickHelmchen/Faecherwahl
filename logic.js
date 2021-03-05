@@ -1613,7 +1613,7 @@ function set_informatik_gese2() {
   sessionStorage.setItem('extra9', true)
 }
 function set_chemie_gese2() {
-  sessionStorage.setItem('chemie', true)
+  sessionStorage.setItem('extra2', true)
 }
 function set_biologie_gese2() {
   sessionStorage.setItem('extra1', true)
