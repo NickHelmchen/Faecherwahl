@@ -1,5 +1,4 @@
 <?php
-session_start();
 function logicvariables(){
     //Variablen, die definieren, ob ein Fach als P2 gewählt werden kann
     /* Legende
@@ -1504,8 +1503,7 @@ function show_kf_abc(){
 }
 
 function uncheck_reset_gk_manu(){
-    echo '<script type="text/javascript>
-    document.getElementById("religion").checked = false
+    echo 'document.getElementById("religion").checked = false
     document.getElementById("wn").checked = false
 
     document.getElementById("musik").checked = false
@@ -1523,8 +1521,7 @@ function uncheck_reset_gk_manu(){
     document.getElementById("chemie").checked = false
     document.getElementById("physik").checked = false
     document.getElementById("informatik").checked = false
-    document.getElementById("bio").checked = false
-    </script>';
+    document.getElementById("bio").checked = false';
 
     enable_fachbutton("Religion2");
     enable_fachbutton("PoWi2");
@@ -1538,20 +1535,17 @@ function uncheck_reset_gk_manu(){
     $_SESSION['sport_gk'] = false;
     $_SESSION['wish_for_p4_p5'] = '';
 
-    echo '<script type="text/javascript>
-    document.getElementById("PoWi2").checked = false
+    echo 'document.getElementById("PoWi2").checked = false
     document.getElementById("Geschichte2").checked = false
     document.getElementById("Kunst2").checked = false
     document.getElementById("Musik2").checked = false
     document.getElementById("Religion2").checked = false
-    document.getElementById("pflicht").textContent = \'Pflicht: \'
-    </script>';
+    document.getElementById("pflicht").textContent = \'Pflicht: \'';
     mana();
 }
 
 function uncheck_reset_gk_spra(){
-    echo '<script type="text/javascript>
-    document.getElementById("religion").checked = false
+    echo 'document.getElementById("religion").checked = false
     document.getElementById("wn").checked = false
 
     document.getElementById("musik").checked = false
@@ -1570,8 +1564,7 @@ function uncheck_reset_gk_spra(){
 
     document.getElementById("chemie").checked = false
     document.getElementById("physik").checked = false
-    document.getElementById("bio").checked = false
-    </script>';
+    document.getElementById("bio").checked = false';
 
     enable_fachbutton("Religion2");
     enable_fachbutton("PoWi2");
@@ -1585,22 +1578,17 @@ function uncheck_reset_gk_spra(){
     $_SESSION['sport_gk'] = false;
     $_SESSION['wish_for_p4_p5'] = '';
 
-    echo '<script type="text/javascript">
-    document.getElementById("Religion2").checked = false
+    echo 'document.getElementById("Religion2").checked = false
     document.getElementById("PoWi2").checked = false
     document.getElementById("Geschichte2").checked = false
     document.getElementById("Kunst2").checked = false
     document.getElementById("Musik2").checked = false
-    </script>';
-
-    echo '<script type="text/javascript>
-    document.getElementById("pflicht").textContent = \'Pflicht: \'
-    </script>';
+    document.getElementById("pflicht").textContent = \'Pflicht: \'';
     spra();
 }
 
 function uncheck_reset_gk_muku(){
-    echo '<script type="text/javascript">
+    echo '
     document.getElementById("religion").checked = false
     document.getElementById("wn").checked = false
 
@@ -1621,8 +1609,7 @@ function uncheck_reset_gk_muku(){
 
     document.getElementById("chemie").checked = false
     document.getElementById("physik").checked = false
-    document.getElementById("bio").checked = false
-    </script>';
+    document.getElementById("bio").checked = false';
 
     for ($i=1; $i < sizeof($_SESSION['extra']); $i++) { 
         $_SESSION['extra'][$i] = false;
@@ -1634,19 +1621,17 @@ function uncheck_reset_gk_muku(){
     enable_fachbutton("PoWi2");
     enable_fachbutton("Geschichte2");
 
-    echo '<script type="text/javascript">
+    echo '
     document.getElementById("PoWi2").checked = false
     document.getElementById("Geschichte2").checked = false
     document.getElementById("Religion2").checked = false
-    document.getElementById("pflicht").textContent = \'Pflicht: \'
-    </script>';
+    document.getElementById("pflicht").textContent = \'Pflicht: \'';
 
     muku();
 }
 
 function uncheck_reset_gk_gese(){
-    echo '<script type="text/javascript">
-    document.getElementById("religion").checked = false
+    echo 'document.getElementById("religion").checked = false
     document.getElementById("wn").checked = false
     document.getElementById("musik").checked = false
     document.getElementById("ds").checked = false
@@ -1690,8 +1675,7 @@ function uncheck_reset_gk_gese(){
     document.getElementById("spanisch2.label").style.opacity = \'0.5\'
     document.getElementById("latein2.label").style.opacity = \'0.5\'
     document.getElementById("franzoesisch2.label").style.opacity = \'0.5\'
-    document.getElementById("englisch2.label").style.opacity = \'0.5\'
-    </script>';
+    document.getElementById("englisch2.label").style.opacity = \'0.5\'';
 
     for ($i=1; $i < sizeof($_SESSION['extra']); $i++) { 
         $_SESSION['extra'][$i] = false;
@@ -1724,12 +1708,10 @@ function uncheck_reset_gk_gese(){
     enable_fachbutton("Religion2");
     enable_fachbutton("Kunst2");
     enable_fachbutton("Musik2");
-    echo '<script type="text/javascript">
-    document.getElementById("Kunst2").checked = false
+    echo 'document.getElementById("Kunst2").checked = false
     document.getElementById("Musik2").checked = false
     document.getElementById("Religion2").checked = false
-    document.getElementById("pflicht").textContent = \'Pflicht: \'
-    </script>';
+    document.getElementById("pflicht").textContent = \'Pflicht: \'';
     gese();
 }
 /*

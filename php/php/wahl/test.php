@@ -1,8 +1,10 @@
 <?php
 function change(){
-    echo '<script type="text/javascript>
-    console.log(hi)
-    </script>';
+    echo 'console.log(\'hi\')
+    console.log(\'zweiter out\')';
 }
-change();
 ?>
+<html>
+<body onload="<?php change() ?>">
+</body>
+</html>
