@@ -1,4 +1,9 @@
 <?php
+function save2($string){
+    $_SESSION['pfach1'] = $string;
+    echo 'alert(\'' . $_SESSION['pfach1'] . '\')';
+    
+}
 function logicvariables(){
     //Variablen, die definieren, ob ein Fach als P2 gewählt werden kann
     /* Legende
@@ -536,7 +541,7 @@ function proof_in_advance($pfach, $i) {
                 break;
             case 'Physik':
                 try {
-                    proof_in_advance_visibility_w_nk($pfach, $i, $j, $_SESSION['w'][2], $_SESSION['p2_waehlbar'][4], $_SESSION['physik']);
+                    proof_in_advance_visibility_w_nk($pfach, $i, $j, $_SESSION['w'][2], $_SESSION['p2_waehlbar'][4], $_SESSION['physik_w']);
                 } catch (\Throwable $th) {
                     //throw $th;
                 }
@@ -602,7 +607,7 @@ function proof_in_advance($pfach, $i) {
                 break;
             case 'Politik Wirtschaft':
                 try {
-                    proof_in_advance_visibility_w_nk($pfach, $i, $j, $_SESSION['w'][1], $_SESSION['p2_waehlbar'][13], $_SESSION['powi_w']);
+                    proof_in_advance_visibility_w_nk($pfach, $i, $j, $_SESSION['w'][1], $_SESSION['p2_waehlbar'][12], $_SESSION['powi_w']);
                     if ($_SESSION['profil'] == 'gese' && $i == 3) {
                         echo 'document.getElementById("pfach3.14.label").style.opacity = \'1\'';
                         echo 'document.getElementById("pfach3.14").disabled = false';
@@ -634,15 +639,15 @@ function proof_in_advance($pfach, $i) {
                 try {
                     if ($_SESSION['w'][1] == true && $_SESSION['w_nk'] == true && $_SESSION['religion_w'] == true) {
                         if ($i <=3) {
-                            echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'0.5\'';
-                            echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                            echo 'document.getElementById("' . $pfach . $j  . '.label").style.opacity = \'0.5\'';
+                            echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
                             break;
                         }
-                        echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'1\'';
-                        echo 'document.getElementById((pfach + j)).disabled = false';
+                        echo 'document.getElementById("' . $pfach. $j  . '.label").style.opacity = \'1\'';
+                        echo 'document.getElementById("' . $pfach . $j . '").disabled = false';
                     } else {
-                        echo 'document.getElementById(pfach + ' . $j . '+ ".label").style.opacity = \'0.5\'';
-                        echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                        echo 'document.getElementById("' . $pfach . $j . '.label").style.opacity = \'0.5\'';
+                        echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
                     }
                 } catch (\Throwable $th) {
                     //throw $th;
@@ -652,15 +657,15 @@ function proof_in_advance($pfach, $i) {
                 try {
                     if ($_SESSION['w'][1] == true && $_SESSION['w_nk'] == true && $_SESSION['erdkunde_w'] == true) {
                         if ($i <=3) {
-                            echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'0.5\'';
-                            echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                            echo 'document.getElementById("' . $pfach . $j  . '.label").style.opacity = \'0.5\'';
+                            echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
                             break;
                         }
-                        echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'1\'';
-                        echo 'document.getElementById((pfach + j)).disabled = false';
+                        echo 'document.getElementById("' . $pfach . $j  . '.label").style.opacity = \'1\'';
+                        echo 'document.getElementById("' . $pfach . $j . '").disabled = false';
                     } else {
-                        echo 'document.getElementById(pfach + ' . $j . '+ ".label").style.opacity = \'0.5\'';
-                        echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                        echo 'document.getElementById("pfach' . $j . '.label").style.opacity = \'0.5\'';
+                        echo 'document.getElementById("pfach' . $j . '").disabled = true';
                     }
                 } catch (\Throwable $th) {
                     //throw $th;
@@ -669,15 +674,15 @@ function proof_in_advance($pfach, $i) {
             case 'Sport':
                 try {
                     if($_SESSION['w'][3] != true){
-                        echo 'document.getElementById(pfach + ' . $j . '+ ".label").style.opacity = \'0.5\'';
-                        echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                        echo 'document.getElementById("' . $pfach . $j . '.label").style.opacity = \'0.5\'';
+                        echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
                     } else {
                         if ($_SESSION['w_nk'] == true && $_SESSION['sport_w'] == true) {
-                            echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'1\'';
-                            echo 'document.getElementById((pfach + ' . $j . ')).disabled = false';
+                            echo 'document.getElementById("' . $pfach . $j  . '.label").style.opacity = \'1\'';
+                            echo 'document.getElementById("' . $pfach . $j . ').disabled = false';
                         } else {
-                            echo 'document.getElementById(pfach + ' . $j . '+ ".label").style.opacity = \'0.5\'';
-                            echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                            echo 'document.getElementById("' . $pfach . $j . '.label").style.opacity = \'0.5\'';
+                            echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
                         }
                     }
                 } catch (\Throwable $th) {
@@ -694,11 +699,11 @@ function proof_in_advance_visibility($pfach, $i, $j, $bereich, $waehlbar, $fachv
             disable_fachbutton($pfach . $j);
         } else {
             if ($i == 3 && $_SESSION['profil'] == 'gese') {
-                echo 'document.getElementById(pfach + ' . $j . '+ ".label").style.opacity = \'0.5\'';
-                echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                echo 'document.getElementById("' . $pfach . $j . '.label").style.opacity = \'0.5\'';
+                echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
             } else {
-                echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'1\'';
-                echo 'document.getElementById((pfach + ' . $j . ')).disabled = false';
+                echo 'document.getElementById("' . $pfach . $j  . '.label").style.opacity = \'1\'';
+                echo 'document.getElementById("' . $pfach . $j . '").disabled = false';
             }
         }
     } else {
@@ -712,10 +717,10 @@ function proof_in_advance_visibility_w_nk($pfach, $i, $j, $bereich, $waehlbar, $
             disable_fachbutton($pfach . $j);
         } else {
             if ($i == 3 && $_SESSION['profil'] == 'gese') {
-                echo 'document.getElementById(pfach + ' . $j . '+ ".label").style.opacity = \'0.5\'';
-                echo 'document.getElementById((pfach + ' . $j . ')).disabled = true';
+                echo 'document.getElementById("' . $pfach . $j . '.label").style.opacity = \'0.5\'';
+                echo 'document.getElementById("' . $pfach . $j . '").disabled = true';
             } else {
-                echo 'document.getElementById(pfach + ' . $j  . '+ ".label").style.opacity = \'1\'';
+                echo 'document.getElementById("' . $pfach . $j  . '.label").style.opacity = \'1\'';
             }
         }
     }
@@ -723,8 +728,8 @@ function proof_in_advance_visibility_w_nk($pfach, $i, $j, $bereich, $waehlbar, $
 
 function disable_wish($fach, $j){
     if ($_SESSION['pfach' . $j] == $fach) {
-        echo 'document.getElementById(' . $fach . ' + "2").disabled = true';
-        echo 'document.getElementById(' . $fach . '+ "2.label").style.opacity = \'0.5\'';
+        echo '<script type="text/javascript">document.getElementById("' . $fach . '2").disabled = true</script>';
+        echo '<script type="text/javascript">document.getElementById("' . $fach . '2.label").style.opacity = \'0.5\'</script>';
     }
 }
 
@@ -735,7 +740,7 @@ function sport_gk(){
 }
 
 function checking_for_muku_gk($j){
-    if ($_SESSION['extra'][13] == false && $_SESSION['extra'][10] == false && $_SESSION['extra'][3] && ($_SESSION['pfach' . $j] == 'Musik' || $_SESSION['pfach' . $j] == 'Kunst' || $_SESSION['pfach' . $j] == 'DS' )) {
+    if ($_SESSION['extra'][13] == false && $_SESSION['extra'][10] == false && $_SESSION['extra'][3] == false && ($_SESSION['pfach' . $j] == 'Musik' || $_SESSION['pfach' . $j] == 'Kunst' || $_SESSION['pfach' . $j] == 'DS' )) {
         $_SESSION['extra'][13] = false;
         $_SESSION['extra'][10] = false;
         $_SESSION['extra'][3] = false;
@@ -824,7 +829,7 @@ function buttons_fs(){
 }
 
 function checking_for_nw($j){
-    if($_SESSION['extra'][14] == false && $_SESSION['extra'][1] == false && $_SESSION['extra'][2] && ($_SESSION['pfach' . $j] == 'Physik' || $_SESSION['pfach' . $j] == 'Chemie' || $_SESSION['pfach' . $j] == 'Biologie')){
+    if($_SESSION['extra'][14] == false && $_SESSION['extra'][1] == false && $_SESSION['extra'][2] == false && ($_SESSION['pfach' . $j] == 'Physik' || $_SESSION['pfach' . $j] == 'Chemie' || $_SESSION['pfach' . $j] == 'Biologie')){
         if($_SESSION['pfach' . $j] == 'Physik'){
             $_SESSION['extra'][14] = true;
             $_SESSION['extra'][2] = false;

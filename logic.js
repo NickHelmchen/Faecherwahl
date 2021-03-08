@@ -1387,49 +1387,51 @@ function calc_stunden_for_pflicht() {
 
 //Aktiviert den Bereich 2.FS/2.NW, sobald 1 FS und 1 NW gewählt wurden
 function enable_2fs_2nw() {
-  if ((sessionStorage.getItem('counter_nw')) + parseInt(sessionStorage.getItem('counter_fs')) >= 3) {
-    return
-  }
-  if (((document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true || document.getElementById("englisch").checked == true) || (document.getElementById("spanisch").disabled == true || document.getElementById("franzoesisch").disabled == true || document.getElementById("latein").disabled == true || document.getElementById("englisch").disabled == true))
-  && ((document.getElementById("chemie").checked == true || document.getElementById("bio").checked == true || document.getElementById("physik").checked == true || document.getElementById("informatik").checked == true) || (document.getElementById("chemie").disabled == true || document.getElementById("bio").disabled == true || document.getElementById("physik").disabled == true || document.getElementById("informatik").disabled == true)))  { 
-    enable_fachbutton('spanisch2')
-    enable_fachbutton('franzoesisch2')
-    enable_fachbutton('latein2')
-    enable_fachbutton('englisch2')
-    enable_fachbutton('chemie2')
-    enable_fachbutton('bio2')
-    enable_fachbutton('physik2')
-    enable_fachbutton('informatik2')
-    for (let j = 1; j < 6; j++) {
-      if (sessionStorage.getItem('pfach' + j) == 'Spanisch' || document.getElementById("spanisch").checked == true) {
-        disable_fachbutton('latein2')
-        disable_fachbutton('franzoesisch2')
-        disable_fachbutton('spanisch2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Französisch' || document.getElementById("franzoesisch").checked == true) {
-        disable_fachbutton('latein2')
-        disable_fachbutton('franzoesisch2')
-        disable_fachbutton('spanisch2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Latein' || document.getElementById("latein").checked == true) {
-        disable_fachbutton('latein2')
-        disable_fachbutton('franzoesisch2')
-        disable_fachbutton('spanisch2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Englisch' || document.getElementById("englisch").checked == true) {
-        disable_fachbutton('englisch2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Chemie' || document.getElementById("chemie").checked == true) {
-        disable_fachbutton('chemie2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Biologie' || document.getElementById("bio").checked == true) {
-        disable_fachbutton('bio2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Physik' || document.getElementById("physik").checked == true) {
-        disable_fachbutton('physik2')
-      }
-      if (sessionStorage.getItem('pfach' + j) == 'Informatik' || document.getElementById("informatik").checked == true) {
-        disable_fachbutton('informatik2')
+  console.log(parseInt(sessionStorage.getItem('counter_nw')) + parseInt(sessionStorage.getItem('counter_fs')))
+  if (parseInt(sessionStorage.getItem('counter_nw')) + parseInt(sessionStorage.getItem('counter_fs')) < 3) {
+    console.log('hi')
+    if (((document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true || document.getElementById("englisch").checked == true) || (document.getElementById("spanisch").disabled == true || document.getElementById("franzoesisch").disabled == true || document.getElementById("latein").disabled == true || document.getElementById("englisch").disabled == true))
+    && ((document.getElementById("chemie").checked == true || document.getElementById("bio").checked == true || document.getElementById("physik").checked == true || document.getElementById("informatik").checked == true) || (document.getElementById("chemie").disabled == true || document.getElementById("bio").disabled == true || document.getElementById("physik").disabled == true || document.getElementById("informatik").disabled == true)))  { 
+      
+      enable_fachbutton('spanisch2')
+      enable_fachbutton('franzoesisch2')
+      enable_fachbutton('latein2')
+      enable_fachbutton('englisch2')
+      enable_fachbutton('chemie2')
+      enable_fachbutton('bio2')
+      enable_fachbutton('physik2')
+      enable_fachbutton('informatik2')
+      for (let j = 1; j < 6; j++) {
+        if (sessionStorage.getItem('pfach' + j) == 'Spanisch' || document.getElementById("spanisch").checked == true) {
+          disable_fachbutton('latein2')
+          disable_fachbutton('franzoesisch2')
+          disable_fachbutton('spanisch2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Französisch' || document.getElementById("franzoesisch").checked == true) {
+          disable_fachbutton('latein2')
+          disable_fachbutton('franzoesisch2')
+          disable_fachbutton('spanisch2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Latein' || document.getElementById("latein").checked == true) {
+          disable_fachbutton('latein2')
+          disable_fachbutton('franzoesisch2')
+          disable_fachbutton('spanisch2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Englisch' || document.getElementById("englisch").checked == true) {
+          disable_fachbutton('englisch2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Chemie' || document.getElementById("chemie").checked == true) {
+          disable_fachbutton('chemie2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Biologie' || document.getElementById("bio").checked == true) {
+          disable_fachbutton('bio2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Physik' || document.getElementById("physik").checked == true) {
+          disable_fachbutton('physik2')
+        }
+        if (sessionStorage.getItem('pfach' + j) == 'Informatik' || document.getElementById("informatik").checked == true) {
+          disable_fachbutton('informatik2')
+        }
       }
     }
   }

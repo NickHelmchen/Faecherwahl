@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    include "logic.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -99,11 +100,11 @@
             <button onclick="restart(), terminator()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header" title="schriftliches Prüfungsfach mit erhöhtem Anforderungsniveau (5-stündig)">Prüfungsfach 1</p>
-                <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="selected('pfach1.', '1'), visible('pfach1.', '1'), save(), change_kf_text_lang(), logicvariables(), logicsubjects(1), proof_in_advance('pfach2.', 2)">
+                <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="<?php save2('Mathe');?>, selected('pfach1.', '1'), visible('pfach1.', '1')">
                 <label for="pfach1.1" title="Kernfach, Bereich C" id="pfach1.1.label">Mathe</label>
                 <br>
                 <br>
-                <input type="radio" name="pfach1" id="pfach1.2" value="Chemie" onclick="selected('pfach1.', '2'), visible('pfach1.', '2'), save(), change_kf_text_lang(), logicvariables(), logicsubjects(1), proof_in_advance('pfach2.', 2)">
+                <input type="radio" name="pfach1" id="pfach1.2" value="Chemie" onclick="<?php save2('Chemie');?>, selected('pfach1.', '2'), visible('pfach1.', '2'), save(), change_kf_text_lang()">
                 <label for="pfach1.2" title="kein Kernfach, Bereich C" id="pfach1.2.label">Chemie</label>
                 <br>
                 <br>
@@ -153,6 +154,13 @@
                 <br>
                 <br>
             </div>
+            <?php
+                if(isset($_SESSION['pfach1'])){
+                logicvariables();
+                logicsubjects(1);
+                proof_in_advance('pfach2.', 2);
+            }
+            ?>
             <div class="gp2 w3-animate-top toggle-buttons">
                 <p class="header" title="schriftliches Prüfungsfach mit erhöhtem Anforderungsniveau (5-stündig)">Prüfungsfach 2</p>
                 <input type="radio" name="pfach2" id="pfach2.1" value="Mathe" onclick="selected('pfach2.', '1'), visible('pfach2.', '1'), save(), change_kf_text_lang(), disable_buttons(2), logicsubjects(2), proof_in_advance('pfach3.', 3)">
