@@ -41,7 +41,7 @@ function restart() {
     document.getElementById("pfach" + i + ".6.label").title = "Kernfach, Bereich A"    
     document.getElementById("pfach" + i + ".7.label").title = "Kernfach, Bereich A"    
     document.getElementById("pfach" + i + ".11.label").title = "Kernfach, Bereich A" 
-    document.getElementById("info_kf").value = "Hier tauchen die Infos zu Kernfächern und den Bereichen auf"
+    document.getElementById("info_kf").value = ""
 
   }
   uncheck("pfach1.")
