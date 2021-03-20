@@ -1,12 +1,10 @@
 <?php
 
+
 include_once 'header.php';
 
-include_once 'includes/dbh.inc.php';
-include_once 'includes/functions.php';
+echo 'penis1';
 
-/*
-$Id = 16;
 $P1 = 1;
 $P2 = 2;
 $P3 = 3;
@@ -31,17 +29,20 @@ $subReligion = 1;
 $subWn = 0;
 $subErdkunde = 0;
 $subFuer12 = 13;
-*/
 
+echo 'penis4';
+
+include_once 'includes/dbh.inc.php';
+    include_once 'includes/functions.inc.php';
+
+echo 'penis3';
 $Id = 16;
+echo 'penis8';
 
-echo 'test';
+echo 'penis2';
+savePfach($conn, 17, 1, 2, 3, 9, 14, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 13);
+exit();                  
 
 
-savePfach($conn, $Id);
-
-
-echo '<br>';
-echo 'works';
 
 include_once 'footer.php';

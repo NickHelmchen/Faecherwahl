@@ -130,45 +130,20 @@ function loginUser($conn, $username, $pwd) {                    //Benutzer anmel
     }
 }
 
-function savePfach($conn, $Id) { //Wahl speichern
+function savePfach($conn, $Id, $P1, $P2, $P3, $P4, $P5, $subMathe, $subChemie, $subPhysik, $subBiologie, $subDeutsch, $subEnglisch, $subFranzoesisch, $subSpanisch, $subLatein, $subMusik, $subKunst, $subsubDS, $subInformatik, $subGeschichte, $subPoWi, $subReligion, $subWn, $subErdkunde, $subFuer12) { //Wahl speichern
 
-$Id = 16;
-$P1 = 1;
-$P2 = 2;
-$P3 = 3;
-$P4 = 9;
-$P5 = 14;
-$subMathe = 0;
-$subChemie = 0;
-$subPhysik = 0;
-$subBiologie = 0;
-$subDeutsch = 1;
-$subEnglisch = 0;
-$subFranzoesisch = 0;
-$subSpanisch = 0;
-$subLatein = 0;
-$subMusik = 0;
-$subKunst = 1;
-$subsubDS = 0;
-$subInformatik = 0;
-$subGeschichte = 1;
-$subPoWi = 0;
-$subReligion = 1;
-$subWn = 0;
-$subErdkunde = 0;
-$subFuer12 = 13;
 
     $sql = "INSERT INTO sub ( subId, subP1, subP2, subP3, subP4, subP5, subMathe, subChemie, subPhysik, subBiologie, subDeutsch, subEnglisch, subFranzoesisch, subSpanisch, subLatein, subMusik, subKunst, subsubDS, subInformatik, subGeschichte, subPoWi, subReligion, subWn, subErdkunde, subFuer12 ) VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../mainpage.php?error=Pafachtransition");
+        header("location: ../save.php?error=Pafachtransition");
         exit();
     }
 
     mysqli_stmt_bind_param($stmt, "iiiiiiiiiiiiiiiiiiiiiiiii", $Id, $P1, $P2, $P3, $P4, $P5, $subMathe, $subChemie, $subPhysik, $subBiologie, $subDeutsch, $subEnglisch, $subFranzoesisch, $subSpanisch, $subLatein, $subMusik, $subKunst, $subsubDS, $subInformatik, $subGeschichte, $subPoWi, $subReligion, $subWn, $subErdkunde, $subFuer12);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../mainpage.php?function=true");
+    header("location: ../index.php?error=saved");
     exit();
 }
 
