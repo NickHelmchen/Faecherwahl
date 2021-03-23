@@ -62,14 +62,14 @@ function startset() {
 }
 
 function wahl(a) {
-    location.href = a + ".php"
+    location.href = a + ".html"
 }
 
 function wahl2() {
   if (sessionStorage.getItem('profil') == 'mana') {
-    location.href = "wahlmanu.php"
+    location.href = "wahlmanu.html"
   } else {
-    location.href = "wahl" + sessionStorage.getItem('profil') + ".php"
+    location.href = "wahl" + sessionStorage.getItem('profil') + ".html"
   }
 }
 
@@ -268,6 +268,6 @@ function nicht_waehlen_Fach(fach){
 function go_back() {
   terminator()
   logicvariables()
-  location.href='wahl.php'
+  location.href='wahl.html'
 }
 /*-----------------------------------------------------------------------------------------------------------------*/
