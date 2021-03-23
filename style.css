@@ -1,0 +1,686 @@
+body {font-family: 'Actor', sans-serif;}
+body, html {height: 100%}
+
+@import url('https://fonts.googleapis.com/css2?family=Actor&display=swap');
+
+.font {
+    font-family: 'Actor';
+}
+
+.bgimg {
+    background-image: url(background2.jpg);
+    /*background-position: 800px 20%;*/
+    background-attachment: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    min-height: 100%;
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.stoer{
+    background-image: url(depositphotos_54225809_s-2015.jpg);
+    background-attachment: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    min-height: 100%;
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+table {
+    border-collapse: collapse;
+    border: 1px;
+    width: 100%;
+    text-align: center;
+}
+th {
+    background-color: lightblue;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:nth-child(odd) {
+    background-color: #a2a2a2;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-indexform {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 100%;
+    grid-template-areas: 
+        '... ... login-indexform ... ...'
+        '... ... message-indexform ... ...';
+}
+
+.message-indexform {
+    grid-area: message;
+}
+
+.message-index {
+    margin: auto;
+    cursor: default;
+    white-space: nowrap;
+}
+
+.login-indexform {
+    grid-area: login-indexform;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-index {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-areas: 
+        '... ... indextext ... ...'
+        '... ... username ... ...'
+        '... ... password ... ...'
+        '... ... indexbutton ... ...';
+}
+
+.username {
+    grid-area: username;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.password { 
+    grid-area: password;
+    border-radius: 25px;
+    margin: auto;
+    text-align: center;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.indexbutton {
+    grid-area: indexbutton;
+    border-radius: 25px;
+    margin: auto;
+    border: none;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.indexbutton:hover,
+.indexbutton:focus {
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.indextext {
+    grid-area: indextext;
+    white-space: nowrap;
+    margin: auto;
+    cursor: default;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-admin {
+    position: absolute; left: 50%; top: 20%;
+    transform: translate( 0%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-areas:
+        '... ... newuser ... ...'
+        '... ... resetpwd ... ...'
+        '... ... deleteuser ... ...'
+        '... ... tableadminview ... ...'
+        '... ... logoutadmin ... ...';
+}
+
+.welcometext {
+    color: white;
+    position: absolute; left: 50%; top: 1%;
+    transform: translate(-50%);   
+}
+
+.newuser {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+
+.newuserform {
+    grid-area: newuser;
+}
+
+.newuser:hover,
+.newuser:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.resetpwd {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+
+.resetpwdform {
+    grid-area: resetpwd;
+}
+
+.resetpwd:hover,
+.resetpwd:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.deleteuser {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+
+.deleteuserform {
+    grid-area: deleteuser;
+}
+
+.deleteuser:hover,
+.deleteuser:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.logoutadmin {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+
+.logoutadminform {
+    grid-area: logoutadmin;
+}
+
+.logoutadmin:hover,
+.logoutadmin:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.tableadminviewform {
+    grid-area: tableadminview;
+}
+.tableadminview {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+.tableadminview:hover,
+.tableadminview:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-mainpage {
+    position: absolute; left: 50%; top: 20%;
+    transform: translate( 0%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-areas:
+        '... ... save ... ...'
+        '... ... logoutmain ... ...';
+}
+
+.saveform {
+    grid-area: save;
+}
+
+.save {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+
+.save:hover,
+.save:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.logoutmain {
+    border-radius: 25px;
+    transform: translate( -50%);
+    background-color: skyblue;
+    opacity: 0.8;
+    border: none;
+}
+
+.logoutmain:hover,
+.logoutmain:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.logoutmainform {
+    grid-area: logoutmain;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-signupform {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate( -330%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-areas:
+        'signup-input'
+        'signup-back';
+}
+
+.signup-input {
+    grid-area: signup-input;
+}
+
+.signup-back {
+    grid-area: signup-back;
+}
+
+.signup-back-button {
+    border: none;
+    transform: translate( 290%, 250%);
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.signup-back-button:hover,
+.signup-back-button:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-signup {
+    position: absolute; left: 0%; top: 20%;
+    transform: translate( 0%, -50%);
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-areas:
+        'signup-name ... signup-user'
+        'signup-class ... ...'
+        'signup-pwd ... signup-pwdr'
+        'signup-button signup-button signup-button';
+}
+
+.signup-info {
+    position: absolute; left: 50%; top: 38%;
+    transform: translate( -50%, -50%);
+    color: white;
+}
+
+.signup-name {
+    grid-area: signup-name;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.signup-user {
+    grid-area: signup-user;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.signup-class {
+    grid-area: signup-class;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.signup-pwd {
+    grid-area: signup-pwd;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.signup-pwdr {
+    grid-area: signup-pwdr;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.signup-button {
+    grid-area: signup-button;
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.signup-button:hover,
+.signup-button:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-pwdresetform {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate( -50%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-areas:
+        'pwdreset-input'
+        'pwdreset-back';
+}
+
+.pwdreset-input {
+    grid-area: pwdreset-input;
+}
+
+.pwdreset-back {
+    grid-area: pwdreset-back;
+}
+
+.pwdreset-back-button  {
+    position: absolute; left: 50%; top: 650%;
+    transform: translate( -50%, -50%);
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.pwdreset-back-button:hover,
+.pwdreset-back-button:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-pwdreset {
+    position: absolute; left: 50%; top: 20%;
+    transform: translate( -50%, -50%);
+    display: grid;
+    grid-row-gap: 5px;
+    
+    grid-template-areas:
+        '... ... pwdreset-user pwdreset-user ... ... '
+        '... pwdreset-pwd pwdreset-pwd pwdreset-pwdr pwdreset-pwdr ...'
+        '... ... pwdreset-button pwdreset-button ... ...';
+}
+
+.pwdreset-info {
+    position: absolute; left: 50%; top: 40%;
+    transform: translate( -50%, -50%);
+    color: white;
+}
+
+.pwdreset-user {
+    grid-area: pwdreset-user;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.pwdreset-pwd {
+    grid-area: pwdreset-pwd;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.pwdreset-pwdr {
+    grid-area: pwdreset-pwdr;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.8;
+    background-color: lightcyan;
+}
+
+.pwdreset-button {
+    grid-area: pwdreset-button;
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.pwdreset-button:hover,
+.pwdreset-button:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-deleteuserform {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate( -50%, -50%);
+    justify-content: center;
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-areas:
+    'deleteuser-info'
+    'deleteinputform'
+    'deleteback';
+}
+
+.deleteuser-info {
+    grid-area: deleteuser-info;
+    color: white;
+}
+
+.deleteinpuform {
+    grid-area: deleteinputform;
+}
+
+.deleteback {
+    grid-area: deleteback;
+}
+
+.deleteback-button {
+    position: absolute; left: 50%; top: 150%;
+    transform: translate( -50%);
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.deleteback-button:hover,
+.deleteback-button:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-deleteinput {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-template-areas:
+        'deleteuser-user deleteuser-class deleteuser-apwd deleteuser-button';
+}
+
+.deleteuser-user {
+    position: absolute; left: 0%;
+    transform: translate( -50%);
+    grid-area: deleteuser-user;
+    border: none;
+    border-radius: 25px;
+    text-align: center;
+    background-color: lightcyan;
+}
+
+.deleteuser-class {
+    position: absolute; left: 40%;
+    transform: translate( -50%);
+    grid-area: deleteuser-class;
+    border: none;
+    border-radius: 25px;
+    text-align: center;
+    background-color: lightcyan;
+}
+
+.deleteuser-apwd {
+    position: absolute; left: 80%;
+    transform: translate( -50%);
+    grid-area: deleteuser-apwd;
+    border: none;
+    border-radius: 25px;
+    text-align: center;
+    background-color: lightcyan
+}
+
+.deleteuser-button {
+    position: absolute; left: 107%;
+    transform: translate( -50%);
+    grid-area: deleteuser-button;
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+
+.deleteuser-button:hover,
+.deleteuser-button:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.container-view {
+    display: grid;
+    grid-row-gap: 1px;
+    grid-template-areas: 
+        'logoutviewform ... ... ... ...'
+        '... adminview ... ....'
+        '... viewallform ... ...'
+        '... viewspecialform ... ...'
+        'tableview tableview tableview tableview';
+}
+
+.logoutviewform {
+    grid-area: logoutviewform;
+    position: absolute; left: 50%; top: 8%;
+}
+.logoutview {
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+    transform: translate( -50%);
+}
+.logoutview:hover,
+.logoutview:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.adminviewform {
+    grid-area: adminview;
+    position: absolute; left: 50%; top: 11%;
+    transform: translate( -50%);
+}
+.adminviewbutton {
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+.adminviewbutton:hover,
+.adminviewbutton:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.viewallform {
+    grid-area: viewallform;
+    position: absolute; left: 50%; top: 14%;
+    transform: translate( -50%);
+}
+.viewall {
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+.viewall:hover,
+.viewall:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.viewspecialform {
+    grid-area: viewspecialform;
+    position: absolute; left: 50%; top: 17%;
+    transform: translate( -50%);
+}
+.viewspecialinput {
+    text-align: center;
+    border: none;
+    border-radius: 25px;
+    background-color: lightcyan;
+    opacity: 0.8;
+}
+.viwspecialbutton {
+    border: none;
+    border-radius: 25px;
+    background-color: skyblue;
+    opacity: 0.8;
+}
+.viwspecialbutton:hover,
+.viwspecialbutton:focus {
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+
+.tableview {
+    grid-area: tableview;
+    position: absolute; top: 22%;
+}
