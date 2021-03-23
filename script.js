@@ -21,11 +21,13 @@ function url() {
 function terminator() {
   var temp1 = ''
   var temp2 = ''
+  var temp3 = sessionStorage.getItem("nicht_waehlen_Fach")
   temp1 = sessionStorage.getItem("savename")
   temp2 = sessionStorage.getItem("savelastname")
   sessionStorage.clear()
   sessionStorage.setItem('savename', temp1)
   sessionStorage.setItem('savelastname', temp2)
+  sessionStorage.setItem('nicht_waehlen_Fach', temp3)
 }
 
 function restart() {
@@ -60,14 +62,14 @@ function startset() {
 }
 
 function wahl(a) {
-    location.href = a + ".html"
+    location.href = a + ".php"
 }
 
 function wahl2() {
   if (sessionStorage.getItem('profil') == 'mana') {
-    location.href = "wahlmanu.html"
+    location.href = "wahlmanu.php"
   } else {
-    location.href = "wahl" + sessionStorage.getItem('profil') + ".html"
+    location.href = "wahl" + sessionStorage.getItem('profil') + ".php"
   }
 }
 
@@ -169,9 +171,6 @@ function uncheck(pfach) {
 
 
 function afterwards() {
-  console.log('Hallo. Hier ist Afterwards おはよ / こんにちは, 안녕하세요,　一、二、三, 二千二十, 이천이십일년 이월 이십오일')
-  console.log('저는 빵 좋아하는데 기차를 더 좋아해요')
-  console.log('わたし　は　列車　が　すきです')
   for(i = 1; i<=5; i++) {
     for (let j = 1; j <= sessionStorage.getItem('lp' + i); j++) {
       if (i === 1) {
@@ -269,6 +268,6 @@ function nicht_waehlen_Fach(fach){
 function go_back() {
   terminator()
   logicvariables()
-  location.href='wahl.html'
+  location.href='wahl.php'
 }
 /*-----------------------------------------------------------------------------------------------------------------*/

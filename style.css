@@ -590,12 +590,16 @@ body, html {height: 100%}
     font-size: 16px;
     border: none;
     width: 1fr;
+    justify-self: stretch;
 }
 .dropdown-content {
     display: none;
-    position: absolute;
+    position:absolute;
     background-color: #f1f1f1;
+    grid-column: 2 span 3;
     width: 1fr;
+    justify-self: stretch;
+    align-self: stretch;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -603,7 +607,8 @@ body, html {height: 100%}
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
+    grid-column: 2 span 3;
+    display:block;
     width: 1fr;
   }
 
@@ -611,16 +616,19 @@ body, html {height: 100%}
     background-color: skyblue;
     border-radius: 15px;
     width: 1fr;
+    justify-self: stretch;
 }
 
 .dropdown:hover .dropdown-content {
     display: block; 
     border-radius: 15px;
     width: 1fr;
+    justify-self: stretch;
 }
 .dropdown:hover .dropbtn {
     background-color:skyblue;
     width: 1fr;
+    justify-self: stretch;
 }
 
 .infotext {

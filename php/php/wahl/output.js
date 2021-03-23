@@ -63,8 +63,8 @@ function look_for_extra() {
 }
 
 function output() {
-    document.getElementById('name').value = sessionStorage.getItem('savename')
-    document.getElementById('lastname').value = sessionStorage.getItem('savelastname')
+    //document.getElementById('name').value = sessionStorage.getItem('savename')
+    //document.getElementById('lastname').value = sessionStorage.getItem('savelastname')
     for(i = 1; i <= 5; i++) {
         document.getElementById("pfach" + i).value = sessionStorage.getItem("pfach" + i);
     }

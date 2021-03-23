@@ -96,11 +96,70 @@
             }
             proof_in_advance('pfach' + a + '.', a)
             show_kf_abc()
+            
+        }
+        function nicht_waehlen_check() {
+            switch (sessionStorage.getItem('nicht_waehlen_Fach')) {
+                case 'mathe_w':
+                    document.getElementById('pfach1.1.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.1').disabled = true
+                    break;
+                case 'chemie_w':
+                    document.getElementById('pfach1.2.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.2').disabled = true
+                    break;
+                case 'englisch_w':
+                    document.getElementById('pfach1.3.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.3').disabled = true
+                    break;
+                case 'physik_w':
+                    document.getElementById('pfach1.4.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.4').disabled = true
+                    break;
+                case 'biologie_w':
+                    document.getElementById('pfach1.5.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.5').disabled = true
+                    break;
+                case 'franzoesisch_w':
+                    document.getElementById('pfach1.6.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.6').disabled = true
+                    break;
+                case 'latein_w':
+                    document.getElementById('pfach1.7.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.7').disabled = true
+                    break;
+                case 'musik_w':
+                    document.getElementById('pfach1.8.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.8').disabled = true
+                    break;
+                case 'informatik_w':
+                    document.getElementById('pfach1.9.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.9').disabled = true
+                    break;
+                case 'kunst_w':
+                    document.getElementById('pfach1.10.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.10').disabled = true
+                    break;
+                case 'spanisch_w':
+                    document.getElementById('pfach1.11.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.11').disabled = true
+                    break;
+                case 'deutsch_w':
+                    document.getElementById('pfach1.12.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.12').disabled = true
+                    break;
+                case 'geschichte_w':
+                    document.getElementById('pfach1.13.label').style.opacity = '0.5'
+                    document.getElementById('pfach1.13').disabled = true
+                    break;
+                default:
+                    break;
+            }
         }
         </script>
     </head>
 
-    <body onload="page2(), logicvariables(), afterwards()">
+    <body onload="page2(), logicvariables(), afterwards(), nicht_waehlen_check()">
         <div class="bgimg grid-container">
             <textarea name="info" id="info1" cols="30" rows="1" class="info" readonly>
 
@@ -118,7 +177,7 @@ Hier tauchen die Infos zu Kernfächern und den Bereichen auf.
             <button onclick="p_reset_to_certain_p(3)" id="resetp3" class="button-reset-p3 buttonfertig">P3 zurücksetzen</button>
             <button onclick="p_reset_to_certain_p(4)" id="resetp4" class="button-reset-p4 buttonfertig">P4 zurücksetzen</button>
             <button onclick="p_reset_to_certain_p(5)" id="resetp5" class="button-reset-p5 buttonfertig">P5 zurücksetzen</button>
-            <button onclick="restart(), terminator(), logicvariables()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
+            <button onclick="restart(), terminator(), logicvariables(), nicht_waehlen_check()" id="restart" class="buttonfertig restartbutton next-button">neu wählen</button>
             <div class="gp1 w3-animate-left toggle-buttons">
                 <p class="header" title="schriftliches Prüfungsfach mit erhöhtem Anforderungsniveau (5-stündig)">Prüfungsfach 1</p>
                 <input type="radio" name="pfach1" id="pfach1.1" value="Mathe" onclick="selected('pfach1.', '1'), visible('pfach1.', '1'), save(), logicvariables(), change_kf_text_lang(), logicsubjects(1), show_kf_abc(), proof_in_advance('pfach2.', 2)">

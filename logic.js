@@ -1,3 +1,4 @@
+//Grundlegende Variablen werden gesetzt
 function logicvariables() {
 
   //Variablen, die definieren, ob ein Fach als P2 gewählt werden kann
@@ -133,7 +134,7 @@ function logicvariables() {
   sessionStorage.setItem('gk_stundenanzahl', 3)
   sessionStorage.setItem('sp_sf_stundenanzahl', 2)
 
-  sessionStorage.setItem('stundenanzahl_gesamt', 21)
+  sessionStorage.setItem('stundenanzahl_gesamt', 86)
   sessionStorage.setItem('stundenanzahl_minimum', 32)
 
   sessionStorage.setItem('deutsch_already_counted', false)
@@ -172,9 +173,13 @@ function bereich_dec(abc) {
 function waehlbarkeit(fach_w, choose) {
   sessionStorage.setItem(fach_w, choose)
 }
+//Es wird überprüft, ob ein Fach als Prüfungsfach gewählt wurde
 function check_fach_for_pfach(fach) {
+  //Hilfsvariable help wird erstellt
   let help = false
+  //Jedes Prüfungsfach wird überprüft
   for (let i = 1; i < 6; i++) {
+    //Wenn das Prüfungsfach und das Fach aus dem Übergabeparameter identisch sind, wird help auf true gesetzt
     if (sessionStorage.getItem('pfach' + i) == fach) {
       help = true
     }
@@ -187,10 +192,12 @@ function disable_buttons_p(i) {
       document.getElementById('pfach' + i + "." + j).disabled = true
   }
 }
+//Ein Buttons wird aktiviert und als anklickbar angezeigt
 function enable_fachbutton(fach) {
   document.getElementById(fach + ".label").style.opacity = '1'
   document.getElementById(fach).disabled = false
 }
+//Ein Buttons wird deaktiviert und als nicht mehr anklickbar angezeigt
 function disable_fachbutton(fach) {
   document.getElementById(fach + ".label").style.opacity = '0.5'
   document.getElementById(fach).disabled = true
@@ -203,33 +210,39 @@ function nw_add() {
 function fs_add() {
   sessionStorage.setItem('counter_fs', (parseInt(sessionStorage.getItem('counter_fs')) + 1))
 }
+//Es wird überprüft, ob bereits eine Fremdsprache gewählt wurde, um festzustellen, ob es sich bei einer Fremdsprache um ein Kernfach oder Nicht-Kernfach handelt 
 function fs_schon_gewaehlt_logic(fach_a, fach_b, fach_c) {
   let help2 = false
-  for (let k = 1; k < i && help2 == false; k++) {
+  //Jedes Prüfungsfach wird durchgegangen, bis alle Prüfungsfächer durch sind oder eine Fremdsprache gefunden wurde
+  for (let k = 1; k < 6 && help2 == false; k++) {
+    //Wenn keine Sprache gefunden wurde, bleibt help2 false, ansonsten bleibt es true
     if (sessionStorage.getItem('pfach' + k) != fach_a && sessionStorage.getItem('pfach' + k) != fach_b && sessionStorage.getItem('pfach' + k) != fach_c) {
       help2 = false
     } else {
       help2 = true
     }
   }
+  //Wenn eine Fremdsprache bereits gewählt wurde, werden Nicht-Kernfächer erhöht, ansonsten Kernfächer
   if (help2 == true) {
     nicht_kernfaecher_add()
   } else {
     kernfaecher_add()
   }
 }
-//Der Teil, der Logik, welcher die Variablen setzt
+//Der Teil, der Logik, welcher die Variablen setzt, um die noch möglichen Fächer zu berechnen
 function logicsubjects(i) {
   switch (sessionStorage.getItem('pfach' + i)) {
     case 'Mathe':
       //Wenn Mathe P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'mana')
         sessionStorage.setItem('p2_waehlbar[1]', true)
         sessionStorage.setItem('p2_waehlbar[2]', true)
         sessionStorage.setItem('p2_waehlbar[3]', true)
         sessionStorage.setItem('p2_waehlbar[4]', true)
       }
+      //Variablen werden angepasst
       kernfaecher_add()
       bereich_add('C')
       waehlbarkeit('mathe_w', false)
@@ -237,6 +250,7 @@ function logicsubjects(i) {
     case 'Informatik':
       //Wenn Informatik P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'mana')
         sessionStorage.setItem('p2_waehlbar[0]', true)
         sessionStorage.setItem('p2_waehlbar[2]', true)
@@ -246,6 +260,7 @@ function logicsubjects(i) {
         sessionStorage.setItem('biologie_w', true)
         sessionStorage.setItem('physik_w', true)
       }
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('C')
       waehlbarkeit('informatik_w', false)
@@ -254,6 +269,7 @@ function logicsubjects(i) {
     case 'Chemie':
       //Wenn Chemie P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'mana')
         sessionStorage.setItem('p2_waehlbar[0]', true)
         sessionStorage.setItem('p2_waehlbar[1]', true)
@@ -263,6 +279,7 @@ function logicsubjects(i) {
         sessionStorage.setItem('biologie_w', true)
         sessionStorage.setItem('physik_w', true)
       }
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('C')
       waehlbarkeit('chemie_w', false)
@@ -271,6 +288,7 @@ function logicsubjects(i) {
     case 'Biologie':
       //Wenn Biologie P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'mana')
         sessionStorage.setItem('p2_waehlbar[0]', true)
         sessionStorage.setItem('p2_waehlbar[1]', true)
@@ -280,6 +298,7 @@ function logicsubjects(i) {
         sessionStorage.setItem('chemie_w', true)
         sessionStorage.setItem('physik_w', true)
       }
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('C')
       waehlbarkeit('biologie_w', false)
@@ -288,6 +307,7 @@ function logicsubjects(i) {
     case 'Physik':
       //Wenn Physik P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'mana')
         sessionStorage.setItem('p2_waehlbar[0]', true)
         sessionStorage.setItem('p2_waehlbar[1]', true)
@@ -297,6 +317,7 @@ function logicsubjects(i) {
         sessionStorage.setItem('chemie_w', true)
         sessionStorage.setItem('biologie_w', true)
       }
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('C')
       waehlbarkeit('physik_w', false)
@@ -305,12 +326,14 @@ function logicsubjects(i) {
     case 'Deutsch':
       //Wenn Deutsch P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'spra')
         sessionStorage.setItem('p2_waehlbar[6]', true)
         sessionStorage.setItem('p2_waehlbar[7]', true)
         sessionStorage.setItem('p2_waehlbar[8]', true)
         sessionStorage.setItem('p2_waehlbar[9]', true)
       }
+      //Variablen werden angepasst
       kernfaecher_add()
       bereich_add('A')
       waehlbarkeit('deutsch_w', false)
@@ -318,6 +341,7 @@ function logicsubjects(i) {
     case 'Englisch':
       //Wenn Englisch P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'spra')
         sessionStorage.setItem('p2_waehlbar[5]', true)
         sessionStorage.setItem('p2_waehlbar[7]', true)
@@ -326,6 +350,7 @@ function logicsubjects(i) {
         kernfaecher_add()
       }
       //Wenn Englisch P2-P5 ist
+      //Variablen werden angepasst
       if (i > 1) {
         fs_schon_gewaehlt_logic('Latein', 'Französisch', 'Spanisch')
       }
@@ -336,6 +361,7 @@ function logicsubjects(i) {
     case 'Französisch':
       //Wenn Französisch P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'spra')
         sessionStorage.setItem('p2_waehlbar[5]', true)
         sessionStorage.setItem('p2_waehlbar[6]', true)
@@ -344,6 +370,7 @@ function logicsubjects(i) {
         kernfaecher_add()
       }
       //Wenn Französisch P2-P5 ist
+      //Variablen werden angepasst
       if (i > 1) {
         fs_schon_gewaehlt_logic('Latein', 'Englisch', 'Spanisch')
       }
@@ -356,6 +383,7 @@ function logicsubjects(i) {
     case 'Latein':
       //Wenn Latein P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'spra')
         sessionStorage.setItem('p2_waehlbar[5]', true)
         sessionStorage.setItem('p2_waehlbar[6]', true)
@@ -364,6 +392,7 @@ function logicsubjects(i) {
         kernfaecher_add()
       }
       //Wenn Latein P2-P5 ist
+      //Variablen werden angepasst
       if (i > 1) {
         fs_schon_gewaehlt_logic('Englisch', 'Französisch', 'Spanisch')
       }
@@ -376,6 +405,7 @@ function logicsubjects(i) {
     case 'Spanisch':
       //Wenn Spanisch P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'spra')
         sessionStorage.setItem('p2_waehlbar[5]', true)
         sessionStorage.setItem('p2_waehlbar[6]', true)
@@ -384,6 +414,7 @@ function logicsubjects(i) {
         kernfaecher_add()
       }
       //Wenn Spanisch P2-P5 ist
+      //Variablen werden angepasst
       if (i > 1) {
         fs_schon_gewaehlt_logic('Latein', 'Französisch', 'Englisch')
       }
@@ -396,11 +427,13 @@ function logicsubjects(i) {
     case 'Kunst':
       //Wenn Kunst P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'muku')
         sessionStorage.setItem('p2_waehlbar[0]', true)
         sessionStorage.setItem('p2_waehlbar[5]', true)
       }
       //Wenn Kunst P2-P5 ist
+      //Variablen werden angepasst
       sessionStorage.setItem('musik_w', false)
       nicht_kernfaecher_add()
       bereich_add('A')
@@ -409,10 +442,12 @@ function logicsubjects(i) {
     case 'Musik':
       //Wenn Musik P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'muku')
         sessionStorage.setItem('p2_waehlbar[0]', true)
         sessionStorage.setItem('p2_waehlbar[5]', true)
       }
+      //Variablen werden angepasst
       sessionStorage.setItem('kunst_w', false)
       nicht_kernfaecher_add()
       bereich_add('A')
@@ -421,39 +456,47 @@ function logicsubjects(i) {
     case 'Geschichte':
       //Wenn Geschichte P1 ist
       if (i === 1) {
+        //Profil und möglicher P2s werden gesetzt
         sessionStorage.setItem('profil', 'gese')
         for (let index = 0; index < 14; index++) {
           sessionStorage.setItem('p2_waehlbar[' + index + ']', true)
         }
         sessionStorage.setItem('pfach3', 'Politik Wirtschaft')
       }
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('B')
       waehlbarkeit('geschichte_w', false)
       break
     case 'Religion':
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('B')
       waehlbarkeit('religion_w', false)
       break
     case 'Erdkunde':
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('B')
       waehlbarkeit('erdkunde_w', false)
       break
     case 'Politik Wirtschaft':
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       bereich_add('B')
       waehlbarkeit('powi_w', false)
       break
     case 'Sport':
+      //Variablen werden angepasst
       nicht_kernfaecher_add()
       waehlbarkeit('sport_w', false)
       break
   }
+  //Wenn 3 Nicht-Kernfächer gewählt, wird w_nk auf false gesetzt, wodurch nur noch Kernfächer wählbar sind  
   if (sessionStorage.getItem('nicht_kernfaecher') == 3) {
     sessionStorage.setItem('w_nk', false)
   }
+  //Wenn alle Bereiche gewählt wurden und P4 bereits gewählt wurde, wird der Bereich für Sport auf true gesetzt und damit wählbar
   if (sessionStorage.getItem('A_anzahl') != 0 && sessionStorage.getItem('B_anzahl') != 0 && sessionStorage.getItem('C_anzahl') != 0 && i == 4) {
     sessionStorage.setItem('w[3]', true)
   }
@@ -461,6 +504,7 @@ function logicsubjects(i) {
   let Anzahlen = [['A_anzahl', 'B_anzahl', 'C_anzahl'],['B_anzahl', 'C_anzahl', 'A_anzahl'],['C_anzahl', 'A_anzahl', 'B_anzahl']]
   let waehlbarkeit_bereiche = [['w[0]', 'w[1]', 'w[2]'], ['w[1]', 'w[2]', 'w[0]'], ['w[2]', 'w[0]', 'w[1]']]
 
+  //Wenn ein Bereich bereits dreimal gewählt wurde, ist der Bereich nicht mehr wählbar
   for (let h = 0; h < Anzahlen.length; h++) {
     if (parseInt(sessionStorage.getItem(Anzahlen[h][0])) == 3) {
       sessionStorage.setItem(waehlbarkeit_bereiche[h][0], false)
@@ -470,21 +514,25 @@ function logicsubjects(i) {
         sessionStorage.setItem('informatik_w', false)
         sessionStorage.setItem('biologie_w', false)
       }
+      //Wenn ein Bereich dreimal und ein anderer Bereich einmal gewählt wurde, sind beide disabled
       if (sessionStorage.getItem(Anzahlen[h][1]) == '1') {
         sessionStorage.setItem(waehlbarkeit_bereiche[h][1], false)
       }
+      //Wenn ein Bereich dreimal und ein anderer Bereich einmal gewählt wurde, sind beide disabled
       if (sessionStorage.getItem(Anzahlen[h][2]) == '1') {
         sessionStorage.setItem(waehlbarkeit_bereiche[h][2], false)
       }
     }
   }
 
+  //Wenn 2x A und 2x B gewählt wurde, ist nur noch Bereich C wählbar
   if (parseInt(sessionStorage.getItem('A_anzahl')) == 2) {
     if (parseInt(sessionStorage.getItem('B_anzahl')) == 2) {
       sessionStorage.setItem('w[0]', false)
       sessionStorage.setItem('w[1]', false)
       sessionStorage.setItem('w[2]', true)
     }
+    //Wenn 2x A und 2x C gewählt wurde, ist nur noch Bereich B wählbar
     if (parseInt(sessionStorage.getItem('C_anzahl')) == 2) {
       sessionStorage.setItem('w[0]', false)
       sessionStorage.setItem('w[2]', false)
@@ -492,6 +540,7 @@ function logicsubjects(i) {
       sessionStorage.setItem('w_nk', true)
       sessionStorage.setItem('geschichte_w', true)
     }
+    //Wenn 2x A, 1x C und 1 Kernfach gewählt wurde, sind musisch-künstlerische und naturwissenschaftliche Fächer nicht mehr wählbar und Bereich B ist wählbar
     if (parseInt(sessionStorage.getItem('C_anzahl')) == 1 && parseInt(sessionStorage.getItem('kernfaecher')) == 1) {
       sessionStorage.setItem('musik_w', false)
       sessionStorage.setItem('kunst_w', false)
@@ -502,22 +551,26 @@ function logicsubjects(i) {
       sessionStorage.setItem('w[1]', true)
     }
   }
+  //Wenn 2x Bereich C und 2x Bereich B gewählt wurde, ist nur noch Bereich A wählbar
   if (parseInt(sessionStorage.getItem('C_anzahl')) == 2) {
     if (parseInt(sessionStorage.getItem('B_anzahl')) == 2) {
       sessionStorage.setItem('w[1]', false)
       sessionStorage.setItem('w[2]', false)
       sessionStorage.setItem('w[0]', true)
+      //Wenn noch nicht genügend Kernfächer gewählt wurden, sind keine Nicht-Kernfächer mehr wählbar
       if (parseInt(sessionStorage.getItem('kernfaecher')) < 2) {
         sessionStorage.setItem('w_nk', false)
       } else {
         sessionStorage.setItem('w_nk', true)
       }
     }
+    //Wenn 2x C, 1x A und 1 Kernfach gewählt wurden, sind keine Naturwissenschaften mehr wählbar und werden auf false gesetzt 
     if (parseInt(sessionStorage.getItem('A_anzahl')) == 1 && parseInt(sessionStorage.getItem('kernfaecher')) == 1) {
       sessionStorage.setItem('chemie_w', false)
       sessionStorage.setItem('biologie_w', false)
       sessionStorage.setItem('physik_w', false)
       sessionStorage.setItem('informatik_w', false)
+      //Wenn bereits eine Fremdsprache gewählt wurde, sind keine Fremdsprachen mehr wählbar und sie werden disabled
       if (check_fach_for_pfach('Englisch') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Latein') || check_fach_for_pfach('Französisch')) {
         sessionStorage.setItem('englisch_w', false)
         sessionStorage.setItem('latein_w', false)
@@ -542,9 +595,22 @@ function logicsubjects(i) {
     sessionStorage.setItem('informatik_w', false)
     sessionStorage.setItem('chemie_w', false)
   }
+  //Überprüft ob das fünfte Fach gewählt wurde
+  if(i == 5){
+    //Falls Sporttheorie gewählt wurde, werden 8 Stunden (4 Halbjahre á 2 Stunden berechnet), sonst 12 Stunden (4 Halbjahre á 2 Stunden)
+    switch (sessionStorage.getItem('pfach5')) {
+      case 'Sport':
+        sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + 8))
+        break;    
+      default:
+        sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + 12))
+        break;
+    }
+  }
 }
 //Teil der Logik, der prüft, welche Fächer in der nächsten Stufe noch wählbar sind (ruft die beiden folgenden Methoden dafür auf)
 function proof_in_advance(pfach, i) {
+  // Alle Buttons einer Stufe werden erstmal sichtbar und anklickbar
   let help_lp = sessionStorage.getItem('lp' + i)
     for (let j = 1; j < help_lp; j++) {
         document.getElementById("pfach" + i + "." + j + ".label").style.opacity = '1'
@@ -554,125 +620,123 @@ function proof_in_advance(pfach, i) {
   var all_subjects = Array('', 'Mathe', 'Chemie', 'Englisch', 'Physik', 'Biologie', 'Franzoesisch', 'Latein', 'Musik', 'Informatik', 'Kunst', 'Spanisch', 'Deutsch', 'Geschichte', 'Politik Wirtschaft', 'Religion', 'Erdkunde', 'Sport')
   for (let j = 0; j < 18; j++) {
     switch (all_subjects[j]) {
+      //Mathe wird für die nächste Stufe überprüft
       case 'Mathe':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[0]'), sessionStorage.getItem('mathe_w'))
         } catch (error) {
         }
         break;
+      //Chemie wird für die nächste Stufe überprüft
       case 'Chemie':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[2]'), sessionStorage.getItem('chemie_w'))
         } catch (error) {
 
         }
         break;
+      //Englisch wird für die nächste Stufe überprüft
       case 'Englisch':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (check_fach_for_pfach('Latein') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Französisch')) {
             proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
             break;
           } else {
             proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
           }
-          /*
-          for (let index = 1; index < 6; index++) {
-            if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Französisch') {
-              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
-              break;
-            }
-          }
-          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[6]'), sessionStorage.getItem('englisch_w'))
-          */
         } catch (error) {
 
         }
         break;
+      //Physik wird für die nächste Stufe überprüft
       case 'Physik':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[4]'), sessionStorage.getItem('physik_w'))
         } catch (error) {
 
         }
         break;
+      //Biologie wird für die nächste Stufe überprüft
       case 'Biologie':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[3]'), sessionStorage.getItem('biologie_w'))
         } catch (error) {
 
         }
         break;
+      //Geschichte wird für die nächste Stufe überprüft
       case 'Geschichte':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[12]'), sessionStorage.getItem('geschichte_w'))
         } catch (e) {
 
         }
         break
+      //Französisch wird für die nächste Stufe überprüft
       case 'Franzoesisch':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (check_fach_for_pfach('Latein') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Englisch')) {
             proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
             break;
           } else {
             proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
           }
-          /*
-          for (let index = 1; index < 6; index++) {
-            if (sessionStorage.getItem('pfach' + index) == 'Latein' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
-              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
-              break
-            }
-          }
-          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[7]'), sessionStorage.getItem('franzoesisch_w'))
-          */
         } catch (error) {
 
         }
         break;
+      //Latein wird für die nächste Stufe überprüft
       case 'Latein':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (check_fach_for_pfach('Englisch') || check_fach_for_pfach('Spanisch') || check_fach_for_pfach('Französisch')) {
             proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
             break;
           } else {
             proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
           }
-          /*
-          for (let index = 1; index < 6; index++) {
-            if (sessionStorage.getItem('pfach' + index) == 'Französisch' || sessionStorage.getItem('pfach' + index) == 'Spanisch' || sessionStorage.getItem('pfach' + index) == 'Englisch') {
-              proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
-            }
-          }
-          proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[8]'), sessionStorage.getItem('latein_w'))
-          */
         } catch (error) {
 
         }
         break;
+      //Musik wird für die nächste Stufe überprüft
       case 'Musik':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[11]'), sessionStorage.getItem('musik_w'))
         } catch (error) {
 
         }
         break;
+      //Informatik wird für die nächste Stufe überprüft
       case 'Informatik':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[2]'), sessionStorage.getItem('p2_waehlbar[1]'), sessionStorage.getItem('informatik_w'))
         } catch (error) {
 
         }
         break;
+      //Kunst wird für die nächste Stufe überprüft
       case 'Kunst':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[10]'), sessionStorage.getItem('kunst_w'))
         } catch (error) {
 
         }
         break;
+      //PoWi wird für die nächste Stufe überprüft
       case 'Politik Wirtschaft':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[1]'), sessionStorage.getItem('p2_waehlbar[13]'), sessionStorage.getItem('powi_w'))
           if (sessionStorage.getItem('profil') == 'gese' && i === 3) {
             document.getElementById("pfach3.14.label").style.opacity = '1'
@@ -682,8 +746,10 @@ function proof_in_advance(pfach, i) {
 
         }
         break;
+      //Spanisch wird für die nächste Stufe überprüft
       case 'Spanisch':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (check_fach_for_pfach('Englisch') || check_fach_for_pfach('Latein') || check_fach_for_pfach('Französisch')) {
             proof_in_advance_visibility_w_nk(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[9]'), sessionStorage.getItem('spanisch_w'))
             break;
@@ -702,15 +768,19 @@ function proof_in_advance(pfach, i) {
 
         }
         break;
+      //Deutsch wird für die nächste Stufe überprüft
       case 'Deutsch':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           proof_in_advance_visibility(pfach, i, j, sessionStorage.getItem('w[0]'), sessionStorage.getItem('p2_waehlbar[5]'), sessionStorage.getItem('deutsch_w'))
         } catch (error) {
 
         }
         break;
+      //Religion wird für die nächste Stufe überprüft
       case 'Religion':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('religion_w') === 'true') {
             if (i <= 3) {
               document.getElementById(pfach + j + ".label").style.opacity = '0.5'
@@ -728,8 +798,10 @@ function proof_in_advance(pfach, i) {
         }
 
         break;
+      //Erdkunde wird für die nächste Stufe überprüft
       case 'Erdkunde':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (sessionStorage.getItem('w[1]') === 'true' && sessionStorage.getItem('w_nk') === 'true' && sessionStorage.getItem('erdkunde_w') === 'true') {
             if (i <= 3) {
               document.getElementById(pfach + j + ".label").style.opacity = '0.5'
@@ -746,8 +818,10 @@ function proof_in_advance(pfach, i) {
 
         }
         break;
+      //Sport wird für die nächste Stufe überprüft
       case 'Sport':
         try {
+          //es wird überprüft, ob das Fach in der nächsten Stufe sichtbar sein darf 
           if (sessionStorage.getItem('w[3]') != 'true') {
             document.getElementById(pfach + j + ".label").style.opacity = '0.5'
             document.getElementById((pfach + j)).disabled = true
@@ -769,14 +843,18 @@ function proof_in_advance(pfach, i) {
 }
 //Überprüft die Wählbarkeit und passt Buttons dementsprechend an (Kernfächer)
 function proof_in_advance_visibility(pfach, i, j, bereich, waehlbar, fachvariable) {
+  //Wenn der Bereich des Fachs und das Fach selbst noch wählbar sind, wird weiter überprüft, sonst der Button deaktiviert
   if (bereich === 'true' && fachvariable === 'true') {
+    //Wenn P2 überprüft wird und die P2-Wählbarkeit auf false ist, wird der Button disabled, sonst (wenn das Profil nicht PoWi und i 3 ist) wird der Button enabled
     if (i === 2 && waehlbar === 'false') {
       disable_fachbutton((pfach + j))
     } else {
       if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
+        //Button wird deaktiviert
         document.getElementById(pfach + j + ".label").style.opacity = '0.5'
         document.getElementById((pfach + j)).disabled = true
       } else {
+        //Button wird aktiviert
         document.getElementById(pfach + j + ".label").style.opacity = '1'
         document.getElementById((pfach + j)).disabled = false
       }
@@ -787,14 +865,18 @@ function proof_in_advance_visibility(pfach, i, j, bereich, waehlbar, fachvariabl
 }
 //Überprüft die Wählbarkeit und passt Buttons dementsprechend an (Nicht-Kernfächer)
 function proof_in_advance_visibility_w_nk(pfach, i, j, bereich, waehlbar, fachvariable) {
+    //Wenn der Bereich des Fachs, das Fach selbst und Nicht-Kernfächer allgemein noch wählbar sind, wird weiter überprüft, sonst der Button deaktiviert
   if (bereich === 'true' && sessionStorage.getItem('w_nk') === 'true' && fachvariable === 'true') {
+    //Wenn P2 überprüft wird und die P2-Wählbarkeit auf false ist, wird der Button disabled, sonst (wenn das Profil nicht PoWi und i 3 ist) wird der Button enabled
     if (i === 2 && waehlbar === 'false') {
       disable_fachbutton((pfach + j))
     } else {
       if (i === 3 && sessionStorage.getItem('profil') == 'gese') {
+        //Button wird deaktiviert
         document.getElementById(pfach + j + ".label").style.opacity = '0.5'
         document.getElementById((pfach + j)).disabled = true
       } else {
+        //Button wird aktiviert
         document.getElementById(pfach + j + ".label").style.opacity = '1'
       }
     }
@@ -809,10 +891,11 @@ function disable_wish(fach, j) {
     document.getElementById(fach + "2.label").style.opacity = '0.5'
   }
 }
-//Sportgrundkurs
+//Sportgrundkurs wird auf true gesetzt, wenn Sport P5 ist
 function sport_gk() {
   if (sessionStorage.getItem('pfach5') == 'Sport') {
     sessionStorage.setItem('sport_gk', true)
+    
   }
 }
 //Überprüft, ob Musik, Kunst oder DS als Prüfungsfächer gewählt wurden und setzt vorläufig die passende Grundkursvariable auf true
@@ -821,6 +904,7 @@ function checking_for_muku_gk(j) {
     sessionStorage.setItem('extra13', false)
     sessionStorage.setItem('extra10', false)
     sessionStorage.setItem('extra3', false)
+    //Die mitgegebene Stufe eines Prüfungsfachs werden nach Musik, Kunst und DS durchsucht
     switch (sessionStorage.getItem('pfach' + j)) {
       case 'Musik':
         sessionStorage.setItem('extra13', true)
@@ -834,74 +918,63 @@ function checking_for_muku_gk(j) {
       default:
         break;
     }
-    /*
-    if (sessionStorage.getItem('pfach' + j) == 'Musik') {
-      sessionStorage.setItem('extra13', true)
-      sessionStorage.setItem('extra10', false)
-      sessionStorage.setItem('extra3', false)
-    }
-    if (sessionStorage.getItem('pfach' + j) == 'Kunst') {
-      sessionStorage.setItem('extra13', false)
-      sessionStorage.setItem('extra10', true)
-      sessionStorage.setItem('extra3', false)
-    }
-    if (sessionStorage.getItem('pfach' + j) == 'DS') {
-      sessionStorage.setItem('extra13', false)
-      sessionStorage.setItem('extra10', false)
-      sessionStorage.setItem('extra3', true)
-    }
-    */
   }
 }
+//Wenn kein musisch-künstlerisches Fach gewählt wurde, werden die Buttons zum Wählen dieser aktiviert
 function buttons_muku() {
   if (sessionStorage.getItem('extra13') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra3') == 'false') {
     document.getElementById("musik.label").style.opacity = '1'
     document.getElementById("ds.label").style.opacity = '1'
     document.getElementById("kunst.label").style.opacity = '1'
+    //Wenn ein musisch-künstlerisches Fach gewählt wurde, werden die Buttons deaktiviert (auch bei den Wünschen für 12)
   } else {
     disable_fachbutton('musik')
     disable_fachbutton('ds')
     disable_fachbutton('kunst')
     disable_fachbutton('Musik2')
     disable_fachbutton('Kunst2')
+    //Titel wird angepasst
     document.getElementById("div_muku").title = "Da bereits ein musisch-künstlerisches Fach gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
+//Wenn weder Religion noch Werte und Normen gewählt wurde, wird die Sichtbarkeit des Buttons auf 1 gesetzt
 function buttons_religion_wn() {
   if (sessionStorage.getItem('extra16') == 'false' && sessionStorage.getItem('extra18') == 'false') {
     document.getElementById("religion.label").style.opacity = '1'
     document.getElementById("wn.label").style.opacity = '1'
   } else {
+    //Wenn eines der beiden Fächer gewählt wurde, wird das Fach deaktiviert (disable_fachbutton wird aufgerufen)
     disable_fachbutton('religion')
     disable_fachbutton('wn')
+    //Titel wird angepasst, dass nichts mehr gewählt werden muss
     document.getElementById("div_rewn").title = "Da bereits Religion oder Werte und Normen gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
+//Es wird überprüft, ob eine Fremdsprache bei dem Prüfungsfach auf Stufe j gewählt wurde
 function checking_for_fs(j) {
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Englisch' || sessionStorage.getItem('pfach' + j) == 'Latein' || sessionStorage.getItem('pfach' + j) == 'Französisch' || sessionStorage.getItem('pfach' + j) == 'Spanisch')) {
-    /*sessionStorage.setItem('extra5', check_fach_for_pfach('Englisch'))
-    sessionStorage.setItem('extra11', check_fach_for_pfach('Latein'))
-    sessionStorage.setItem('extra7', check_fach_for_pfach('Französisch'))
-    sessionStorage.setItem('extra17', check_fach_for_pfach('Spanisch'))*/
-    
+    //Wenn Englisch als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Englisch') {
       sessionStorage.setItem('extra5', true)
       sessionStorage.setItem('extra11', false)
       sessionStorage.setItem('extra7', false)
       sessionStorage.setItem('extra17', false)
     }
+    //Wenn Latein als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Latein') {
       sessionStorage.setItem('extra5', false)
       sessionStorage.setItem('extra11', true)
       sessionStorage.setItem('extra7', false)
       sessionStorage.setItem('extra17', false)
     }
+    //Wenn Französisch als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Französisch') {
       sessionStorage.setItem('extra5', false)
       sessionStorage.setItem('extra11', false)
       sessionStorage.setItem('extra7', true)
       sessionStorage.setItem('extra17', false)
     }
+    //Wenn Spanisch als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Spanisch') {
       sessionStorage.setItem('extra5', false)
       sessionStorage.setItem('extra11', false)
@@ -910,6 +983,7 @@ function checking_for_fs(j) {
     }
   }
 }
+//Wenn keine Fremdsprache gewählt wurde, werden die Buttons sichtbar
 function buttons_fs() {
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false') {
     document.getElementById("englisch.label").style.opacity = '1'
@@ -917,25 +991,31 @@ function buttons_fs() {
     document.getElementById("franzoesisch.label").style.opacity = '1'
     document.getElementById("spanisch.label").style.opacity = '1'
   } else {
+    //Alle Fachbuttons werden deaktiviert, wenn eine Fremdsprache bereits gewählt wurde
     disable_fachbutton('englisch')
     disable_fachbutton('latein')
     disable_fachbutton('franzoesisch')
     disable_fachbutton('spanisch')
+    //Titel wird so angepasst, dass nichts mehr gewählt werden muss
     document.getElementById("div_fs").title = "Da bereits eine Fremdsprache gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
+//Es wird überprüft, ob eine Naturwissenschaft bei dem Prüfungsfach auf Stufe j gewählt wurde
 function checking_for_nw(j) {
   if (sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra2') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Physik' || sessionStorage.getItem('pfach' + j) == 'Chemie' || sessionStorage.getItem('pfach' + j) == 'Biologie')) {
+    //Wenn Physik als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Physik') {
       sessionStorage.setItem('extra14', true)
       sessionStorage.setItem('extra2', false)
       sessionStorage.setItem('extra1', false)
     }
+    //Wenn Chemie als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Chemie') {
       sessionStorage.setItem('extra2', true)
       sessionStorage.setItem('extra14', false)
       sessionStorage.setItem('extra1', false)
     }
+    //Wenn Biologie als Prüfungsfach auf Stufe j gewählt wurde, wird die entsprechende Grundkursvariable auf true gesetzt (nur zur Weiterverarbeitung genutzt)
     if (sessionStorage.getItem('pfach' + j) == 'Biologie') {
       sessionStorage.setItem('extra1', true)
       sessionStorage.setItem('extra2', false)
@@ -943,25 +1023,25 @@ function checking_for_nw(j) {
     }
   }
 }
+//Es wird überprüft, ob die Grundkursvariablen false sind (keine Naturwissenschaften gewählt wurden) und die Sichtbarkeit der Buttons dementsprechend angepasst
 function buttons_nw() {
+  //Wenn alle Grundkursvariablen false sind
   if (sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra1') == 'false') {
+    //Buttons werden sichtbar gemacht
     document.getElementById("physik.label").style.opacity = '1'
     document.getElementById("chemie.label").style.opacity = '1'
     document.getElementById("bio.label").style.opacity = '1'
   } else {
+    //Buttons werden deaktiviert
     disable_fachbutton('physik')
     disable_fachbutton('chemie')
     disable_fachbutton('bio')
+    //Titel wird angepasst, weil nichts mehr gewählt werden muss
     document.getElementById("div_nw").title = "Da bereits eine Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
+//Es wird überprüft, ob Informatik das Prüfungsfach auf Stufe j ist und das Ergebnis zurückgegeben
 function checking_for_informatik(j, help_informatik) {
-  /*
-  if (help_informatik == false && sessionStorage.getItem('pfach' + j) == 'Informatik') {
-    return true
-  } else {
-    return false
-  }*/
   return (help_informatik == false && sessionStorage.getItem('pfach' + j) == 'Informatik') ? true : false
 }
 function buttons_informatik(help_informatik) {
@@ -976,7 +1056,9 @@ function buttons_informatik(help_informatik) {
 }
 //Methode, welche grundlegende Dinge für die Grundkurse im mathematisch-naturwissenschaftlichen Profil regelt
 function mana() {
+  //Alle Prüfungsfachstufen werden durchgegangen
   for (let j = 1; j < 6; j++) {
+    //Wenn das Fach gewählt wurde, wird der Wunschbutton deaktiviert
     disable_wish('Kunst', j)
     disable_wish('Musik', j)
     disable_wish('Geschichte', j)
@@ -984,16 +1066,19 @@ function mana() {
     if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
       disable_fachbutton('PoWi2')
     }
+    //Überprüfungen zur weiteren Verarbeitung
     pflicht(j)
     checking_for_muku_gk(j)
     checking_for_fs(j)
   }
+  //Label und Buttons werden nach den gewählten Fächern angepasst und ggf. deaktiviert 
   calc_stunden_for_pflicht()
   pflicht_label()
   sport_gk()
   buttons_religion_wn()
   buttons_fs()
   buttons_muku()
+  //Wenn weniger als 2 Naturwissenschaften gewählt wurden, wird überprüft, ob und welche Naturwissenschaft bereits gewählt wurde und dann der Button der gewählten Naturwissenschaft deaktiviert
   if (parseInt(sessionStorage.getItem('counter_nw')) < 2) {
     if (check_fach_for_pfach('Informatik') || sessionStorage.getItem('extra9') == 'true') {
       disable_fachbutton('informatik')
@@ -1007,34 +1092,22 @@ function mana() {
     if (check_fach_for_pfach('Chemie') || sessionStorage.getItem('extra2') == 'true') {
       disable_fachbutton('chemie')
     }
-    /*
-    for (let k = 1; k < 6; k++) {
-      if (sessionStorage.getItem('pfach' + k) == 'Informatik' || sessionStorage.getItem('extra9') == 'true') {
-        disable_fachbutton('informatik')
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Biologie' || sessionStorage.getItem('extra1') == 'true') {
-        disable_fachbutton('bio')
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Physik' || sessionStorage.getItem('extra14') == 'true') {
-        disable_fachbutton('physik')
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Chemie' || sessionStorage.getItem('extra2') == 'true') {
-        disable_fachbutton('chemie')
-      }
-    }
-    */
+    //Wenn es 2 oder mehr Naturwissenschaften sind, werden alle Grundkursbuttons für die Naturwissenschaft deaktiviert
   } else {
     disable_fachbutton('informatik')
     disable_fachbutton('bio')
     disable_fachbutton('physik')
     disable_fachbutton('chemie')
+    //Titel wird angepasst, weil hier nichts mehr gewählt werden muss
     document.getElementById("div_nw").title = "Da bereits 2 Naturwissenschaften gewählt wurde, muss hier nichts mehr gewählt werden"
   }
 }
 //Methode, welche grundlegende Dinge für die Grundkurse im sprachlichen Profil regelt
 function spra() {
-  var help_informatik = false
+  var help_informatik = false 
+  //Alle Prüfungsfachstufen werden durchgegangen
   for (let j = 1; j < 6; j++) {
+    //Wenn das Fach gewählt wurde, wird der Wunschbutton deaktiviert
     disable_wish('Kunst', j)
     disable_wish('Musik', j)
     if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
@@ -1042,6 +1115,7 @@ function spra() {
     }
     disable_wish('Geschichte', j)
     disable_wish('Religion', j)
+    //Überprüfungen zur weiteren Verarbeitung
     pflicht(j)
     checking_for_muku_gk(j)
     checking_for_nw(j)
@@ -1049,6 +1123,7 @@ function spra() {
       help_informatik = checking_for_informatik(j, help_informatik)
     }
   }
+  //Label und Buttons werden nach den gewählten Fächern angepasst und ggf. deaktiviert 
   calc_stunden_for_pflicht()
   pflicht_label()
   sport_gk()
@@ -1056,6 +1131,7 @@ function spra() {
   buttons_muku()
   buttons_informatik(help_informatik)
   buttons_nw()
+  //Wenn weniger als 2 Sprachen gewählt wurden, wird überprüft, ob und welche Sprache bereits gewählt wurde und dann der Button der gewählten Sprache deaktiviert
   if (parseInt(sessionStorage.getItem('counter_fs')) < 2) {
     var help_lang = false
     for (let index = 1; index < 6; index++) {
@@ -1079,23 +1155,28 @@ function spra() {
 
       document.getElementById("div_fs").title = "Da bereits eine 2. Fremdsprache gewählt wurde, wird Englisch automatisch als Grundkurs gewählt"
     }
+    //Wenn es 2 oder mehr Naturwissenschaften sind, werden alle Grundkursbuttons für die Naturwissenschaft deaktiviert
   } else {
     sessionStorage.setItem('extra5', true)
     disable_fachbutton('spanisch')
     disable_fachbutton('latein')
     disable_fachbutton('franzoesisch')
+    //Titel wird angepasst, da hier ncihts mehr gewählt werden muss
     document.getElementById("div_fs").title = "Da bereits eine 2. Fremdsprache gewählt wurde, wird Englisch automatisch als Grundkurs gewählt"
   }
 }
 //Methode, welche grundlegende Dinge für die Grundkurse im musisch-künstlerischen Profil regelt
 function muku() {
   var help_informatik = false
+  //Alle Prüfungsfächerstufen werden durchgegangen
   for (let j = 1; j < 6; j++) {
+    //Wenn das Fach gewählt wurde, wird der Wunschbutton deaktiviert
     if (sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
       disable_fachbutton('PoWi2')
     }
     disable_wish('Geschichte', j)
     disable_wish('Religion', j)
+    //Überprüfungen zur weiteren Verarbeitung
     pflicht(j)
     checking_for_fs(j)
     checking_for_nw(j)
@@ -1103,6 +1184,7 @@ function muku() {
       help_informatik = checking_for_informatik(j, help_informatik)
     }
   }
+  //Label und Buttons werden nach den gewählten Fächern angepasst und ggf. deaktiviert 
   calc_stunden_for_pflicht()
   pflicht_label()
   sport_gk()
@@ -1110,6 +1192,7 @@ function muku() {
   buttons_fs()
   buttons_nw()
   buttons_informatik(help_informatik)
+  //Das Wunschbutton des P1 Fachs wird deaktiviert
   if (sessionStorage.getItem('pfach1') == 'Musik') {
     disable_fachbutton('musik')
   } else if (sessionStorage.getItem('pfach1') == 'Kunst') {
@@ -1119,28 +1202,35 @@ function muku() {
 //Methode, welche grundlegende Dinge für die Grundkurse im gesellschaftlichen Profil regelt
 function gese() {
   for (let j = 1; j < 6; j++) {
+    //Wenn das Fach gewählt wurde, wird der Wunschbutton deaktiviert
     disable_wish('Kunst', j)
     disable_wish('Musik', j)
     disable_wish('Religion', j)
+    //Überprüfungen zur weiteren Verarbeitung
     pflicht(j)
     checking_for_muku_gk(j)
   }
+  //Label und Buttons werden nach den gewählten Fächern angepasst und ggf. deaktiviert 
   calc_stunden_for_pflicht()
   pflicht_label()
   sport_gk()
   buttons_religion_wn()
   buttons_muku()
+  //Wenn keine Naturwissenschaft gewählt wurde, werden alle Naturwissenschaftenbuttons aktiviert  
   if (parseInt(sessionStorage.getItem('counter_nw')) === 0) {
     document.getElementById("physik.label").style.opacity = '1'
     document.getElementById("bio.label").style.opacity = '1'
     document.getElementById("chemie.label").style.opacity = '1'
     document.getElementById("informatik.label").style.opacity = '1'
+    //Bei 1 Naturwissenschaft werden alle Naturwissenschaftsbuttons deaktiviert
   } else if (parseInt(sessionStorage.getItem('counter_nw')) === 1) {
     disable_fachbutton('physik')
     disable_fachbutton('bio')
     disable_fachbutton('chemie')
     disable_fachbutton('informatik')
+    //Titel wird angepasst, weil hier nicht mehr gewählt werden muss
     document.getElementById("div_nw1").title = "Da bereits eine Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
+    //Buttons bereits gewählter Fächer werden deaktiviert
     if (check_fach_for_pfach('Informatik')) {
       disable_fachbutton('informatik2')
     }
@@ -1153,22 +1243,7 @@ function gese() {
     if (check_fach_for_pfach('Chemie')) {
       disable_fachbutton('chemie2')
     }
-    /*
-    for (let k = 1; k < 6; k++) {
-      if (sessionStorage.getItem('pfach' + k) == 'Informatik') {
-        disable_fachbutton('informatik2')
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Biologie') {
-        disable_fachbutton('bio2')
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Physik') {
-        disable_fachbutton('physik2')
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Chemie') {
-        disable_fachbutton('chemie2')
-      }
-    }
-    */
+    //Bei 2 Naturwissenschaften werden die Naturwissenschaftsbuttons und alle Buttons bei 2.NW/2.FS deaktiviert
   } else if (parseInt(sessionStorage.getItem('counter_nw')) == 2) {
     disable_fachbutton('physik')
     disable_fachbutton('bio')
@@ -1182,21 +1257,24 @@ function gese() {
     disable_fachbutton('latein2')
     disable_fachbutton('spanisch2')
     disable_fachbutton('franzoesisch2')
+    //Titel wird angepasst weil nichts mehr gewählt werden muss
     document.getElementById("div_2fs2nw").title = "Da bereits eine 2. Fremdsprache oder 2. Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
-
+  //Wenn keine Sprache gewählt wurde, werden alle Sprachenbuttons aktiviert  
   if (parseInt(sessionStorage.getItem('counter_fs')) == 0) {
     document.getElementById("englisch.label").style.opacity = '1'
     document.getElementById("latein.label").style.opacity = '1'
     document.getElementById("spanisch.label").style.opacity = '1'
     document.getElementById("franzoesisch.label").style.opacity = '1'
+    //Wenn eine Sprache gewählt wurde, werden die Sprachenbuttons deaktiviert
   } else if (parseInt(sessionStorage.getItem('counter_fs')) == 1) {
     disable_fachbutton('englisch')
     disable_fachbutton('latein')
     disable_fachbutton('spanisch')
     disable_fachbutton('franzoesisch')
+    //Titel wird angepasst, weil nichts mehr dort gewälht werden muss
     document.getElementById("div_fs1").title = "Da bereits eine Fremdsprache gewählt wurde, muss hier nichts mehr gewählt werden"
-
+    //Buttons von Fächern, die bereits gewählt wurden, werden bei 2. NW / 2. FS deaktiviert
     if (check_fach_for_pfach('Englisch')) {
       disable_fachbutton('englisch2')
     }
@@ -1215,45 +1293,7 @@ function gese() {
       disable_fachbutton('franzoesisch2')
       disable_fachbutton('spanisch2')
     }
-
-    /*
-    let help_englisch = false
-    let help_latein = false
-    let help_spanisch = false
-    let help_franzoesisch = false
-    for (let k = 1; k < 6; k++) {
-      if (sessionStorage.getItem('pfach' + k) == 'Englisch') {
-        help_englisch = true;
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Latein') {
-        help_latein = true;
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Spanisch') {
-        help_spanisch = true;
-      }
-      if (sessionStorage.getItem('pfach' + k) == 'Französisch') {
-        help_franzoesisch = true;
-      }
-    }
-    if (help_englisch == true) {
-      disable_fachbutton('englisch2')
-    }
-    if (help_latein == true) {
-      disable_fachbutton('latein2')
-      disable_fachbutton('spanisch2')
-      disable_fachbutton('franzoesisch2')
-    }
-    if (help_spanisch == true) {
-      disable_fachbutton('latein2')
-      disable_fachbutton('spanisch2')
-      disable_fachbutton('franzoesisch2')
-    }
-    if (help_franzoesisch == true) {
-      disable_fachbutton('latein2')
-      disable_fachbutton('franzoesisch2')
-      disable_fachbutton('spanisch2')
-    }
-    */
+    //Wenn 2 Fremdsprachen gewählt wurden, werden alle Buttons bei Fremdsprache und 2. NW / 2. FS deaktiviert
   } else if (parseInt(sessionStorage.getItem('counter_fs')) == 2) {
     disable_fachbutton('englisch')
     disable_fachbutton('latein')
@@ -1267,14 +1307,17 @@ function gese() {
     disable_fachbutton('bio2')
     disable_fachbutton('chemie2')
     disable_fachbutton('informatik2')
+    //Titel wird angepasst
     document.getElementById("div_2fs2nw").title = "Da bereits eine 2. Fremdsprache oder 2. Naturwissenschaft gewählt wurde, muss hier nichts mehr gewählt werden"
   }
   if (sessionStorage.getItem('counter_nw') == 1 && sessionStorage.getItem('counter_fs') == 1) {
     enable_2fs_2nw()
   }
 }
+//Label zum Anzeigen der Pflichtgrundkurse wird gesetzt
 function pflicht_label() {
   let text = document.getElementById("pflicht").textContent
+  //Deutsch wird hinzugefügt, wenn es nicht als Prüfungsfach gewählt wurde
   if (!check_fach_for_pfach("Deutsch")) {
     if (text == 'Pflicht: ') {
       text += 'De'
@@ -1282,6 +1325,7 @@ function pflicht_label() {
       text += ', De'
     }
   }
+  //Mathe wird hinzugefügt, wenn es nicht als Prüfungsfach gewählt wurde
   if (!check_fach_for_pfach("Mathe")) {
     if (text == 'Pflicht: ') {
       text += 'Ma'
@@ -1289,6 +1333,7 @@ function pflicht_label() {
       text += ', Ma'
     }
   }
+  //Geschichte wird hinzugefügt, wenn es nicht als Prüfungsfach gewählt wurde
   if (!check_fach_for_pfach("Geschichte")) {
     if (text == 'Pflicht: ') {
       text += 'Ge'
@@ -1296,6 +1341,7 @@ function pflicht_label() {
       text += ', Ge'
     }
   }
+  //Politik/Wirtschaft wird hinzugefügt, wenn es nicht als Prüfungsfach gewählt wurde
   if (!check_fach_for_pfach("Politik Wirtschaft")) {
     if (text == 'Pflicht: ') {
       text += 'PoWi'
@@ -1303,33 +1349,19 @@ function pflicht_label() {
       text += ', PoWi'
     }
   }
+  //Wenn alle Fächer Prüfungsfächer sind, wird der Titel angepasst
   if (check_fach_for_pfach("Deutsch") && check_fach_for_pfach("Mathe") && check_fach_for_pfach("Geschichte") && check_fach_for_pfach("Politik Wirtschaft")) {
     text += ' --- / --- '
   }
+  //Titel wird gesetzt
   document.getElementById("pflicht").textContent = text
 }
 //Setzt die Pflichtkurse, je nachdem, ob sie als Prüfungsfach bereits gewählt wurden
 function pflicht(j) {
-  /*if (sessionStorage.getItem('extra4') == 'false' && sessionStorage.getItem('pfach' + j) == 'Deutsch') {
-    sessionStorage.setItem('extra4', false)
-  } else {*/
     sessionStorage.setItem('extra4', true)
-  //}
-  /*if (sessionStorage.getItem('extra12') == 'false' && sessionStorage.getItem('pfach' + j) == 'Mathe') {
-    sessionStorage.setItem('extra12', false)
-  } else {*/
     sessionStorage.setItem('extra12', true)
-  //}
-  /*if (sessionStorage.getItem('extra8') == 'false' && sessionStorage.getItem('pfach' + j) == 'Geschichte') {
-    sessionStorage.setItem('extra8', false)
-  } else {*/
     sessionStorage.setItem('extra8', true)
-  //}
-  /*if (sessionStorage.getItem('extra15') == 'false' && sessionStorage.getItem('pfach' + j) == 'Politik Wirtschaft') {
-    sessionStorage.setItem('extra15', false)
-  } else {*/
     sessionStorage.setItem('extra15', true)
-  //}
 
   if (sessionStorage.getItem('extra16') == 'false' && sessionStorage.getItem('extra18') == 'false' && (sessionStorage.getItem('pfach' + j) == 'Religion' || sessionStorage.getItem('pfach' + j) == 'WN')) {
     if (sessionStorage.getItem('pfach' + j) == 'Religion') {
@@ -1349,47 +1381,25 @@ function pflicht(j) {
 }
 
 function calc_stunden_for_pflicht() {
-  /*
-  let deutsch_help = false
-  let mathe_help = false
-  let geschichte_help = false
-  let powi_help = false
-  for (let i = 1; i < 6; i++) {
-    switch (sessionStorage.getItem('pfach' + i)) {
-      case 'Deutsch':
-        deutsch_help = true
-        break
-      case 'Mathe':
-        mathe_help = true
-        break
-      case 'Geschichte':
-        geschichte_help = true
-        break
-      case 'Politik Wirtschaft':
-        powi_help = true
-        break
-    }
-  }
-  */
-  if (check_fach_for_pfach("Deutsch")) {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
+  console.log(sessionStorage.getItem('stundenanzahl_gesamt'))
+  if (!check_fach_for_pfach("Deutsch")) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   } 
-  if (check_fach_for_pfach("Mathe")) {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
+  if (!check_fach_for_pfach("Mathe")) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   } 
-  if (check_fach_for_pfach("Geschichte")) {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
+  if (!check_fach_for_pfach("Geschichte")) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
-  if (check_fach_for_pfach("Politik Wirtschaft")) {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))  
+  if (!check_fach_for_pfach("Politik Wirtschaft")) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
 }
 
 //Aktiviert den Bereich 2.FS/2.NW, sobald 1 FS und 1 NW gewählt wurden
 function enable_2fs_2nw() {
-  console.log(parseInt(sessionStorage.getItem('counter_nw')) + parseInt(sessionStorage.getItem('counter_fs')))
+  //Wenn Naturwissenschaften und Fremdsprachen addiert weniger als 3 sind und die Buttonsvon NW und FS entweder deaktiviert oder ausgewählt wurden, werden die Fachbuttons aktiviert
   if (parseInt(sessionStorage.getItem('counter_nw')) + parseInt(sessionStorage.getItem('counter_fs')) < 3) {
-    console.log('hi')
     if (((document.getElementById("spanisch").checked == true || document.getElementById("franzoesisch").checked == true || document.getElementById("latein").checked == true || document.getElementById("englisch").checked == true) || (document.getElementById("spanisch").disabled == true || document.getElementById("franzoesisch").disabled == true || document.getElementById("latein").disabled == true || document.getElementById("englisch").disabled == true))
     && ((document.getElementById("chemie").checked == true || document.getElementById("bio").checked == true || document.getElementById("physik").checked == true || document.getElementById("informatik").checked == true) || (document.getElementById("chemie").disabled == true || document.getElementById("bio").disabled == true || document.getElementById("physik").disabled == true || document.getElementById("informatik").disabled == true)))  { 
       
@@ -1401,6 +1411,7 @@ function enable_2fs_2nw() {
       enable_fachbutton('bio2')
       enable_fachbutton('physik2')
       enable_fachbutton('informatik2')
+      //Wenn ein Fach bereits gewählt wurde, wird der jeweilige Button bei 2. NW / 2. FS deaktiviert
       for (let j = 1; j < 6; j++) {
         if (sessionStorage.getItem('pfach' + j) == 'Spanisch' || document.getElementById("spanisch").checked == true) {
           disable_fachbutton('latein2')
@@ -1438,201 +1449,286 @@ function enable_2fs_2nw() {
 }
 
 /* Fächer werden gewählt und jeweils zusammenhängende Buttons deaktiviert*/
+//Religion wird als Grundkurs gewählt
 function set_religion() {
   if (sessionStorage.getItem('extra18') == 'false' && sessionStorage.getItem('extra16') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
+  //Religion wird auf true gesetzt und WN auf false
   sessionStorage.setItem('extra16', true)
   sessionStorage.setItem('extra18', false)
+  //Der Button für Religion als Wunschfach wird aktiviert
   enable_fachbutton('Religion2')
 }
+//WN wird als Grundkurs gewählt
 function set_wn() {
   if (sessionStorage.getItem('extra18') == 'false' && sessionStorage.getItem('extra16') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
+  //Religion wird auf true gesetzt und WN auf false
   sessionStorage.setItem('extra18', true)
   sessionStorage.setItem('extra16', false)
+  //Der Button für Religion als Wunschfach wird deaktiviert
   document.getElementById("Religion2").checked = false
   disable_fachbutton('Religion2')
 }
+//Musik wird als Grundkurs gewählt
 function set_musik() {
   if (sessionStorage.getItem('extra13') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra3') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
+  //Musik wird auf true gesetzt und DS und Kunst auf false
   sessionStorage.setItem('extra13', true)
   sessionStorage.setItem('extra10', false)
   sessionStorage.setItem('extra3', false)
+  //Der Button für Musik als Wunschfach wird aktiviert und für Kunst deaktiviert
   document.getElementById("Kunst2").checked = false
   enable_fachbutton('Musik2')
   disable_fachbutton('Kunst2')
 }
+//Kunst wird als Grundkurs gewählt
 function set_kunst() {
   if (sessionStorage.getItem('extra13') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra3') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
+  //Kunst wird auf true gesetzt und DS und Musik auf false
   sessionStorage.setItem('extra10', true)
   sessionStorage.setItem('extra13', false)
   sessionStorage.setItem('extra3', false)
+  //Der Button für Kunst als Wunschfach wird aktiviert und für Musik deaktiviert
   document.getElementById("Musik2").checked = false
   enable_fachbutton('Kunst2')
   disable_fachbutton('Musik2')
 }
+//DS wird als Grundkurs gewählt
 function set_ds() {
   if (sessionStorage.getItem('extra13') == 'false' && sessionStorage.getItem('extra10') == 'false' && sessionStorage.getItem('extra3') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
   }
+  //DS wird auf true gesetzt und Kunst und Musik auf false
   sessionStorage.setItem('extra3', true)
   sessionStorage.setItem('extra13', false)
   sessionStorage.setItem('extra10', false)
+  //Die Buttons für Musik und Kunst als Wahlfach werden deaktiviert
   document.getElementById("Kunst2").checked = false
   document.getElementById("Musik2").checked = false
   disable_fachbutton('Kunst2')
   disable_fachbutton('Musik2')
 }
+//Englisch wird als Grundkurs gewählt
 function set_englisch() {
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Fremdsprachen hochgezählt
   if (sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra17') == 'false') {
     fs_add()
   }
+  //Englisch Grundkurs wird auf true gesetzt und alle anderen Fremdsprachen auf false
   sessionStorage.setItem('extra5', true)
   sessionStorage.setItem('extra11', false)
   sessionStorage.setItem('extra7', false)
   sessionStorage.setItem('extra17', false)
-  document.getElementById('englisch2').checked = false
+  //Beim gesellschaftlichen Profil wird der Englischbutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('englisch2').checked = false
+  }
 }
+//Französisch wird als Grundkurs gewählt
 function set_franzoesisch() {
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Fremdsprachen hochgezählt
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra17') == 'false') {
     fs_add()
   }
+  //Französisch Grundkurs wird auf true gesetzt und alle anderen Fremdsprachen auf false
   sessionStorage.setItem('extra7', true)
   sessionStorage.setItem('extra5', false)
   sessionStorage.setItem('extra11', false)
   sessionStorage.setItem('extra17', false)
-  document.getElementById('franzoesisch2').checked = false
+  //Beim gesellschaftlichen Profil wird der Französischbutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('franzoesisch2').checked = false
+  }
 }
+//Latein wird als Grundkurs gewählt
 function set_latein() {
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Fremdsprachen hochgezählt
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false') {
     fs_add()
   }
+  //Latein Grundkurs wird auf true gesetzt und alle anderen Fremdsprachen auf false
   sessionStorage.setItem('extra11', true)
   sessionStorage.setItem('extra5', false)
   sessionStorage.setItem('extra7', false)
   sessionStorage.setItem('extra17', false)
-  document.getElementById('latein2').checked = false
+  //Beim gesellschaftlichen Profil wird der Lateinbutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('latein2').checked = false
+  }
 }
+//Spanisch wird als Grundkurs gewählt
 function set_spanisch() {
   if (sessionStorage.getItem('extra5') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra17') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Fremdsprachen hochgezählt
   if (sessionStorage.getItem('extra7') == 'false' && sessionStorage.getItem('extra11') == 'false' && sessionStorage.getItem('extra5') == 'false') {
     fs_add()
   }
+  //Spanisch Grundkurs wird auf true gesetzt und alle anderen Fremdsprachen auf false
   sessionStorage.setItem('extra17', true)
   sessionStorage.setItem('extra5', false)
   sessionStorage.setItem('extra7', false)
   sessionStorage.setItem('extra11', false)
-  document.getElementById('spanisch2').checked = false
+  //Beim gesellschaftlichen Profil wird der Spanischbutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('spanisch2').checked = false
+  }
 }
+//Biologie wird als Grundkurs gewählt
 function set_biologie() {
   if (sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('extra9') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Naturwissenschaften hochgezählt
   if (sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra9') == 'false' && sessionStorage.getItem('extra14') == 'false') {
     nw_add()
   }
+  //Biologie Grundkurs wird auf true gesetzt und alle anderen Naturwissenschaften auf false
   sessionStorage.setItem('extra1', true)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra14', false)
   sessionStorage.setItem('extra9', false)
-  document.getElementById('bio2').checked = false
+  //Beim gesellschaftlichen Profil wird der Biologiebutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('bio2').checked = false
+  }
 }
+//Physik wird als Grundkurs gewählt
 function set_physik() {
   if (sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('extra9') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Naturwissenschaften hochgezählt
   if (sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra9') == 'false' && sessionStorage.getItem('extra1') == 'false') {
     nw_add()
   }
+  //Physik Grundkurs wird auf true gesetzt und alle anderen Naturwissenschaften auf false
   sessionStorage.setItem('extra14', true)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra1', false)
   sessionStorage.setItem('extra9', false)
-  document.getElementById('physik2').checked = false
+  //Beim gesellschaftlichen Profil wird der Physikbutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('physik2').checked = false
+  }
 }
+//Chemie wird als Grundkurs gewählt
 function set_chemie() {
   if (sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('extra9') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Naturwissenschaften hochgezählt
   if (sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra9') == 'false' && sessionStorage.getItem('extra14') == 'false') {
     nw_add()
   }
+  //Chemie Grundkurs wird auf true gesetzt und alle anderen Naturwissenschaften auf false
   sessionStorage.setItem('extra2', true)
   sessionStorage.setItem('extra14', false)
   sessionStorage.setItem('extra1', false)
   sessionStorage.setItem('extra9', false)
-  document.getElementById('chemie2').checked = false
-
+  //Beim gesellschaftlichen Profil wird der Chemiebutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('chemie2').checked = false
+  }
 }
+//Informatik wird als Grundkurs gewählt
 function set_informatik() {
   if (sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra14') == 'false' && sessionStorage.getItem('extra9') == 'false') {
-    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + parseInt(sessionStorage.getItem('gk_stundenanzahl'))))
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 4)))
   }
+  //Wenn noch kein anderer Button vorher angeklickt wurde, werden Naturwissenschaften hochgezählt
   if (sessionStorage.getItem('extra2') == 'false' && sessionStorage.getItem('extra1') == 'false' && sessionStorage.getItem('extra14') == 'false') {
     nw_add()
   }
+  //Informatik Grundkurs wird auf true gesetzt und alle anderen Naturwissenschaften auf false
   sessionStorage.setItem('extra9', true)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra14', false)
   sessionStorage.setItem('extra1', false)
-  document.getElementById('informatik2').checked = false
+  //Beim gesellschaftlichen Profil wird der Informatikbutton bei 2.NW/2.FS deaktiviert
+  if(sessionStorage.getItem('profil') == 'gese'){
+    document.getElementById('informatik2').checked = false
+  }
 }
 
 /* 2. NW / 2. FS */
 function set_englisch_gese2() {
+  //Die Grundkursvariable von Englisch wird auf true gesetzt
   sessionStorage.setItem('extra5', true)
+  if (document.getElementById("spanisch2").checked == false && document.getElementById("franzoesisch2").checked == false && document.getElementById("latein2").checked == false && document.getElementById("englisch2").checked == false && document.getElementById("chemie2").checked == false && document.getElementById("bio2").checked == false && document.getElementById("physik2").checked == false  && document.getElementById("informatik2").checked == false) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
+  }
 }
 function set_franzoesisch_gese2() {
+  //Die Grundkursvariable von Französisch wird auf true gesetzt
   sessionStorage.setItem('extra7', true)
 }
 function set_latein_gese2() {
+  //Die Grundkursvariable von Latein wird auf true gesetzt
   sessionStorage.setItem('extra11', true)
 }
 function set_spanisch_gese2() {
+  //Die Grundkursvariable von Spanisch wird auf true gesetzt
   sessionStorage.setItem('extra17', true)
 }
 function set_physik_gese2() {
+  //Die Grundkursvariable von Physik wird auf true gesetzt
   sessionStorage.setItem('extra14', true)
 }
 function set_informatik_gese2() {
+  //Die Grundkursvariable von Informatik wird auf true gesetzt
   sessionStorage.setItem('extra9', true)
 }
 function set_chemie_gese2() {
+  //Die Grundkursvariable von Chemie wird auf true gesetzt
   sessionStorage.setItem('extra2', true)
 }
 function set_biologie_gese2() {
+  //Die Grundkursvariable von Biologie wird auf true gesetzt
   sessionStorage.setItem('extra1', true)
 }
 /* Zusätzliche Fächer */
 function set_erdkunde(choose) {
+  //Die Grundkursvariable von Erdkunde wird auf einen mitgegebenen Wert gesetzt
+  if (sessionStorage.getItem('extra9') == false) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
+  } 
   sessionStorage.setItem('extra6', choose)
 }
 function set_informatik_voluntary(choose) {
+  //Die Grundkursvariable von Informatik wird auf einen mitgegebenen Wert gesetzt
+  if (sessionStorage.getItem('extra9') == false) {
+    sessionStorage.setItem('stundenanzahl_gesamt', (parseInt(sessionStorage.getItem('stundenanzahl_gesamt')) + (parseInt(sessionStorage.getItem('gk_stundenanzahl')) * 2)))
+  } 
   sessionStorage.setItem('extra9', choose)
 }
 function set_wish(fach) {
+  //Wunschfach wird im Sessionstorage gespeichert
   sessionStorage.setItem('wish_for_p4_p5', fach)
 }
+//Alle Grundkursvariablen, deren Fächer aber auch Prüfungsfächer sind, werden auf false gesetzt
 function end() {
+  //Alle Prüfungsfächer werden durchgegangen
   for (let i = 1; i < 6; i++) {
     switch (sessionStorage.getItem('pfach' + i)) {
+      //Die jeweilige Grundkursvariable wird deaktiviert
       case 'Mathe':
         sessionStorage.setItem('extra12', false)
         break;
@@ -1688,6 +1784,7 @@ function end() {
   }
 }
 /* Überprüfungen, ob alles gewählt wurde */
+//Überprüft, ob alle Prüfungsfächer belegt sind
 function check_for_complete_p() {
   var p_gewaehlt = [false, false, false, false, false]
   var lp = [14, 13, 15, 17, 18]
@@ -1698,22 +1795,27 @@ function check_for_complete_p() {
       }
     }
   }
+  //Gibt das Ergebnis zurück
   if (p_gewaehlt[0] == true && p_gewaehlt[1] == true && p_gewaehlt[2] == true && p_gewaehlt[3] == true && p_gewaehlt[4] == true) {
     return true
   } else {
     return false
   }
 }
+//Wenn nicht alle Prüfungsfächer gewählt sind, wird man auf die faecherwahl_main.html weitergeleitet
 function check_for_pfaecher_gewaehlt() {
   if (sessionStorage.getItem('pfaecher_gewaehlt') == 'false' || sessionStorage.getItem('gks_gewaehlt') == null) {
     window.location.href = "faecherwahl_main.html"
   } 
 }
+//Wenn nicht Grundkurse gewählt sind, wird man auf die faecherwahl_main.html weitergeleitet
 function check_for_gk_gewaehlt() {
   if (sessionStorage.getItem('gks_gewaehlt') == 'false' || sessionStorage.getItem('gks_gewaehlt') == null) {
+    //Wenn das Profil klar ist, also die Prüfungsfächer gewählt wurden, wird man auf die jeweilige Grundkursseite weitergeleitet
     if (sessionStorage.getItem('profil') != null) {
       window.location.href = "wahl" + sessionStorage.getItem('profil') + ".html"
     } else {
+      //Weiterleitung auf die Startseite
       window.location.href = "faecherwahl_main.html"
     }
   }
@@ -1721,13 +1823,16 @@ function check_for_gk_gewaehlt() {
 function check_for_gewaehlt_output() {
   if (sessionStorage.getItem('gks_gewaehlt') == 'false' || sessionStorage.getItem('gks_gewaehlt') == null) {
     if (sessionStorage.getItem('pfaecher_gewaehlt') == 'false' || sessionStorage.getItem('pfaecher_gewaehlt') == null) {
+      //Weiterleitung auf die Startseite
       window.location.href = "faecherwahl_main.html"
     } else {
       check_for_gk_gewaehlt()
     }
   }
 }
+//Es wird überprüft, ob alles für das gesellschaftliche Profil nötige gewählt wurde
 function check_for_complete_gk_gese() {
+  //Wenn alle Buttonskomplexe entweder gewählt oder deaktiviert sind, wird wahr oder falsch zurückgegeben
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
     ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
     && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) &&
@@ -1740,7 +1845,9 @@ function check_for_complete_gk_gese() {
     return false
   }
 }
+//Es wird überprüft, ob alles für das mathematisch-naturwissenschaftliche Profil nötige gewählt wurde
 function check_for_complete_gk_manu() {
+  //Wenn alle Buttonskomplexe entweder gewählt oder deaktiviert sind, wird wahr oder falsch zurückgegeben
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
     ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
     && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) &&
@@ -1751,7 +1858,9 @@ function check_for_complete_gk_manu() {
     return false
   }
 }
+//Es wird überprüft, ob alles für das musisch-künstlerische Profil nötige gewählt wurde
 function check_for_complete_gk_muku() {
+  //Wenn alle Buttonskomplexe entweder gewählt oder deaktiviert sind, wird wahr oder falsch zurückgegeben
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
     ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) &&
     ((document.getElementById("informatikja").disabled == true && document.getElementById("informatikne").disabled == true) || (document.getElementById("informatikja").checked == true || document.getElementById("informatikne").checked == true)) &&
@@ -1763,7 +1872,9 @@ function check_for_complete_gk_muku() {
     return false
   }
 }
+//Es wird überprüft, ob alles für das sprachliche Profil nötige gewählt wurde
 function check_for_complete_gk_spra() {
+  //Wenn alle Buttonskomplexe entweder gewählt oder deaktiviert sind, wird wahr oder falsch zurückgegeben
   if (((document.getElementById("religion").disabled == true && document.getElementById("wn").disabled == true) || (document.getElementById("religion").checked == true || document.getElementById("wn").checked == true)) &&
     ((document.getElementById("musik").disabled == true && document.getElementById("kunst").disabled == true && document.getElementById("ds").disabled == true) || (document.getElementById("musik").checked == true || document.getElementById("kunst").checked == true || document.getElementById("ds").checked == true))
     && ((document.getElementById("erdkundja").disabled == true && document.getElementById("erdkundne").disabled == true) || (document.getElementById("erdkundja").checked == true || document.getElementById("erdkundne").checked == true)) &&
@@ -1775,9 +1886,11 @@ function check_for_complete_gk_spra() {
     return false
   }
 }
+//Text für die Kernfächer wird gesetzt
 function show_kf_abc() {
   document.getElementById('info_kf').value = 'Kernfächer: ' + sessionStorage.getItem('kernfaecher') + ', Bereich A: ' + sessionStorage.getItem('A_anzahl') + ', Bereich B: ' + sessionStorage.getItem('B_anzahl') + ', Bereich C: ' + sessionStorage.getItem('C_anzahl')
 }
+//Alle sich auf der wahlmanu.html befindlichen Buttons werden zurückgesetzt, die Grundkursvariablen werden zurückgesetzt und die Grundkursberechnung (function mana()) erneut ausgeführt
 function uncheck_reset_gk_manu() {
   document.getElementById("religion").checked = false
   document.getElementById("wn").checked = false
@@ -1836,6 +1949,7 @@ function uncheck_reset_gk_manu() {
   document.getElementById("pflicht").textContent = 'Pflicht: '
   mana()
 }
+//Alle sich auf der wahlspra.html befindlichen Buttons werden zurückgesetzt, die Grundkursvariablen werden zurückgesetzt und die Grundkursberechnung (function spra()) erneut ausgeführt
 function uncheck_reset_gk_spra() {
   document.getElementById("religion").checked = false
   document.getElementById("wn").checked = false
@@ -1895,6 +2009,7 @@ function uncheck_reset_gk_spra() {
   document.getElementById("pflicht").textContent = 'Pflicht: '
   spra()
 }
+//Alle sich auf der wahlmuku.html befindlichen Buttons werden zurückgesetzt, die Grundkursvariablen werden zurückgesetzt und die Grundkursberechnung (function muku()) erneut ausgeführt
 function uncheck_reset_gk_muku() {
   document.getElementById("religion").checked = false
   document.getElementById("wn").checked = false
@@ -1951,6 +2066,7 @@ function uncheck_reset_gk_muku() {
   document.getElementById("pflicht").textContent = 'Pflicht: '
   muku()
 }
+//Alle sich auf der wahlgese.html befindlichen Buttons werden zurückgesetzt, die Grundkursvariablen werden zurückgesetzt und die Grundkursberechnung (function gese()) erneut ausgeführt
 function uncheck_reset_gk_gese() {
   document.getElementById("religion").checked = false
   document.getElementById("wn").checked = false

@@ -1,35 +1,59 @@
 .grid-container3 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Actor', sans-serif;
     display: grid;
     grid-column-gap: 5px;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(2, 1fr) min-content repeat(2, 1fr);
     grid-row-gap: 15px;
     grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content;
     grid-template-areas: 
-    '... ... ... button'
-    'labelname name labellastname lastname'
-    '... ... ... ...'
-    '... ... ... ...'
-    'pfach1label pfach1 pfach2label pfach2'
-    'pfach3label pfach3 pfach4label pfach4'
-    'pfach5label pfach5 ... ...'
-    '... ... ... ...'
-    'extra1label extra1 extra2label extra2'
-    'extra3label extra3 extra4label extra4'
-    'extra5label extra5 extra6label extra6'
-    'extra7label extra7 extra8label extra8'
-    'extra9label extra9 extra10label extra10'
-    'extra11label extra11 extra12label extra12'
-    'extra13label extra13 extra14label extra14'
-    'extra15label extra15 extra18label extra18'
-    'extra16label extra16 extra17label extra17'
-    '... ... ... ...'
-    '... ... ... ...'
-    '... signature3 signature signature'
-    '... ... ... ...'
-    '... ... signature2 signature2';
+    'stundenlabel logoutbutton1 ... button2 button'
+    'labelname name ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    'pfach1label pfach1 ... pfach2label pfach2'
+    'pfach3label pfach3 ... pfach4label pfach4'
+    'pfach5label pfach5 ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    'extragk ... ... ... ...'
+    '... ... ... ... ...'
+    'extra1label extra1 ... extra2label extra2'
+    'extra3label extra3 ... extra4label extra4'
+    'extra5label extra5 ... extra6label extra6'
+    'extra7label extra7 ... extra8label extra8'
+    'extra9label extra9 ... extra10label extra10'
+    'extra11label extra11 ... extra12label extra12'
+    'extra13label extra13 ... extra14label extra14'
+    'extra15label extra15 ... extra18label extra18'
+    'extra16label extra16 ... extra17label extra17'
+    '... ... ... ... ...'
+    '... ... ... ... ...'
+    '... ... signature3 signature signature'
+    '... ... ... ... ...'
+    '... ... ... signature2 signature2';
 }
-
+.logoutbutton1{
+    grid-area: logoutbutton1;
+    align-self: stretch;
+    justify-self: stretch;
+    width:100%;
+}
+.stundenlabel{
+    grid-area: stundenlabel;
+    background-color: skyblue;
+    height: 30px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
 .signature {
     grid-area: signature;
     visibility: hidden;
@@ -69,10 +93,15 @@
 
 .printbutton {
     grid-area: button;
+    grid-column: 5 / 6;
     height: 60px;
-    width: 200px;
     border-radius: 25px;
-    margin: auto;
+}
+.resetbutton {
+    grid-area: button2;
+    grid-column: 4 / 5;
+    height: 60px;
+    border-radius: 25px;
 }
 
 .name {
@@ -80,12 +109,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
     
 }
@@ -95,12 +122,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -109,12 +134,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -123,12 +146,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -137,12 +158,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -151,12 +170,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -165,12 +182,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -179,12 +194,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;
 }
 
@@ -193,12 +206,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -207,12 +218,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -221,12 +230,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -235,12 +242,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -249,12 +254,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -263,12 +266,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -277,12 +278,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -291,12 +290,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -305,12 +302,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -319,12 +314,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -333,12 +326,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -347,12 +338,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -361,12 +350,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -375,12 +362,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -389,12 +374,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -403,12 +386,10 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
@@ -417,34 +398,36 @@
     background-color: skyblue;
     color: black;
     height: 30px;
-    width: 200px;
     border: none;
     border-radius: 25px;
     cursor: default;
     resize: none;
-    margin: auto;
     text-align: center;   
 }
 
 /*----------------------------------------------------------------------------------------------------*/
-.namelabel {
-    grid-area: labelname;
+.extragk {
+    grid-area: extragk;
     color: black;
-    margin: auto;
-}
-
-.namelabel {
-    grid-area: labelname;
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+    text-align: center;
+}
+.namelabel {
+    grid-area: labelname;
+    color: black;
+    background-color: skyblue;
+    border-radius: 25px;
+    border: 4px solid skyblue;
+    text-align: center;
 }
 
 
 .lastnamelabel {
     grid-area: labellastname;
     color: black;
-    margin: auto;
+    text-align: center;
 }
 
 .lastnamelabel {
@@ -452,12 +435,13 @@
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+    text-align: center;
 }
 
 .pfach1label {
     grid-area: pfach1label;
     color: black;
-    margin: auto;
+    text-align: center;
 }
 
 .pfach1label {
@@ -465,12 +449,13 @@
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+    text-align: center;
 }
 
 .pfach2label {
     grid-area: pfach2label;
     color: black;
-    margin: auto;
+    text-align: center;
 }
 
 .pfach2label {
@@ -478,12 +463,13 @@
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+    text-align: center;
 }
 
 .pfach3label {
     grid-area: pfach3label;
     color: black;
-    margin:  auto;
+    text-align: center;
 }
 
 .pfach3label {
@@ -491,12 +477,13 @@
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+    text-align: center;
 }
 
 .pfach4label {
     grid-area: pfach4label;
     color: black;
-    margin: auto;
+    text-align: center;
 }
 
 .pfach4label {
@@ -504,12 +491,13 @@
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+    text-align: center;
 }
 
 .pfach5label {
     grid-area: pfach5label;
     color: black;
-    margin: auto;
+    text-align: center;
 }
 
 .pfach5label {
@@ -522,7 +510,7 @@
 .extra1label {
     grid-area: extra1label;
     color: black; 
-    margin: auto;
+    text-align: center;
 }
 
 .extra1label {
@@ -530,12 +518,13 @@
     background-color: skyblue;
     border-radius: 25px;
     border: 4px solid skyblue;
+
 }
 
 .extra2label {
     grid-area: extra2label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra2label {
@@ -548,7 +537,7 @@
 .extra3label {
     grid-area: extra3label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra3label {
@@ -561,7 +550,7 @@
 .extra4label {
     grid-area: extra4label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra4label {
@@ -574,7 +563,7 @@
 .extra5label {
     grid-area: extra5label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra5label {
@@ -587,7 +576,7 @@
 .extra6label {
     grid-area: extra6label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra6label {
@@ -600,7 +589,7 @@
 .extra7label {
     grid-area: extra7label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra7label {
@@ -613,7 +602,7 @@
 .extra8label {
     grid-area: extra8label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra8label {
@@ -626,7 +615,7 @@
 .extra9label {
     grid-area: extra9label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra9label {
@@ -639,7 +628,7 @@
 .extra10label {
     grid-area: extra10label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra10label {
@@ -652,7 +641,7 @@
 .extra11label {
     grid-area: extra11label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra11label {
@@ -665,7 +654,7 @@
 .extra12label {
     grid-area: extra12label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra12label {
@@ -678,7 +667,7 @@
 .extra13label {
     grid-area: extra13label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra13label {
@@ -691,7 +680,7 @@
 .extra14label {
     grid-area: extra14label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra14label {
@@ -704,7 +693,7 @@
 .extra15label {
     grid-area: extra15label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra15label {
@@ -717,7 +706,7 @@
 .extra16label {
     grid-area: extra16label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra16label {
@@ -730,7 +719,7 @@
 .extra17label {
     grid-area: extra17label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra17label {
@@ -743,7 +732,7 @@
 .extra18label {
     grid-area: extra18label;
     color: black; 
-    margin: auto;   
+    text-align: center;
 }
 
 .extra18label {

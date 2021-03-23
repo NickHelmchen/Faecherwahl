@@ -10,60 +10,41 @@ function url() {
     let url = window.location.href
     let params = (new URL(url).searchParams)
 
-    document.getElementById("name").value = params.get('name') + " " + params.get('lastname')
+    //document.getElementById("name").value = params.get('name') + " " + params.get('lastname')
 
     params.set('hallo', 'byby')
 
     sessionStorage.setItem('savename', params.get('name'))
     sessionStorage.setItem('savelastname', params.get('lastname'))
-
-    console.log("Name: " + sessionStorage.getItem('savename'))
-    console.log("Nachname: " + sessionStorage.getItem('savelastname'))
 }
 
 function terminator() {
   var temp1 = ''
   var temp2 = ''
+  var temp3 = sessionStorage.getItem("nicht_waehlen_Fach")
   temp1 = sessionStorage.getItem("savename")
   temp2 = sessionStorage.getItem("savelastname")
   sessionStorage.clear()
   sessionStorage.setItem('savename', temp1)
   sessionStorage.setItem('savelastname', temp2)
+  sessionStorage.setItem('nicht_waehlen_Fach', temp3)
 }
 
 function restart() {
   afterwards()
   for(i = 1; i <= 5; i++) {
-    if(i === 1) {
-      for(j = 1; j <= lp1; j++) {
-        document.getElementById("pfach1." + j).disabled = false
-      }
+    let lp = parseInt(sessionStorage.getItem('lp' + i))
+    for (let j = 1; j <= lp ; j++) {
+      document.getElementById("pfach" + i + "." + j).disabled = false
     }
-    if(i === 2) {
-      for(j = 1; j <= lp2; j++) {
-        document.getElementById("pfach2." + j).disabled = false
-      }
-    }
-    if(i === 3) {
-      for(j = 1; j <= lp3; j++) {
-        document.getElementById("pfach3." + j).disabled = false
-      }
-    }
-    if(i == 4) {
-      for(j = 1; j <= lp4; j++) {
-        document.getElementById("pfach4." + j).disabled = false
-      }
-    }
-    if(i == 5) {
-      for(j = 1; j <= lp5; j++) {
-        document.getElementById("pfach5." + j).disabled = false
-      }
-    }
+
     //Titel (Hovertexte) der Sprachen werden zurückgesetzt
     document.getElementById("pfach" + i + ".3.label").title = "Kernfach, Bereich A"    
     document.getElementById("pfach" + i + ".6.label").title = "Kernfach, Bereich A"    
     document.getElementById("pfach" + i + ".7.label").title = "Kernfach, Bereich A"    
     document.getElementById("pfach" + i + ".11.label").title = "Kernfach, Bereich A" 
+    document.getElementById("info_kf").value = ""
+
   }
   uncheck("pfach1.")
   uncheck("pfach2.")
@@ -78,43 +59,23 @@ function startset() {
   sessionStorage.setItem('savename', document.getElementById("name").value)
   sessionStorage.setItem('savelastname', document.getElementById("lastname").value)
 
-  console.log(sessionStorage.getItem('savename'))
-  console.log(sessionStorage.getItem('savelastname'))
 }
 
-function selection() {
-  console.log(sessionStorage.getItem('savename'))
-  console.log(sessiontorage.getItem('savelastname'))
-}
-
-function wahl1() {
-    location.href = "wahl.php"
+function wahl(a) {
+    location.href = a + ".php"
 }
 
 function wahl2() {
-  if(sessionStorage.getItem('profil') == 'mana') {
+  if (sessionStorage.getItem('profil') == 'mana') {
     location.href = "wahlmanu.php"
-  }
-  if(sessionStorage.getItem('profil') == 'spra') {
-    location.href = "wahlspra.php"
-  }
-  if(sessionStorage.getItem('profil') == 'muku') {
-    location.href = "wahlmuku.php"
-  }
-  if(sessionStorage.getItem('profil') == 'gese') {
-    location.href = "wahlgese.php"
+  } else {
+    location.href = "wahl" + sessionStorage.getItem('profil') + ".php"
   }
 }
 
-function page2() {
-  document.getElementById("name").value = sessionStorage.getItem('savename') + " " + sessionStorage.getItem('savelastname')
-  console.log("Name: " + sessionStorage.getItem('savename'))
-  console.log("Nachname: " + sessionStorage.getItem('savelastname'))
-}
-
-function wahl3() {
-  location.href = "output.php"
-}
+//function page2() {
+//  document.getElementById("name").value = sessionStorage.getItem('savename') + " " + sessionStorage.getItem('savelastname')
+//}
 
 
 function clear() {
@@ -149,146 +110,80 @@ function selected(pfach, pnummer){
     nextone(pfach)
   }
 
-
-/*function invisible(pfach, pnummer) {
-  console.log(pfach + " : " + document.getElementById(pfach + pnummer).value);
-  if(document.getElementById(pfach + pnummer).checked == true){
-    if(pfach === "pfach1."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach2."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach3."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach4."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-    if(pfach === "pfach5."){
-      for(i = 1; i <= 14; i++) {
-        if (i != pnummer) {
-          document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-    }
-  } 
-}
-*/
-
 function visible(pfach) {
-  if(pfach === "pfach1."){
-    for(i = 1; i <= lp1; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
+  let j 
+  switch (pfach) {
+    case 'pfach1.':
+      j = 1
+      break;
+    case 'pfach2.':
+      j = 2
+      break;
+    case 'pfach3.':
+      j = 3
+      break;
+    case 'pfach4.':
+      j = 4
+      break;
+    case 'pfach5.':
+      j = 5
+      break;
   }
-  if(pfach === "pfach2."){
-    for(i = 1; i <= lp2; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-  }
-  if(pfach === "pfach3."){
-    for(i = 1; i <= lp3; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-  }
-  if(pfach === "pfach4."){
-    for(i = 1; i <= lp4; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
-  }
-  if(pfach === "pfach5."){
-    for(i = 1; i <= lp5; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i + ".label").style.opacity = '1'
-      }
-      else { 
-        document.getElementById(pfach + i + ".label").style.opacity = '0.5'
-        }
-      }
+  for (i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
+    if(document.getElementById(pfach + i).checked == true) {
+      document.getElementById(pfach + i + ".label").style.opacity = '1'
+    }
+    else { 
+      document.getElementById(pfach + i + ".label").style.opacity = '0.5'
+    }
   }
 }
 
 
 function uncheck(pfach) {
-  if(pfach == "pfach1.") {
-    for(i = 1; i <= lp1; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
+  let j 
+  switch (pfach) {
+    case 'pfach1.':
+      j = 1
+      break;
+    case 'pfach2.':
+      j = 2
+      break;
+    case 'pfach3.':
+      j = 3
+      break;
+    case 'pfach4.':
+      j = 4
+      break;
+    case 'pfach5.':
+      j = 5
+      break;
   }
-  if(pfach == "pfach2.") {
-    for(i = 1; i <= lp2; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
+  for(i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
+    if(document.getElementById(pfach + i).checked == true) {
+      document.getElementById(pfach + i).checked = false
     }
+    document.getElementById(pfach + i + ".label").style.opacity = '1'
   }
-  if(pfach == "pfach3.") {
-    for(i = 1; i <= lp3; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
+}
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+
+function afterwards() {
+  for(i = 1; i<=5; i++) {
+    for (let j = 1; j <= sessionStorage.getItem('lp' + i); j++) {
+      if (i === 1) {
+        document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "visible"
+      } else {
+        document.getElementById("pfach" + i + "." + j + ".label").style.visibility = "hidden"
       }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
-  }else if(pfach == "pfach4.") {
-    for(i = 1; i <= lp4; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
+      if(document.getElementById("pfach" + i + "." + j).checked == true) {
+        document.getElementById("pfach" + i + "." + j).checked = false
       }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
-    }
-  }else if(pfach == "pfach5.") {
-    for(i = 1; i <= lp5; i++) {
-      if(document.getElementById(pfach + i).checked == true) {
-        document.getElementById(pfach + i).checked = false
-      }
-      document.getElementById(pfach + i + ".label").style.opacity = '1'
     }
   }
 }
-
-/*-----------------------------------------------------------------------------------------------------------------*/
-
+/*
 function afterwards() {
   for(i = 1; i<=5; i++) {
     if(i == 1) {
@@ -332,28 +227,46 @@ function afterwards() {
     }
   }
 }
-
+*/
 function nextone(pfach) {
-  if(pfach == "pfach1.") {
-    for(i = 1; i<=lp2; i++) {
-      document.getElementById("pfach2." + i + ".label").style.visibility = "visible"
-    }
+  let j 
+  switch (pfach) {
+    case 'pfach1.':
+      j = 2
+      break;
+    case 'pfach2.':
+      j = 3
+      break;
+    case 'pfach3.':
+      j = 4
+      break;
+    case 'pfach4.':
+      j = 5
+      break;
   }
-  if(pfach == "pfach2.") {
-    for(i = 1; i<=lp3; i++) {
-      document.getElementById("pfach3." + i + ".label").style.visibility = "visible"
-    }
-  }
-  if(pfach == "pfach3.") {
-    for(i = 1; i<=lp4; i++) {
-      document.getElementById("pfach4." + i + ".label").style.visibility = "visible"
-    }
-  }
-  if(pfach == "pfach4.") {
-    for(i = 1; i<=lp5; i++) {
-      document.getElementById("pfach5." + i + ".label").style.visibility = "visible"
-    }
+  for(i = 1; i <= sessionStorage.getItem('lp' + j); i++) {
+    document.getElementById("pfach" + j + "."+ i + ".label").style.visibility = "visible"
   }
 }
 
+function nicht_waehlen_Fach(fach){
+  sessionStorage.setItem('nicht_waehlen_Fach' , fach + "_w")
+  switch (fach) {
+    case 'franzoesisch':
+      document.getElementById('info_nicht_waehlen').value = "Dieses Fach wird in der nächsten Auswahlmöglichkeit nicht mehr wählbar sein: Französisch"   
+      break;
+    case 'powi':
+        document.getElementById('info_nicht_waehlen').value = "Dieses Fach wird in der nächsten Auswahlmöglichkeit nicht mehr wählbar sein: Politik Wirtschaft"   
+        break;
+    default:
+      document.getElementById('info_nicht_waehlen').value = "Dieses Fach wird in der nächsten Auswahlmöglichkeit nicht mehr wählbar sein: " + fach[0].toUpperCase() + fach.slice(1,fach.length) 
+      break;
+  }
+}
+
+function go_back() {
+  terminator()
+  logicvariables()
+  location.href='wahl.php'
+}
 /*-----------------------------------------------------------------------------------------------------------------*/

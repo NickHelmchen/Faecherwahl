@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="de">
 
@@ -15,7 +18,8 @@
       function check() {
           if (check_for_complete_gk_spra() == true) {
             end()
-            wahl3()
+            sessionStorage.setItem('gks_gewaehlt', true)
+            wahl('output')
           } else {
               alert('Es wurde noch nicht alles gewählt. Bitte wählen Sie alle benötigten Fächer aus.')
           }
@@ -23,10 +27,18 @@
     </script>
   </head>
 
-  <body onload="page2(), spra()">
+  <body onload="check_for_pfaecher_gewaehlt(), spra()">
     <div class="bgimg grid-container3">
-        <textarea name="name" id="name" cols="40" rows="1" class="head-input2" readonly></textarea>
+        <?php 
+          echo "<textarea class='head-input2'> " . $_SESSION["userName"] . "</textarea>"; 
+          /*echo "<form action='../includes/logout.inc.php' method='post'>";
+          echo "<button type='submit' name='submit' class='logoutbutton'>logout</button>";
+          echo "</form>";*/
+        ?>
+        <textarea name="pflicht" id="pflicht" cols="40" rows="1" class="pflicht_gk" readonly>Pflicht: </textarea>
         <button onclick="check()" id="nextpage1" class="next-button2 buttonfertig">weiter</button>
+        <button class="reset3 buttonfertig" onclick="uncheck_reset_gk_spra()" id="resetbutton">Grundkurse zurücksetzen</button>
+        <button class="reset-p-3 buttonfertig" onclick="go_back()" id="resetbutton2">Prüfungsfächer neu wählen</button>
         <div class="reli3 w3-animate-left toggle-buttons" title="Entweder Religion oder Werte und Normen als Grundkurs belegen" id="div_rewn">
             <p class="header">Religion / Werte und Normen</p>
             <input type="radio" name="extra1" id="religion" onclick="set_religion()">
@@ -51,20 +63,20 @@
       </div>
         <div class="erdkunde3 w3-animate-top toggle-buttons" title="Erdkunde als zusätzlichen Grundkurs belegen" id="div_ek">
             <p class="header">Erdkunde</p>
-            <input type="radio" name="extra4" id="erdkundja" onclick="set_erdkunde()">
+            <input type="radio" name="extra4" id="erdkundja" onclick="set_erdkunde(true)">
             <label for="erdkundja" id="erdkundja.label">Ja</label>
             <br>
             <br>
-            <input type="radio" name="extra4" id="erdkundne" onclick="set_erdkunde_false()">
+            <input type="radio" name="extra4" id="erdkundne" onclick="set_erdkunde(false)">
             <label for="erdkundne" id="erdkundne.label">Nein</label>
         </div>
         <div class="informatik3 w3-animate-top toggle-buttons" title="Informatik als zusätzlichen Grundkurs belegen" id="div_inf">
             <p class="header">Informatik</p>
-            <input type="radio" name="extra5" id="informatikja" onclick="set_informatik_voluntary()">
+            <input type="radio" name="extra5" id="informatikja" onclick="set_informatik_voluntary(true)">
             <label for="informatikja" id="informatikja.label">Ja</label>
             <br>
             <br>
-            <input type="radio" name="extra5" id="informatikne" onclick="set_informatik_false()">
+            <input type="radio" name="extra5" id="informatikne" onclick="set_informatik_voluntary(false)">
             <label for="informatikne" id="informatikne.label">Nein</label>
         </div>
         <div class="natu3 w3-animate-right toggle-buttons" title="Eine Naturwissenschaft als Grundkurs belegen" id="div_nw">
@@ -95,23 +107,23 @@
         </div>
         <div class="natu3-2 w3-animate-bottom toggle-buttons" title="Hier kannst du einen Wunsch angeben, welches Fach du vielleicht noch als P4 oder P5 festlegen möchtest und daher im 12. Jahrgang belegen möchtest">
           <p class="header">In 12 belegen</p>
-          <input type="radio" name="extra9" id="Geschichte2" onclick="set_geschichte_wish()">
+          <input type="radio" name="extra9" id="Geschichte2" onclick="set_wish('Geschichte')">
           <label for="Geschichte2" id="Geschichte2.label">Geschichte</label> 
           <br>
           <br>
-          <input type="radio" name="extra6" id="PoWi2" onclick="set_powi_wish()">
+          <input type="radio" name="extra6" id="PoWi2" onclick="set_wish('Politik Wirtschaft')">
           <label for="PoWi2" id="PoWi2.label">Politik Wirtschaft</label> 
           <br>
           <br>
-          <input type="radio" name="extra6" id="Kunst2" onclick="set_kunst_wish()">
+          <input type="radio" name="extra6" id="Kunst2" onclick="set_wish('Kunst')">
           <label for="Kunst2" id="Kunst2.label">Kunst</label> 
           <br>
           <br>
-          <input type="radio" name="extra6" id="Musik2" onclick="set_musik_wish()">
+          <input type="radio" name="extra6" id="Musik2" onclick="set_wish('Musik')">
           <label for="Musik2" id="Musik2.label">Musik</label> 
           <br>
           <br>
-          <input type="radio" name="extra6" id="Religion2" onclick="set_religion_wish()">
+          <input type="radio" name="extra6" id="Religion2" onclick="set_wish('Religion')">
           <label for="Religion2" id="Religion2.label">Religion</label> 
         </div>
     </div>    

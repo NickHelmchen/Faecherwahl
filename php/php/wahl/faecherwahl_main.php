@@ -14,7 +14,7 @@
   </head>
 
   <body class="bgimg" onload="terminator(), cookieConsent()">
-    <form action="info.html" method="GET" class="">
+    <form action="info.php" method="GET" class="">
       <div class="grid-container-index">
         <h1 class="font hold">Fächerwahl für die Sekundarstufe II</h1>
         <input class="inputname indexname" type="text" id="name" name="name" autocomplete="off" placeholder="Name" required>

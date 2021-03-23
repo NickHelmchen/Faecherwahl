@@ -14,10 +14,10 @@
 
   <body>
     <div class="bgimg grid-container"></div>
-      <form action="faecherwahl_main.html" method="GET">
+      <form action="faecherwahl_main.php" method="GET">
         <button class="startauswahlbutton">Fächerwahl</button>
       </form>
-      <form action="/Faecherwahl/Projekt_Raumnavi/raumnavi_main.html" method="GET">
+      <form action="/Faecherwahl/Projekt_Raumnavi/raumnavi_main.php" method="GET">
         <button class="startauswahlbutton2">Räumenavi</button>
       </form>
     </div>

@@ -6,7 +6,7 @@
     grid-row-gap: 15px;
     grid-template-rows: min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content min-content;
     grid-template-areas: 
-    '... ... ... button2 button'
+    'stundenlabel stundenlabel ... button2 button'
     'labelname name ... labellastname lastname'
     '... ... ... ... ...'
     '... ... ... ... ...'
@@ -37,7 +37,17 @@
     '... ... ... ... ...'
     '... ... ... signature2 signature2';
 }
-
+.stundenlabel{
+    grid-area: stundenlabel;
+    background-color: skyblue;
+    height: 30px;
+    border-radius: 25px;
+    cursor: default;
+    resize: none;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+}
 .signature {
     grid-area: signature;
     visibility: hidden;
