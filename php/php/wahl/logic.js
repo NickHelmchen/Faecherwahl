@@ -2115,6 +2115,35 @@ function uncheck_reset_gk_gese() {
   document.getElementById("franzoesisch2.label").style.opacity = '0.5'
   document.getElementById("englisch2.label").style.opacity = '0.5'
 
+  sessionStorage.setItem('counter_nw', 0)
+  sessionStorage.setItem('counter_fs', 0)
+
+  if (check_fach_for_pfach('Informatik')) {
+    nw_add()
+  }
+  if (check_fach_for_pfach('Physik')) {
+    nw_add()
+  }
+  if (check_fach_for_pfach('Biologie')) {
+    nw_add()
+  }
+  if (check_fach_for_pfach('Chemie')) {
+    nw_add()
+  }
+
+  if (check_fach_for_pfach('Spanisch')) {
+    fs_add()
+  }
+  if (check_fach_for_pfach('Englisch')) {
+    fs_add()
+  }
+  if (check_fach_for_pfach('Latein')) {
+    fs_add()
+  }
+  if (check_fach_for_pfach('Französisch')) {
+    fs_add()
+  }
+
   sessionStorage.setItem('extra12', false)
   sessionStorage.setItem('extra2', false)
   sessionStorage.setItem('extra5', false)

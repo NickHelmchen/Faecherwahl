@@ -2135,6 +2135,36 @@ function uncheck_reset_gk_gese() {
   sessionStorage.setItem('extra18', false)
   sessionStorage.setItem('sport_gk', false)
 
+  sessionStorage.setItem('counter_nw', 0)
+  sessionStorage.setItem('counter_fs', 0)
+
+  if (check_fach_for_pfach('Informatik')) {
+    nw_add()
+  }
+  if (check_fach_for_pfach('Physik')) {
+    nw_add()
+  }
+  if (check_fach_for_pfach('Biologie')) {
+    nw_add()
+  }
+  if (check_fach_for_pfach('Chemie')) {
+    nw_add()
+  }
+
+  if (check_fach_for_pfach('Spanisch')) {
+    fs_add()
+  }
+  if (check_fach_for_pfach('Englisch')) {
+    fs_add()
+  }
+  if (check_fach_for_pfach('Latein')) {
+    fs_add()
+  }
+  if (check_fach_for_pfach('Französisch')) {
+    fs_add()
+  }
+
+
   sessionStorage.setItem('wish_for_p4_p5', '')
 
   enable_fachbutton("Religion2")
