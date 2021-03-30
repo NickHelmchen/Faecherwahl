@@ -112,8 +112,8 @@
             const firstPage = pages[0]
             const { width, height } = firstPage.getSize()
 
-            draw_text_to_pdf(firstname, 135, height - 80, firstPage, helveticaFont, rgb)
-            draw_text_to_pdf(lastname, 320, height - 80, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(lastname, 135, height - 80, firstPage, helveticaFont, rgb)
+            draw_text_to_pdf(firstname, 320, height - 80, firstPage, helveticaFont, rgb)
 
             if (sessionStorage.getItem('profil') != 'gese') {
                 draw_text_to_pdf(sessionStorage.getItem('pfach1'), 41, height / 2 + 78, firstPage, helveticaFont, rgb)
